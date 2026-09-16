@@ -617,6 +617,51 @@ main .section.rail-layout > .default-content-wrapper {
    link, the arrow primary button, the <hr class="separator"> text block and the rich-text h1 hero. */
 
 /* CTA paragraphs inside a text section: .component-textcomp .buttons {margin: 24px 0 0; display: flex; gap: 24px} */
+/* ---- program ---- */
+
+/* PROGRAM / CATEGORY family (events, solution and product categories, campaign/webinar landing pages) — default-content
+   section tokens for the text component variants those pages use. Appended by the fam-program branch; nothing above changes. */
+
+/* .component-textcomp .title.text-size-larger */
+main .section.textcomp.large .default-content-wrapper h2 {
+  font-size: 32px;
+}
+
+/* text CTAs (.component-textcomp .buttons .cta-link): in a section marked `cta`, a paragraph that holds only a link is the
+   CTA row — dark text, 400 weight, the source chevron glyph after the label; `center` centres the row */
+main .section.textcomp.cta .default-content-wrapper p:has(> a:only-child) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: flex-start;
+  gap: 24px;
+  margin: 24px 0 0;
+}
+
+main .section.textcomp.cta.center .default-content-wrapper p:has(> a:only-child) {
+  justify-content: center;
+}
+
+main .section.textcomp.cta .default-content-wrapper p > a:only-child {
+  display: inline-flex;
+  align-items: center;
+  color: var(--snps-ink);
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+main .section.textcomp.cta .default-content-wrapper p > a:only-child::after {
+  content: "";
+  flex: 0 0 auto;
+  width: 7.5px;
+  height: 12px;
+  margin-left: 8px;
+  background: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='currentColor' d='M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* real buttons inside a text section (.component-textcomp .buttons): 24px above the copy */
 main .section.textcomp .default-content-wrapper p.button-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -624,6 +669,7 @@ main .section.textcomp .default-content-wrapper p.button-wrapper {
   align-items: flex-start;
   justify-content: flex-start;
   margin: 24px 0 0;
+  margin-top: 24px;
 }
 
 main .section.textcomp.center .default-content-wrapper p.button-wrapper {
@@ -880,3 +926,70 @@ main .section.rte.center .default-content-wrapper {
 /* stylelint-enable no-descending-specificity */
 
 /* ---- end article ---- */
+/* the CTA row is the text block's last child: the source's .buttons carries no bottom margin at any width */
+main .section.textcomp .default-content-wrapper p.button-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+/* stacked source spacers (two empty vert-pad-bottom-md blocks = 120px at every width; the pilot's spacer-md is 100px below 730) */
+main .section.spacer-120 {
+  display: flow-root;
+  padding-bottom: 120px;
+}
+
+main .section.spacer-120[data-section-status="loaded"] {
+  display: flow-root !important;
+}
+
+/* the emphasis convention as TEXT emphasis: in a section marked `links` the source's bold/italic prose links stay
+   links (the pipeline normalises <a><strong> to <strong><a>, which the runtime buttonizes) */
+main .section.textcomp.links .default-content-wrapper p.button-wrapper {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+main .section.textcomp.links .default-content-wrapper :is(h2, h3) + p.button-wrapper {
+  margin-top: 16px;
+}
+
+main .section.textcomp.links .default-content-wrapper a.button:any-link {
+  display: inline;
+  min-width: 0;
+  max-width: none;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  font: inherit;
+  color: var(--snps-blue);
+  background: none;
+  box-shadow: none;
+  text-align: inherit;
+}
+
+main .section.textcomp.links .default-content-wrapper a.button.primary {
+  font-weight: 700;
+}
+
+main .section.textcomp.links .default-content-wrapper a.button.secondary {
+  font-style: italic;
+}
+
+main .section.textcomp.links .default-content-wrapper a.button:hover,
+main .section.textcomp.links .default-content-wrapper a.button:focus {
+  color: var(--snps-blue-hover);
+  text-decoration: underline;
+}
+
+@media (width >= 730px) {
+  main .section.textcomp.large .default-content-wrapper h2 {
+    font-size: 40px;
+  }
+
+  main .section.textcomp.links .default-content-wrapper :is(h2, h3) + p.button-wrapper {
+    margin-top: 24px;
+  }
+}
+
+/* ---- end program ---- */

@@ -268,8 +268,60 @@ function decorateMedia(block, rows) {
   block.replaceChildren(host);
 }
 
+/* ---- speakers variant (webinar landing pages): one cell per speaker — <picture> headshot +
+   <p><strong><a>name</a></strong></p>
+   + <p><em>title</em></p> + <p>bio</p>; rendered as the source's nested 25/75 image | text
+      columns, two per row ---- */
+function decorateSpeakers(block) {
+  const cells = [...block.children].flatMap((row) => [...row.children])
+    .filter((c) => c.textContent.trim() || c.querySelector('picture, img'));
+  const bg = el('div', 'background-component');
+  const container = el('div', 'container');
+  const row = el('section', 'component-column row');
+  cells.forEach((cell) => {
+    const col = el('div', 'col-xs-12 col-sm-6');
+    const grid = el('div', 'aem-Grid');
+    const colBlock = el('div', 'column');
+    const inner = el('div', 'container');
+    const pair = el('section', 'component-column row');
+    const left = el('div', 'col-xs-12 col-sm-3 two2575Left');
+    const lg = el('div', 'aem-Grid');
+    const image = el('div', 'image');
+    const ibg = el('div', 'background-component vert-pad-bottom-sm');
+    const ic = el('div', 'container');
+    const ci = el('div', 'component-image');
+    const cmp = el('div', 'cmp-image');
+    const pic = cell.querySelector('picture, img');
+    if (pic) { const im = pic.querySelector('img') || pic; im.classList.add('img-responsive'); cmp.append(pic); }
+    ci.append(cmp);
+    ic.append(ci);
+    ibg.append(ic);
+    image.append(ibg);
+    lg.append(image);
+    left.append(lg);
+    const right = el('div', 'col-xs-12 col-sm-9 two2575Right');
+    const rg = el('div', 'aem-Grid');
+    const text = el('div', 'text');
+    const tc = el('div', 'container');
+    const sec = el('section', 'component-textcomp');
+    const ct = el('div', 'component-text');
+    [...cell.children].filter((n) => !n.querySelector('picture, img') && n.textContent.trim()).forEach((n) => ct.append(n));
+    sec.append(ct); tc.append(sec); text.append(tc); rg.append(text); right.append(rg);
+    pair.append(left, right);
+    inner.append(pair);
+    colBlock.append(inner);
+    grid.append(colBlock);
+    col.append(grid);
+    row.append(col);
+  });
+  container.append(row);
+  bg.append(container);
+  block.replaceChildren(bg);
+}
+
 export default async function decorate(block) {
   if (block.classList.contains('fragments')) { await decorateFragments(block); return; } // listing family: fragment columns
+  if (block.classList.contains('speakers')) { decorateSpeakers(block); return; }
   const divider = block.classList.contains('divider');
   const rows = [...block.children].map((row) => [...row.children]).filter((cells) => cells.length);
   if (!rows.length) return;
@@ -301,5 +353,20 @@ export default async function decorate(block) {
   if (block.classList.contains('three')) { // listing family: three divider columns (source col-sm-4 three)
     block.querySelectorAll('.col-sm-6:not(.snps-col-divider)').forEach((c) => { c.classList.remove('col-sm-6'); c.classList.add('col-sm-4', 'three'); });
     bg.classList.remove('vert-pad-top-md', 'vert-pad-bottom-md');
+  }
+  if (block.classList.contains('prose-links')) {
+    // variant: the source keeps the column's links as prose links inside .component-text (no
+    // chevron CTA row)
+    block.querySelectorAll('.buttons').forEach((buttons) => {
+      const section = buttons.closest('.component-textcomp');
+      let ct = section.querySelector('.component-text');
+      if (!ct) { ct = el('div', 'component-text'); buttons.before(ct); }
+      [...buttons.children].forEach((p) => {
+        p.classList.remove('cta-link-wrap');
+        p.querySelectorAll('a').forEach((a) => { a.classList.remove('cta-link'); a.querySelectorAll('svg').forEach((x) => x.remove()); });
+        ct.append(p);
+      });
+      buttons.remove();
+    });
   }
 }

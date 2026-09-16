@@ -436,3 +436,54 @@
   letter-spacing: inherit;
   text-transform: inherit;
 }
+/* ---- program family (stardust/scripts/eds/program/port-program.sh) ---- */
+.box-links .component-boxLinkContainer {
+  padding:20px 0;
+}
+.box-links .component-boxLinkContainer.no-side-padding {
+  padding:20px 0;
+}
+.box-links .component-boxLinkContainer h2 {
+  padding-bottom:25px;
+  padding-top:15px;
+  font-size:20px;
+}
+.box-links .component-boxLinkContainer .no-title {
+  padding-top:25px;
+}
+
+@media(min-width:730px) {
+.box-links .component-boxLinkContainer h2 {
+  font-size:22px;
+}
+}
+
+@media(min-width:1200px) {
+.box-links .component-boxLinkContainer h2 {
+  font-size:30px;
+}
+}
+
+
+/* program family — box-link container: the dropdown wrapper carries the source list class; the moved label paragraph inherits the box type (EW2) */
+.box-links .component-boxLink .topLabel p {
+  font: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.box-links .component-boxLink .dropdown-link ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.box-links .component-boxLinkContainer .row.no-title {
+  margin: 0 -15px;
+}
+
+.box-links .component-boxLinkContainer .row.no-title::after {
+  content: "";
+  display: table;
+  clear: both;
+}

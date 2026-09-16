@@ -72,7 +72,61 @@ function decorateEvents(block) {
   block.replaceChildren(grid);
 }
 
+/* ---- container variant (source: component-boxLinkContainer): one cell per column; each <p><a>
+   is a box link, a
+   <ul> right after it lists that link's dropdown entries (rest state: closed, no open behaviour
+      was observed) ---- */
+function decorateContainer(block) {
+  const cells = [...block.children].flatMap((row) => [...row.children]).filter((c) => c.querySelector('a'));
+  const section = el('section', 'component-boxLinkContainer', { 'data-analytics-link-region': 'list' });
+  const titleRow = el('div', 'row');
+  titleRow.append(el('div', 'col-xs-12'));
+  const row = el('div', 'row no-title');
+  const span = { 3: 'col-sm-4', 4: 'col-sm-3' }[cells.length] || 'col-sm-6';
+  cells.forEach((cell) => {
+    const col = el('div', `${span} boxLinkItem`);
+    const wrap = el('div');
+    const grid = el('div', 'aem-Grid');
+    [...cell.children].forEach((node) => {
+      if (node.tagName !== 'P' || !node.querySelector('a')) return;
+      const a = node.querySelector('a');
+      const next = node.nextElementSibling;
+      const list = next && next.tagName === 'UL' ? next : null;
+      const host = el('div', 'boxLink');
+      const ul = el('ul', `component-boxLink${list ? '' : ' no-dropdown'}`, { 'data-analytics-link-region': 'list' });
+      if (!list) ul.setAttribute('role', 'menu');
+      const li = el('li');
+      const label = el('div', 'topLabel');
+      a.classList.add('topLink');
+      label.append(node);
+      li.append(label);
+      if (list) {
+        li.append(el('div', 'icon'));
+        const dd = el('div', 'dropdown-link', { role: 'menu' });
+        dd.append(list);
+        li.append(dd);
+      } else {
+        const iconA = el('a', 'topLink', { href: a.getAttribute('href'), 'aria-hidden': 'true', tabindex: '-1' });
+        if (a.target) iconA.target = a.target;
+        iconA.append(el('div', 'icon'));
+        li.append(iconA);
+      }
+      ul.append(li);
+      host.append(ul);
+      grid.append(host);
+    });
+    wrap.append(grid);
+    col.append(wrap);
+    row.append(col);
+  });
+  section.append(titleRow, row);
+  const container = el('div', 'container');
+  container.append(section);
+  block.replaceChildren(container);
+}
+
 export default function decorate(block) {
+  if (block.classList.contains('container')) { decorateContainer(block); return; }
   if (block.classList.contains('events')) { decorateEvents(block); return; } // listing family: event boxes
   const cells = [...block.children].flatMap((row) => [...row.children]).filter((c) => c.querySelector('a'));
   const boxesPerCell = cells.map((cell) => [...cell.querySelectorAll('p')].filter((p) => p.querySelector('a')).map(box));

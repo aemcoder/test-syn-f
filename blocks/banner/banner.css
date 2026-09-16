@@ -1048,6 +1048,1167 @@
 
 @media(min-width:992px) {
 .banner .component-banner .small-banner .breadcrumb-container .container {
+/* ---- program family (stardust/scripts/eds/program/port-program.sh) ---- */
+.banner .component-video-banner {
+  position:relative;
+}
+.banner .component-video-banner .breadcrumb-container.image-background.dark-mode #primary_nav_wrap>ul>li>a {
+  color:white;
+}
+.banner .component-video-banner .breadcrumb-container.image-background.dark-mode #primary_nav_wrap>ul>li>a:before {
+  color:#fff;
+}
+.banner .component-video-banner .breadcrumb-container.image-background.dark-mode .icon-dropdown-arrow {
+  background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3IiBoZWlnaHQ9IjYiIHZpZXdCb3g9IjAgMCA3IDYiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICNmZmZmZmY7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8cGF0aCBpZD0iUG9seWdvbl8zIiBkYXRhLW5hbWU9IlBvbHlnb24gMyIgY2xhc3M9ImNscy0xIiBkPSJNMTM0OC41LDYwbC0zLjUtNS45OTNoN1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMzQ1IC01NCkiLz4KPC9zdmc+Cg==);
+}
+.banner .component-video-banner {
+  position:relative;
+}
+.banner .component-video-banner .component-breadcrumb {
+  z-index:106;
+  position:absolute;
+  padding-top:10px;
+}
+.banner .component-video-banner .breadcrumb-container.gradient-background.dark-purple-gradient .component-breadcrumb #primary_nav_wrap>ul>li>a,
+.banner .component-video-banner .breadcrumb-container.gradient-background.black-gradient .component-breadcrumb #primary_nav_wrap>ul>li>a,
+.banner .component-video-banner .breadcrumb-container.gradient-background.light-purple-gradient .component-breadcrumb #primary_nav_wrap>ul>li>a {
+  color:#fff;
+}
+.banner .component-video-banner .breadcrumb-container.gradient-background.dark-purple-gradient .component-breadcrumb #primary_nav_wrap>ul>li>a:before,
+.banner .component-video-banner .breadcrumb-container.gradient-background.black-gradient .component-breadcrumb #primary_nav_wrap>ul>li>a:before,
+.banner .component-video-banner .breadcrumb-container.gradient-background.light-purple-gradient .component-breadcrumb #primary_nav_wrap>ul>li>a:before {
+  color:#fff;
+}
+.banner .component-video-banner .breadcrumb-container.gradient-background.dark-purple-gradient .component-breadcrumb .icon-dropdown-arrow,
+.banner .component-video-banner .breadcrumb-container.gradient-background.black-gradient .component-breadcrumb .icon-dropdown-arrow,
+.banner .component-video-banner .breadcrumb-container.gradient-background.light-purple-gradient .component-breadcrumb .icon-dropdown-arrow {
+  background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3IiBoZWlnaHQ9IjYiIHZpZXdCb3g9IjAgMCA3IDYiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICNmZmZmZmY7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8cGF0aCBpZD0iUG9seWdvbl8zIiBkYXRhLW5hbWU9IlBvbHlnb24gMyIgY2xhc3M9ImNscy0xIiBkPSJNMTM0OC41LDYwbC0zLjUtNS45OTNoN1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMzQ1IC01NCkiLz4KPC9zdmc+Cg==);
+}
+.banner .component-video-banner .breadcrumb-container.gradient-background.grey-gradient .component-breadcrumb #primary_nav_wrap>ul>li>a {
+  color:#646e81;
+}
+.banner .component-video-banner .breadcrumb-container.image-background.dark-mode #primary_nav_wrap>ul>li>a {
+  color:white;
+}
+.banner .component-video-banner .breadcrumb-container.image-background.dark-mode #primary_nav_wrap>ul>li>a:before {
+  color:#fff;
+}
+.banner .component-video-banner .breadcrumb-container.image-background.dark-mode .icon-dropdown-arrow {
+  background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3IiBoZWlnaHQ9IjYiIHZpZXdCb3g9IjAgMCA3IDYiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICNmZmZmZmY7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8cGF0aCBpZD0iUG9seWdvbl8zIiBkYXRhLW5hbWU9IlBvbHlnb24gMyIgY2xhc3M9ImNscy0xIiBkPSJNMTM0OC41LDYwbC0zLjUtNS45OTNoN1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMzQ1IC01NCkiLz4KPC9zdmc+Cg==);
+}
+.banner .component-video-banner .breadcrumb-container.image-background.light-mode .component-breadcrumb #primary_nav_wrap>ul>li>a {
+  color:#646e81;
+}
+.banner .component-video-banner .component-button,
+.banner .component-video-banner .component-button-purple,
+.banner .component-video-banner .component-button-synopsys_purple,
+.banner .component-video-banner .component-button-white,
+.banner .component-video-banner .component-button-gray,
+.banner .component-video-banner .component-button-orange {
+  padding:5.21px 24px;
+}
+.banner .component-video-banner .component-button a,
+.banner .component-video-banner .component-button-purple a,
+.banner .component-video-banner .component-button-synopsys_purple a,
+.banner .component-video-banner .component-button-white a,
+.banner .component-video-banner .component-button-gray a,
+.banner .component-video-banner .component-button-orange a {
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  justify-content:center;
+}
+.banner .component-video-banner .text-overlay {
+  position:absolute;
+  height:100%;
+  width:100%;
+  top:0;
+  left:0;
+  right:0;
+  margin:0 auto;
+  z-index:102;
+  padding:0;
+  border-left:15px solid transparent;
+  border-right:15px solid transparent;
+}
+.banner .component-video-banner .text-overlay .contentValignCenter {
+  top:50%;
+  transform:translate(0,-50%);
+  position:relative;
+}
+.banner .component-video-banner .text-overlay .component-text {
+  color:#FFF;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  column-gap:24px;
+}
+.banner .component-video-banner .text-overlay p {
+  color:#FFF;
+  margin-bottom:20px;
+  font-size:inherit;
+}
+.banner .component-video-banner .text-overlay.text-align-left {
+  text-align:left;
+}
+.banner .component-video-banner .text-overlay.text-align-left .component-text {
+  justify-content:flex-start;
+  align-items:start;
+}
+.banner .component-video-banner .text-overlay.text-align-right {
+  text-align:right;
+}
+.banner .component-video-banner .text-overlay.text-align-right .component-text {
+  justify-content:flex-end;
+  align-items:end;
+}
+.banner .component-video-banner .text-overlay.text-align-center {
+  text-align:center;
+}
+.banner .component-video-banner .text-overlay.text-align-center .component-text {
+  justify-content:center;
+  align-items:center;
+}
+.banner .component-video-banner .text-overlay.content-align-left {
+  justify-content:flex-start;
+}
+.banner .component-video-banner .text-overlay.content-align-right {
+  justify-content:flex-end;
+}
+.banner .component-video-banner .text-overlay.content-align-center {
+  justify-content:center;
+}
+.banner .component-video-banner .text-overlay .paddingSmall {
+  padding-left:0;
+  padding-right:0;
+}
+.banner .component-video-banner .text-overlay .paddingMedium {
+  padding-right:15px;
+  padding-left:15px;
+}
+.banner .component-video-banner .text-overlay .paddingLarge {
+  padding-right:30px;
+  padding-left:30px;
+}
+.banner .component-video-banner .text-overlay .content-wrapper {
+  height:100%;
+  width:100%;
+  position:relative;
+  z-index:1;
+  max-width:1900px;
+  max-width:auto;
+}
+.banner .component-video-banner .title {
+  font-size:22px;
+  margin:0 0 40px 0;
+  line-height:1;
+  font-weight:800;
+  color:#FFF;
+  width:100%;
+}
+.banner .component-video-banner .title p {
+  color:inherit;
+  margin:0;
+  font-size:inherit;
+}
+.banner .component-video-banner .title p:last-of-type {
+  margin:0;
+}
+.banner .component-video-banner .sub-title {
+  font-size:28px;
+  font-weight:400;
+  line-height:34px;
+  width:100%;
+}
+.banner .component-video-banner .sub-title p {
+  color:inherit;
+  font-size:inherit;
+}
+.banner .component-video-banner .reg-banner {
+  height:500px;
+}
+
+@media(max-width:729px) {
+.banner .component-video-banner .reg-banner {
+  height:500px;
+}
+}
+
+.banner .component-video-banner .reg-banner .title {
+  line-height:58px;
+}
+.banner .component-video-banner .reg-banner .component-button .has-arrow,
+.banner .component-video-banner .reg-banner .component-button-purple .has-arrow,
+.banner .component-video-banner .reg-banner .component-button-synopsys_purple .has-arrow,
+.banner .component-video-banner .reg-banner .component-button-white .has-arrow,
+.banner .component-video-banner .reg-banner .component-button-gray .has-arrow,
+.banner .component-video-banner .reg-banner .component-button-orange .has-arrow {
+  align-items:center;
+}
+.banner .component-video-banner .reg-banner .component-button .has-arrow .download-icon,
+.banner .component-video-banner .reg-banner .component-button-purple .has-arrow .download-icon,
+.banner .component-video-banner .reg-banner .component-button-synopsys_purple .has-arrow .download-icon,
+.banner .component-video-banner .reg-banner .component-button-white .has-arrow .download-icon,
+.banner .component-video-banner .reg-banner .component-button-gray .has-arrow .download-icon,
+.banner .component-video-banner .reg-banner .component-button-orange .has-arrow .download-icon {
+  margin-top:0;
+}
+.banner .component-video-banner .reg-banner .component-button .has-arrow .arrow-icon,
+.banner .component-video-banner .reg-banner .component-button-purple .has-arrow .arrow-icon,
+.banner .component-video-banner .reg-banner .component-button-synopsys_purple .has-arrow .arrow-icon,
+.banner .component-video-banner .reg-banner .component-button-white .has-arrow .arrow-icon,
+.banner .component-video-banner .reg-banner .component-button-gray .has-arrow .arrow-icon,
+.banner .component-video-banner .reg-banner .component-button-orange .has-arrow .arrow-icon {
+  margin:0 0 0 8px;
+}
+.banner .component-video-banner .reg-banner .image-overlay {
+  height:100%;
+  width:100%;
+  max-width:1900px;
+  background-color:black;
+  position:absolute;
+  z-index:2;
+}
+.banner .component-video-banner .reg-banner .opacity-0 {
+  opacity:0;
+}
+.banner .component-video-banner .reg-banner .opacity-30 {
+  opacity:.3;
+}
+.banner .component-video-banner .reg-banner .opacity-40 {
+  opacity:.4;
+}
+.banner .component-video-banner .reg-banner .opacity-50 {
+  opacity:.5;
+}
+.banner .component-video-banner .reg-banner .opacity-60 {
+  opacity:.6;
+}
+.banner .component-video-banner .component-button,
+.banner .component-video-banner .component-button-purple,
+.banner .component-video-banner .component-button-synopsys_purple,
+.banner .component-video-banner .component-button-white,
+.banner .component-video-banner .component-button-gray,
+.banner .component-video-banner .component-button-orange {
+  margin-bottom:25px;
+  text-decoration:none;
+  border-radius:5px;
+  font-size:16px;
+  font-weight:400;
+  box-shadow:none;
+  transition:.5s;
+  text-align:center;
+}
+.banner .component-video-banner .component-button:hover,
+.banner .component-video-banner .component-button-purple:hover,
+.banner .component-video-banner .component-button-synopsys_purple:hover,
+.banner .component-video-banner .component-button-white:hover,
+.banner .component-video-banner .component-button-gray:hover,
+.banner .component-video-banner .component-button-orange:hover {
+  transition:.2s;
+}
+.banner .component-video-banner .component-button svg,
+.banner .component-video-banner .component-button-purple svg,
+.banner .component-video-banner .component-button-synopsys_purple svg,
+.banner .component-video-banner .component-button-white svg,
+.banner .component-video-banner .component-button-gray svg,
+.banner .component-video-banner .component-button-orange svg {
+  width:9px;
+  margin-right:10px;
+  margin-top:4.5px;
+}
+.banner .component-video-banner .component-button a:hover,
+.banner .component-video-banner .component-button-purple a:hover,
+.banner .component-video-banner .component-button-synopsys_purple a:hover,
+.banner .component-video-banner .component-button-white a:hover,
+.banner .component-video-banner .component-button-gray a:hover,
+.banner .component-video-banner .component-button-orange a:hover {
+  text-decoration:none;
+}
+.banner .component-video-banner .component-button.light.primary,
+.banner .component-video-banner .light.primary.component-button-purple,
+.banner .component-video-banner .light.primary.component-button-synopsys_purple,
+.banner .component-video-banner .light.primary.component-button-white,
+.banner .component-video-banner .light.primary.component-button-gray,
+.banner .component-video-banner .light.primary.component-button-orange,
+.banner .component-video-banner .component-button.light.cmp-video__thumbnail,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-purple,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-synopsys_purple,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-white,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-gray,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-orange {
+  background:#7e45af;
+  border:2px solid #7e45af;
+  color:#FFF;
+}
+.banner .component-video-banner .component-button.light.primary a,
+.banner .component-video-banner .light.primary.component-button-purple a,
+.banner .component-video-banner .light.primary.component-button-synopsys_purple a,
+.banner .component-video-banner .light.primary.component-button-white a,
+.banner .component-video-banner .light.primary.component-button-gray a,
+.banner .component-video-banner .light.primary.component-button-orange a,
+.banner .component-video-banner .component-button.light.cmp-video__thumbnail a,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-purple a,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-synopsys_purple a,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-white a,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-gray a,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-orange a {
+  color:#FFF;
+}
+.banner .component-video-banner .component-button.light.primary:hover,
+.banner .component-video-banner .light.primary.component-button-purple:hover,
+.banner .component-video-banner .light.primary.component-button-synopsys_purple:hover,
+.banner .component-video-banner .light.primary.component-button-white:hover,
+.banner .component-video-banner .light.primary.component-button-gray:hover,
+.banner .component-video-banner .light.primary.component-button-orange:hover,
+.banner .component-video-banner .component-button.light.primary:focus,
+.banner .component-video-banner .light.primary.component-button-purple:focus,
+.banner .component-video-banner .light.primary.component-button-synopsys_purple:focus,
+.banner .component-video-banner .light.primary.component-button-white:focus,
+.banner .component-video-banner .light.primary.component-button-gray:focus,
+.banner .component-video-banner .light.primary.component-button-orange:focus,
+.banner .component-video-banner .component-button.light.cmp-video__thumbnail:hover,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-purple:hover,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-synopsys_purple:hover,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-white:hover,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-gray:hover,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-orange:hover,
+.banner .component-video-banner .component-button.light.cmp-video__thumbnail:focus,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-purple:focus,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-synopsys_purple:focus,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-white:focus,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-gray:focus,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-orange:focus {
+  border-color:#5a2a82;
+  background:#5a2a82;
+}
+.banner .component-video-banner .component-button.light.secondary,
+.banner .component-video-banner .light.secondary.component-button-purple,
+.banner .component-video-banner .light.secondary.component-button-synopsys_purple,
+.banner .component-video-banner .light.secondary.component-button-white,
+.banner .component-video-banner .light.secondary.component-button-gray,
+.banner .component-video-banner .light.secondary.component-button-orange {
+  border:2px solid #7e45af;
+}
+.banner .component-video-banner .component-button.light.secondary a,
+.banner .component-video-banner .light.secondary.component-button-purple a,
+.banner .component-video-banner .light.secondary.component-button-synopsys_purple a,
+.banner .component-video-banner .light.secondary.component-button-white a,
+.banner .component-video-banner .light.secondary.component-button-gray a,
+.banner .component-video-banner .light.secondary.component-button-orange a {
+  color:#7e45af;
+}
+.banner .component-video-banner .component-button.light.secondary:hover,
+.banner .component-video-banner .light.secondary.component-button-purple:hover,
+.banner .component-video-banner .light.secondary.component-button-synopsys_purple:hover,
+.banner .component-video-banner .light.secondary.component-button-white:hover,
+.banner .component-video-banner .light.secondary.component-button-gray:hover,
+.banner .component-video-banner .light.secondary.component-button-orange:hover,
+.banner .component-video-banner .component-button.light.secondary:focus,
+.banner .component-video-banner .light.secondary.component-button-purple:focus,
+.banner .component-video-banner .light.secondary.component-button-synopsys_purple:focus,
+.banner .component-video-banner .light.secondary.component-button-white:focus,
+.banner .component-video-banner .light.secondary.component-button-gray:focus,
+.banner .component-video-banner .light.secondary.component-button-orange:focus {
+  color:#5a2a82;
+  background:#7E45AF33;
+}
+.banner .component-video-banner .component-button.dark.primary,
+.banner .component-video-banner .dark.primary.component-button-purple,
+.banner .component-video-banner .dark.primary.component-button-synopsys_purple,
+.banner .component-video-banner .dark.primary.component-button-white,
+.banner .component-video-banner .dark.primary.component-button-gray,
+.banner .component-video-banner .dark.primary.component-button-orange,
+.banner .component-video-banner .component-button.dark.cmp-video__thumbnail,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-purple,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-synopsys_purple,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-white,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-gray,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-orange {
+  background:#FFF;
+  border:2px solid #FFF;
+  color:#111c24;
+}
+.banner .component-video-banner .component-button.dark.primary a,
+.banner .component-video-banner .dark.primary.component-button-purple a,
+.banner .component-video-banner .dark.primary.component-button-synopsys_purple a,
+.banner .component-video-banner .dark.primary.component-button-white a,
+.banner .component-video-banner .dark.primary.component-button-gray a,
+.banner .component-video-banner .dark.primary.component-button-orange a,
+.banner .component-video-banner .component-button.dark.cmp-video__thumbnail a,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-purple a,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-synopsys_purple a,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-white a,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-gray a,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-orange a {
+  color:#111c24;
+}
+.banner .component-video-banner .component-button.dark.primary:hover,
+.banner .component-video-banner .dark.primary.component-button-purple:hover,
+.banner .component-video-banner .dark.primary.component-button-synopsys_purple:hover,
+.banner .component-video-banner .dark.primary.component-button-white:hover,
+.banner .component-video-banner .dark.primary.component-button-gray:hover,
+.banner .component-video-banner .dark.primary.component-button-orange:hover,
+.banner .component-video-banner .component-button.dark.cmp-video__thumbnail:hover,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-purple:hover,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-synopsys_purple:hover,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-white:hover,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-gray:hover,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-orange:hover {
+  background:#e3e3e3;
+  border-color:#e3e3e3;
+}
+.banner .component-video-banner .component-button.dark.primary:focus,
+.banner .component-video-banner .dark.primary.component-button-purple:focus,
+.banner .component-video-banner .dark.primary.component-button-synopsys_purple:focus,
+.banner .component-video-banner .dark.primary.component-button-white:focus,
+.banner .component-video-banner .dark.primary.component-button-gray:focus,
+.banner .component-video-banner .dark.primary.component-button-orange:focus,
+.banner .component-video-banner .component-button.dark.cmp-video__thumbnail:focus,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-purple:focus,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-synopsys_purple:focus,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-white:focus,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-gray:focus,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-orange:focus {
+  background:#FFF;
+  border-color:#FFF;
+}
+.banner .component-video-banner .component-button.dark.secondary,
+.banner .component-video-banner .dark.secondary.component-button-purple,
+.banner .component-video-banner .dark.secondary.component-button-synopsys_purple,
+.banner .component-video-banner .dark.secondary.component-button-white,
+.banner .component-video-banner .dark.secondary.component-button-gray,
+.banner .component-video-banner .dark.secondary.component-button-orange {
+  background:0;
+  border:2px solid #FFF;
+}
+.banner .component-video-banner .component-button.dark.secondary a,
+.banner .component-video-banner .dark.secondary.component-button-purple a,
+.banner .component-video-banner .dark.secondary.component-button-synopsys_purple a,
+.banner .component-video-banner .dark.secondary.component-button-white a,
+.banner .component-video-banner .dark.secondary.component-button-gray a,
+.banner .component-video-banner .dark.secondary.component-button-orange a {
+  color:#FFF;
+}
+.banner .component-video-banner .component-button.dark.secondary:hover,
+.banner .component-video-banner .dark.secondary.component-button-purple:hover,
+.banner .component-video-banner .dark.secondary.component-button-synopsys_purple:hover,
+.banner .component-video-banner .dark.secondary.component-button-white:hover,
+.banner .component-video-banner .dark.secondary.component-button-gray:hover,
+.banner .component-video-banner .dark.secondary.component-button-orange:hover,
+.banner .component-video-banner .component-button.dark.secondary:focus,
+.banner .component-video-banner .dark.secondary.component-button-purple:focus,
+.banner .component-video-banner .dark.secondary.component-button-synopsys_purple:focus,
+.banner .component-video-banner .dark.secondary.component-button-white:focus,
+.banner .component-video-banner .dark.secondary.component-button-gray:focus,
+.banner .component-video-banner .dark.secondary.component-button-orange:focus {
+  color:#555;
+  background:rgba(85,85,85,0.5);
+  border-color:#FFF;
+}
+.banner .component-video-banner .banner-img {
+  height:500px;
+}
+.banner .component-video-banner .banner-img .component-image img {
+  min-height:500px;
+  max-height:500px;
+  width:100%;
+  opacity:1;
+  object-fit:cover;
+}
+.banner .component-video-banner .component-image {
+  position:relative;
+}
+.banner .component-video-banner .bg-desktop.black-gradient,
+.banner .component-video-banner .bg-mobile.black-gradient {
+  background:linear-gradient(107.7deg,#000 0,#191c20 35%,#646e81 100%);
+}
+.banner .component-video-banner .bg-desktop.grey-gradient,
+.banner .component-video-banner .bg-mobile.grey-gradient {
+  background:linear-gradient(107.7deg,#b3b4b3 0,#f0f0f0 100%);
+}
+.banner .component-video-banner .bg-desktop.dark-purple-gradient,
+.banner .component-video-banner .bg-mobile.dark-purple-gradient {
+  background:linear-gradient(107.7deg,#2d1541 0,#5a2a82 50%,#7e45af 100%);
+}
+.banner .component-video-banner .bg-desktop.light-purple-gradient,
+.banner .component-video-banner .bg-mobile.light-purple-gradient {
+  background:linear-gradient(107.7deg,#7e45af 0,#e5daef 100%);
+}
+.banner .component-video-banner .cropped-img {
+  background-size:cover;
+  background-position:50% 50%;
+  background-repeat:no-repeat;
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+}
+.banner .component-video-banner .desktop-wrapper {
+  position:relative;
+  overflow:hidden;
+}
+.banner .component-video-banner .desktop-wrapper:has(.breadcrumb-container) {
+  position:unset;
+}
+.banner .component-video-banner {
+  position:relative;
+  max-height:500px;
+}
+.banner .component-video-banner .text-overlay .title {
+  font-size:22px;
+  margin:0 0 40px 0;
+  line-height:1;
+  font-weight:800;
+  color:#FFF;
+  width:100%;
+}
+.banner .component-video-banner .text-overlay .title p {
+  color:inherit;
+  margin:0;
+  font-size:inherit;
+}
+.banner .component-video-banner .text-overlay .title p:last-of-type {
+  margin:0;
+}
+.banner .component-video-banner .text-overlay .component-text .sub-title {
+  font-weight:300;
+  width:100%;
+}
+.banner .component-video-banner .text-overlay p {
+  color:#FFF;
+  margin-bottom:20px;
+  font-weight:300;
+}
+.banner .component-video-banner .text-overlay .component-button,
+.banner .component-video-banner .text-overlay .component-button-purple,
+.banner .component-video-banner .text-overlay .component-button-synopsys_purple,
+.banner .component-video-banner .text-overlay .component-button-white,
+.banner .component-video-banner .text-overlay .component-button-gray,
+.banner .component-video-banner .text-overlay .component-button-orange {
+  margin-bottom:25px;
+  text-decoration:none;
+  border-radius:5px;
+  font-size:16px;
+  font-weight:400;
+  box-shadow:none;
+  transition:.5s;
+  text-align:center;
+  padding:5.21px 24px;
+}
+.banner .component-video-banner .text-overlay .component-button a,
+.banner .component-video-banner .text-overlay .component-button-purple a,
+.banner .component-video-banner .text-overlay .component-button-synopsys_purple a,
+.banner .component-video-banner .text-overlay .component-button-white a,
+.banner .component-video-banner .text-overlay .component-button-gray a,
+.banner .component-video-banner .text-overlay .component-button-orange a {
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  justify-content:center;
+}
+.banner .component-video-banner .text-overlay .component-button:hover,
+.banner .component-video-banner .text-overlay .component-button-purple:hover,
+.banner .component-video-banner .text-overlay .component-button-synopsys_purple:hover,
+.banner .component-video-banner .text-overlay .component-button-white:hover,
+.banner .component-video-banner .text-overlay .component-button-gray:hover,
+.banner .component-video-banner .text-overlay .component-button-orange:hover {
+  transition:.2s;
+}
+.banner .component-video-banner .text-overlay .component-button svg,
+.banner .component-video-banner .text-overlay .component-button-purple svg,
+.banner .component-video-banner .text-overlay .component-button-synopsys_purple svg,
+.banner .component-video-banner .text-overlay .component-button-white svg,
+.banner .component-video-banner .text-overlay .component-button-gray svg,
+.banner .component-video-banner .text-overlay .component-button-orange svg {
+  width:9px;
+  margin-right:10px;
+  margin-top:4.5px;
+}
+.banner .component-video-banner .text-overlay .component-button a:hover,
+.banner .component-video-banner .text-overlay .component-button-purple a:hover,
+.banner .component-video-banner .text-overlay .component-button-synopsys_purple a:hover,
+.banner .component-video-banner .text-overlay .component-button-white a:hover,
+.banner .component-video-banner .text-overlay .component-button-gray a:hover,
+.banner .component-video-banner .text-overlay .component-button-orange a:hover {
+  text-decoration:none;
+}
+.banner .component-video-banner .text-overlay .component-button.light.primary,
+.banner .component-video-banner .text-overlay .light.primary.component-button-purple,
+.banner .component-video-banner .text-overlay .light.primary.component-button-synopsys_purple,
+.banner .component-video-banner .text-overlay .light.primary.component-button-white,
+.banner .component-video-banner .text-overlay .light.primary.component-button-gray,
+.banner .component-video-banner .text-overlay .light.primary.component-button-orange,
+.banner .component-video-banner .text-overlay .component-button.light.cmp-video__thumbnail,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-purple,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-synopsys_purple,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-white,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-gray,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-orange {
+  background:#7e45af;
+  border:2px solid #7e45af;
+  color:#FFF;
+}
+.banner .component-video-banner .text-overlay .component-button.light.primary a,
+.banner .component-video-banner .text-overlay .light.primary.component-button-purple a,
+.banner .component-video-banner .text-overlay .light.primary.component-button-synopsys_purple a,
+.banner .component-video-banner .text-overlay .light.primary.component-button-white a,
+.banner .component-video-banner .text-overlay .light.primary.component-button-gray a,
+.banner .component-video-banner .text-overlay .light.primary.component-button-orange a,
+.banner .component-video-banner .text-overlay .component-button.light.cmp-video__thumbnail a,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-purple a,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-synopsys_purple a,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-white a,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-gray a,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-orange a {
+  color:#FFF;
+}
+.banner .component-video-banner .text-overlay .component-button.light.primary:hover,
+.banner .component-video-banner .text-overlay .light.primary.component-button-purple:hover,
+.banner .component-video-banner .text-overlay .light.primary.component-button-synopsys_purple:hover,
+.banner .component-video-banner .text-overlay .light.primary.component-button-white:hover,
+.banner .component-video-banner .text-overlay .light.primary.component-button-gray:hover,
+.banner .component-video-banner .text-overlay .light.primary.component-button-orange:hover,
+.banner .component-video-banner .text-overlay .component-button.light.primary:focus,
+.banner .component-video-banner .text-overlay .light.primary.component-button-purple:focus,
+.banner .component-video-banner .text-overlay .light.primary.component-button-synopsys_purple:focus,
+.banner .component-video-banner .text-overlay .light.primary.component-button-white:focus,
+.banner .component-video-banner .text-overlay .light.primary.component-button-gray:focus,
+.banner .component-video-banner .text-overlay .light.primary.component-button-orange:focus,
+.banner .component-video-banner .text-overlay .component-button.light.cmp-video__thumbnail:hover,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-purple:hover,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-synopsys_purple:hover,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-white:hover,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-gray:hover,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-orange:hover,
+.banner .component-video-banner .text-overlay .component-button.light.cmp-video__thumbnail:focus,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-purple:focus,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-synopsys_purple:focus,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-white:focus,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-gray:focus,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-orange:focus {
+  border-color:#5a2a82;
+  background:#5a2a82;
+}
+.banner .component-video-banner .text-overlay .component-button.light.secondary,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-purple,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-synopsys_purple,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-white,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-gray,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-orange {
+  border:2px solid #7e45af;
+}
+.banner .component-video-banner .text-overlay .component-button.light.secondary a,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-purple a,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-synopsys_purple a,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-white a,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-gray a,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-orange a {
+  color:#7e45af;
+}
+.banner .component-video-banner .text-overlay .component-button.light.secondary:hover,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-purple:hover,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-synopsys_purple:hover,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-white:hover,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-gray:hover,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-orange:hover,
+.banner .component-video-banner .text-overlay .component-button.light.secondary:focus,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-purple:focus,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-synopsys_purple:focus,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-white:focus,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-gray:focus,
+.banner .component-video-banner .text-overlay .light.secondary.component-button-orange:focus {
+  color:#5a2a82;
+  background:#7E45AF33;
+}
+.banner .component-video-banner .text-overlay .component-button.dark.primary,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-purple,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-synopsys_purple,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-white,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-gray,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-orange,
+.banner .component-video-banner .text-overlay .component-button.dark.cmp-video__thumbnail,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-purple,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-synopsys_purple,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-white,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-gray,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-orange {
+  background:#FFF;
+  border:2px solid #FFF;
+  color:#111c24;
+}
+.banner .component-video-banner .text-overlay .component-button.dark.primary a,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-purple a,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-synopsys_purple a,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-white a,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-gray a,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-orange a,
+.banner .component-video-banner .text-overlay .component-button.dark.cmp-video__thumbnail a,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-purple a,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-synopsys_purple a,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-white a,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-gray a,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-orange a {
+  color:#111c24;
+}
+.banner .component-video-banner .text-overlay .component-button.dark.primary:hover,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-purple:hover,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-synopsys_purple:hover,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-white:hover,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-gray:hover,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-orange:hover,
+.banner .component-video-banner .text-overlay .component-button.dark.cmp-video__thumbnail:hover,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-purple:hover,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-synopsys_purple:hover,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-white:hover,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-gray:hover,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-orange:hover {
+  background:#e3e3e3;
+  border-color:#e3e3e3;
+}
+.banner .component-video-banner .text-overlay .component-button.dark.primary:focus,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-purple:focus,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-synopsys_purple:focus,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-white:focus,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-gray:focus,
+.banner .component-video-banner .text-overlay .dark.primary.component-button-orange:focus,
+.banner .component-video-banner .text-overlay .component-button.dark.cmp-video__thumbnail:focus,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-purple:focus,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-synopsys_purple:focus,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-white:focus,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-gray:focus,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-orange:focus {
+  background:#FFF;
+  border-color:#FFF;
+}
+.banner .component-video-banner .text-overlay .component-button.dark.secondary,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-purple,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-synopsys_purple,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-white,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-gray,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-orange {
+  background:0;
+  border:2px solid #FFF;
+}
+.banner .component-video-banner .text-overlay .component-button.dark.secondary a,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-purple a,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-synopsys_purple a,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-white a,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-gray a,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-orange a {
+  color:#FFF;
+}
+.banner .component-video-banner .text-overlay .component-button.dark.secondary:hover,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-purple:hover,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-synopsys_purple:hover,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-white:hover,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-gray:hover,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-orange:hover,
+.banner .component-video-banner .text-overlay .component-button.dark.secondary:focus,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-purple:focus,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-synopsys_purple:focus,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-white:focus,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-gray:focus,
+.banner .component-video-banner .text-overlay .dark.secondary.component-button-orange:focus {
+  color:#555;
+  background:rgba(85,85,85,0.5);
+  border-color:#FFF;
+}
+.banner .component-video-banner .text-overlay .content-wrapper {
+  height:100%;
+  width:100%;
+  position:relative;
+  z-index:1;
+}
+.banner .component-video-banner .banner-img .component-image img {
+  min-height:200px;
+  width:100%;
+}
+.banner .component-video-banner .button-transparent {
+  padding:5px 25px !important;
+}
+.banner .component-video-banner .button-transparent a {
+  font-weight:bold;
+  font-size:1.1em;
+}
+.banner .component-video-banner .button-transparent:hover {
+  text-decoration:none;
+}
+.banner .component-video-banner .button-transparent:hover a {
+  color:white;
+}
+.banner .component-video-banner .button-transparent:hover a:hover {
+  text-decoration:none;
+}
+.banner .component-video-banner .button-orange {
+  background-color:#fcaf1a;
+}
+.banner .component-video-banner .button-orange-transparent {
+  border:3px solid #fcaf1a;
+  border-radius:5px;
+  color:#fcaf1a;
+}
+.banner .component-video-banner .button-orange-transparent a {
+  color:#fcaf1a;
+}
+.banner .component-video-banner .button-orange-transparent:hover {
+  background-color:#fcaf1a;
+}
+.banner .component-video-banner .button-green {
+  background-color:#9c3;
+}
+.banner .component-video-banner .button-green-transparent {
+  border:3px solid #9c3;
+  border-radius:5px;
+  color:#9c3;
+}
+.banner .component-video-banner .button-green-transparent a {
+  color:#9c3;
+}
+.banner .component-video-banner .button-green-transparent:hover {
+  background-color:#9c3;
+}
+.banner .component-video-banner .button-blue {
+  background-color:#4c9ec9;
+}
+.banner .component-video-banner .button-blue-transparent {
+  border:3px solid #4c9ec9;
+  border-radius:5px;
+  color:#4c9ec9;
+}
+.banner .component-video-banner .button-blue-transparent a {
+  color:#4c9ec9;
+}
+.banner .component-video-banner .button-blue-transparent:hover {
+  background-color:#4c9ec9;
+}
+.banner .component-video-banner .button-purple {
+  background-color:#80539c;
+}
+.banner .component-video-banner .button-purple-transparent {
+  border:3px solid #80539c;
+  border-radius:5px;
+  color:#80539c;
+}
+.banner .component-video-banner .button-purple-transparent a {
+  color:#80539c;
+}
+.banner .component-video-banner .button-purple-transparent:hover {
+  background-color:#80539c;
+}
+.banner .component-video-banner .button-teal {
+  background-color:#00b2a9;
+}
+.banner .component-video-banner .button-teal-transparent {
+  border:3px solid #00b2a9;
+  border-radius:5px;
+  color:#00b2a9;
+}
+.banner .component-video-banner .button-teal-transparent a {
+  color:#00b2a9;
+}
+.banner .component-video-banner .button-teal-transparent:hover {
+  background-color:#00b2a9;
+}
+.banner .component-video-banner .button-dark-turquoise {
+  background-color:#12788a;
+}
+.banner .component-video-banner .button-dark-turquoise-transparent {
+  border:3px solid #12788a;
+  border-radius:5px;
+  color:#12788a;
+}
+.banner .component-video-banner .button-dark-turquoise-transparent a {
+  color:#12788a;
+}
+.banner .component-video-banner .button-dark-turquoise-transparent:hover {
+  background-color:#12788a;
+}
+.banner .component-video-banner .button-gray {
+  background-color:#646e81;
+}
+.banner .component-video-banner .button-gray-transparent {
+  border:3px solid #646e81;
+  border-radius:5px;
+  color:#646e81;
+}
+.banner .component-video-banner .button-gray-transparent a {
+  color:#646e81;
+}
+.banner .component-video-banner .button-gray-transparent:hover {
+  background-color:#646e81;
+}
+.banner .component-video-banner .button-burnt-orange {
+  background-color:#e07c05;
+}
+.banner .component-video-banner .button-burnt-orange-transparent {
+  border:3px solid #e07c05;
+  border-radius:5px;
+  color:#e07c05;
+}
+.banner .component-video-banner .button-burnt-orange-transparent a {
+  color:#e07c05;
+}
+.banner .component-video-banner .button-burnt-orange-transparent:hover {
+  background-color:#e07c05;
+}
+.banner .component-video-banner .cropped-img img {
+  height:100%;
+  width:auto;
+}
+.banner .component-video-banner .component-button .has-arrow .arrow-icon,
+.banner .component-video-banner .component-button-purple .has-arrow .arrow-icon,
+.banner .component-video-banner .component-button-synopsys_purple .has-arrow .arrow-icon,
+.banner .component-video-banner .component-button-white .has-arrow .arrow-icon,
+.banner .component-video-banner .component-button-gray .has-arrow .arrow-icon,
+.banner .component-video-banner .component-button-orange .has-arrow .arrow-icon {
+  margin:4px 0 0 8px;
+}
+.banner .component-video-banner .desktop-wrapper {
+  position:relative;
+  overflow:hidden;
+  height:100%;
+  max-height:500px;
+  min-height:325px;
+}
+
+@media(max-width:729px) {
+.banner .component-video-banner .desktop-wrapper {
+  max-height:320px;
+}
+}
+
+.banner .component-video-banner .desktop-wrapper .banner-img {
+  height:100%;
+}
+.banner .component-video-banner .desktop-wrapper .banner-img .video-overlay {
+  height:100%;
+  width:100%;
+  max-width:1900px;
+  background-color:black;
+  position:absolute;
+  z-index:10;
+}
+.banner .component-video-banner .desktop-wrapper .banner-img .opacity-0 {
+  opacity:0;
+}
+.banner .component-video-banner .desktop-wrapper .banner-img .opacity-30 {
+  opacity:.3;
+}
+.banner .component-video-banner .desktop-wrapper .banner-img .opacity-40 {
+  opacity:.4;
+}
+.banner .component-video-banner .desktop-wrapper .banner-img .opacity-50 {
+  opacity:.5;
+}
+.banner .component-video-banner .desktop-wrapper .banner-img .opacity-60 {
+  opacity:.6;
+}
+
+@media(max-width:729px) {
+.banner .component-video-banner .desktop-wrapper .banner-img.mobile-video .video-autoplay,
+.banner .component-video-banner .desktop-wrapper .banner-img.mobile-video .video-carousel-bg {
+  display:block;
+  max-height:325px;
+  margin-left:50%;
+  transform:translate(-50%);
+}
+.banner .component-video-banner .banner-img .dm-mobile {
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+}
+.banner .component-video-banner .banner-img.mobile-video .dm-mobile {
+  display:none;
+}
+.banner .component-video-banner .banner-img .cq-dd-image {
+  display:none;
+}
+.banner .component-video-banner .img-responsive {
+  display:block;
+}
+.banner .component-video-banner .component-text {
+  flex-direction:column;
+}
+.banner .component-video-banner .text-overlay .title {
+  padding-top:0;
+  font-size:24px;
+  line-height:33.6px;
+  font-weight:800;
+  margin:0 0 30px 0;
+}
+.banner .component-video-banner .text-overlay .sub-title {
+  font-size:16px;
+  line-height:20px;
+  margin-bottom:38px;
+  font-weight:300;
+}
+.banner .component-video-banner .text-overlay .component-button,
+.banner .component-video-banner .text-overlay .component-button-purple,
+.banner .component-video-banner .text-overlay .component-button-synopsys_purple,
+.banner .component-video-banner .text-overlay .component-button-white,
+.banner .component-video-banner .text-overlay .component-button-gray,
+.banner .component-video-banner .text-overlay .component-button-orange {
+  width:260px;
+  margin:0;
+}
+.banner .component-video-banner .text-overlay .component-button.secondary,
+.banner .component-video-banner .text-overlay .secondary.component-button-purple,
+.banner .component-video-banner .text-overlay .secondary.component-button-synopsys_purple,
+.banner .component-video-banner .text-overlay .secondary.component-button-white,
+.banner .component-video-banner .text-overlay .secondary.component-button-gray,
+.banner .component-video-banner .text-overlay .secondary.component-button-orange {
+  margin-top:14px;
+}
+.banner .component-video-banner .text-overlay .component-button.padding-10,
+.banner .component-video-banner .text-overlay .padding-10.component-button-purple,
+.banner .component-video-banner .text-overlay .padding-10.component-button-synopsys_purple,
+.banner .component-video-banner .text-overlay .padding-10.component-button-white,
+.banner .component-video-banner .text-overlay .padding-10.component-button-gray,
+.banner .component-video-banner .text-overlay .padding-10.component-button-orange {
+  margin-right:10px;
+}
+.banner .component-video-banner .banner-img .component-image img {
+  min-height:250px;
+  object-fit:cover;
+  height:100%;
+}
+}
+
+@media(min-width:480px) {
+.banner .component-video-banner .text-overlay .title p {
+  font-size:36px;
+}
+}
+
+@media(min-width:730px) {
+.banner .component-video-banner .cropped-img {
+  display:none;
+}
+.banner .component-video-banner .desktop-wrapper .banner-img .video-autoplay,
+.banner .component-video-banner .desktop-wrapper .banner-img .video-carousel-bg {
+  width:100%;
+  max-height:500px;
+  display:block;
+}
+.banner .component-video-banner .sticky-left {
+  left:-webkit-calc(((-100vw + 100%)/2));
+  left:calc(((-100vw + 100%)/2));
+}
+.banner .component-video-banner .sticky-right {
+  right:-webkit-calc(((-100vw + 100%)/2));
+  right:calc(((-100vw + 100%)/2));
+}
+.banner .component-video-banner .img-responsive {
+  display:block;
+}
+.banner .component-video-banner .text-overlay {
+  width:100%;
+}
+.banner .component-video-banner .text-overlay .title {
+  font-size:48px;
+  line-height:48px;
+  margin-bottom:40px;
+}
+.banner .component-video-banner .text-overlay .sub-title {
+  font-size:24px;
+  font-weight:300;
+  line-height:33.6px;
+  margin-bottom:20px;
+}
+.banner .component-video-banner .text-overlay p {
+  display:block;
+  font-size:14px;
+  margin:0 0 20px 0;
+}
+.banner .component-video-banner .text-overlay .component-button,
+.banner .component-video-banner .text-overlay .component-button-purple,
+.banner .component-video-banner .text-overlay .component-button-synopsys_purple,
+.banner .component-video-banner .text-overlay .component-button-white,
+.banner .component-video-banner .text-overlay .component-button-gray,
+.banner .component-video-banner .text-overlay .component-button-orange {
+  margin:15px 0 0 0;
+}
+.banner .component-video-banner .text-overlay .component-button.padding-10,
+.banner .component-video-banner .text-overlay .padding-10.component-button-purple,
+.banner .component-video-banner .text-overlay .padding-10.component-button-synopsys_purple,
+.banner .component-video-banner .text-overlay .padding-10.component-button-white,
+.banner .component-video-banner .text-overlay .padding-10.component-button-gray,
+.banner .component-video-banner .text-overlay .padding-10.component-button-orange {
+  margin-right:10px;
+}
+.banner .component-video-banner .text-overlay .text-width-25 {
+  width:25%;
+}
+.banner .component-video-banner .text-overlay .text-width-33 {
+  width:33%;
+}
+.banner .component-video-banner .text-overlay .text-width-50 {
+  width:50%;
+}
+.banner .component-video-banner .text-overlay .text-width-60 {
+  width:60%;
+}
+.banner .component-video-banner .text-overlay .text-width-80 {
+  width:80%;
+}
+.banner .component-video-banner .banner-img {
+  min-width:1900px;
+}
+.banner .component-video-banner .banner-img .component-image img {
+  max-height:500px;
+  width:100%;
+}
+.banner .component-video-banner .cropped-img {
+  min-width:1900px;
+}
+.banner .component-video-banner .dm-mobile {
+  display:none;
+}
+}
+
+@media(min-width:992px) {
+.banner .component-video-banner .banner-img {
+  min-width:1900px;
+}
+.banner .component-video-banner .cropped-img {
+  min-width:1900px;
+}
+.banner .component-video-banner .sticky-left {
+  left:-webkit-calc(((-100vw + 970px)/2) - 15px);
+  left:calc(((-100vw + 970px)/2) - 15px);
+}
+.banner .component-video-banner .sticky-right {
+  right:-webkit-calc(((-100vw + 970px)/2) - 15px);
+  right:calc(((-100vw + 970px)/2) - 15px);
+}
+.banner .component-video-banner .text-overlay {
+  width:970px;
+}
+.banner .component-video-banner .text-overlay .title p {
+  font-size:52px;
+}
+.banner .component-video-banner .text-overlay .component-text>p {
+  font-size:25px;
+}
+}
+
+@media(min-width:1024px) {
+.banner .component-video-banner .banner-img {
+  min-width:1900px;
+}
+.banner .component-video-banner .cropped-img {
+  min-width:1900px;
+}
+.banner .component-video-banner .text-overlay {
   width:970px;
 }
 }
@@ -1180,6 +2341,210 @@
 }
 
 .banner.promo .pa-title h2 {
+.banner .component-video-banner .sticky-left {
+  left:-webkit-calc(((-100vw + 1170px)/2) - 15px);
+  left:calc(((-100vw + 1170px)/2) - 15px);
+}
+.banner .component-video-banner .sticky-right {
+  right:-webkit-calc(((-100vw + 1170px)/2) - 15px);
+  right:calc(((-100vw + 1170px)/2) - 15px);
+}
+.banner .component-video-banner .text-overlay {
+  width:1170px;
+}
+.banner .component-video-banner .text-overlay .title p {
+  font-size:57px;
+}
+.banner .component-video-banner .text-overlay p {
+  font-size:25px;
+}
+.banner .component-video-banner .text-overlay p:last-of-type {
+  margin:0;
+}
+.banner .component-video-banner .text-overlay .component-button.padding-10,
+.banner .component-video-banner .text-overlay .padding-10.component-button-purple,
+.banner .component-video-banner .text-overlay .padding-10.component-button-synopsys_purple,
+.banner .component-video-banner .text-overlay .padding-10.component-button-white,
+.banner .component-video-banner .text-overlay .padding-10.component-button-gray,
+.banner .component-video-banner .text-overlay .padding-10.component-button-orange {
+  margin-right:10px;
+}
+.banner .component-video-banner .banner-img {
+  min-width:1900px;
+}
+.banner .component-video-banner .cropped-img {
+  min-width:1900px;
+}
+}
+
+@media(min-width:1600px) {
+.banner .component-video-banner .banner-img {
+  min-width:1900px;
+}
+.banner .component-video-banner .cropped-img {
+  min-width:1900px;
+}
+}
+
+@media(min-width:1900px) {
+.banner .component-video-banner .sticky-left {
+  left:-webkit-calc(((-1900px + 1170px)/2) - 15px);
+  left:calc(((-1900px + 1170px)/2) - 15px);
+}
+.banner .component-video-banner .sticky-right {
+  right:-webkit-calc(((-1900px + 1170px)/2) - 15px);
+  right:calc(((-1900px + 1170px)/2) - 15px);
+}
+.banner .component-video-banner .banner-img {
+  width:1900px;
+}
+.banner .component-video-banner .cropped-img {
+  width:1900px;
+}
+}
+
+.banner .component-video-banner .component-button.light.cmp-video__thumbnail,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-purple,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-synopsys_purple,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-white,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-gray,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-orange {
+  background:#7e45af;
+  border:2px solid #7e45af;
+  color:#FFF;
+}
+.banner .component-video-banner .component-button.light.cmp-video__thumbnail a,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-purple a,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-synopsys_purple a,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-white a,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-gray a,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-orange a {
+  color:#FFF;
+}
+.banner .component-video-banner .component-button.light.cmp-video__thumbnail:hover,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-purple:hover,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-synopsys_purple:hover,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-white:hover,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-gray:hover,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-orange:hover,
+.banner .component-video-banner .component-button.light.cmp-video__thumbnail:focus,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-purple:focus,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-synopsys_purple:focus,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-white:focus,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-gray:focus,
+.banner .component-video-banner .light.cmp-video__thumbnail.component-button-orange:focus {
+  border-color:#5a2a82;
+  background:#5a2a82;
+}
+.banner .component-video-banner .component-button.dark.cmp-video__thumbnail,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-purple,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-synopsys_purple,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-white,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-gray,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-orange {
+  background:#FFF;
+  border:2px solid #FFF;
+  color:#111c24;
+}
+.banner .component-video-banner .component-button.dark.cmp-video__thumbnail a,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-purple a,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-synopsys_purple a,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-white a,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-gray a,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-orange a {
+  color:#111c24;
+}
+.banner .component-video-banner .component-button.dark.cmp-video__thumbnail:hover,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-purple:hover,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-synopsys_purple:hover,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-white:hover,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-gray:hover,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-orange:hover {
+  background:#e3e3e3;
+  border-color:#e3e3e3;
+}
+.banner .component-video-banner .component-button.dark.cmp-video__thumbnail:focus,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-purple:focus,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-synopsys_purple:focus,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-white:focus,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-gray:focus,
+.banner .component-video-banner .dark.cmp-video__thumbnail.component-button-orange:focus {
+  background:#FFF;
+  border-color:#FFF;
+}
+.banner .component-video-banner .text-overlay .component-button.light.cmp-video__thumbnail,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-purple,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-synopsys_purple,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-white,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-gray,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-orange {
+  background:#7e45af;
+  border:2px solid #7e45af;
+  color:#FFF;
+}
+.banner .component-video-banner .text-overlay .component-button.light.cmp-video__thumbnail a,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-purple a,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-synopsys_purple a,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-white a,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-gray a,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-orange a {
+  color:#FFF;
+}
+.banner .component-video-banner .text-overlay .component-button.light.cmp-video__thumbnail:hover,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-purple:hover,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-synopsys_purple:hover,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-white:hover,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-gray:hover,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-orange:hover,
+.banner .component-video-banner .text-overlay .component-button.light.cmp-video__thumbnail:focus,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-purple:focus,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-synopsys_purple:focus,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-white:focus,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-gray:focus,
+.banner .component-video-banner .text-overlay .light.cmp-video__thumbnail.component-button-orange:focus {
+  border-color:#5a2a82;
+  background:#5a2a82;
+}
+.banner .component-video-banner .text-overlay .component-button.dark.cmp-video__thumbnail,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-purple,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-synopsys_purple,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-white,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-gray,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-orange {
+  background:#FFF;
+  border:2px solid #FFF;
+  color:#111c24;
+}
+.banner .component-video-banner .text-overlay .component-button.dark.cmp-video__thumbnail a,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-purple a,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-synopsys_purple a,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-white a,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-gray a,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-orange a {
+  color:#111c24;
+}
+.banner .component-video-banner .text-overlay .component-button.dark.cmp-video__thumbnail:hover,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-purple:hover,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-synopsys_purple:hover,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-white:hover,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-gray:hover,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-orange:hover {
+  background:#e3e3e3;
+  border-color:#e3e3e3;
+}
+.banner .component-video-banner .text-overlay .component-button.dark.cmp-video__thumbnail:focus,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-purple:focus,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-synopsys_purple:focus,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-white:focus,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-gray:focus,
+.banner .component-video-banner .text-overlay .dark.cmp-video__thumbnail.component-button-orange:focus {
+  background:#FFF;
+  border-color:#FFF;
+}
+
+
+/* program family — video banner: moved authored nodes (EW2); the hidden source link and poster picture */
+.banner .component-video-banner .title :is(h1, h2, h3) {
   margin: 0;
   padding: 0;
   font: inherit;
@@ -1236,4 +2601,35 @@
   .banner.promo .text-col {
     padding: 30px;
   }
+}
+.banner .component-video-banner .sub-title p {
+  margin: 0;
+}
+
+.banner .component-video-banner .banner-img .video-poster,
+.banner .component-video-banner .banner-img p[hidden] {
+  display: none;
+}
+
+.banner .component-video-banner .component-button p.button-wrapper {
+  display: contents;
+}
+
+.banner .component-video-banner .component-button a.button:any-link,
+.banner .component-video-banner .component-button a.button:hover {
+  min-width: 0;
+  max-width: none;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  font: inherit;
+  color: inherit;
+  background: none;
+  box-shadow: none;
+}
+
+.banner .component-video-banner .dm-mobile img {
+  width: 100%;
 }

@@ -1180,6 +1180,12 @@
   padding-top: 40px;
 }
 
+/* the source's per-cell pad sits on the text components only — an illustration-led cell (a bare html block on the source)
+   carries none */
+.columns.landing[class*="cells-pad-top-"] .text:has(> .component-textcomp > .component-text:first-child > p:first-child img) {
+  padding-top: 0;
+}
+
 .columns.landing.cells-pad-bottom-xs .text { padding-bottom: 15px; }
 .columns.landing.cells-pad-bottom-sm .text { padding-bottom: 30px; }
 .columns.landing.cells-pad-bottom-md .text { padding-bottom: 60px; }

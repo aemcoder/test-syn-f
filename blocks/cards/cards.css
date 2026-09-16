@@ -1345,3 +1345,9 @@
 .cards .component-assetcard .label-wrapper.invisible {
   visibility:hidden;
 }
+
+/* ---- static family aliases (alias-static.mjs): static variant: live-computed description clamp ---- */
+.cards.static .component-assetcard .heading-desc-wrapper p {
+  display: flow-root;
+  -webkit-line-clamp: 4;
+}

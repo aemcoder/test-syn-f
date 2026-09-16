@@ -658,9 +658,34 @@ function decorateStatic(block, rows) {
   block.replaceChildren(column);
 }
 
+/* ---- assets (related resources): a static three-column row of asset cards, the shape of the
+   glossary / technical-article resource XFs. Rows: <picture> | <p>label</p> <h4>heading</h4>
+   <p><a>cta</a></p>. Same card DOM as `panels`, no carousel chrome. ---- */
+function decorateAssets(block, rows) {
+  const column = el('div', 'column');
+  const container = el('div', 'container');
+  const row = el('section', 'component-column row');
+  rows.forEach((cells, i) => {
+    const col = el('div', 'col-xs-12 col-sm-4 three');
+    const grid = el('div', 'aem-Grid');
+    const host = el('div', 'cards image');
+    const card = assetCard(cells, i);
+    card.className = 'component-assetcard no-link';
+    ['data-slick-index', 'role', 'tabindex', 'aria-hidden'].forEach((attr) => card.removeAttribute(attr));
+    host.append(card);
+    grid.append(host);
+    col.append(grid);
+    row.append(col);
+  });
+  container.append(row);
+  column.append(container);
+  block.replaceChildren(column);
+}
+
 export default function decorate(block) {
   const rows = [...block.children].map((row) => [...row.children]).filter((cells) => cells.length);
   if (!rows.length) return;
+  if (block.classList.contains('assets')) { decorateAssets(block, rows); return; }
   if (block.classList.contains('static')) {
     decorateStatic(block, rows);
     return;

@@ -220,9 +220,68 @@ function decorateSmall(block) {
   block.replaceChildren(section);
 }
 
+/* ---- story: the success-story title banner — the skinny gradient banner with a left-aligned <h1>
+   (source: componentSkinnyBanner small-banner dark-purple-gradient, text-align-left). Row: <h1>
+   [+ <p> subtitle]. Template-slotted; the heading is MOVED into the title slot (EW1). ---- */
+function decorateStory(block) {
+  const heading = block.querySelector('h1, h2, h3');
+  const copy = [...block.querySelectorAll('p')].filter((p) => p.textContent.trim());
+  const section = el('section', 'componentSkinnyBanner component-banner', { 'data-card-type': 'banner', 'data-analytics-link-region': 'hero' });
+  const wrapper = el('div', 'desktop-wrapper small-banner bg-desktop dark-purple-gradient');
+  wrapper.append(el('div', 'image-overlay opacity-0'));
+  const bannerImg = el('div', 'banner-img');
+  bannerImg.append(el('div', 'cropped-img'));
+  const overlay = el('div', 'text-overlay flex-container text-align-left');
+  const content = el('div', 'content-wrapper');
+  const textWrap = el('div', 'text-wrapper contentValignCenter');
+  const outerText = el('div', 'component-text');
+  const title = el('div', 'title');
+  const visible = el('div', 'text-size-normal');
+  visible.style.color = '#ffffff';
+  if (heading) visible.append(heading);
+  title.append(visible);
+  const innerText = el('div', 'component-text');
+  const sub = el('div', 'sub-title');
+  sub.style.color = '#ffffff';
+  copy.forEach((p) => sub.append(p));
+  innerText.append(sub);
+  outerText.append(title, innerText);
+  textWrap.append(outerText);
+  content.append(textWrap);
+  overlay.append(content);
+  wrapper.append(bannerImg, overlay);
+  section.append(wrapper);
+  block.replaceChildren(section);
+}
+
+/* ---- promo: the purple subscription box of the technical-bulletin / multi-die XFs (source: an
+   html-text-only component with scoped styles — .pa purple row, rainbow bottom rule). Row cells:
+   <h2> | <p> copy | <p><strong><a>CTA. Template-slotted; nodes are MOVED (EW1/EW3). ---- */
+function decoratePromo(block) {
+  const heading = block.querySelector('h1, h2, h3');
+  const ps = [...block.querySelectorAll('p')];
+  const ctas = ps.filter((p) => p.querySelector('a'));
+  const copy = ps.filter((p) => !ctas.includes(p) && p.textContent.trim());
+  const pad = el('div', 'pa-padding');
+  const row = el('div', 'row synopsys-purple-bg pa');
+  const col = el('div', 'col-xs-12 col-sm-12 text-col pa-padding');
+  if (heading) { const t = el('div', 'pa-title'); t.append(heading); col.append(t); }
+  if (copy.length) { const d = el('div', 'pa-description'); copy.forEach((p) => d.append(p)); col.append(d); }
+  if (ctas.length) {
+    const buttons = el('div', 'component-buttons align-left');
+    ctas.forEach((p) => { const b = el('div', 'component-button darkButtonRollover'); b.append(p); buttons.append(b); });
+    col.append(buttons);
+  }
+  row.append(col);
+  pad.append(row);
+  block.replaceChildren(pad);
+}
+
 export default function decorate(block) {
   if (block.classList.contains('skinny-hero')) { decorateSmall(block); return; } // listing family: skinny hero with breadcrumb
   if (block.classList.contains('image')) { decorateImage(block); return; }
+  if (block.classList.contains('story')) { decorateStory(block); return; }
+  if (block.classList.contains('promo')) { decoratePromo(block); return; }
   const cells = [...block.children].flatMap((row) => [...row.children]);
   if (!cells.length) return;
   const heading = block.querySelector('h1, h2, h3, h4, h5, h6');

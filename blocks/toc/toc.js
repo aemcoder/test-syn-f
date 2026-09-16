@@ -29,7 +29,131 @@ function svg(markup) {
   return t.content.firstElementChild;
 }
 
+/* ---- variant `article`: the sticky rail of blog / technical / glossary articles (source:
+   table-of-contents-article-layout inside the two2575 column). The block renders the TOC and HOSTS
+   the article layout: its section's other wrappers (subscribe, social share, rail fragments) and
+   the following `article-rail` sections move into the sticky 25% column, the following
+   `article-body` sections into the 75% column (EW9: moved whole, already decorated).
+   Rows: 1. <p>title</p> · 2. <ul> of #id links (`#subscribe` targets the subscription form).
+   Variant classes: `pad-bottom-sm` = the source's vert-pad-bottom-sm wrapper, `scroll-top` = the
+   fixed scroll-to-top tab of the article/glossary templates. Behaviours observed
+   (stardust/replica/motion/blog.json): sticky bar below 730 (`makeSticky`, top = nav height),
+   active section, mobile open toggle, link scroll to the target. ---- */
+function decorateArticle(block) {
+  const cells = [...block.children].flatMap((row) => [...row.children]);
+  const label = cells.map((c) => c.querySelector('p')).find((p) => p && !p.querySelector('a'));
+  const list = block.querySelector('ul');
+  document.querySelectorAll('main .section[data-id]').forEach((s) => { if (!s.id) s.id = s.dataset.id; });
+
+  const holder = el('div', 'tableOfContents');
+  const pad = block.classList.contains('pad-bottom-sm') ? el('div', 'background-component vert-pad-bottom-sm') : null;
+  const container = el('div', 'container');
+  const section = el('section', 'cmp-tableofcontents table-of-contents-article-layout', { 'data-analytics-link-region': 'utility' });
+  const header = el('div', 'cmp-tableofcontents__header');
+  const title = el('div', 'cmp-tableofcontents__title');
+  if (label) title.append(label);
+  header.append(title);
+  const content = el('div', 'cmp-tableofcontents__content-list');
+  const ul = list || el('ul');
+  const init = el('li', 'init');
+  const initA = el('a');
+  const initSpan = el('span');
+  initSpan.textContent = label ? label.textContent : ''; // mobile bar label: generated duplicate, the authored <p> stays editable in the header
+  initA.append(initSpan, svg(CARET));
+  init.append(initA);
+  // the source wraps each item's link in a flex div (it contains the subscribe pill's margins)
+  [...ul.children].forEach((li) => {
+    const wrap = el('div', 'cmp-tableofcontents__content-item-wraper');
+    wrap.append(...li.childNodes);
+    li.append(wrap);
+  });
+  ul.prepend(init);
+  content.append(ul);
+  section.append(header, content);
+  if (block.classList.contains('scroll-top')) { // the article/glossary templates' fixed scroll-to-top tab
+    const topP = el('p', 'cmp-tableofcontents__scroll-to-top-container');
+    const topA = el('a', 'cmp-tableofcontents__scroll-to-top visible', { 'data-href': '#', href: '#', 'aria-label': 'Scroll to top' });
+    topA.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    topP.append(topA);
+    section.append(topP);
+  }
+  container.append(section);
+  if (pad) { pad.append(container); holder.append(pad); } else holder.append(container);
+
+  /* the two-column article layout (source: .component-column.row > two2575PinnedLeft +
+     two2575Right) */
+  const blockSection = block.closest('.section');
+  const wrapper = block.parentElement;
+  // the source column wrapper carries tocSictkyArticlesMobile too (the XF mobile inset keys on
+  // it for both columns)
+  const column = el('div', 'column tocSictkyArticlesMobile');
+  const cont = el('div', 'container');
+  const row = el('section', 'component-column row');
+  const left = el('div', 'col-xs-12 col-sm-3 two2575PinnedLeft tocSictkyArticlesMobile');
+  const leftGrid = el('div', 'aem-Grid');
+  const right = el('div', 'col-xs-12 col-sm-9 two2575Right');
+  const rightGrid = el('div', 'aem-Grid');
+  leftGrid.append(holder);
+  if (blockSection) {
+    [...blockSection.children].forEach((w) => { if (w !== wrapper) leftGrid.append(w); });
+    let next = blockSection.nextElementSibling;
+    while (next && (next.classList.contains('article-rail') || next.classList.contains('article-body'))) {
+      const following = next.nextElementSibling;
+      (next.classList.contains('article-rail') ? leftGrid : rightGrid).append(next);
+      next = following;
+    }
+  }
+  left.append(leftGrid);
+  right.append(rightGrid);
+  row.append(left, right);
+  cont.append(row);
+  column.append(cont);
+  block.replaceChildren(column);
+
+  /* ---- behaviours (ported from the gated prototype's article.js) ---- */
+  const mq = window.matchMedia('(min-width: 730px)');
+  const links = [...ul.querySelectorAll('li:not(.init) a')];
+  const initDefault = initSpan.textContent;
+  const idOf = (l) => (l.getAttribute('href') || '').replace(/^.*#/, '');
+  const hdrH = () => { const n = document.getElementById('topNav'); return n ? n.offsetHeight : 80; };
+  let activeIdx = -1;
+  function onScroll() {
+    const h = hdrH();
+    let stickyNow = mq.matches
+      ? row.getBoundingClientRect().top <= 128
+      : section.getBoundingClientRect().top <= h;
+    if (!mq.matches && holder.classList.contains('makeSticky')) stickyNow = holder.getBoundingClientRect().top <= h;
+    holder.classList.toggle('makeSticky', !!stickyNow);
+    section.style.top = `${h}px`;
+    const zone = window.innerHeight * 0.6;
+    const anchors = links.map((l) => (idOf(l) === 'subscribe' ? null : document.getElementById(idOf(l))));
+    anchors.forEach((t, i) => {
+      if (!t) return;
+      const { top } = t.getBoundingClientRect();
+      if (top >= 0 && top <= zone) activeIdx = i;
+    });
+    const first = anchors.find(Boolean);
+    if (first && first.getBoundingClientRect().top > zone) activeIdx = -1;
+    links.forEach((l, i) => l.classList.toggle('activeSection', i === activeIdx));
+    if (!mq.matches) {
+      initSpan.textContent = activeIdx >= 0 ? links[activeIdx].textContent.trim() : initDefault;
+    }
+  }
+  links.forEach((l) => l.addEventListener('click', (e) => {
+    e.preventDefault();
+    const t = document.getElementById(idOf(l));
+    if (t) t.scrollIntoView({ block: 'start' });
+    section.classList.remove('open');
+  }));
+  init.addEventListener('click', () => section.classList.toggle('open'));
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  if ('ResizeObserver' in window) new ResizeObserver(onScroll).observe(holder);
+  onScroll();
+}
+
 export default function decorate(block) {
+  if (block.classList.contains('article')) { decorateArticle(block); return; }
   const cells = [...block.children].flatMap((row) => [...row.children]);
   const label = cells.map((c) => c.querySelector('p'))
     .find((p) => p && !p.querySelector('a'));

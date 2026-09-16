@@ -1,0 +1,157 @@
+/* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
+/* stardust:deploy — rules lifted for the .social-share block from canon.css, blogbits.css, article.css (selectors matching /cmp-socialshare|socialShare|vert-pad|background-component|tocSictkyArticlesMobile/), scoped under .social-share */
+.social-share .vert-pad-top-xs {
+  padding-top:0;
+  margin-top:15px;
+}
+.social-share .vert-pad-top-xs[class*="-bg"] {
+  padding-top:15px;
+  margin-top:0;
+}
+.social-share .vert-pad-top-sm {
+  padding-top:0;
+  margin-top:30px;
+}
+.social-share .vert-pad-top-sm[class*="-bg"] {
+  padding-top:30px;
+  margin-top:0;
+}
+.social-share .vert-pad-top-md {
+  padding-top:0;
+  margin-top:60px;
+}
+.social-share .vert-pad-top-md[class*="-bg"] {
+  padding-top:60px;
+  margin-top:0;
+}
+.social-share .vert-pad-bottom-xs {
+  padding-bottom:15px;
+  margin-bottom:0;
+}
+.social-share .vert-pad-bottom-sm {
+  padding-bottom:30px;
+  margin-bottom:0;
+}
+.social-share .vert-pad-bottom-md {
+  padding-bottom:60px;
+  margin-bottom:0;
+}
+
+@media(max-width:729px) {
+.social-share .vert-pad-top-xs,
+.social-share .vert-pad-top-sm,
+.social-share .vert-pad-top-md {
+  padding-top:0;
+  margin-top:40px;
+}
+.social-share .vert-pad-top-xs[class*="-bg"],
+.social-share .vert-pad-top-sm[class*="-bg"],
+.social-share .vert-pad-top-md[class*="-bg"] {
+  padding-top:40px;
+  margin-top:0;
+}
+}
+
+@media only screen and (max-width:730px) {
+.social-share .tocSictkyArticlesMobile {
+  padding:0;
+  margin:0;
+}
+}
+
+.social-share .cmp-socialshare a {
+  text-decoration:none;
+  padding:12px 10px 0 10px;
+  display:inline-block;
+}
+.social-share .cmp-socialshare a svg {
+  transition:ease-in .1s;
+  font-size:28px;
+}
+.social-share .cmp-socialshare a svg path {
+  fill:#80539c;
+}
+.social-share .cmp-socialshare a:first-child {
+  padding-left:0;
+}
+.social-share .cmp-socialshare a:hover {
+  transition:ease-out .5s;
+}
+.social-share .cmp-socialshare a:hover path {
+  color:#5a2a82;
+}
+
+@media(max-width:730px) {
+.social-share .socialShare .tocSictkyArticlesMobile {
+  margin-left:15px;
+}
+}
+
+@media(min-width:730px) {
+.social-share .cmp-socialshare a {
+  padding:0 7.5px 0 7.5px;
+  font-size:24px;
+}
+.social-share .cmp-socialshare i {
+  font-size:28px;
+}
+}
+
+.social-share .cmp-socialshare a {
+  text-decoration:none;
+  padding:12px 10px 0 10px;
+  display:inline-block;
+  color:#316aca;
+}
+.social-share .cmp-socialshare a svg {
+  transition:ease-in .1s;
+  font-size:28px;
+  height:1em;
+  display:inline-block;
+  vertical-align:-.125em;
+}
+.social-share .cmp-socialshare a svg path {
+  fill:#80539c;
+}
+.social-share .cmp-socialshare a:first-child {
+  padding-left:0;
+}
+
+@media(min-width:730px) {
+.social-share .cmp-socialshare a {
+  padding:0 7.5px 0 7.5px;
+  font-size:24px;
+}
+.social-share .cmp-socialshare a:first-child {
+  padding-left:0;
+}
+}
+
+@media only screen and (max-width:730px) {
+.social-share .tocSictkyArticlesMobile {
+  padding:0;
+  margin:0;
+}
+}
+
+
+/* moved link paragraphs (EW3) */
+.social-share .cmp-socialshare p {
+  display: inline;
+  margin: 0;
+}
+
+.social-share .cmp-socialshare p:first-child a {
+  padding-left: 0;
+}
+
+.social-share .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

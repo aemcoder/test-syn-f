@@ -1,0 +1,88 @@
+/* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
+/* stardust:deploy — rules lifted for the .tags block from canon.css, blogbits.css, article.css (selectors matching /cmp-blogsdev__pagetags-container|blogsDev|\.cmp-blogsdev\b/), scoped under .tags */
+.tags .cmp-blogsdev .cmp-blogsdev__pagetags-container {
+  padding:10px 0;
+  list-style:none;
+}
+.tags .cmp-blogsdev .cmp-blogsdev__pagetags-container li {
+  display:inline-block;
+  list-style:none;
+  margin:4px 2px;
+}
+
+@media(min-width:730px) {
+.tags .cmp-blogsdev .cmp-blogsdev__pagetags-container li {
+  font-size:15px;
+  margin:6px 3px;
+}
+}
+
+.tags .cmp-blogsdev .cmp-blogsdev__pagetags-container li a {
+  color:#555;
+  font-size:12px;
+  font-weight:300;
+  border-radius:5px;
+  border:1px solid #555;
+  transition:all .2s ease-out;
+  padding:0 8px;
+  height:22px;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  align-items:center;
+  line-height:100%;
+}
+.tags .cmp-blogsdev .cmp-blogsdev__pagetags-container li a:hover {
+  border-color:#111c24;
+  background-color:#111c24;
+  color:#FFF;
+  cursor:pointer;
+}
+.tags .cmp-blogsdev .cmp-blogsdev__pagetags-container {
+  padding:10px 0;
+  list-style:none;
+  margin:0 0 10px;
+}
+.tags .cmp-blogsdev .cmp-blogsdev__pagetags-container li {
+  display:inline-block;
+  list-style:none;
+  margin:4px 2px;
+}
+
+@media(min-width:730px) {
+.tags .cmp-blogsdev .cmp-blogsdev__pagetags-container li {
+  font-size:15px;
+  margin:6px 3px;
+}
+}
+
+.tags .cmp-blogsdev .cmp-blogsdev__pagetags-container li a {
+  color:#555;
+  font-size:12px;
+  font-weight:300;
+  border-radius:5px;
+  border:1px solid #555;
+  transition:all .2s ease-out;
+  padding:0 8px;
+  height:22px;
+  display:flex;
+  align-items:center;
+  line-height:12px;
+  text-decoration:none;
+  box-sizing:border-box;
+}
+.tags .cmp-blogsdev .cmp-blogsdev__pagetags-container li a:hover {
+  border-color:#111c24;
+  background-color:#111c24;
+  color:#fff;
+  cursor:pointer;
+}
+
+
+/* moved list (EW2) */
+.tags .cmp-blogsdev__pagetags-container ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

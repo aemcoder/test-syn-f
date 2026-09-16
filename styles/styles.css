@@ -664,6 +664,128 @@ main .section.textcomp.cta-link .default-content-wrapper p a:any-link {
   align-items: center;
   width: max-content;
   font-size: 16px;
+/* ---- article ---------------------------------------------------------------------------------------------------
+   Section tokens of the ARTICLE family (blog article, technical article, glossary, success story). Article bodies
+   are default content; these tokens carry what the source's inner components did: nested vert-pad wrappers
+   (pad-*-lg = md + sm), the text-size-larger heads, image figures (incl. the zoom affordance and the 100px inset of
+   the technical-article figures), the glossary "Definition" spotlight box, the <hr class="separator"> rules, the
+   blank line of a dynamic listing that captured empty, and the blank-paragraph spacing before the glossary's h6
+   sub-heads (the pipeline drops <p>&nbsp;</p>). Selectors are descendant-only on prose (EW10). */
+/* stylelint-disable no-descending-specificity -- token rules are independent of the landing tokens' order */
+main .section.pad-top-lg,
+main .section.pad-bottom-lg,
+main .section.figure,
+main .section.spotlight,
+main .section.separator,
+main .section.blank,
+main .section.article-body,
+main .section.article-rail {
+  display: flow-root;
+}
+
+main .section.pad-top-lg { padding-top: 80px; }
+main .section.pad-bottom-lg { padding-bottom: 90px; }
+main .section.textcomp.large .default-content-wrapper h2 { font-size: 32px; }
+
+/* an empty styled section must not be hidden by main .section:empty */
+main .section.separator[data-section-status="loaded"],
+main .section.blank[data-section-status="loaded"] {
+  display: flow-root !important;
+}
+
+/* separator: the source hr.separator (1px #c4c4c4, 20px margins); the top-level one spans the container */
+main .section.separator { padding: 20px 0; }
+
+main .section.separator::before {
+  content: '';
+  display: block;
+  height: 1px;
+  background: #c4c4c4;
+}
+
+main > .section.separator::before {
+  width: calc(100% - 30px);
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* blank: one body line — a dynamic-cards listing that rendered empty in the capture (<br>) */
+main .section.blank { padding-bottom: 1.6em; }
+
+/* figure: <p><picture></p> [+ <p><em>caption</em></p> — the source image component's inline title] */
+main .section.figure .default-content-wrapper p:has(picture) {
+  margin: 0;
+  line-height: 0;
+}
+
+main .section.figure .default-content-wrapper picture { display: block; }
+
+main .section.figure .default-content-wrapper p:has(> em:only-child) {
+  margin: 0;
+  font-size: inherit;
+  line-height: 1.6;
+}
+
+main .section.figure .default-content-wrapper p em {
+  font-style: normal;
+  font-weight: 300;
+  color: var(--snps-ink);
+}
+
+main .section.figure.padded .default-content-wrapper p:has(picture) { padding: 0 100px; }
+
+/* zoom: the source's "Click to see the detail" affordance under zoomable figures, from 730px (its modal is not migrated) */
+main .section.figure.zoom .default-content-wrapper p:has(picture) { text-align: center; }
+
+main .section.figure.zoom .default-content-wrapper p:has(picture)::after {
+  display: none;
+  content: 'Click to see the detail';
+  margin: 10px 0;
+  padding: 1px 6px 1px 25px;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--snps-ink);
+  background: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22%3E%3Cpath fill=%22%23111c24%22 d=%22M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM184 296c0 13.3 10.7 24 24 24s24-10.7 24-24V232h64c13.3 0 24-10.7 24-24s-10.7-24-24-24H232V120c0-13.3-10.7-24-24-24s-24 10.7-24 24v64H120c-13.3 0-24 10.7-24 24s10.7 24 24 24h64v64z%22/%3E%3C/svg%3E") 6px center / 16px 16px no-repeat;
+}
+
+/* spotlight: the glossary "Definition" box (source component-spotlight, header indented) */
+main .section.spotlight .default-content-wrapper {
+  margin-top: 30px;
+  padding: 30px;
+  border: 2px solid var(--snps-purple-dark);
+}
+
+main .section.spotlight .default-content-wrapper h2 {
+  width: fit-content;
+  margin: -46px 0 0;
+  padding: 0 15px 30px;
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--snps-purple-dark);
+  background: var(--snps-white);
+}
+
+main .section.spotlight .default-content-wrapper h2 + p { margin-top: 11px; }
+
+/* trail: a blank line the source renders from a trailing <br> group (the pipeline drops trailing <br>s) */
+main .section.trail .default-content-wrapper::after {
+  content: '';
+  display: block;
+  height: 25.6px;
+}
+
+/* spaced-heads: the source's blank paragraph before each sub-head (26px line + margins) */
+main .section.spaced-heads .default-content-wrapper h6:not(:first-child) { margin-top: 50.6px; }
+main .section.article-body .default-content-wrapper > h6:first-child { margin-top: 16px; }
+
+/* cta-link: the text component's chevron text link (rail promotion): the source .buttons box (24px above, none below) */
+main .section.cta-link .default-content-wrapper p:has(> a:only-child) { margin: 24px 0 0; }
+
+main .section.cta-link .default-content-wrapper p a:any-link {
+  display: inline-flex;
+  align-items: center;
   font-weight: 400;
   color: var(--snps-ink);
   text-decoration: none;
@@ -672,6 +794,8 @@ main .section.textcomp.cta-link .default-content-wrapper p a:any-link {
 main .section.textcomp.cta-link .default-content-wrapper p a:any-link::after {
   content: "";
   display: inline-block;
+main .section.cta-link .default-content-wrapper p a:any-link::after {
+  content: '';
   width: 8px;
   height: 12px;
   margin-left: 8px;
@@ -726,3 +850,33 @@ main .section.rte.center .default-content-wrapper {
 }
 
 /* ---- end listing ---- */
+  mask: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 320 512%22%3E%3Cpath d=%22M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z%22/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* the article rail column: below 730 the source zeroes the column wrapper's vert-pad (.tocSictkyArticlesMobile) */
+@media (width < 730px) {
+  main .section.article-rail { padding: 0; }
+}
+
+@media (width >= 730px) {
+  main .section.spotlight .default-content-wrapper h2 + p { margin-top: 19px; }
+  main .section.article-body .default-content-wrapper > h6:first-child { margin-top: 24px; }
+  main .section.pad-top-lg { padding-top: 90px; }
+  main .section.textcomp.large .default-content-wrapper h2 { font-size: 40px; }
+
+  main .section.figure.zoom .default-content-wrapper p:has(picture)::after {
+    display: inline-block;
+    font-size: 14px;
+  }
+}
+
+@media (width >= 992px) and (width < 1200px) {
+  main > .section.separator::before { max-width: 940px; }
+}
+
+@media (width >= 1200px) {
+  main .section.figure.zoom .default-content-wrapper p:has(picture)::after { font-size: 18px; }
+}
+/* stylelint-enable no-descending-specificity */
+
+/* ---- end article ---- */

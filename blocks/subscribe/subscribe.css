@@ -1,0 +1,189 @@
+/* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
+/* stardust:deploy — rules lifted for the .subscribe block from canon.css, article.css (selectors matching /cmp-subscription-form|subscription-form-container|subscriptionForm|mkto|form-title/), scoped under .subscribe */
+.subscribe .cmp-subscription-form .subscription-form-container {
+  padding-bottom:32px;
+}
+.subscribe .cmp-subscription-form .subscription-form-container .form-title {
+  font-size:24px;
+  line-height:1.4;
+  margin-bottom:10px;
+  font-weight:300;
+  color:#111c24;
+  display:block;
+}
+.subscribe .cmp-subscription-form .subscription-form-container form.mktoForm {
+  width:100%!important;
+  padding:0;
+  margin:0;
+  font-family:Helvetica,Arial,sans-serif;
+  font-size:13px;
+  font-weight:300;
+  line-height:1.6;
+  color:#333;
+}
+.subscribe .mktoForm .mktoFormRow {
+  clear:both;
+}
+.subscribe .mktoForm .mktoFormCol {
+  float:left;
+  position:relative;
+  min-height:unset;
+  box-sizing:border-box;
+  width:100%!important;
+}
+.subscribe .mktoForm .mktoFormRow .mktoFormCol:has(.mktoHtmlText.mktoHasWidth) {
+  margin:6px 0 18px!important;
+}
+.subscribe .mktoForm .mktoFormRow .mktoFieldDescriptor {
+  margin-bottom:18px!important;
+}
+.subscribe .mktoForm .mktoFieldWrap {
+  float:left;
+  width:100%!important;
+}
+.subscribe .mktoForm .mktoOffset,
+.subscribe .mktoForm .mktoGutter {
+  display:none;
+}
+.subscribe .mktoForm .mktoClear {
+  clear:both;
+}
+.subscribe .mktoForm .mktoHtmlText.mktoHasWidth {
+  width:100%!important;
+  font-size:13px;
+  font-weight:300;
+  line-height:1.6;
+  color:#333;
+}
+.subscribe .mktoForm .mktoHtmlText a {
+  color:#316aca;
+  text-decoration:none;
+}
+.subscribe .mktoForm .mktoFieldWrap label.mktoLabel {
+  display:inline-flex;
+  margin-bottom:8px;
+  font-size:12px;
+  font-weight:400!important;
+  color:#444;
+  padding-top:6px!important;
+  float:left;
+  line-height:1.2;
+  width:150px;
+}
+.subscribe .mktoForm .mktoAsterix {
+  color:#c00;
+  order:2;
+  float:left;
+  padding-right:5px;
+}
+.subscribe .mktoForm .mktoFieldWrap .mktoField {
+  border:2px solid #e3e3e3;
+  background:#fff;
+  color:#333;
+  font-family:inherit;
+  font-size:13px;
+  font-weight:300;
+  line-height:1.2em;
+  padding:2px 3px;
+  margin:0;
+  display:block;
+  float:left;
+  box-sizing:border-box;
+  height:48px!important;
+  border-radius:5px!important;
+  width:100%!important;
+  overflow:clip;
+}
+.subscribe .cmp-subscription-form .subscription-form-container form.mktoForm .mktoFormRow .mktoFieldWrap select.mktoField {
+  appearance:none;
+  background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTAgNiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTQuMjkxMzIgNS43MDkzOEM0LjY4MTk0IDYuMSA1LjMxNjMyIDYuMSA1LjcwNjk0IDUuNzA5MzhMOS43MDY5NCAxLjcwOTM3QzkuOTk0NDQgMS40MjE4NyAxMC4wNzg4IDAuOTkzNzUgOS45MjI1NyAwLjYxODc1QzkuNzY2MzIgMC4yNDM3NSA5LjQwMzgyIC0yLjYwNTk5ZS0wOCA4Ljk5NzU3IC00LjM4MTc2ZS0wOEwwLjk5NzU2OSAtMy45MzUwOWUtMDdDMC41OTQ0NDQgLTQuMTExMzBlLTA3IDAuMjI4ODE5IDAuMjQzNzQ5IDAuMDcyNTY4OSAwLjYxODc0OUMtMC4wODM2ODEyIDAuOTkzNzQ5IDAuMDAzODE4NDUgMS40MjE4NyAwLjI4ODE5NCAxLjcwOTM3TDQuMjg4MTkgNS43MDkzOEw0LjI5MTMyIDUuNzA5Mzh6IiBmaWxsPSIjMTExQzI0Ii8+PC9zdmc+);
+  background-repeat:no-repeat;
+  background-position:right 10px center;
+  margin-right:2rem;
+  padding:1rem !important;
+}
+.subscribe .mktoForm .mktoInstruction {
+  display:none;
+}
+.subscribe .mktoForm .mktoButtonRow {
+  margin-top:6px!important;
+  display:inline-block;
+  position:relative;
+}
+.subscribe .mktoForm .mktoButtonRow .mktoButtonWrap.mktoSimple {
+  margin-left:0!important;
+}
+.subscribe .mktoForm .mktoButtonRow .mktoButtonWrap.mktoSimple .mktoButton {
+  border-radius:5px;
+  height:auto!important;
+  line-height:1!important;
+  font-size:16px!important;
+  font-weight:400;
+  background-color:#111c24!important;
+  border:1px solid #111c24!important;
+  background-image:linear-gradient(#111c24,#111c24);
+  color:#fff;
+  padding:12px 24px;
+  font-family:inherit;
+  cursor:pointer;
+  display:inline-block;
+  text-align:center;
+}
+.subscribe .mkto-thankyou-message {
+  display:none;
+}
+
+@media(max-width:480px) {
+.subscribe .cmp-subscription-form .subscription-form-container form.mktoForm {
+  padding-bottom:10px;
+}
+.subscribe .mktoForm .mktoFieldWrap input.mktoField,
+.subscribe .mktoForm .mktoFieldWrap select.mktoField {
+  font-size:18px;
+  line-height:27px;
+}
+.subscribe .mktoForm .mktoFieldWrap select.mktoField {
+  padding:10px;
+  margin:0 20px 0 0;
+}
+.subscribe .mktoForm .mktoFieldWrap label.mktoLabel {
+  width:100%;
+}
+.subscribe .cmp-subscription-form .subscription-form-container form.mktoForm .mktoFormRow:first-child .mktoFormCol:has(.mktoHtmlText.mktoHasWidth) {
+  margin-top:0!important;
+}
+.subscribe .cmp-subscription-form .subscription-form-container form.mktoForm .mktoButtonRow {
+  margin-top:18px!important;
+}
+}
+
+
+/* moved authored nodes inside the Marketo markup (EW2) */
+.subscribe .form-title p {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  display: inline;
+}
+
+.subscribe .mktoHtmlText p,
+.subscribe label.mktoLabel p,
+.subscribe .mktoButton p,
+.subscribe .mkto-thankyou-message p {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  display: inline;
+}
+
+.subscribe .mktoHtmlText p strong {
+  color: #c00;
+}

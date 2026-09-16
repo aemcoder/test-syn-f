@@ -1,11 +1,11 @@
 /**
- * breadcrumb — the standalone breadcrumb bar above a skinny (purple gradient) hero (source:
- * component-breadcrumb outside a banner, e.g. company/corporate-governance-ethics).
- * Authoring: one cell with a <ul>; each <li> is a crumb link, an optional nested <ul> lists that
- * level's sibling pages (the dropdown opened by hover / the arrow).
- * Tier: template-slotted; the authored list is MOVED into the source nav (EW1; a list is one
- * editable unit). Behaviours observed on the banner breadcrumb (blocks/banner): hover opens a
- * menu, the arrow toggles it, an outside click closes.
+ * breadcrumb — the standalone breadcrumb trail above a skinny banner (source: component-breadcrumb;
+ * the landing hero carries its own copy inside the `banner image` block).
+ *
+ * Authoring: one cell with a <ul>; a crumb's nested <ul> is its dropdown menu.
+ * Tier: reconstructive;
+ * the list is MOVED (EW1). Observed behaviours: hovering a crumb opens its menu, the arrow toggles
+ * it, an outside click closes.
  */
 
 function el(tag, className, attrs = {}) {
@@ -24,10 +24,13 @@ export default function decorate(block) {
   const section = el('section', 'component-breadcrumb', { 'data-analytics-link-region': 'utility' });
   const nav = el('nav', 'clearfix', { id: 'primary_nav_wrap' });
   [...ul.children].forEach((li) => {
-    // the pipeline wraps a crumb that carries a dropdown in <p>; the list is the editable unit
-    li.querySelectorAll(':scope > p').forEach((p) => p.replaceWith(...p.childNodes));
-    const a = li.querySelector(':scope > a');
-    if (a) a.classList.add('parent');
+    // the pipeline wraps a list item's inline content in <p> when it also holds a nested list;
+    // the source rules key on li > a (the list is one editor, the wrapper carries no index)
+    const a = li.querySelector(':scope > a, :scope > p > a');
+    if (a) {
+      a.classList.add('parent');
+      if (a.parentElement.tagName === 'P') a.parentElement.replaceWith(a);
+    }
     const menu = li.querySelector(':scope > ul');
     if (menu) {
       menu.className = 'dropdown-menu';
@@ -50,14 +53,9 @@ export default function decorate(block) {
   items.forEach((li) => {
     const menu = li.querySelector(':scope > ul.dropdown-menu');
     const arrow = li.querySelector(':scope > .icon-dropdown-arrow');
-    const link = li.querySelector(':scope > a');
+    const link = li.querySelector(':scope > a, :scope > p > a');
     if (!menu) return;
-    if (link) {
-      link.addEventListener('mouseenter', () => {
-        closeAll();
-        menu.classList.add('active');
-      });
-    }
+    if (link) link.addEventListener('mouseenter', () => { closeAll(); menu.classList.add('active'); });
     if (arrow) {
       arrow.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -67,7 +65,5 @@ export default function decorate(block) {
       });
     }
   });
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.component-breadcrumb')) closeAll();
-  });
+  document.addEventListener('click', (e) => { if (!e.target.closest('.component-breadcrumb')) closeAll(); });
 }

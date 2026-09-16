@@ -1015,6 +1015,15 @@
 }
 
 .banner.skinny .title h1 {
+/* ---- article family (stardust/scripts/eds/article/port-article.sh) ---- */
+
+
+/* story variant: left-aligned skinny banner, the moved h1 inherits the title box typography (EW2) */
+.banner.story .text-align-left {
+  text-align: left;
+}
+
+.banner.story .title h1 {
   margin: 0;
   padding: 0;
   font: inherit;
@@ -1131,5 +1140,100 @@
   /* the gradient hero paints the site's purple facet band behind the title below 730 (source per-instance style; fixed brand asset) */
   .banner.skinny-hero .dark-purple-gradient .cropped-img {
     background-image: url("/blocks/banner/facet-band-mobile.svg");
+
+/* promo variant: the purple subscription box of the html-text-only XFs (source: scoped styles of #a848d68f7…, measured on the gated prototype) */
+.banner.promo .pa-padding {
+  padding: 0 15px;
+}
+
+.banner.promo .pa {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  background-color: #5a2a82;
+  color: #fff;
+}
+
+.banner.promo .pa::after {
+  content: '';
+  width: 100%;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(0.25turn, rgb(224 124 5), rgb(252 175 26), rgb(18 120 138), rgb(0 178 169), rgb(76 158 201), rgb(49 106 202), rgb(128 83 156), rgb(90 42 130));
+  border-image-slice: 1;
+  transform: translateY(5px);
+  transition: transform 150ms linear;
+}
+
+.banner.promo .text-col {
+  flex: 0 0 100%;
+  max-width: 100%;
+  min-height: 1px;
+  padding: 40px;
+}
+
+.banner.promo .pa-title {
+  margin: 15px 0;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.banner.promo .pa-title h2 {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+.banner.promo .pa-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #fff;
+}
+
+/* the description paragraph keeps the global paragraph size (15/14/16px) and bootstrap's 10px bottom margin, as in the source */
+.banner.promo .pa-description p {
+  margin: 0 0 10px;
+  line-height: 1.6;
+  color: inherit;
+}
+
+.banner.promo .component-buttons {
+  padding: 15px 0;
+}
+
+.banner.promo .component-button {
+  display: inline-block;
+  padding: 10px 30px;
+  background-color: #80539c;
+  color: #fff;
+  font-size: inherit; /* the body size: 15px on phones, 14px from 730, 18px from 1200 (measured on the prototype) */
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.banner.promo .component-button p {
+  font: inherit;
+  line-height: inherit;
+}
+
+.banner.promo .component-button a:any-link {
+  color: #fff;
+}
+
+/* canon: .html-text-only-component .component-button{margin:15px 0 0} from 730px */
+@media (min-width: 730px) {
+  .banner.promo .component-button {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner.promo .text-col {
+    padding: 30px;
   }
 }

@@ -551,3 +551,96 @@ main .section.textcomp .default-content-wrapper h2:last-child { margin-bottom: 0
 @media (width >= 1200px) {
   main .section.textcomp .default-content-wrapper :is(ul, ol) { font-size: 16px; }
 }
+
+/* ---- landing family ---------------------------------------------------------------------------------------------------
+   (stylelint no-descending-specificity is disabled for this segment: the tokens below are new section styles that share the
+   default-content selectors of earlier tokens; they never target the same section.)
+   Default-content section tokens the sibling landing pages need beyond the ai-html set (stardust:deploy fan-out, branch
+   fam-landing). Same model: the source's vert-pad-* wrappers become padding tokens; prose stays default content. */
+main .section.separator,
+main .section.rte,
+main .section.diagram,
+main .section.image,
+main .section.pad-bottom-md-2 {
+  display: flow-root;
+}
+
+/* stylelint-disable no-descending-specificity */
+
+/* .text-size-larger title (32px; 40px from 730) */
+main .section.textcomp.large .default-content-wrapper h2 { font-size: 32px; }
+
+/* an empty text block's vert-pad band (the source's floated grid columns never collapse it) */
+main .section.spacer[data-section-status="loaded"] {
+  display: flow-root !important;
+}
+
+/* the source's <hr class="separator"> inside an otherwise empty text block: a 1px #c4c4c4 rule with 20px margins */
+main .section.separator[data-section-status="loaded"] {
+  display: flow-root !important;
+}
+
+main .section.separator::before {
+  content: "";
+  display: block;
+  width: calc(100% - 30px);
+  max-width: calc(var(--snps-container) - 30px);
+  height: 1px;
+  margin: 20px auto;
+  background: #c4c4c4;
+}
+
+/* component-rte heads (centered rich-text heading + copy; the source's text-color-black span = #3c3c3c) */
+main .section.rte .default-content-wrapper h2 {
+  margin: 15px 0;
+  color: #3c3c3c;
+}
+
+main .section.rte .default-content-wrapper p {
+  margin: 0 0 10px;
+}
+
+main .section.rte.center .default-content-wrapper { text-align: center; }
+
+/* a single image in a column row (the verification family diagram: the row is capped at 750px and centred) */
+main .section.diagram .default-content-wrapper p {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 0 15px; /* the source row is capped at 750px; its column keeps the 15px gutters → 720px / 300px image */
+  line-height: 0;
+}
+
+main .section.image .default-content-wrapper p { line-height: 0; }
+
+/* two nested vert-pad-bottom-md wrappers (an XF grid's last row inside a padded column): 60 + 60 */
+main .section.pad-bottom-md-2 { padding-bottom: 120px; }
+
+/* a primary CTA under text-component copy: the source's .buttons box (margin-top 24) follows the copy without its own bottom margin */
+main .section.textcomp .default-content-wrapper p.button-wrapper { margin-top: 24px; }
+main .section.textcomp .default-content-wrapper :is(p, ul, ol):has(+ p.button-wrapper) { margin-bottom: 0; }
+
+@media (width >= 730px) {
+  main .section.textcomp.large .default-content-wrapper h2 { font-size: 40px; }
+}
+
+@media (width >= 992px) and (width < 1200px) {
+  main .section.separator::before { max-width: 940px; }
+}
+
+/* bootstrap's b,strong{font-weight:700} (canon.css) is not in the foundation: with body at 300, <strong> resolves to 400 and reads
+   as regular text (carousel attributions, list leads). Foundation fix candidate. */
+b,
+strong {
+  font-weight: 700;
+}
+
+/* chrome ground on every page that is NOT the home page: the foundation paints the whole 133px header reservation dark, but the
+   source's nav bar (rgba(255,255,255,.8), in flow below the 53px utility bar) sits over the page's WHITE ground — over the dark
+   reservation it reads as grey (harness header crop 55% vs live). Only the utility-bar band is dark. (Measured on /cloud;
+   applies to every non-home page — a foundation fix candidate for styles.css / the header block.) */
+body:not([data-page-type="home-page"]) header {
+  background: linear-gradient(to bottom, var(--snps-dark) 0, var(--snps-dark) var(--nav-height), var(--snps-white) var(--nav-height), var(--snps-white) 100%);
+}
+/* stylelint-enable no-descending-specificity */
+
+/* ---- end landing family ---- */

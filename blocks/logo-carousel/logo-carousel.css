@@ -685,3 +685,8 @@ main .logo-carousel-container > .default-content-wrapper h2 {
     font-size: 32px;
   }
 }
+
+/* ---- landing family aliases ---- */
+main .logo-carousel-container:has(.logo-carousel.landing) {
+  background: transparent;
+}

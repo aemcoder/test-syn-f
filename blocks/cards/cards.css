@@ -1329,3 +1329,28 @@
   color:#316aca;
   display:block;;
 }
+
+
+
+
+/* ---- landing family ---- */
+/* landing family — .cards from synopsys-pagelibs.min.c75662aa8a81ccd74e2e6cc1b7fe1590.css (selectors matching /\.(three|two|col-sm-4|col-sm-6) \.component-assetcard\b/) */
+.cards .three .component-assetcard,
+.cards .col-sm-4 .component-assetcard {
+  min-height:283px;
+}
+.cards .two .component-assetcard,
+.cards .col-sm-6 .component-assetcard {
+  min-height:283px;
+}
+
+/* ---- landing family aliases ---- */
+/* the bundle pair the prototype layers never lifted (home.css carries the carousel's 20px only): 32px on an image-less card,
+   20px when a .cmp-image precedes the text — measured live: implementation/company 32, solutions/cloud/carousels 20 */
+.cards.grid .component-assetcard .card-text {
+  padding-top: 32px;
+}
+
+.cards.grid .component-assetcard .cmp-image + .card-text {
+  padding-top: 20px;
+}

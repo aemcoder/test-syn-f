@@ -38,7 +38,8 @@ export default function decorate(block) {
     .find((p) => p.querySelector('a'));
   const cta = ctaP ? ctaP.querySelector('a') : null;
 
-  // TOC targets: sections carrying section-metadata `id` get a real id (URL hashes resolve)
+  // TOC targets: sections carrying section-metadata `id` — delivered as a real id (rendering v2); the
+  // client-side path leaves it as data-id, so promote that too
   document.querySelectorAll('main .section[data-id]').forEach((s) => { if (!s.id) s.id = s.dataset.id; });
 
   const holder = el('div', 'tableOfContents');
@@ -92,7 +93,7 @@ export default function decorate(block) {
   const links = [...ul.querySelectorAll('.cmp-productsolutions__content-item-text')];
   const initDefault = initSpan.textContent.trim();
   let activeId = null;
-  const anchors = () => [...document.querySelectorAll('main .section[data-id]')];
+  const anchors = () => [...document.querySelectorAll('main .section[id]')];
   const hdrH = () => (nav() ? nav().offsetHeight : 80);
   function onScroll() {
     if (!holder.offsetParent && !holder.classList.contains('makeSticky')) return; // section still hidden
@@ -106,7 +107,7 @@ export default function decorate(block) {
     const list2 = anchors();
     list2.forEach((s) => {
       const t = s.getBoundingClientRect().top;
-      if (t >= zoneTop && t <= zone) activeId = s.dataset.id;
+      if (t >= zoneTop && t <= zone) activeId = s.id;
     });
     if (list2[0] && list2[0].getBoundingClientRect().top > zone) activeId = null;
     let activeLink = null;

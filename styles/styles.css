@@ -659,6 +659,13 @@ main .section.spotlight .default-content-wrapper h2 {
 
 main .section.spotlight .default-content-wrapper h2 + p { margin-top: 11px; }
 
+/* trail: a blank line the source renders from a trailing <br> group (the pipeline drops trailing <br>s) */
+main .section.trail .default-content-wrapper::after {
+  content: '';
+  display: block;
+  height: 25.6px;
+}
+
 /* spaced-heads: the source's blank paragraph before each sub-head (26px line + margins) */
 main .section.spaced-heads .default-content-wrapper h6:not(:first-child) { margin-top: 50.6px; }
 main .section.article-body .default-content-wrapper > h6:first-child { margin-top: 16px; }

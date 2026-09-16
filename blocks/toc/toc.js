@@ -35,7 +35,8 @@ function svg(markup) {
    the following `article-rail` sections move into the sticky 25% column, the following
    `article-body` sections into the 75% column (EW9: moved whole, already decorated).
    Rows: 1. <p>title</p> · 2. <ul> of #id links (`#subscribe` targets the subscription form).
-   Variant class `pad-bottom-sm` = the source's vert-pad-bottom-sm wrapper. Behaviours observed
+   Variant classes: `pad-bottom-sm` = the source's vert-pad-bottom-sm wrapper, `scroll-top` = the
+   fixed scroll-to-top tab of the article/glossary templates. Behaviours observed
    (stardust/replica/motion/blog.json): sticky bar below 730 (`makeSticky`, top = nav height),
    active section, mobile open toggle, link scroll to the target. ---- */
 function decorateArticle(block) {
@@ -69,6 +70,13 @@ function decorateArticle(block) {
   ul.prepend(init);
   content.append(ul);
   section.append(header, content);
+  if (block.classList.contains('scroll-top')) { // the article/glossary templates' fixed scroll-to-top tab
+    const topP = el('p', 'cmp-tableofcontents__scroll-to-top-container');
+    const topA = el('a', 'cmp-tableofcontents__scroll-to-top visible', { 'data-href': '#', href: '#', 'aria-label': 'Scroll to top' });
+    topA.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    topP.append(topA);
+    section.append(topP);
+  }
   container.append(section);
   if (pad) { pad.append(container); holder.append(pad); } else holder.append(container);
 

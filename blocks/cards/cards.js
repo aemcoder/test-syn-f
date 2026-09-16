@@ -898,6 +898,66 @@ function decorateDynamic(block, rows) {
   if ('ResizeObserver' in window) new ResizeObserver(relayout).observe(block);
 }
 
+/* ---- grid (landing family): static rows of asset cards — variant two|three|four = cards per row
+   (the source's
+   column[assetCard × N] rows and the nested column[column[card|card]|column[card|card]] 2×2 rows,
+   flattened to one row
+   of slots). Same authoring rows as panels/carousel (picture | label, date, heading, description,
+   link; an image-less card
+   has an empty first cell). Tier: reconstructive; authored nodes are MOVED (EW1). ---- */
+function decorateGrid(block, rows) {
+  let per = 3;
+  if (block.classList.contains('two')) per = 2;
+  else if (block.classList.contains('four')) per = 4;
+  const colClass = { 4: 'col-xs-12 col-sm-3 four', 3: 'col-xs-12 col-sm-4 three' }[per] || 'col-xs-12 col-sm-6';
+  const column = el('div', 'column');
+  const container = el('div', 'container');
+  let row = null;
+  rows.forEach((cells, i) => {
+    if (i % per === 0) { row = el('section', 'component-column row'); container.append(row); }
+    const col = el('div', colClass);
+    const grid = el('div', 'aem-Grid');
+    const host = el('div', 'cards image');
+    const card = assetCard(cells, i);
+    card.className = 'component-assetcard no-link';
+    ['data-slick-index', 'role', 'tabindex', 'aria-hidden'].forEach((attr) => card.removeAttribute(attr));
+    // an image-less card has NO .cmp-image on the source (its .card-text keeps the 32px top
+    // padding; `.cmp-image + .card-text` is the 20px case) and keeps an EMPTY label wrapper (an
+    // inline box with 4px+4px padding — 8px on the live card)
+    const ci = card.querySelector('.cmp-image');
+    if (ci && !ci.querySelector('picture, img')) ci.remove();
+    const ldw = card.querySelector('.label-date-wrapper');
+    if (ldw && !ldw.children.length) {
+      const lw = el('div', 'label-wrapper');
+      lw.append(el('div', 'label'));
+      ldw.append(lw);
+    }
+    host.append(card);
+    grid.append(host);
+    col.append(grid);
+    row.append(col);
+  });
+  column.append(container);
+  block.replaceChildren(column);
+  // site JS: when the heading needs 5 clamped lines the description is hidden (same rule as the
+  // carousel)
+  const hideDesc = () => {
+    block.querySelectorAll('.component-assetcard').forEach((card) => {
+      const h = card.querySelector('.heading'); const p = card.querySelector('.heading-desc-wrapper p');
+      if (!h || !p) return;
+      const lineHeight = parseFloat(getComputedStyle(h).lineHeight) || 23;
+      const lines = Math.round(h.getBoundingClientRect().height / lineHeight);
+      card.classList.toggle('hide-desc', lines >= 5);
+      // decoded from the captured inline styles on every landing capture: the description gets
+      // 5 − <heading lines> clamped lines (1-line heading → 4, 2 → 3, 3 → 2, 4 → 1)
+      p.style.webkitLineClamp = String(Math.max(1, 5 - lines));
+    });
+  };
+  hideDesc();
+  window.addEventListener('resize', hideDesc);
+  if ('ResizeObserver' in window) new ResizeObserver(hideDesc).observe(block);
+}
+
 export default function decorate(block) {
   const rows = [...block.children].map((row) => [...row.children]).filter((cells) => cells.length);
   if (!rows.length) return;
@@ -910,6 +970,7 @@ export default function decorate(block) {
   if (block.classList.contains('events')) { decorateEvents(block, rows); return; }
   if (block.classList.contains('assets')) decorateAssets(block, rows);
   else if (block.classList.contains('dynamic')) decorateDynamic(block, rows);
+  else if (block.classList.contains('grid')) decorateGrid(block, rows);
   else if (block.classList.contains('panels')) decoratePanels(block, rows);
   else if (block.classList.contains('carousel')) decorateCarousel(block, rows);
   else decorateSolutions(block, rows);

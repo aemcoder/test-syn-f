@@ -1,0 +1,300 @@
+/* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
+/* stardust:deploy — rules lifted for the .ask block from canon.css, brand_concierge_style.css (selectors matching /abc-hero|border-gradient-ask|sparkleAnim/), scoped under .ask */
+.ask .border-gradient-ask {
+  --inner-bg:#171917;
+  border:4px solid transparent;
+  border-radius:9999px;
+  background-color:#efefef;
+  background-image:linear-gradient(var(--inner-bg),var(--inner-bg)),conic-gradient(from calc(90deg + var(--angle)),#fdb71a 0,#ab714e 25%,#5a2a82 50%,#ab714e 75%,#fdb71a 100%)!important;
+  background-origin:border-box;
+  background-clip:padding-box,border-box;
+  color:#fff;
+  padding:12px 24px;
+  cursor:pointer;
+  user-select:none;
+  transform:translateZ(0);
+  transition:background-image .3s ease,transform .1s ease;
+}
+.ask .sparkleAnim {
+  fill:#7e45af;
+  opacity:1;
+  transition:opacity .6s ease-in-out;
+}
+.ask .sparkleAnim:hover .star {
+  animation-name:sparkleHover;
+  animation-duration:1.5s;
+  animation-iteration-count:2;
+  animation-fill-mode:forwards;
+  animation-timing-function:ease-in-out;
+}
+.ask .sparkleAnim:hover .star.star-1 {
+  animation-delay:0s;
+}
+.ask .sparkleAnim:hover .star.star-2 {
+  animation-delay:.3s;
+}
+.ask .sparkleAnim:hover .star.star-3 {
+  animation-delay:.6s;
+}
+.ask .abc-hero *,
+.ask .abc-hero *::before,
+.ask .abc-hero *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.ask .htmlTextOnly:has(#abc-hero) {
+  padding: 0;
+}
+.ask .htmlTextOnly .container:has(#abc-hero) {
+  padding: 0;
+}
+.ask .abc-hero {
+  padding: 64px 15px 64px;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+}
+.ask .abc-hero .container {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+.ask .abc-hero .container::before,
+.ask .abc-hero .container::after {
+  display: none;
+}
+.ask .abc-hero__title {
+  font-size: 44px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+  line-height: 125%;
+  color: var(--text);
+  text-align: center;
+}
+.ask .abc-hero__inputbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  border-width: 2px;
+  border-radius: 12px;
+  padding: 0 18px 0 24px;
+  height: 61px;
+  line-height: 163%;
+  --inner-bg: #FFF;
+}
+.ask .abc-hero__inputbar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: inherit;
+  background: transparent;
+  color: #171917;
+  font-weight: 600;
+  text-align: left;
+}
+.ask .abc-hero__inputbar input::placeholder {
+  color: #555;
+}
+.ask .abc-hero__spark {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.ask .abc-hero__spark path {
+  fill: #373B37;
+}
+.ask .abc-hero__send {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #3a3a3a;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+.ask .abc-hero__send:hover {
+  color: #000;
+}
+.ask .abc-hero__send.is-active {
+  color: #000;
+}
+.ask .abc-hero__cards {
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 100%;
+}
+.ask .abc-hero__card {
+  background: #fff;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  padding: 0 24px 0 24px;
+  text-align: left;
+  cursor: pointer;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  gap: 12px;
+  width: auto;
+  min-height: 56px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.ask .abc-hero__card .abc-hero__spark path {
+  fill: #797C79;
+}
+.ask .abc-hero__card:hover {
+  border: 2px solid #C1C2C1;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  transition: transform 0.15s ease, box-shadow 0.25s ease-out;
+}
+.ask .abc-hero__card-title {
+  font-size: 16px;
+  font-weight: 400;
+  color: #171917;
+  line-height: 138%;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+.ask .abc-hero .container {
+  padding: 0;
+}
+.ask .abc-hero {
+  padding: 32px 24px;
+}
+.ask .abc-hero__title {
+  font-size: 24px;
+  -webkit-line-clamp: 1;
+  font-weight: 600;
+  line-height: 138%;
+  margin: 0 0 8px 0;
+}
+.ask .abc-hero__inputbar {
+  height: 42px;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px 16px 8px 16px;
+}
+.ask .abc-hero__inputbar .abc-hero__spark {
+  display: none;
+}
+.ask .abc-hero__spark {
+  width: 18px;
+  height: 18px;
+}
+.ask .abc-hero__cards {
+  gap: 16px;
+  padding: 0 0 0 4px;
+}
+.ask .abc-hero__card {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  min-height: 0;
+  padding: 8px 16px 8px 12px;
+  flex: 0 1 auto;
+  width: auto;
+}
+.ask .abc-hero__card-title {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 138%;
+}
+}
+
+/* ---- landing family aliases ---- */
+.ask .abc-hero__title :is(h1, h2, h3) {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  display: block;
+}
+
+.ask .abc-hero__inputbar .abc-hero__input {
+  flex: 1;
+  text-align: left;
+}
+
+.ask .abc-hero__inputbar .abc-hero__input p {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 600;
+  color: #555;
+  line-height: inherit;
+}
+
+.ask .abc-hero__inputbar {
+  color: var(--snps-ink);
+}
+
+.ask .abc-hero__cards ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 100%;
+}
+
+.ask .abc-hero__cards li {
+  background: #fff;
+  border: 2px solid rgb(0 0 0 / 12%);
+  border-radius: 999px;
+  padding: 0 24px;
+  text-align: left;
+  cursor: pointer;
+  color: var(--snps-ink);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: auto;
+  min-height: 56px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 138%;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ask .abc-hero__cards li .abc-hero__spark path {
+  fill: #797c79;
+}
+
+.ask .abc-hero__cards li:hover {
+  border: 2px solid #c1c2c1;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 15%);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .ask .abc-hero__cards li {
+    gap: 8px;
+    min-height: 0;
+    padding: 8px 16px 8px 12px;
+    font-size: 14px;
+  }
+}
+
+body:has(.ask.block) #floating-icon {
+  display: none;
+}

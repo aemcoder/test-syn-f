@@ -401,9 +401,99 @@ function adjustImage(block) {
   }
 }
 
+function unwrapCrumbParagraphs(ul) {
+  if (!ul) return ul;
+  ul.querySelectorAll(':scope > li > p').forEach((p) => p.replaceWith(...p.childNodes));
+  return ul;
+}
+
+/* ---- hero variant (landing family): the skinny page hero — componentSkinnyBanner small-banner at
+   the top of a landing
+   page (breadcrumb + background picture, or a gradient ground when no picture is authored) or an
+   inline band. Rows (by
+   content, any order): <ul> breadcrumb | pictures (+ optional <p>desktop-on-mobile</p>) | hidden
+   heading + visible title
+   <p><strong>, sub-title <p>s, CTAs (<strong>/<em>/plain). Flags: left (text-align-left overlay),
+   dark (black gradient),
+   arrow (chevron glyph on the CTAs), download (download glyph), small (0.8em title). Tier:
+   template-slotted; authored
+   nodes are MOVED (EW1). ---- */
+function decorateHero(block) {
+  const cells = [...block.children].map((row) => [...row.children])
+    .map((r) => r[0]).filter(Boolean);
+  const crumbCell = cells.find((c) => c.querySelector('ul') && !c.querySelector('picture, img, h1, h2, h3, h4'));
+  const mediaCell = cells.find((c) => c.querySelector('picture, img'));
+  const textCell = cells.find((c) => c.querySelector('h1, h2, h3, h4, h5, h6')) || cells[cells.length - 1];
+  const config = mediaCell ? [...mediaCell.querySelectorAll('p')].filter((p) => !p.querySelector('picture, img') && p.textContent.trim()).map((p) => p.textContent.trim().toLowerCase()) : [];
+  const dark = block.classList.contains('dark');
+  const gradient = dark ? 'black-gradient' : 'dark-purple-gradient';
+  const section = el('section', 'componentSkinnyBanner component-banner', { 'data-card-type': 'banner', 'data-analytics-link-region': 'hero' });
+  if (config.includes('desktop-on-mobile')) section.classList.add('dm-desktop-on-mobile');
+  const wrapper = el('div', `desktop-wrapper small-banner${mediaCell ? '' : ` bg-desktop ${gradient}`}`);
+  wrapper.append(el('div', 'image-overlay opacity-0'));
+  if (crumbCell) {
+    const bc = breadcrumb(unwrapCrumbParagraphs(crumbCell.querySelector('ul')));
+    if (!mediaCell) bc.className = `breadcrumb-container gradient-background ${gradient}`;
+    wrapper.append(bc);
+  }
+  const bannerImg = el('div', 'banner-img');
+  bannerImg.append(el('div', 'cropped-img'));
+  if (mediaCell) {
+    const [desk, mob] = media(mediaCell);
+    [[desk, 'dm-desktop'], [mob, 'dm-mobile']].forEach(([pic, cls]) => {
+      if (!pic) return;
+      const host = el('div', `${cls} component-image cmp-image`);
+      const im = pic.querySelector('img') || pic;
+      im.classList.add('img-responsive');
+      if (cls === 'dm-desktop') { im.loading = 'eager'; im.setAttribute('fetchpriority', 'high'); }
+      host.append(pic);
+      bannerImg.append(host);
+    });
+  }
+  wrapper.append(bannerImg);
+  const overlay = el('div', `text-overlay flex-container text-align-${block.classList.contains('left') ? 'left' : 'center'}`);
+  const content = el('div', 'content-wrapper');
+  const textWrap = el('div', 'text-wrapper contentValignCenter');
+  const outerText = el('div', 'component-text');
+  const heading = textCell.querySelector('h1, h2, h3, h4, h5, h6');
+  const paragraphs = [...textCell.querySelectorAll('p')];
+  const linkPs = paragraphs.filter((p) => p.querySelector('a'));
+  const plain = paragraphs.filter((p) => !p.querySelector('a') && p.textContent.trim());
+  const titleP = plain.find((p) => p.querySelector('strong')) || plain[0];
+  const subs = plain.filter((p) => p !== titleP);
+  const title = el('div', 'title');
+  if (heading) { heading.classList.add('ui-helper-hidden-accessible'); title.append(heading); }
+  const visible = el('div', block.classList.contains('small') ? 'text-size-smaller' : 'text-size-normal');
+  visible.style.color = '#ffffff';
+  if (titleP) visible.append(titleP);
+  title.append(visible);
+  const innerText = el('div', 'component-text');
+  const sub = el('div', 'sub-title'); // the source keeps the (possibly empty) sub-title box — its margins are part of the geometry
+  sub.style.color = '#ffffff';
+  subs.forEach((p) => sub.append(p));
+  innerText.append(sub);
+  linkPs.forEach((p) => {
+    const a = p.querySelector('a');
+    const secondary = a.classList.contains('secondary') || (!a.classList.contains('button') && !!p.querySelector('em'));
+    const btn = el('div', `component-button ${secondary ? 'secondary' : 'primary'} dark darkButtonRollover`);
+    if (block.classList.contains('download')) { const label = el('span'); label.append(...a.childNodes); a.append(svg(FA_DOWNLOAD), ' ', label, ' '); }
+    if (block.classList.contains('arrow')) { a.classList.add('has-arrow'); a.append(svg(FA_ARROW)); }
+    btn.append(p);
+    innerText.append(btn);
+  });
+  outerText.append(title, innerText);
+  textWrap.append(outerText);
+  content.append(textWrap);
+  overlay.append(content);
+  wrapper.append(overlay);
+  section.append(wrapper);
+  block.replaceChildren(section);
+}
+
 export default function decorate(block) {
   if (block.classList.contains('skinny-hero')) { decorateSmall(block); return; } // listing family: skinny hero with breadcrumb
   if (block.classList.contains('video')) { decorateVideo(block); return; }
+  if (block.classList.contains('hero')) { decorateHero(block); return; }
   if (block.classList.contains('image') && [...block.classList].some((c) => /^(left|narrow|opacity-\d+)$/.test(c))) {
     decorateImage(block); adjustImage(block); return;
   }

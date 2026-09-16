@@ -72,55 +72,68 @@ function decorateEvents(block) {
   block.replaceChildren(grid);
 }
 
-/* ---- container variant (source: component-boxLinkContainer): one cell per column; each <p><a>
-   is a box link, a
-   <ul> right after it lists that link's dropdown entries (rest state: closed, no open behaviour
-      was observed) ---- */
+/* ---- container variant (landing family): the page-level component-boxLinkContainer — an (empty)
+   title row and one
+   boxLinkItem column per authored cell (col-sm-4 for three, col-sm-6 for two, col-sm-3 for four). A
+   box is a <p> (link or
+   plain label) optionally followed by a <ul> of dropdown links: the source hides the dropdown at
+   rest (display:none) and
+   toggles it from the icon; the icon click here toggles li.open the same way. Tier: reconstructive;
+   authored nodes are
+   MOVED (EW1); the dropdown list moves whole into a wrapper that carries the layout class (EW2).
+   ---- */
+function containerBox(p, list) {
+  const a = p.querySelector('a');
+  const host = el('div', 'boxLink');
+  const ul = el('ul', `component-boxLink${list ? '' : ' no-dropdown'}`, { role: 'menu', 'data-analytics-link-region': 'list' });
+  const li = el('li');
+  const label = el('div', 'topLabel');
+  if (a) a.classList.add('topLink');
+  label.append(p);
+  li.append(label);
+  if (list) {
+    const icon = el('div', 'icon', { role: 'button', tabindex: '0', 'aria-expanded': 'false' });
+    const wrap = el('div', 'dropdown-wrap', { role: 'menu' });
+    wrap.append(list);
+    li.append(icon, wrap);
+    const toggle = () => { const open = li.classList.toggle('open'); icon.setAttribute('aria-expanded', open ? 'true' : 'false'); };
+    icon.addEventListener('click', toggle);
+    icon.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+  } else {
+    const iconA = el('a', 'topLink', { href: a ? a.getAttribute('href') : '#', 'aria-hidden': 'true', tabindex: '-1' });
+    if (a && a.target) iconA.target = a.target;
+    iconA.append(el('div', 'icon'));
+    li.append(iconA);
+  }
+  ul.append(li);
+  host.append(ul);
+  return host;
+}
+
 function decorateContainer(block) {
-  const cells = [...block.children].flatMap((row) => [...row.children]).filter((c) => c.querySelector('a'));
+  const cells = [...block.children].flatMap((row) => [...row.children])
+    .filter((c) => c.textContent.trim());
+  const span = { 2: 'col-sm-6', 4: 'col-sm-3' }[cells.length] || 'col-sm-4';
+  const container = el('div', 'container');
   const section = el('section', 'component-boxLinkContainer', { 'data-analytics-link-region': 'list' });
   const titleRow = el('div', 'row');
   titleRow.append(el('div', 'col-xs-12'));
   const row = el('div', 'row no-title');
-  const span = { 3: 'col-sm-4', 4: 'col-sm-3' }[cells.length] || 'col-sm-6';
   cells.forEach((cell) => {
     const col = el('div', `${span} boxLinkItem`);
-    const wrap = el('div');
+    const inner = el('div');
     const grid = el('div', 'aem-Grid');
-    [...cell.children].forEach((node) => {
-      if (node.tagName !== 'P' || !node.querySelector('a')) return;
-      const a = node.querySelector('a');
-      const next = node.nextElementSibling;
-      const list = next && next.tagName === 'UL' ? next : null;
-      const host = el('div', 'boxLink');
-      const ul = el('ul', `component-boxLink${list ? '' : ' no-dropdown'}`, { 'data-analytics-link-region': 'list' });
-      if (!list) ul.setAttribute('role', 'menu');
-      const li = el('li');
-      const label = el('div', 'topLabel');
-      a.classList.add('topLink');
-      label.append(node);
-      li.append(label);
-      if (list) {
-        li.append(el('div', 'icon'));
-        const dd = el('div', 'dropdown-link', { role: 'menu' });
-        dd.append(list);
-        li.append(dd);
-      } else {
-        const iconA = el('a', 'topLink', { href: a.getAttribute('href'), 'aria-hidden': 'true', tabindex: '-1' });
-        if (a.target) iconA.target = a.target;
-        iconA.append(el('div', 'icon'));
-        li.append(iconA);
-      }
-      ul.append(li);
-      host.append(ul);
-      grid.append(host);
+    const kids = [...cell.children];
+    kids.forEach((k, i) => {
+      if (k.tagName !== 'P' || !k.textContent.trim()) return;
+      const next = kids[i + 1];
+      grid.append(containerBox(k, next && /^(UL|OL)$/.test(next.tagName) ? next : null));
     });
-    wrap.append(grid);
-    col.append(wrap);
+    inner.append(grid);
+    col.append(inner);
     row.append(col);
   });
   section.append(titleRow, row);
-  const container = el('div', 'container');
   container.append(section);
   block.replaceChildren(container);
 }

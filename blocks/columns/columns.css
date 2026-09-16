@@ -760,33 +760,33 @@
 }
 
 /* ---- article family (stardust/scripts/eds/article/port-article.sh) ---- */
-.columns.media .img-responsive {
+.columns.media:not(.landing) .img-responsive {
   display:block;
   max-width:100%;
   height:auto;
 }
-.columns.media .svg-inline--fa {
+.columns.media:not(.landing) .svg-inline--fa {
   display:inline-block;
   height:1em;
   overflow:visible;
   vertical-align:-.125em;
   box-sizing:content-box;
 }
-.columns.media .component-textcomp .title.text-size-smaller {
+.columns.media:not(.landing) .component-textcomp .title.text-size-smaller {
   font-size:24px;
 }
 
 @media(min-width:730px) {
-.columns.media .component-textcomp .title.text-size-smaller {
+.columns.media:not(.landing) .component-textcomp .title.text-size-smaller {
   font-size:24px;
 }
 }
 
-.columns.media .text-size-smaller {
+.columns.media:not(.landing) .text-size-smaller {
   font-size:.8em;
 }
-.columns.media .col-sm-4,
-.columns.media .col-sm-8 {
+.columns.media:not(.landing) .col-sm-4,
+.columns.media:not(.landing) .col-sm-8 {
   position:relative;
   min-height:1px;
   padding-left:15px;
@@ -794,30 +794,30 @@
 }
 
 @media(min-width:730px) {
-.columns.media .col-sm-4,
-.columns.media .col-sm-8 {
+.columns.media:not(.landing) .col-sm-4,
+.columns.media:not(.landing) .col-sm-8 {
   float:left;
 }
-.columns.media .col-sm-4 {
+.columns.media:not(.landing) .col-sm-4 {
   width:33.33333%;
 }
-.columns.media .col-sm-8 {
+.columns.media:not(.landing) .col-sm-8 {
   width:66.66667%;
 }
 }
 
 @media(max-width:730px) {
-.columns.media .img-responsive.svg {
+.columns.media:not(.landing) .img-responsive.svg {
   height:140px;
   width:auto;
   margin:0 auto;
 }
 }
 
-.columns.media .componentSkinnyBanner .text-size-smaller {
+.columns.media:not(.landing) .componentSkinnyBanner .text-size-smaller {
   font-size:.8em;
 }
-.columns.media .col-sm-4 {
+.columns.media:not(.landing) .col-sm-4 {
   position:relative;
   min-height:1px;
   padding-left:15px;
@@ -825,31 +825,31 @@
 }
 
 @media(min-width:730px) {
-.columns.media .col-sm-4 {
+.columns.media:not(.landing) .col-sm-4 {
   float:left;
 }
-.columns.media .col-sm-4 {
+.columns.media:not(.landing) .col-sm-4 {
   width:33.33333333%;
 }
 }
 
 
 /* media variant aliases (EW2) */
-.columns.media.small .component-textcomp .title {
+.columns.media:not(.landing).small .component-textcomp .title {
   font-size: 24px;
 }
 
-.columns.media.purple .component-textcomp .title {
+.columns.media:not(.landing).purple .component-textcomp .title {
   color: #5a2a82;
 }
 
-.columns.media .image picture {
+.columns.media:not(.landing) .image picture {
   display: block;
 }
 
 /* source: svg images keep a fixed 140px height on phones (.img-responsive.svg) — the pipeline drops the class, the src keeps the extension */
 @media (max-width: 730px) {
-  .columns.media .image img[src*=".svg"] {
+  .columns.media:not(.landing) .image img[src*=".svg"] {
     height: 140px;
     width: auto;
     margin: 0 auto;

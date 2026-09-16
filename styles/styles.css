@@ -690,7 +690,8 @@ main .section.separator {
   width: 100%;
   max-width: var(--snps-container);
   margin: 0 auto;
-  padding: 0 15px;
+  padding-right: 15px; /* horizontal only: pad-top/bottom tokens on separator sections (landing pages) must survive */
+  padding-left: 15px;
 }
 
 main .section.separator[data-section-status="loaded"] {

@@ -12,7 +12,8 @@
  *   2. <h2>form title</h2>
  * 3..N field rows, three cells: <p>label</p> (<strong> = required) | <p>type</p> (text, email,
     tel, select,
- *      textarea) | <ul> options for a select (an <em> item is the placeholder option)
+ *      textarea) | <ul> options for a select (an <em> item is the placeholder option, a <strong>
+ *      item the pre-selected one)
  *   note rows: <p>…</p> (the "Required Fields *" note, the consent text)
  *   last: <p><strong>submit label</strong></p>
  * Variant `purple` = the purple-gradient ground (white title/description).
@@ -56,6 +57,7 @@ function fieldRow(cells, index) {
       const placeholder = !!li.querySelector('em');
       const opt = el('option', '', { value: placeholder ? '' : li.textContent.trim() });
       opt.textContent = li.textContent.trim();
+      if (li.querySelector('strong')) opt.selected = true; // <strong> item = the pre-selected option
       field.append(opt);
     });
   } else if (type === 'textarea') {

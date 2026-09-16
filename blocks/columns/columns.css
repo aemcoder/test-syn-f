@@ -492,12 +492,12 @@
 }
 
 .columns.speakers .two2575Right .component-text p {
-  margin: 0 0 10px;
+  margin: 0; /* the source's speaker lines are unspaced <div>s */
 }
 
 .columns.speakers .two2575Right .component-text p.button-wrapper {
   display: block;
-  margin: 0 0 10px;
+  margin: 0;
 }
 
 .columns.speakers .two2575Right .component-text a.button:any-link,

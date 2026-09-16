@@ -637,7 +637,7 @@ main .section.textcomp.center .default-content-wrapper p.button-wrapper {
 }
 
 /* the copy before a CTA keeps the source's 24px gap (.component-text margin-bottom collapses into .buttons margin-top) */
-main .section.textcomp .default-content-wrapper :is(p, ul, ol):has(+ p.button-wrapper) {
+main .section.textcomp:not(.links, .cta) .default-content-wrapper :is(p, ul, ol):has(+ p.button-wrapper) {
   margin-bottom: 0;
 }
 

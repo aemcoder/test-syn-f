@@ -54,10 +54,51 @@ function column(cell, divider) {
   return col;
 }
 
+/* ---- media: an image column beside a text column (bootstrap 4/8 split — the cell with the
+   picture takes col-sm-4, the text cell col-sm-8, in authored order). Variant classes:
+   `image-top` / `image-bottom` = the source image wrapper's vert-pad-top-sm / vert-pad-bottom-sm,
+   `small` = text-size-smaller title, `purple` = the #5A2A82 title. ---- */
+function decorateMedia(block, rows) {
+  const host = el('div', 'column');
+  const container = el('div', 'container');
+  rows.forEach((cells) => {
+    const row = el('section', 'component-column row');
+    cells.forEach((cell) => {
+      const pic = cell.querySelector('picture, img');
+      if (pic) {
+        const col = el('div', 'col-xs-12 col-sm-4');
+        const grid = el('div', 'aem-Grid');
+        const image = el('div', 'image');
+        let padCls = '';
+        if (block.classList.contains('image-top')) padCls = 'background-component vert-pad-top-sm';
+        if (block.classList.contains('image-bottom')) padCls = 'background-component vert-pad-bottom-sm';
+        const inner = el('div', 'container');
+        const ci = el('div', 'component-image');
+        const cmp = el('div', 'cmp-image');
+        cmp.append(pic);
+        ci.append(cmp);
+        inner.append(ci);
+        if (padCls) { const pad = el('div', padCls); pad.append(inner); image.append(pad); } else image.append(inner);
+        grid.append(image);
+        col.append(grid);
+        row.append(col);
+      } else {
+        const col = column(cell, false);
+        col.className = 'col-xs-12 col-sm-8';
+        row.append(col);
+      }
+    });
+    container.append(row);
+  });
+  host.append(container);
+  block.replaceChildren(host);
+}
+
 export default function decorate(block) {
   const divider = block.classList.contains('divider');
   const rows = [...block.children].map((row) => [...row.children]).filter((cells) => cells.length);
   if (!rows.length) return;
+  if (block.classList.contains('media')) { decorateMedia(block, rows); return; }
   const bg = el('div', divider ? 'background-component light-grey-bg vert-pad-top-md vert-pad-bottom-md' : 'background-component');
   const container = el('div', 'container');
   rows.forEach((cells) => {

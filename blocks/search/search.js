@@ -19,6 +19,8 @@
  *                     <h4><a href>title</a></h4> <p>excerpt</p> then field pairs
  *                     <p>Tags:</p><ul><li>Ecosystem Partners</li></ul>
  * Tier: reconstructive. Authored nodes are MOVED (EW1); wrappers carry the classes (EW2).
+ * Variant `date-below` (events, webinars): the live result template puts the date under the
+ * thumbnail (media column = picture + 16px + 20px date row) instead of the head row.
  * Behaviour observed live and replicated: the list/grid view toggle swaps `.active`. Search box,
  * facets, sort and pager are the captured (inert) state — the search service is third-party.
  * @ew-exempt <p> search-box placeholder (head row) — metadata (input attribute)
@@ -184,7 +186,7 @@ function buildFacet(cells) {
 }
 
 /* ---- result: picture | badge, [date], heading, excerpt, field pairs ---- */
-function buildResult(cells) {
+function buildResult(cells, dateBelow) {
   const mediaCell = cells.find((c) => c.querySelector('picture, img'));
   const textCell = cells.find((c) => c !== mediaCell) || mediaCell;
   const article = el('article', 'listing-result');
@@ -200,7 +202,7 @@ function buildResult(cells) {
   const badge = el('div', 'listing-result__badge');
   if (badgeP) badge.append(badgeP); else badge.classList.add('listing-result__badge--empty');
   const date = el('div', 'listing-result__date');
-  if (dateP) date.append(dateP);
+  if (dateP && !dateBelow) date.append(dateP);
   head.append(badge, date);
   const title = el('div', 'listing-result__title');
   if (heading) title.append(heading);
@@ -234,6 +236,8 @@ function buildResult(cells) {
     const media = el('div', 'listing-result__media');
     const pic = mediaCell.querySelector('picture') || mediaCell.querySelector('img');
     if (pic) { const img = pic.querySelector('img') || pic; img.setAttribute('loading', 'lazy'); media.append(pic); }
+    // date-below variant (events, webinars): the live template shows the date under the thumbnail
+    if (dateBelow && dateP) { const d = el('div', 'listing-result__date'); d.append(dateP); media.append(d); }
     body.append(media);
   }
   article.append(head, body);
@@ -243,6 +247,7 @@ function buildResult(cells) {
 export default function decorate(block) {
   const rows = [...block.children].map((row) => [...row.children]).filter((cells) => cells.length);
   const state = {};
+  const dateBelow = block.classList.contains('date-below');
   const facets = el('aside', 'listing-facets');
   const results = el('div', 'listing-results__list');
   let head = null;
@@ -251,7 +256,7 @@ export default function decorate(block) {
     if (kind === 'head') head = buildHead(cells[0]);
     else if (kind === 'toolbar') buildToolbar(cells, state);
     else if (kind === 'facet') facets.append(buildFacet(cells));
-    else results.append(buildResult(cells));
+    else results.append(buildResult(cells, dateBelow));
   });
   // a section head authored as default content before the block (D1) is reabsorbed into the
   // widget title (EW8)

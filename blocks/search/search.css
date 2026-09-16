@@ -884,3 +884,22 @@
 .search .listing-result__media picture {
   display: block;
 }
+
+/* date-below variant: media column = picture (16px below) + 20px date row, no column margin (live events/webinars template) */
+.search.date-below .listing-result__media {
+  margin-bottom: 0;
+}
+
+.search.date-below .listing-result__media img {
+  margin-bottom: 16px;
+}
+
+.search.date-below .listing-result__media .listing-result__date {
+  display: block;
+  height: 20px;
+  padding: 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #555;
+}

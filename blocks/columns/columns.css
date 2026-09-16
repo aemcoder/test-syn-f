@@ -361,8 +361,6 @@
 
 /* ---- static family (port-static.sh): image-text-cta + text-image variants — verbatim source rules, appended ---- */
 .columns .img-responsive {
-/* ---- article family (stardust/scripts/eds/article/port-article.sh) ---- */
-.columns.media .img-responsive {
   display:block;
   max-width:100%;
   height:auto;
@@ -475,74 +473,6 @@
   width:100%;
 }
 .columns .component-imageTextCta > .container {
-/* ---- program family (stardust/scripts/eds/program/port-program.sh) ---- */
-.columns .col-sm-3 {
-  position:relative;
-  min-height:1px;
-  padding-left:15px;
-  padding-right:15px;
-}
-
-@media(min-width:730px) {
-.columns .col-sm-3 {
-  float:left;
-}
-.columns .col-sm-3 {
-  width:25%;
-}
-}
-
-.columns .component-textcomp .title.text-size-smaller {
-  font-size:24px;
-}
-
-@media(min-width:730px) {
-.columns .component-textcomp .title.text-size-smaller {
-  font-size:24px;
-}
-}
-
-.columns .text-size-smaller {
-  font-size:.8em;
-}
-.columns .col-sm-3,
-.columns .col-sm-9 {
-  position:relative;
-  min-height:1px;
-  padding-left:15px;
-  padding-right:15px;
-}
-
-@media(min-width:730px) {
-.columns .col-sm-3,
-.columns .col-sm-9 {
-  float:left;
-}
-.columns .col-sm-3 {
-  width:25%;
-}
-.columns .col-sm-9 {
-  width:75%;
-}
-}
-
-.columns .col-sm-9 {
-  position:relative;
-  min-height:1px;
-  padding-left:15px;
-  padding-right:15px;
-}
-
-@media(min-width:730px) {
-.columns .col-sm-9 {
-  float:left;
-}
-.columns .col-sm-9 {
-  width:75%;
-}
-}
-
-.columns .two2575Right .container {
   width:100%;
   max-width:none;
   padding:0;
@@ -619,79 +549,7 @@
   margin-bottom:0;
 }
 .columns .col-sm-4,
-/* ---- listing family (stardust/scripts/eds/listing/port-listing.sh) ---- */
-.columns .component-column .snps-col-divider {
-  display:none;
-  position:relative;
-}
-.columns .component-column .vl {
-  border-left:1px solid #c4c4c4;
-  height:100%;
-  position:absolute;
-  left:50%;
-  margin-left:.5px;
-  top:0;
-}
-
-@media(min-width:730px) {
-.columns .component-column.divider-row.row {
-  display:flex;
-}
-.columns .component-column.divider-row.row .col.snps-col-divider {
-  display:block;
-}
-.columns .component-column.divider-row.row .divider-spacing-small-30.col-sm-6 {
-  width:calc((100% / 12 * 6) - 15px);
-}
-.columns .component-column.divider-row.row .divider-spacing-small-30.col-sm-4 {
-  width:calc((100% / 12 * 4) - 15px);
-}
-.columns .component-column.divider-row.row .divider-spacing-small-30.col-sm-4.three {
-  width:calc((100% / 12 * 4) - (15px * 4 / 3));
-}
-.columns .component-column.divider-row.row .divider-spacing-small-30.col-sm-8 {
-  width:calc((100% / 12 * 8) - 15px);
-}
-.columns .component-column.divider-row.row .divider-spacing-small-30.snps-col-divider.col.snps-col-divider {
-  width:calc(15px * 2);
-}
-.columns .component-column.divider-row.row .divider-spacing-xs-20.col-sm-6 {
-  width:calc((100% / 12 * 6) - 5px);
-}
-.columns .component-column.divider-row.row .divider-spacing-xs-20.col-sm-4 {
-  width:calc((100% / 12 * 4) - 5px);
-}
-.columns .component-column.divider-row.row .divider-spacing-xs-20.col-sm-8 {
-  width:calc((100% / 12 * 8) - 5px);
-}
-.columns .component-column.divider-row.row .divider-spacing-xs-20.snps-col-divider.col.snps-col-divider {
-  width:calc(5px * 2);
-}
-}
-
 .columns .col-sm-8 {
-.columns.media .svg-inline--fa {
-  display:inline-block;
-  height:1em;
-  overflow:visible;
-  vertical-align:-.125em;
-  box-sizing:content-box;
-}
-.columns.media .component-textcomp .title.text-size-smaller {
-  font-size:24px;
-}
-
-@media(min-width:730px) {
-.columns.media .component-textcomp .title.text-size-smaller {
-  font-size:24px;
-}
-}
-
-.columns.media .text-size-smaller {
-  font-size:.8em;
-}
-.columns.media .col-sm-4,
-.columns.media .col-sm-8 {
   position:relative;
   min-height:1px;
   padding-left:15px;
@@ -707,14 +565,6 @@
   width:33.33333%;
 }
 .columns .col-sm-8 {
-.columns.media .col-sm-4,
-.columns.media .col-sm-8 {
-  float:left;
-}
-.columns.media .col-sm-4 {
-  width:33.33333%;
-}
-.columns.media .col-sm-8 {
   width:66.66667%;
 }
 }
@@ -806,6 +656,278 @@
   max-width: none;
   min-height: 0;
   margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  font: inherit;
+  color: inherit;
+  background: none;
+  box-shadow: none;
+}
+
+.columns .component-text-image-2-column h4 {
+  font-size: 22px;
+}
+
+/* the source "Learn More" is a bare <a> in .component-text (body font size); the authored paragraph must not shrink it */
+.columns .component-text-image-2-column .cta-text p {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+@media (min-width: 730px) {
+  .columns .component-text-image-2-column h4 {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .columns .component-text-image-2-column h4 {
+    font-size: 30px;
+  }
+}
+
+/* ---- listing family (stardust/scripts/eds/listing/port-listing.sh) ---- */
+.columns .component-column .snps-col-divider {
+  display:none;
+  position:relative;
+}
+.columns .component-column .vl {
+  border-left:1px solid #c4c4c4;
+  height:100%;
+  position:absolute;
+  left:50%;
+  margin-left:.5px;
+  top:0;
+}
+
+@media(min-width:730px) {
+.columns .component-column.divider-row.row {
+  display:flex;
+}
+.columns .component-column.divider-row.row .col.snps-col-divider {
+  display:block;
+}
+.columns .component-column.divider-row.row .divider-spacing-small-30.col-sm-6 {
+  width:calc((100% / 12 * 6) - 15px);
+}
+.columns .component-column.divider-row.row .divider-spacing-small-30.col-sm-4 {
+  width:calc((100% / 12 * 4) - 15px);
+}
+.columns .component-column.divider-row.row .divider-spacing-small-30.col-sm-4.three {
+  width:calc((100% / 12 * 4) - (15px * 4 / 3));
+}
+.columns .component-column.divider-row.row .divider-spacing-small-30.col-sm-8 {
+  width:calc((100% / 12 * 8) - 15px);
+}
+.columns .component-column.divider-row.row .divider-spacing-small-30.snps-col-divider.col.snps-col-divider {
+  width:calc(15px * 2);
+}
+.columns .component-column.divider-row.row .divider-spacing-xs-20.col-sm-6 {
+  width:calc((100% / 12 * 6) - 5px);
+}
+.columns .component-column.divider-row.row .divider-spacing-xs-20.col-sm-4 {
+  width:calc((100% / 12 * 4) - 5px);
+}
+.columns .component-column.divider-row.row .divider-spacing-xs-20.col-sm-8 {
+  width:calc((100% / 12 * 8) - 5px);
+}
+.columns .component-column.divider-row.row .divider-spacing-xs-20.snps-col-divider.col.snps-col-divider {
+  width:calc(5px * 2);
+}
+}
+
+.columns .col-sm-8 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+
+@media(min-width:730px) {
+.columns .col-sm-8 {
+  float:left;
+  width:66.66666667%;
+}
+}
+
+/* ---- listing aliases: columns fragments (stardust/scripts/eds/listing/alias-listing.mjs) ---- */
+.columns .component-column .aem-Grid > .section > .default-content-wrapper {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---- article family (stardust/scripts/eds/article/port-article.sh) ---- */
+.columns.media .img-responsive {
+  display:block;
+  max-width:100%;
+  height:auto;
+}
+.columns.media .svg-inline--fa {
+  display:inline-block;
+  height:1em;
+  overflow:visible;
+  vertical-align:-.125em;
+  box-sizing:content-box;
+}
+.columns.media .component-textcomp .title.text-size-smaller {
+  font-size:24px;
+}
+
+@media(min-width:730px) {
+.columns.media .component-textcomp .title.text-size-smaller {
+  font-size:24px;
+}
+}
+
+.columns.media .text-size-smaller {
+  font-size:.8em;
+}
+.columns.media .col-sm-4,
+.columns.media .col-sm-8 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+
+@media(min-width:730px) {
+.columns.media .col-sm-4,
+.columns.media .col-sm-8 {
+  float:left;
+}
+.columns.media .col-sm-4 {
+  width:33.33333%;
+}
+.columns.media .col-sm-8 {
+  width:66.66667%;
+}
+}
+
+@media(max-width:730px) {
+.columns.media .img-responsive.svg {
+  height:140px;
+  width:auto;
+  margin:0 auto;
+}
+}
+
+.columns.media .componentSkinnyBanner .text-size-smaller {
+  font-size:.8em;
+}
+.columns.media .col-sm-4 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+
+@media(min-width:730px) {
+.columns.media .col-sm-4 {
+  float:left;
+}
+.columns.media .col-sm-4 {
+  width:33.33333333%;
+}
+}
+
+
+/* media variant aliases (EW2) */
+.columns.media.small .component-textcomp .title {
+  font-size: 24px;
+}
+
+.columns.media.purple .component-textcomp .title {
+  color: #5a2a82;
+}
+
+.columns.media .image picture {
+  display: block;
+}
+
+/* source: svg images keep a fixed 140px height on phones (.img-responsive.svg) — the pipeline drops the class, the src keeps the extension */
+@media (max-width: 730px) {
+  .columns.media .image img[src*=".svg"] {
+    height: 140px;
+    width: auto;
+    margin: 0 auto;
+  }
+}
+
+/* ---- program family (stardust/scripts/eds/program/port-program.sh) ---- */
+.columns .col-sm-3 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+
+@media(min-width:730px) {
+.columns .col-sm-3 {
+  float:left;
+}
+.columns .col-sm-3 {
+  width:25%;
+}
+}
+
+.columns .component-textcomp .title.text-size-smaller {
+  font-size:24px;
+}
+
+@media(min-width:730px) {
+.columns .component-textcomp .title.text-size-smaller {
+  font-size:24px;
+}
+}
+
+.columns .text-size-smaller {
+  font-size:.8em;
+}
+.columns .col-sm-3,
+.columns .col-sm-9 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+
+@media(min-width:730px) {
+.columns .col-sm-3,
+.columns .col-sm-9 {
+  float:left;
+}
+.columns .col-sm-3 {
+  width:25%;
+}
+.columns .col-sm-9 {
+  width:75%;
+}
+}
+
+.columns .col-sm-9 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+
+@media(min-width:730px) {
+.columns .col-sm-9 {
+  float:left;
+}
+.columns .col-sm-9 {
+  width:75%;
+}
+}
+
+.columns .two2575Right .container {
+  width:100%;
+  max-width:none;
+  padding:0;
+  margin:0;
 }
 .columns .two2575Right .text .component-textcomp .title.text-size-smaller {
   font-size:24px;
@@ -886,92 +1008,6 @@
   border: 0;
   border-radius: 0;
   font: inherit;
-  color: inherit;
-  background: none;
-  box-shadow: none;
-}
-
-.columns .component-text-image-2-column h4 {
-  font-size: 22px;
-}
-
-/* the source "Learn More" is a bare <a> in .component-text (body font size); the authored paragraph must not shrink it */
-.columns .component-text-image-2-column .cta-text p {
-  margin: 0;
-  font-size: inherit;
-  line-height: inherit;
-}
-
-@media (min-width: 730px) {
-  .columns .component-text-image-2-column h4 {
-    font-size: 20px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .columns .component-text-image-2-column h4 {
-    font-size: 30px;
-  }
-.columns .col-sm-8 {
-  float:left;
-  width:66.66666667%;
-}
-}
-
-/* ---- listing aliases: columns fragments (stardust/scripts/eds/listing/alias-listing.mjs) ---- */
-.columns .component-column .aem-Grid > .section > .default-content-wrapper {
-  max-width: none;
-  margin: 0;
-  padding: 0;
-}
-@media(max-width:730px) {
-.columns.media .img-responsive.svg {
-  height:140px;
-  width:auto;
-  margin:0 auto;
-}
-}
-
-.columns.media .componentSkinnyBanner .text-size-smaller {
-  font-size:.8em;
-}
-.columns.media .col-sm-4 {
-  position:relative;
-  min-height:1px;
-  padding-left:15px;
-  padding-right:15px;
-}
-
-@media(min-width:730px) {
-.columns.media .col-sm-4 {
-  float:left;
-}
-.columns.media .col-sm-4 {
-  width:33.33333333%;
-}
-}
-
-
-/* media variant aliases (EW2) */
-.columns.media.small .component-textcomp .title {
-  font-size: 24px;
-}
-
-.columns.media.purple .component-textcomp .title {
-  color: #5a2a82;
-}
-
-.columns.media .image picture {
-  display: block;
-}
-
-/* source: svg images keep a fixed 140px height on phones (.img-responsive.svg) — the pipeline drops the class, the src keeps the extension */
-@media (max-width: 730px) {
-  .columns.media .image img[src*=".svg"] {
-    height: 140px;
-    width: auto;
-    margin: 0 auto;
-  }
   font-weight: 700;
   color: #316aca;
   background: none;

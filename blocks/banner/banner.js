@@ -144,7 +144,76 @@ function decorateImage(block) {
   block.replaceChildren(section);
 }
 
+/* ---- small variant (listing family): the 285px skinny hero with breadcrumb of the listing pages
+   (newsroom, blogs, events). Authoring rows: 1. <ul> breadcrumb (nested <ul> = dropdown),
+   2. optional
+   <p><img></p> background picture (no picture = the dark-purple gradient band), 3. <h1>Page</h1> +
+   <p><strong>Page</strong></p> (the visible title; the h1 is the accessible one, as the source).
+   Tier: template-slotted; authored nodes are MOVED (EW1/EW3). ---- */
+function decorateSmall(block) {
+  const cells = [...block.children].map((row) => [...row.children])
+    .map((r) => r[0]).filter(Boolean);
+  const crumbCell = cells.find((c) => c.querySelector('ul') && !c.querySelector('picture, img, h1, h2'));
+  const mediaCell = cells.find((c) => c.querySelector('picture, img'));
+  const textCell = cells.find((c) => c.querySelector('h1, h2, h3, h4, h5, h6')) || cells[cells.length - 1];
+  const gradient = !mediaCell || block.classList.contains('gradient');
+  const section = el('section', 'componentSkinnyBanner component-banner', { 'data-card-type': 'banner', 'data-analytics-link-region': 'hero' });
+  const wrapper = el('div', gradient ? 'desktop-wrapper small-banner bg-desktop dark-purple-gradient' : 'desktop-wrapper small-banner');
+  wrapper.append(el('div', 'image-overlay opacity-0'));
+  if (crumbCell) {
+    // a crumb with a submenu is delivered as <li><p><a>…</a></p><ul>: unwrap the inner <p> (the outer <ul>
+    // is the editable unit) so the source's >ul>li>a rules match
+    crumbCell.querySelectorAll('ul > li > p')
+      .forEach((p) => p.replaceWith(...p.childNodes));
+    const crumbs = breadcrumb(crumbCell.querySelector('ul'));
+    crumbs.className = gradient ? 'breadcrumb-container gradient-background dark-purple-gradient' : 'breadcrumb-container image-background dark-mode';
+    wrapper.append(crumbs);
+  }
+  const bannerImg = el('div', 'banner-img');
+  bannerImg.append(el('div', 'cropped-img'));
+  if (mediaCell) {
+    const [desk, mob] = media(mediaCell);
+    [[desk, 'dm-desktop'], [mob, 'dm-mobile']].forEach(([pic, cls]) => {
+      if (!pic) return;
+      const host = el('div', `${cls} component-image cmp-image`);
+      const img = pic.querySelector('img') || pic;
+      img.classList.add('img-responsive');
+      if (cls === 'dm-desktop') { img.loading = 'eager'; img.setAttribute('fetchpriority', 'high'); }
+      host.append(pic);
+      bannerImg.append(host);
+    });
+    if (!mob) section.classList.add('dm-desktop-on-mobile'); // a lone desktop picture shows at every width (source per-instance style)
+  }
+  wrapper.append(bannerImg);
+  const overlay = el('div', 'text-overlay flex-container text-align-center');
+  const content = el('div', 'content-wrapper');
+  const textWrap = el('div', 'text-wrapper contentValignCenter');
+  const outerText = el('div', 'component-text');
+  const title = el('div', 'title');
+  const heading = textCell ? textCell.querySelector('h1, h2, h3, h4, h5, h6') : null;
+  if (heading) { heading.classList.add('ui-helper-hidden-accessible'); title.append(heading); }
+  const visible = el('div', 'text-size-normal');
+  visible.style.color = '#ffffff';
+  const paragraphs = textCell ? [...textCell.querySelectorAll('p')] : [];
+  const titleP = paragraphs.find((p) => !p.querySelector('a') && p.textContent.trim());
+  if (titleP) visible.append(titleP);
+  title.append(visible);
+  const innerText = el('div', 'component-text');
+  const sub = el('div', 'sub-title');
+  sub.style.color = '#ffffff';
+  paragraphs.filter((p) => p !== titleP && !p.querySelector('a') && p.textContent.trim()).forEach((p) => sub.append(p));
+  innerText.append(sub);
+  outerText.append(title, innerText);
+  textWrap.append(outerText);
+  content.append(textWrap);
+  overlay.append(content);
+  wrapper.append(overlay);
+  section.append(wrapper);
+  block.replaceChildren(section);
+}
+
 export default function decorate(block) {
+  if (block.classList.contains('small')) { decorateSmall(block); return; } // listing family: skinny hero with breadcrumb
   if (block.classList.contains('image')) { decorateImage(block); return; }
   const cells = [...block.children].flatMap((row) => [...row.children]);
   if (!cells.length) return;

@@ -32,7 +32,48 @@ function box(p) {
   return host;
 }
 
+/* ---- events variant (listing family): the "Upcoming Events" boxes of the newsroom sidebar
+   (source:
+   cmp-boxlink purple / cmp-boxlink__eventBox). Authoring: one row per event, three cells —
+   <p>Sep 15-17, 2026</p> | <p><a href>Event title</a></p> | <p>Location</p>. The whole box is the
+   link: the authored inner anchor is unwrapped after its href is read (EW6); the paragraphs are
+   MOVED (EW1). ---- */
+function decorateEvents(block) {
+  const rows = [...block.children].map((row) => [...row.children]).filter((cells) => cells.length);
+  const grid = el('div', 'aem-Grid');
+  rows.forEach(([dateCell, titleCell, locationCell]) => {
+    const cells = [dateCell, titleCell, locationCell].filter(Boolean);
+    const linkCell = cells.find((c) => c.querySelector('a')) || titleCell || dateCell;
+    const a = linkCell.querySelector('a');
+    const href = a ? a.getAttribute('href') : '#';
+    const target = a ? a.getAttribute('target') : null;
+    if (a) a.replaceWith(...a.childNodes);
+    const host = el('div', 'boxLink');
+    const bg = el('div', 'background-component vert-pad-bottom-xs');
+    const container = el('div', 'container');
+    const section = el('section', 'cmp-boxlink purple', { 'data-analytics-link-region': 'list' });
+    const link = el('a', 'topLink', { href });
+    if (target) link.target = target;
+    const eventBox = el('div', 'cmp-boxlink__eventBox');
+    const date = el('div', 'cmp-boxlink__date');
+    const title = el('div', 'cmp-boxlink__eventTitle');
+    const location = el('div', 'cmp-boxlink__eventLocation');
+    if (dateCell) { date.title = dateCell.textContent.trim(); date.append(...dateCell.childNodes); }
+    if (titleCell) title.append(...titleCell.childNodes);
+    if (locationCell) location.append(...locationCell.childNodes);
+    eventBox.append(date, title, location, el('div', 'icon'));
+    link.append(eventBox);
+    section.append(link);
+    container.append(section);
+    bg.append(container);
+    host.append(bg);
+    grid.append(host);
+  });
+  block.replaceChildren(grid);
+}
+
 export default function decorate(block) {
+  if (block.classList.contains('events')) { decorateEvents(block); return; } // listing family: event boxes
   const cells = [...block.children].flatMap((row) => [...row.children]).filter((c) => c.querySelector('a'));
   const boxesPerCell = cells.map((cell) => [...cell.querySelectorAll('p')].filter((p) => p.querySelector('a')).map(box));
   if (boxesPerCell.length <= 1) {

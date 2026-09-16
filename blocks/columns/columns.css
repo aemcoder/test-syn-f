@@ -358,3 +358,74 @@
 .columns .component-button p.button-wrapper {
   display: contents;
 }
+
+/* ---- listing family (stardust/scripts/eds/listing/port-listing.sh) ---- */
+.columns .component-column .snps-col-divider {
+  display:none;
+  position:relative;
+}
+.columns .component-column .vl {
+  border-left:1px solid #c4c4c4;
+  height:100%;
+  position:absolute;
+  left:50%;
+  margin-left:.5px;
+  top:0;
+}
+
+@media(min-width:730px) {
+.columns .component-column.divider-row.row {
+  display:flex;
+}
+.columns .component-column.divider-row.row .col.snps-col-divider {
+  display:block;
+}
+.columns .component-column.divider-row.row .divider-spacing-small-30.col-sm-6 {
+  width:calc((100% / 12 * 6) - 15px);
+}
+.columns .component-column.divider-row.row .divider-spacing-small-30.col-sm-4 {
+  width:calc((100% / 12 * 4) - 15px);
+}
+.columns .component-column.divider-row.row .divider-spacing-small-30.col-sm-4.three {
+  width:calc((100% / 12 * 4) - (15px * 4 / 3));
+}
+.columns .component-column.divider-row.row .divider-spacing-small-30.col-sm-8 {
+  width:calc((100% / 12 * 8) - 15px);
+}
+.columns .component-column.divider-row.row .divider-spacing-small-30.snps-col-divider.col.snps-col-divider {
+  width:calc(15px * 2);
+}
+.columns .component-column.divider-row.row .divider-spacing-xs-20.col-sm-6 {
+  width:calc((100% / 12 * 6) - 5px);
+}
+.columns .component-column.divider-row.row .divider-spacing-xs-20.col-sm-4 {
+  width:calc((100% / 12 * 4) - 5px);
+}
+.columns .component-column.divider-row.row .divider-spacing-xs-20.col-sm-8 {
+  width:calc((100% / 12 * 8) - 5px);
+}
+.columns .component-column.divider-row.row .divider-spacing-xs-20.snps-col-divider.col.snps-col-divider {
+  width:calc(5px * 2);
+}
+}
+
+.columns .col-sm-8 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+
+@media(min-width:730px) {
+.columns .col-sm-8 {
+  float:left;
+  width:66.66666667%;
+}
+}
+
+/* ---- listing aliases: columns fragments (stardust/scripts/eds/listing/alias-listing.mjs) ---- */
+.columns .component-column .aem-Grid > .section > .default-content-wrapper {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}

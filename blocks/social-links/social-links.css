@@ -1,0 +1,83 @@
+/* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
+/* stardust:deploy — rules lifted for the .social-links block from canon.css, listing.css (selectors matching /component-socialLinks|social-icons/), scoped under .social-links */
+.social-links .component-socialLinks ul.social-icons {
+  line-height:1;
+  margin:0;
+  padding:0;
+  list-style-type:none;
+  font-size:16px;
+}
+.social-links .component-socialLinks ul.social-icons.align-left {
+  text-align:left;
+}
+.social-links .component-socialLinks ul.social-icons.align-center {
+  text-align:center;
+}
+.social-links .component-socialLinks ul.social-icons li {
+  display:inline-block;
+}
+.social-links .component-socialLinks ul.social-icons a {
+  text-decoration:none;
+  padding:0 10px 0 10px;
+  display:inline-block;
+}
+.social-links .component-socialLinks ul.social-icons a:first-child {
+  padding-left:0;
+}
+.social-links .component-socialLinks ul.social-icons {
+  height:28px;
+}
+.social-links .component-socialLinks ul.social-icons svg {
+  transition:ease-in .1s;
+  font-size:28px;
+  height:1em;
+  display:inline-block;
+  vertical-align:-.125em;
+}
+.social-links .component-socialLinks ul.social-icons svg path {
+  fill:#555;
+}
+
+/* ---- listing aliases: social-links (stardust/scripts/eds/listing/alias-listing.mjs) ---- */
+.social-links .social-icons ul {
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font-size: 16px;
+  height: 28px;
+  text-align: left;
+}
+
+.social-links .social-icons li {
+  display: inline-block;
+}
+
+.social-links .social-icons a {
+  text-decoration: none;
+  padding: 0 10px 0 0;
+  display: inline-block;
+}
+
+.social-links .social-icons svg {
+  transition: ease-in 0.1s;
+  font-size: 28px;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.125em;
+}
+
+.social-links .social-icons svg path {
+  fill: #555;
+}
+
+.social-links .social-icons .social-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

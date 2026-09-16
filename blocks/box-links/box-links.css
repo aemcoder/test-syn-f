@@ -346,3 +346,93 @@
   margin: 0;
   display: inline;
 }
+
+/* ---- listing family (stardust/scripts/eds/listing/port-listing.sh) ---- */
+.box-links .vert-pad-bottom-xs {
+  padding-bottom:15px;
+  margin-bottom:0;
+}
+.box-links .cmp-boxlink {
+  height:auto;
+  border-radius:0;
+  border-left:4px solid #fff;
+  box-shadow:none;
+  margin:0;
+  font-size:16px;
+  line-height:1.4;
+  font-weight:400;
+  transition-timing-function:ease-in-out;
+}
+.box-links .cmp-boxlink.purple {
+  border-color:#5a2a82;
+}
+.box-links .cmp-boxlink.blue {
+  border-color:#4c9ec9;
+}
+.box-links .cmp-boxlink.orange {
+  border-color:#e07c05;
+}
+.box-links .cmp-boxlink a.topLink {
+  text-decoration:none;
+  color:#000;
+  font-weight:400;
+  font-size:16px;
+  padding:0;
+  position:relative;
+  display:block;
+}
+.box-links .cmp-boxlink .cmp-boxlink__eventBox {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  background-color:#f7f7f7;
+  padding:12px 20px 12px 15px;
+  width:100%;
+  position:relative;
+}
+.box-links .cmp-boxlink .cmp-boxlink__date {
+  flex:0 0 100%;
+  font-weight:400;
+  padding:0 30px 3px 0;
+  color:#5a2a82;
+}
+.box-links .cmp-boxlink .cmp-boxlink__eventTitle {
+  font-weight:500;
+  padding-bottom:3px;
+  padding-right:30px;
+}
+.box-links .cmp-boxlink .cmp-boxlink__eventLocation {
+  flex:0 0 100%;
+  padding:0 30px 0 0;
+}
+.box-links .cmp-boxlink .icon {
+  cursor:pointer;
+  position:absolute;
+  right:0;
+  top:50%;
+  width:50px;
+  height:auto;
+  color:#5a2a82;
+  transform:translateY(-50%);
+}
+.box-links .cmp-boxlink .icon:last-child:after {
+  content:'\203A';
+  font-size:35px;
+  text-align:center;
+  line-height:78px;
+  display:block;
+  height:100%;
+}
+
+/* ---- listing aliases: box-links events (stardust/scripts/eds/listing/alias-listing.mjs) ---- */
+.box-links .cmp-boxlink__date p,
+.box-links .cmp-boxlink__eventTitle p,
+.box-links .cmp-boxlink__eventLocation p {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}

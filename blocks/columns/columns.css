@@ -1153,7 +1153,7 @@
 /* an illustration-led text component (no title above it) has neither the title gap nor the paragraph gap: the source's
    widget is a bare html block (svg + hint) */
 .columns.landing .component-textcomp > .component-text:first-child:has(> p:first-child img) {
-  margin-top: 0;
+  margin: 0;
 }
 
 .columns.landing .component-text p:has(img):has(+ p) {
@@ -1161,12 +1161,14 @@
 }
 
 /* the caption line under an illustration in a text column (the source's .syn-hint inline style) */
-.columns.landing .component-text p:has(img) + p {
+/* (specificity above the component's p:last-child margin reset; the 25.6px line-height is absolute → 19px like the source) */
+.columns.landing .component-textcomp .component-text p:has(img) + p {
   margin: 8px 0 14px;
   color: #6b7280;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.12em;
+  line-height: 19px;
   text-align: center;
   text-transform: uppercase;
 }

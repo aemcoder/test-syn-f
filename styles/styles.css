@@ -643,4 +643,8 @@ body:not([data-page-type="home-page"]) header {
 }
 /* stylelint-enable no-descending-specificity */
 
+/* a button paragraph as the section's last child: the source's .buttons is 24px above / 0 below (the pilot's mobile
+   last-child 24px is the text case) */
+main .section.textcomp .default-content-wrapper p.button-wrapper:last-child { margin-bottom: 0; }
+
 /* ---- end landing family ---- */

@@ -1,5 +1,6 @@
 /**
- * columns — side-by-side text columns. Variant `divider`: two text columns on a light-grey band
+ * columns — side-by-side text columns. Static-family variants `image-text-cta` and `text-image`
+ * below. Variant `divider`: two text columns on a light-grey band
  * separated by a
  * vertical rule ("Support & Services" / "Careers"). Schema: stardust/eds-schema/home.json section
  * 10.
@@ -54,10 +55,157 @@ function column(cell, divider) {
   return col;
 }
 
+/* ---- static family variants (stardust/eds-fanout/static.md) ---- */
+
+/* image-text-cta — the source component-imageTextCta (careers/benefits): one row per band, two
+   cells in VISUAL order — the picture cell and the text cell (<h2> title, optional <h3> subtitle,
+   copy, <strong>/<em> CTAs). Image first = the source `mediatext` row, text first = `textmedia`
+   (image pushed right). Tier: reconstructive; authored nodes are MOVED into the source DOM (EW1),
+   the wrappers carry the source classes (EW2), CTA paragraphs move whole (EW3). */
+function imageTextCtaRow(cells) {
+  const imgCell = cells.find((c) => c.querySelector('picture, img'));
+  const textCell = cells.find((c) => c !== imgCell) || cells[0];
+  const imageRight = imgCell && cells.indexOf(imgCell) > cells.indexOf(textCell);
+  const container = el('div', 'container');
+  const section = el('section', 'component-imageTextCta', { 'data-analytics-link-region': 'card' });
+  const inner = el('div', 'container');
+  const row = el('div', `row ${imageRight ? 'textmedia' : 'mediatext'}`);
+  const imgCol = el('div', `col-xs-12 col-sm-6${imageRight ? ' col-sm-push-6' : ''} img-col`);
+  const ci = el('div', 'component-image');
+  const cmp = el('div', 'cmp-image');
+  const pic = imgCell ? (imgCell.querySelector('picture') || imgCell.querySelector('img')) : null;
+  if (pic) {
+    (pic.querySelector('img') || pic).classList.add('img-responsive');
+    cmp.append(pic);
+  }
+  ci.append(cmp);
+  imgCol.append(ci);
+  const textCol = el('div', `col-xs-12 col-sm-6 text-col${imageRight ? ' col-sm-pull-6' : ''}`);
+  const [heading, sub] = [...textCell.querySelectorAll('h1, h2, h3, h4')];
+  const nodes = [...textCell.querySelectorAll('p, ul, ol')];
+  const isCta = (p) => {
+    const link = p.querySelector('a');
+    if (!link || p.tagName !== 'P' || p.textContent.trim() !== link.textContent.trim()) return false;
+    return link.classList.contains('button') || !!p.querySelector('strong, em');
+  };
+  const ctas = nodes.filter(isCta);
+  const copy = nodes.filter((n) => !ctas.includes(n));
+  if (heading) {
+    const t = el('div', 'title text-size-normal');
+    t.append(heading);
+    textCol.append(t);
+  }
+  if (sub) {
+    const s = el('div', 'subtitle');
+    s.append(sub);
+    textCol.append(s);
+  }
+  if (copy.length) {
+    const ct = el('div', 'component-text');
+    copy.forEach((n) => ct.append(n));
+    textCol.append(ct);
+  }
+  if (ctas.length) {
+    const buttons = el('div', 'buttons align-left');
+    ctas.forEach((p) => {
+      const link = p.querySelector('a');
+      const secondary = link.classList.contains('secondary')
+        || (!link.classList.contains('button') && !!p.querySelector('em'));
+      const b = el('div', `component-button ${secondary ? 'secondary' : 'primary'} darkButtonRollover`);
+      b.append(p);
+      buttons.append(b);
+    });
+    textCol.append(buttons);
+  }
+  row.append(imgCol, textCol);
+  inner.append(row);
+  section.append(inner);
+  container.append(section);
+  return container;
+}
+
+function decorateImageTextCta(block, rows) {
+  // vertical spacing and the grey band come from the section tokens
+  const host = el('div', 'imageTextCta image');
+  rows.forEach((cells) => host.append(imageTextCtaRow(cells)));
+  block.replaceChildren(host);
+}
+
+/* text-image — the source component-text-image-2-column units of the support page (inside the
+   rail layout): one row per unit — picture | <h4> title, copy, plain "Learn More" link. Each unit
+   paints the source's own vert-pad wrapper (they sit inside a column, not in their own section).
+   Tier: reconstructive, nodes MOVED (EW1); the title text is wrapped in the source's presentation
+   <span> inside the authored heading (EW2 refinement, as cards.js does). */
+function textImageRow(cells, last) {
+  const [imgCell, textCell] = cells.length > 1 ? cells : [null, cells[0]];
+  const host = el('div', 'textImage2Column image');
+  const bg = el('div', `background-component vert-pad-top-sm${last ? '' : ' vert-pad-bottom-xs'}`);
+  const link = [...textCell.querySelectorAll('p')].map((p) => p.querySelector('a')).find(Boolean);
+  const section = el('section', 'component-text-image-2-column no-link', {
+    'data-analytics-link-region': 'body',
+  });
+  if (link) section.setAttribute('data-link', link.getAttribute('href'));
+  const row = el('div', 'row');
+  const imgCol = el('div', 'col-xs-12 img-col col-sm-4');
+  const ci = el('div', 'component-image', { 'data-analytics-link-region': 'body' });
+  const cmp = el('div', 'cmp-image');
+  const pic = imgCell ? (imgCell.querySelector('picture') || imgCell.querySelector('img')) : null;
+  if (pic) {
+    (pic.querySelector('img') || pic).classList.add('img-responsive');
+    cmp.append(pic);
+  }
+  ci.append(cmp);
+  imgCol.append(ci);
+  const textCol = el('div', 'col-xs-12 col-sm-8');
+  const heading = textCell.querySelector('h1, h2, h3, h4, h5, h6');
+  if (heading) {
+    const span = document.createElement('span');
+    span.className = 'text-size-normal';
+    span.style.color = '#5A2A82';
+    span.append(...heading.childNodes);
+    heading.append(span);
+    const t = el('div', 'component-text');
+    t.append(heading);
+    textCol.append(t);
+  }
+  const nodes = [...textCell.querySelectorAll('p, ul, ol')];
+  const linkP = link ? link.closest('p') : null;
+  const copy = nodes.filter((n) => n !== linkP);
+  if (copy.length) {
+    const ct = el('div', 'component-text');
+    copy.forEach((n) => ct.append(n));
+    textCol.append(ct);
+  }
+  if (linkP) {
+    const lt = el('div', 'component-text');
+    lt.append(linkP);
+    textCol.append(lt);
+  }
+  row.append(imgCol, textCol);
+  section.append(row);
+  bg.append(section);
+  host.append(bg);
+  return host;
+}
+
+function decorateTextImage(block, rows) {
+  const list = el('div', 'text-image-units');
+  rows.forEach((cells, i) => list.append(textImageRow(cells, i === rows.length - 1)));
+  block.replaceChildren(list);
+}
+
 export default function decorate(block) {
   const divider = block.classList.contains('divider');
   const rows = [...block.children].map((row) => [...row.children]).filter((cells) => cells.length);
   if (!rows.length) return;
+  if (block.classList.contains('image-text-cta')) {
+    decorateImageTextCta(block, rows);
+    return;
+  }
+  if (block.classList.contains('text-image')) {
+    decorateTextImage(block, rows);
+    return;
+  }
   const bg = el('div', divider ? 'background-component light-grey-bg vert-pad-top-md vert-pad-bottom-md' : 'background-component');
   const container = el('div', 'container');
   rows.forEach((cells) => {

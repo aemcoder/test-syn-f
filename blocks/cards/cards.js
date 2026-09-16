@@ -321,9 +321,48 @@ function decoratePanels(block, rows) {
   show(0);
 }
 
+/* ---- static (static family): asset cards in a fixed bootstrap grid — 3 per row (`three`), 2 per
+   row (col-sm-6) or 4 (`four`) by card count; one row per card: picture | [<p>label</p>]
+   <h4>heading</h4> <p>copy</p> <p><a>Learn More</a></p>. The source keeps an invisible label
+   pill on label-less cards (it reserves the pill's height), reproduced here. Spacing = tokens. */
+function decorateStatic(block, rows) {
+  const column = el('div', 'column');
+  const container = el('div', 'container');
+  const row = el('section', 'component-column row');
+  const spans = { 2: 'col-xs-12 col-sm-6', 4: 'col-xs-12 col-sm-3 four' };
+  const span = spans[rows.length] || 'col-xs-12 col-sm-4 three';
+  rows.forEach((cells, i) => {
+    const col = el('div', span);
+    const grid = el('div', 'aem-Grid');
+    const host = el('div', 'cards image');
+    const card = assetCard(cells.length > 1 ? cells : [null, cells[0]], i);
+    card.className = 'component-assetcard no-link';
+    ['data-slick-index', 'role', 'tabindex', 'aria-hidden'].forEach((attr) => {
+      card.removeAttribute(attr);
+    });
+    const labelDate = card.querySelector('.label-date-wrapper');
+    if (labelDate && !labelDate.querySelector('.label-wrapper')) {
+      const lw = el('div', 'label-wrapper invisible');
+      lw.append(el('div', 'label'));
+      labelDate.prepend(lw);
+    }
+    host.append(card);
+    grid.append(host);
+    col.append(grid);
+    row.append(col);
+  });
+  container.append(row);
+  column.append(container);
+  block.replaceChildren(column);
+}
+
 export default function decorate(block) {
   const rows = [...block.children].map((row) => [...row.children]).filter((cells) => cells.length);
   if (!rows.length) return;
+  if (block.classList.contains('static')) {
+    decorateStatic(block, rows);
+    return;
+  }
   if (block.classList.contains('panels')) decoratePanels(block, rows);
   else if (block.classList.contains('carousel')) decorateCarousel(block, rows);
   else decorateSolutions(block, rows);

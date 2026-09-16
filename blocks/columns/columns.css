@@ -358,3 +358,325 @@
 .columns .component-button p.button-wrapper {
   display: contents;
 }
+
+/* ---- static family (port-static.sh): image-text-cta + text-image variants — verbatim source rules, appended ---- */
+.columns .img-responsive {
+  display:block;
+  max-width:100%;
+  height:auto;
+}
+
+@media(min-width:730px) {
+.columns .col-sm-push-6 {
+  left:50%;
+}
+.columns .col-sm-pull-6 {
+  right:50%;
+}
+}
+
+.columns .component-imageTextCta {
+  text-align:left;
+}
+.columns .component-imageTextCta .title {
+  font-size:24px;
+  margin:0;
+  color:#111c24;
+  font-weight:300;
+  line-height:1.1;
+}
+.columns .component-imageTextCta .title.text-size-smaller {
+  font-size:24px;
+}
+.columns .component-imageTextCta .title.text-size-larger {
+  font-size:32px;
+}
+.columns .component-imageTextCta .subtitle {
+  font-size:20px;
+  font-weight:300;
+  line-height:140%;
+  margin:16px 0 0 0;
+  color:#111c24;
+}
+.columns .component-imageTextCta .component-text {
+  margin:16px 0 24px 0;
+  color:#111c24;
+  font-size:16px;
+  font-weight:300;
+  line-height:160%;
+}
+.columns .component-imageTextCta .component-text p {
+  font-size:inherit;
+}
+.columns .component-imageTextCta .component-text p:last-child {
+  margin-bottom:0;
+}
+.columns .component-imageTextCta .buttons {
+  margin:24px 0 0 0;
+  display:flex;
+  column-gap:24px;
+  row-gap:24px;
+  align-items:start;
+  justify-content:flex-start;
+  flex-wrap:wrap;
+}
+.columns .component-imageTextCta .buttons.align-center {
+  justify-content:center;
+}
+.columns .component-imageTextCta .buttons.align-right {
+  justify-content:flex-end;
+}
+.columns .component-imageTextCta .buttons .component-button {
+  min-width:140px;
+  max-width:300px;
+  padding:0 24px;
+  margin:0;
+  min-height:40px;
+  height:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:5px;
+  font-weight:400;
+  line-height:1.6;
+  text-decoration:none;
+  color:#FFF;
+}
+.columns .component-imageTextCta .buttons .component-button.primary {
+  background:#7e45af;
+  color:#FFF;
+}
+.columns .component-imageTextCta .buttons .component-button.secondary {
+  border:2px solid #7e45af;
+  background:0;
+  color:#7e45af;
+}
+.columns .component-imageTextCta .buttons .component-button:hover {
+  color:#FFF;
+  box-shadow:inset 0 0 0 99999px rgba(0,0,0,0.2);
+  text-decoration:none;
+}
+.columns .component-imageTextCta .mediatext {
+  display:flex;
+  flex-direction:column-reverse;
+}
+.columns .component-imageTextCta .mediatext .buttons {
+  margin-bottom:24px;
+}
+.columns .component-imageTextCta .img-col {
+  margin-bottom:24px;
+}
+.columns .component-imageTextCta .img-col img {
+  display:block;
+  max-width:100%;
+  height:auto;
+  width:100%;
+}
+.columns .component-imageTextCta > .container {
+  width:100%;
+  max-width:none;
+  padding:0;
+  margin:0;
+}
+
+@media(min-width:730px) {
+.columns .component-imageTextCta .component-image {
+  margin:0;
+}
+.columns .component-imageTextCta .mediatext {
+  display:block;
+}
+.columns .component-imageTextCta .mediatext .buttons {
+  margin-bottom:0;
+}
+.columns .component-imageTextCta .title {
+  font-size:32px;
+}
+.columns .component-imageTextCta .title.text-size-smaller {
+  font-size:24px;
+}
+.columns .component-imageTextCta .title.text-size-larger {
+  font-size:40px;
+}
+.columns .component-imageTextCta .component-text {
+  margin:24px 0 0 0;
+}
+.columns .component-imageTextCta .buttons .component-button {
+  font-size:16px;
+}
+}
+
+.columns .component-image .horizontal-padding-sm {
+  padding:0 5px;
+}
+.columns .component-image .horizontal-padding-md {
+  padding:0 25px;
+}
+.columns .component-image .horizontal-padding-lg {
+  padding:0 100px;
+}
+.columns .component-image .zoom-container.cmp-image.infographic-image img.img-responsive {
+  height:75vh;
+  width:auto;
+  margin:0 auto;
+}
+.columns .component-image .zoom-container.cmp-image.infographic-image .zoom-instructions {
+  display:block;
+  margin-top:10px;
+  margin-bottom:30px;
+}
+
+@media(min-width:730px) {
+.columns .col-sm-pull-6 {
+  right:50%;
+}
+.columns .col-sm-push-6 {
+  left:50%;
+}
+}
+
+@media(max-width:730px) {
+.columns .img-responsive.svg {
+  height:140px;
+  width:auto;
+  margin:0 auto;
+}
+}
+
+.columns .component-imageTextCta .component-text ul:last-child,
+.columns .component-imageTextCta .component-text ol:last-child,
+.columns .component-imageTextCta .component-text p:last-child {
+  margin-bottom:0;
+}
+.columns .col-sm-4,
+.columns .col-sm-8 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+
+@media(min-width:730px) {
+.columns .col-sm-4,
+.columns .col-sm-8 {
+  float:left;
+}
+.columns .col-sm-4 {
+  width:33.33333%;
+}
+.columns .col-sm-8 {
+  width:66.66667%;
+}
+}
+
+.columns .component-text-image-2-column h4 {
+  margin-top:0;
+}
+.columns .component-text-image-2-column .img-col {
+  position:relative;
+}
+.columns .component-text-image-2-column .component-text p,
+.columns .component-text-image-2-column .component-text h4 {
+  margin:0;
+}
+.columns .component-text-image-2-column .component-text:nth-of-type(1) {
+  margin-bottom:15px;
+}
+.columns .component-text-image-2-column .component-text:nth-of-type(2) {
+  margin-top:15px;
+}
+.columns .component-text-image-2-column .component-text:nth-of-type(3) {
+  margin-top:15px;
+  margin-bottom:15px;
+}
+
+@media(max-width:730px) {
+.columns .textImage2Column>.background-component {
+  margin-top:0;
+  padding-bottom:0;
+  padding-top:0;
+}
+.columns .component-text-image-2-column {
+  padding-top:30px;
+  padding-bottom:15px;
+}
+.columns .component-text-image-2-column .component-image {
+  margin-bottom:15px;
+}
+}
+
+@media(min-width:730px) {
+.columns .component-text-image-2-column h4 .text-size-smaller {
+  display:block;
+  margin-top:-.12em;
+}
+.columns .component-text-image-2-column h4 .text-size-normal {
+  display:block;
+  margin-top:-.15em;
+}
+.columns .component-text-image-2-column h4 .text-size-larger {
+  display:block;
+  margin-top:-.15em;
+}
+.columns .component-text-image-2-column p.no-title {
+  margin-top:-.3em;
+}
+.columns .col-sm-4 .cmp-table table {
+  width:100%;
+}
+}
+
+/* ---- static family aliases (alias-static.mjs): image-text-cta + text-image moved nodes ---- */
+.columns .component-imageTextCta .title {
+  color: #5a2a82;
+}
+
+.columns .component-imageTextCta .title :is(h1, h2, h3, h4),
+.columns .component-imageTextCta .subtitle :is(h2, h3, h4) {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+.columns .component-imageTextCta .component-text > :last-child {
+  margin-bottom: 0;
+}
+
+.columns .component-imageTextCta .component-button p.button-wrapper {
+  display: contents;
+}
+
+.columns .component-imageTextCta .component-button a.button:any-link,
+.columns .component-imageTextCta .component-button a.button:hover {
+  min-width: 0;
+  max-width: none;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  font: inherit;
+  color: inherit;
+  background: none;
+  box-shadow: none;
+}
+
+.columns .component-text-image-2-column h4 {
+  font-size: 22px;
+}
+
+@media (min-width: 730px) {
+  .columns .component-text-image-2-column h4 {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .columns .component-text-image-2-column h4 {
+    font-size: 30px;
+  }
+}

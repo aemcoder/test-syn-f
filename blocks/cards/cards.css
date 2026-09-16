@@ -1329,3 +1329,15 @@
   color:#316aca;
   display:block;;
 }
+
+/* ---- static family (port-static.sh): static variant — verbatim source rules, appended ---- */
+.cards .invisible {
+  visibility:hidden;
+}
+.cards .three .component-assetcard,
+.cards .col-sm-4 .component-assetcard {
+  min-height:283px;
+}
+.cards .component-assetcard .label-wrapper.invisible {
+  visibility:hidden;
+}

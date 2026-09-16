@@ -346,7 +346,11 @@ export default async function decorate(block) {
   });
   bg.append(container);
   block.replaceChildren(bg);
-  if (block.classList.contains('small')) { // listing family: smaller titles + 30px top pad (source text-size-smaller / vert-pad-top-sm)
+  // listing family (`divider three small`): smaller titles + 30px top pad (source
+  // text-size-smaller / vert-pad-top-sm); the program family's `divider small prose-links` keeps
+  // its
+  // own CSS-only `small` (title size), so key on `three` too
+  if (block.classList.contains('small') && block.classList.contains('three')) {
     block.querySelectorAll('.text > .container').forEach((cont) => { const wrap = el('div', 'background-component vert-pad-top-sm'); cont.replaceWith(wrap); wrap.append(cont); });
     block.querySelectorAll('.component-textcomp .title').forEach((t) => t.classList.add('text-size-smaller'));
   }

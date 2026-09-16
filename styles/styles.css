@@ -622,7 +622,7 @@ main .section.textcomp .default-content-wrapper p.button-wrapper {
   gap: 24px;
   align-items: flex-start;
   justify-content: flex-start;
-  margin: 24px 0 0;
+  margin-top: 24px; /* bottom margin stays the paragraph's 10px unless the row is last (program pages gated so) */
 }
 
 main .section.textcomp.center .default-content-wrapper p.button-wrapper {

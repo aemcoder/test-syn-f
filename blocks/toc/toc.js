@@ -38,8 +38,8 @@ export default function decorate(block) {
     .find((p) => p.querySelector('a'));
   const cta = ctaP ? ctaP.querySelector('a') : null;
 
-  // TOC targets: sections carrying section-metadata `id` — delivered as a real id (rendering v2); the
-  // client-side path leaves it as data-id, so promote that too
+  // TOC targets: sections carrying section-metadata `id` — delivered as a real id (rendering v2);
+  // the client-side path leaves it as data-id, so promote that too
   document.querySelectorAll('main .section[data-id]').forEach((s) => { if (!s.id) s.id = s.dataset.id; });
 
   const holder = el('div', 'tableOfContents');

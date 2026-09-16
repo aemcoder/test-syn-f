@@ -381,6 +381,7 @@ a .prosemirror-editor a:any-link {
   color: inherit;
   text-decoration: none;
 }
+
 /* stylelint-enable no-descending-specificity */
 
 /* sections — no default rhythm: the source spaces content with explicit wrappers, blocks paint their own */
@@ -553,3 +554,57 @@ main .section.textcomp .default-content-wrapper h2:last-child { margin-bottom: 0
 @media (width >= 1200px) {
   main .section.textcomp .default-content-wrapper :is(ul, ol) { font-size: 16px; }
 }
+
+/* ---- static ---- */
+/* stylelint-disable no-descending-specificity -- the rail-layout wrapper rule follows the foundation textcomp rules */
+
+/* text-size-larger section titles (textcomp large): 32px, 40px from 730 (source .component-textcomp .title.text-size-larger) */
+main .section.textcomp.large .default-content-wrapper h2 { font-size: 32px; }
+
+/* support: main column beside a right rail — the source .component-column.row > .col-sm-9 + .col-sm-3 in the 1170 container;
+   the section is the grid, the default content (rte) and the columns block fill the main column, the rail block the rail */
+main .section.rail-layout {
+  display: grid;
+  grid-template-columns: 15px minmax(0, 1fr) 15px;
+}
+
+main .section.rail-layout > div { grid-column: 2; }
+
+main .section.rail-layout > .default-content-wrapper {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (width >= 730px) {
+  main .section.textcomp.large .default-content-wrapper h2 { font-size: 40px; }
+
+  main .section.rail-layout {
+    grid-template-columns: 15px calc(75% - 30px) 30px calc(25% - 30px) 15px;
+    grid-template-rows: auto 1fr;
+  }
+
+  main .section.rail-layout > .rail-wrapper {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+  }
+}
+
+/* contact templates (page metadata template: contact-landing): the source .site-content wrapper zeroes the bottom paddings below 730
+   (.site-content .vert-pad-bottom-sm { padding-bottom: 0 } / -md { 10px }); the content-page template keeps them */
+@media (width <= 730px) {
+  body.contact-landing main .section.pad-bottom-sm { padding-bottom: 0; }
+  body.contact-landing main .section.pad-bottom-md { padding-bottom: 10px; }
+}
+
+@media (width >= 992px) {
+  main .section.rail-layout { grid-template-columns: 1fr 697.5px 30px 212.5px 1fr; }
+}
+
+@media (width >= 1200px) {
+  main .section.rail-layout { grid-template-columns: 1fr 847.5px 30px 262.5px 1fr; }
+}
+
+/* stylelint-enable no-descending-specificity */
+
+/* ---- end static ---- */

@@ -1,0 +1,233 @@
+/* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
+/* stardust:deploy — rules lifted for the .rail block from synopsys-pagelibs.min.c75662aa8a81ccd74e2e6cc1b7fe1590.css (selectors matching /component-railCard|rightRailItem|^\.flag\b|\.flag \.|\.flag\b(?! ?\+)|\.triangle\b|label-new|component-pageList|pageLinks|^\.pageList\b|^\.row\b|^\.col-xs-12\b/), scoped under .rail */
+.rail .row {
+  margin-left:-15px;
+  margin-right:-15px;
+}
+.rail .row:before,
+.rail .row:after {
+  content:" ";
+  display:table;
+}
+.rail .row:after {
+  clear:both;
+}
+.rail .col-xs-12 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+.rail .col-xs-12 {
+  float:left;
+}
+.rail .col-xs-12 {
+  width:100%;
+}
+.rail .component-pageList .no-margin {
+  margin:0;
+}
+.rail .component-pageList h5 {
+  margin-top:15px;
+  margin-bottom:0;
+}
+.rail .component-pageList ul.pageLinks li {
+  padding-bottom:5px;
+}
+.rail ul.pageLinks {
+  list-style:none;
+  position:relative;
+  width:-webkit-fit-content;
+  width:-moz-fit-content;
+  width:fit-content;
+  padding-left:0;
+  margin-top:15px;
+  margin-bottom:0;
+}
+.rail ul.pageLinks .three-column {
+  column-count:3;
+  column-gap:20px;
+  max-width:460px;
+}
+.rail ul.pageLinks .two-column {
+  column-count:2;
+  column-gap:60px;
+  max-width:460px;
+}
+.rail ul.pageLinks .one-column {
+  column-count:1;
+  column-gap:20px;
+  max-width:460px;
+}
+.rail ul.pageLinks li {
+  position:relative;
+}
+.rail ul.pageLinks li a {
+  display:block;
+  padding-top:0;
+  font-size:16px;
+}
+
+@media(max-width:729px) {
+.rail ul.pageLinks .three-column {
+  column-count:2;
+  column-gap:20px;
+}
+}
+
+@media(max-width:480px) {
+.rail .component-railCard:first-of-type {
+  padding-top:10px;
+}
+}
+
+.rail .component-railCard {
+  position:relative;
+  overflow:hidden;
+  margin:0;
+}
+.rail .component-railCard .component-text p {
+  color:#646e81;
+  margin-top:0;
+  margin-bottom:25px;
+  text-overflow:clip;
+}
+.rail .component-railCard .component-text p a {
+  color:#646e81;
+}
+.rail .component-railCard .component-text p a:hover {
+  color:#21252b;
+}
+.rail .component-railCard .component-text p:last-of-type {
+  margin-bottom:0;
+}
+.rail .component-railCard .component-text:last-of-type {
+  margin-bottom:-webkit-calc(30px - .45em);
+  margin-bottom:calc(30px - .45em);
+}
+.rail .component-railCard .video-wrapper {
+  margin-bottom:10px;
+}
+.rail .component-railCard .video-wrapper:last-child {
+  margin-bottom:30px;
+}
+.rail .component-railCard .label-new {
+  color:#5a2a82;
+  text-transform:uppercase;
+  font-weight:bold;
+}
+.rail .component-railCard .flag {
+  position:relative;
+  width:-webkit-calc(100% - 8px);
+  width:calc(100% - 8px);
+  margin-bottom:10px;
+}
+.rail .component-railCard .flag .text {
+  padding:5px 0 5px 25px;
+}
+
+@media(min-width:730px) {
+.rail .component-railCard .component-text .heading {
+  font-size:20px;
+}
+.rail .component-railCard .flag {
+  margin-bottom:5px;
+}
+}
+
+@media(min-width:1200px) {
+.rail .component-railCard .component-text .heading {
+  font-size:30px;
+}
+}
+
+.rail .flag {
+  color:#FFF;
+  position:absolute;
+  display:block;
+  text-transform:uppercase;
+  z-index:1000;
+}
+.rail .flag .text {
+  display:block;
+  font-size:15px;
+  color:#FFF;
+  padding:5px 30px;
+}
+.rail .flag .triangle {
+  position:absolute;
+  top:0;
+  right:-8px;
+  width:8px;
+  height:100%;
+}
+
+@media(min-width:730px) {
+.rail .flag {
+  font-size:15px;
+}
+}
+
+@media(min-width:1200px) {
+.rail .flag {
+  font-size:17px;
+}
+}
+
+/* ---- static family aliases (alias-static.mjs): moved authored nodes ---- */
+.rail .component-railCard .flag div p {
+  display: block;
+  margin: 0;
+  padding: 5px 0 5px 25px;
+  font-size: 15px;
+  color: #fff;
+}
+
+.rail .component-railCard .flag div p a {
+  color: #fff;
+}
+
+.rail .component-railCard .component-text p a strong {
+  color: #5a2a82;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.rail .component-pageList h5 {
+  margin-top: 15px;
+  margin-bottom: 0;
+  font-size: 20px;
+}
+
+.rail .component-pageList .pageLinks ul {
+  list-style: none;
+  position: relative;
+  width: fit-content;
+  padding-left: 0;
+  margin-top: 15px;
+  margin-bottom: 0;
+  font-size: inherit;
+}
+
+.rail .component-pageList .pageLinks.one-column ul {
+  column-count: 1;
+  column-gap: 20px;
+  max-width: 460px;
+}
+
+.rail .component-pageList .pageLinks li {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.rail .component-pageList .pageLinks li a {
+  display: block;
+  padding-top: 0;
+  font-size: 16px;
+}
+
+@media (min-width: 1200px) {
+  .rail .component-pageList h5 {
+    font-size: 26px;
+  }
+}

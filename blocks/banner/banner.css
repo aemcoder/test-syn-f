@@ -988,3 +988,38 @@
 .banner.skinny.small .title :is(h2, h3, h4) {
   font-size: 0.8em;
 }
+
+/* ---- static family aliases (alias-static.mjs): image variants overlay-40 / text-width-60 / no-arrow, skinny hero h1 ---- */
+.banner.overlay-40 .component-banner .image-overlay {
+  opacity: 0.4;
+}
+
+@media (min-width: 730px) {
+  .banner.text-width-60 .component-banner .text-overlay .content-wrapper {
+    width: 60%;
+  }
+}
+
+.banner.image.no-arrow .component-banner .component-button svg {
+  display: none;
+}
+
+@media (max-width: 729px) {
+  .banner.image.desktop-on-mobile .component-banner .dm-mobile {
+    display: none;
+  }
+
+  .banner.image.desktop-on-mobile .component-banner .dm-desktop {
+    display: block;
+  }
+}
+
+.banner.skinny .title h1 {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}

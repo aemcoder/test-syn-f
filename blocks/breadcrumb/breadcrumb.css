@@ -1,0 +1,265 @@
+/* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
+/* stardust:deploy — rules lifted for the .breadcrumb block from canon.css, landing.css, category.css (selectors matching /^\.container\b|^\.clearfix|component-breadcrumb|primary_nav_wrap|icon-dropdown-arrow|dropdown-menu|subBreadcrumb|\.parent\b|^\.breadcrumb\b/), scoped under .breadcrumb */
+.breadcrumb .container {
+  display:block;
+  margin-right:auto;
+  margin-left:auto;
+  padding-left:15px;
+  padding-right:15px;
+  width:100%;
+}
+
+@media(min-width:992px) {
+.breadcrumb .container {
+  width:970px;
+}
+}
+
+@media(min-width:1200px) {
+.breadcrumb .container {
+  width:1170px;
+}
+}
+
+.breadcrumb .container::before,
+.breadcrumb .container::after {
+  content:" ";
+  display:table;
+}
+.breadcrumb .container::after {
+  clear:both;
+}
+
+@media(min-width:1130px) {
+.breadcrumb .pre-header .dropdown-menu {
+  display:none;
+  position:absolute;
+  top:100%;
+  right:-14px;
+  left:auto;
+  z-index:1000;
+  min-width:260px;
+  margin-top:8px;
+  padding:24px 20px 32px;
+  list-style:none;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.15);
+  border-radius:16px;
+  box-shadow:0 6px 12px rgba(0,0,0,.175);
+  font-size:16px;
+  flex-direction:column;
+  row-gap:10px;
+}
+.breadcrumb .pre-header .dropdown.open > .dropdown-menu {
+  display:flex;
+}
+.breadcrumb .pre-header .dropdown-menu > li.title {
+  padding:0 8px;
+  color:#111c24;
+  font-size:18px;
+  font-weight:600;
+  line-height:163%;
+  cursor:default;
+}
+.breadcrumb .pre-header .dropdown-menu > li a {
+  display:inline-block;
+  padding:2px 8px;
+  line-height:163%;
+  transition:all .3s;
+  color:#111c24;
+}
+.breadcrumb .pre-header .dropdown-menu > li > a:hover,
+.breadcrumb .pre-header .dropdown-menu > li > a:focus,
+.breadcrumb .pre-header .dropdown-menu > li.active a {
+  background:#111c24;
+  color:#FFF;
+  border-radius:4px;
+}
+}
+
+.breadcrumb .clearfix:before,
+.breadcrumb .clearfix:after {
+  content:" ";
+  display:table;
+}
+.breadcrumb .clearfix:after {
+  clear:both;
+}
+.breadcrumb .component-breadcrumb {
+  overflow:visible;
+  position:absolute;
+  padding-top:10px;
+}
+.breadcrumb .component-breadcrumb #primary_nav_wrap {
+  padding:10px 0;
+}
+.breadcrumb .component-breadcrumb #primary_nav_wrap>ul {
+  list-style:none;
+  position:relative;
+  float:left;
+  margin:0;
+  padding-left:0;
+}
+.breadcrumb .component-breadcrumb #primary_nav_wrap ul li {
+  position:relative;
+  float:left;
+  margin:0;
+  padding:0;
+  line-height:1;
+  cursor:pointer;
+}
+.breadcrumb .component-breadcrumb #primary_nav_wrap>ul>li>a {
+  background:0;
+  color:#646e81;
+  font-size:15px;
+  display:inline;
+  padding:0 5px;
+  font-weight:400;
+  line-height:20px;
+  text-decoration:none;
+}
+.breadcrumb .component-breadcrumb #primary_nav_wrap>ul>li>a:hover {
+  color:#000;
+  text-decoration:underline;
+  cursor:pointer;
+}
+.breadcrumb .component-breadcrumb #primary_nav_wrap>ul>li>a:before {
+  padding-right:10px;
+  font-size:15px;
+  content:"  /  ";
+  vertical-align:middle;
+  color:#646e81;
+  font-weight:100;
+  display:inline-block;
+}
+.breadcrumb .component-breadcrumb #primary_nav_wrap>ul>li>a:only-child {
+  margin-right:20px;
+}
+.breadcrumb .component-breadcrumb #primary_nav_wrap>ul>li:first-child>a {
+  padding-left:0;
+}
+.breadcrumb .component-breadcrumb #primary_nav_wrap>ul>li:first-child>a:before {
+  content:"\00a0";
+  padding-left:0;
+  padding-right:0;
+  display:inline-block;
+  width:0;
+}
+.breadcrumb .component-breadcrumb .icon-dropdown-arrow {
+  background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3IiBoZWlnaHQ9IjYiIHZpZXdCb3g9IjAgMCA3IDYiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICM2NDZlODE7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8cGF0aCBpZD0iUG9seWdvbl8zIiBkYXRhLW5hbWU9IlBvbHlnb24gMyIgY2xhc3M9ImNscy0xIiBkPSJNMTM0OC41LDYwbC0zLjUtNS45OTNoN1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMzQ1IC01NCkiLz4KPC9zdmc+Cg==);
+  background-position:50% 50%;
+  background-repeat:no-repeat;
+  background-size:cover;
+  height:8px;
+  width:10px;
+  display:inline-block;
+  margin-left:5px;
+  margin-right:20px;
+  position:relative;
+}
+.breadcrumb .component-breadcrumb .icon-dropdown-arrow {
+  position:relative;
+  vertical-align:middle;
+}
+.breadcrumb .component-breadcrumb .icon-dropdown-arrow:after {
+  content:'';
+  position:absolute;
+  top:-8px;
+  bottom:-8px;
+  left:-8px;
+  right:-8px;
+}
+
+@media(min-width:480px) {
+.breadcrumb .component-breadcrumb #primary_nav_wrap>ul>li>a:before {
+  padding-right:20px;
+  font-size:30px;
+  color:#eee;
+}
+}
+
+.breadcrumb .component-breadcrumb #primary_nav_wrap ul ul {
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#FFF;
+  padding:0;
+  margin:0;
+  z-index:1001;
+  list-style:none;
+  min-width:160px;
+  font-size:14px;
+  text-align:left;
+  border:1px solid rgba(0,0,0,.15);
+  border-radius:4px;
+  box-shadow:0 6px 12px rgba(0,0,0,.175);
+  background-clip:padding-box;
+}
+.breadcrumb .component-breadcrumb #primary_nav_wrap ul ul li {
+  float:none;
+  min-width:200px;
+  padding:5px 20px;
+  line-height:1;
+}
+.breadcrumb .component-breadcrumb #primary_nav_wrap ul ul li:first-child {
+  padding-top:10px;
+}
+.breadcrumb .component-breadcrumb #primary_nav_wrap ul ul li:last-child {
+  padding-bottom:10px;
+}
+.breadcrumb .component-breadcrumb #primary_nav_wrap ul ul a {
+  line-height:120%;
+  padding:0;
+  color:#316aca;
+  font-weight:lighter;
+  font-size:14px;
+  text-decoration:none;
+  display:block;
+  clear:both;
+  white-space:nowrap;
+}
+.breadcrumb .component-breadcrumb #primary_nav_wrap ul ul a:hover {
+  color:#32508f;
+}
+.breadcrumb .component-breadcrumb #primary_nav_wrap ul ul.dropdown-menu.active {
+  display:block;
+}
+.breadcrumb .component-breadcrumb .dropdown-menu:before {
+  position:absolute;
+  top:-7px;
+  left:25%;
+  display:inline-block;
+  border-right:7px solid transparent;
+  border-bottom:7px solid #ccc;
+  border-left:7px solid transparent;
+  border-bottom-color:rgba(0,0,0,0.2);
+  content:'';
+}
+.breadcrumb .component-breadcrumb .dropdown-menu:after {
+  position:absolute;
+  top:-6px;
+  left:25%;
+  display:inline-block;
+  border-right:6px solid transparent;
+  border-bottom:6px solid #FFF;
+  border-left:6px solid transparent;
+  content:'';
+}
+
+@media(max-width:479px) {
+.breadcrumb .component-breadcrumb .icon-dropdown-arrow {
+  display:none;
+}
+}
+
+@media(min-width:480px) {
+.breadcrumb .component-breadcrumb #primary_nav_wrap>ul>li>a {
+  padding:0;
+}
+}
+
+.breadcrumb > .container > .component-breadcrumb {
+  position:static;
+  padding-top:0;
+}

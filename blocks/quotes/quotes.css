@@ -1,0 +1,666 @@
+/* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
+/* stardust:deploy — rules lifted for the .quotes block from canon.css, home.css, landing.css, category.css (selectors matching /carousel-holder|cmp-carousel|carousel-list-holder|slick-|content-carousel|panelcontainer|^\.container\b|^\.carousel\b|\.list\b/), scoped under .quotes */
+.quotes .container {
+  display:block;
+  margin-right:auto;
+  margin-left:auto;
+  padding-left:15px;
+  padding-right:15px;
+  width:100%;
+}
+
+@media(min-width:992px) {
+.quotes .container {
+  width:970px;
+}
+}
+
+@media(min-width:1200px) {
+.quotes .container {
+  width:1170px;
+}
+}
+
+.quotes .container::before,
+.quotes .container::after {
+  content:" ";
+  display:table;
+}
+.quotes .container::after {
+  clear:both;
+}
+.quotes .container .container {
+  width:100%!important;
+  padding-left:0;
+  padding-right:0;
+}
+.quotes .carousel-holder {
+  position:relative;
+  margin:auto;
+  transition:all .1s;
+}
+.quotes .carousel-list-holder {
+  position:relative;
+  display:block;
+}
+.quotes .carousel-holder .bg-desktop {
+  height:700px;
+  position:relative;
+  display:none;
+}
+.quotes .carousel-holder .bg-mobile {
+  height:560px;
+  position:relative;
+  display:block;
+}
+
+@media(min-width:730px) {
+.quotes .carousel-holder .bg-desktop {
+  display:block;
+}
+.quotes .carousel-holder .bg-mobile {
+  display:none;
+}
+}
+
+.quotes .slick-dots {
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.quotes .slick-dots li {
+  position:relative;
+  display:inline-block;
+  height:2px;
+  width:50px;
+  padding:4px 0;
+  cursor:pointer;
+  margin:0 8px 0 0;
+}
+.quotes .slick-dots li:last-child {
+  margin:0;
+}
+.quotes .slick-dots li:before {
+  content:"";
+  border-bottom:2px solid #e3e3e3;
+  width:100%;
+  position:absolute;
+  left:0;
+  bottom:2.5px;
+  transition:.5s;
+}
+.quotes .slick-dots li.slick-active:before {
+  border-color:#555;
+  transition:.3s;
+}
+.quotes .slick-nav-container {
+  position:relative;
+  display:flex;
+  top:-16px;
+  z-index:0;
+  pointer-events:none;
+  width:100%;
+  padding-left:15px;
+  padding-right:15px;
+}
+.quotes .slick-prev,
+.quotes .slick-next {
+  width:24px;
+  height:24px;
+  border-radius:20px;
+  padding:0;
+  background:#FFF;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid #555;
+  color:#555;
+  pointer-events:all;
+  font-size:18px;
+  z-index:1;
+}
+.quotes .slick-prev:last-child,
+.quotes .slick-next:last-child {
+  margin-left:auto;
+}
+.quotes .slick-prev:hover,
+.quotes .slick-prev:focus,
+.quotes .slick-prev:focus-visible,
+.quotes .slick-next:hover,
+.quotes .slick-next:focus,
+.quotes .slick-next:focus-visible {
+  background:#f7f7fa;
+}
+.quotes .slick-arrow.slick-hidden {
+  display:none;
+}
+
+@media(min-width:730px) {
+.quotes .slick-nav-container {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:1;
+  margin-top:-36px;
+}
+.quotes .slick-nav-container .slick-prev {
+  position:absolute;
+  left:6px;
+}
+.quotes .slick-nav-container .slick-next {
+  position:absolute;
+  right:6px;
+}
+.quotes .slick-prev,
+.quotes .slick-next {
+  height:40px;
+  width:40px;
+  font-size:20px;
+}
+}
+
+@media(min-width:1400px) {
+.quotes .slick-nav-container .slick-prev {
+  left:-80px;
+}
+.quotes .slick-nav-container .slick-next {
+  right:-80px;
+}
+}
+
+.quotes .carousel.panelcontainer .cmp-carousel.carousel-holder {
+  position:relative;
+  margin:auto;
+}
+.quotes .carousel.panelcontainer .cmp-carousel__content {
+  position:relative;
+  max-width:1170px;
+}
+.quotes .carousel.panelcontainer .slick-list {
+  position:relative;
+  overflow:hidden;
+  display:block;
+  margin:0;
+  padding:0;
+  transform:translate3d(0,0,0);
+}
+.quotes .carousel.panelcontainer .slick-track {
+  position:relative;
+  display:grid;
+  width:100%;
+  transform:translate3d(0,0,0);
+}
+.quotes .carousel.panelcontainer .cmp-carousel__item {
+  grid-area:1/1;
+  position:relative;
+  opacity:0;
+  transition:opacity 200ms;
+  z-index:998;
+}
+.quotes .carousel.panelcontainer .cmp-carousel__item.slick-active {
+  opacity:1;
+  z-index:999;
+}
+.quotes .carousel.panelcontainer .cmp-carousel__item .column > .container,
+.quotes .carousel.panelcontainer .cmp-carousel__item .column > .background-component > .container {
+  width:100%;
+  padding:0;
+  margin:0;
+}
+.quotes .slick-dots {
+  position:relative;
+  list-style:none;
+  padding:0;
+  margin:28px auto 0 auto;
+  left:0;
+  right:0;
+  max-width:342px;
+  width:-webkit-calc(100% - (2 * (24px + 16px + 16px)));
+  width:calc(100% - (2 * (24px + 16px + 16px)));
+  font-size:0;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-pack:center;
+  justify-content:center;
+}
+.quotes .carousel.panelcontainer .slick-dots li {
+  position:relative;
+  display:inline-block;
+  height:2px;
+  width:50px;
+  padding:4px 0;
+  cursor:pointer;
+  margin:0 8px 0 0;
+}
+.quotes .carousel.panelcontainer .slick-dots li:last-child {
+  margin:0;
+}
+.quotes .carousel.panelcontainer .slick-dots li:before {
+  content:"";
+  border-bottom:2px solid #e3e3e3;
+  width:100%;
+  position:absolute;
+  left:0;
+  bottom:2.5px;
+  transition:.5s;
+}
+.quotes .carousel.panelcontainer .slick-dots li.slick-active:before {
+  border-color:#555;
+  transition:.3s;
+}
+.quotes .slick-nav-container {
+  position:relative;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  top:-16px;
+  z-index:0;
+  pointer-events:none;
+  width:100%;
+  padding-left:15px;
+  padding-right:15px;
+}
+.quotes .slick-prev,
+.quotes .slick-next {
+  width:24px;
+  height:24px;
+  border-radius:20px;
+  padding:0;
+  background:#FFF;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-align:center;
+  align-items:center;
+  -webkit-box-pack:center;
+  justify-content:center;
+  border:1px solid #555;
+  color:#555;
+  pointer-events:all;
+  font-size:18px;
+  z-index:1;
+}
+.quotes .carousel.panelcontainer .slick-prev,
+.quotes .carousel.panelcontainer .slick-next {
+  cursor:pointer;
+  line-height:32px;
+  font-weight:300;
+  font-family:inherit;
+}
+.quotes .carousel.panelcontainer .slick-prev svg,
+.quotes .carousel.panelcontainer .slick-next svg {
+  height:1em;
+  display:block;
+}
+.quotes .carousel.panelcontainer .slick-prev:hover,
+.quotes .carousel.panelcontainer .slick-prev:focus,
+.quotes .carousel.panelcontainer .slick-next:hover,
+.quotes .carousel.panelcontainer .slick-next:focus {
+  background:#f7f7fa;
+}
+
+@media(min-width:730px) {
+.quotes .slick-nav-container {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:1;
+  margin-top:-36px;
+}
+.quotes .slick-nav-container .slick-prev {
+  position:absolute;
+  left:6px;
+}
+.quotes .slick-nav-container .slick-next {
+  position:absolute;
+  right:6px;
+}
+.quotes .carousel.panelcontainer .slick-prev,
+.quotes .carousel.panelcontainer .slick-next {
+  height:40px;
+  width:40px;
+  font-size:20px;
+}
+}
+
+@media(min-width:1400px) {
+.quotes .slick-nav-container .slick-prev {
+  left:-80px;
+}
+.quotes .slick-nav-container .slick-next {
+  right:-80px;
+}
+}
+
+.quotes .carousel.panelcontainer .cmp-carousel__item {
+  min-width:0;
+  width:100%;
+}
+.quotes .carousel-holder[carousel-type="content-carousel"] .component-quote {
+  width:98%;
+  margin:1%;
+}
+.quotes .carousel-holder[carousel-type="content-carousel"] .component-quote .component-text {
+  height:186px;
+  overflow:hidden;
+}
+
+@media(min-width:730px) {
+.quotes .carousel-holder[carousel-type="content-carousel"] .component-quote .component-text {
+  height:125px;
+  overflow:hidden;
+}
+}
+
+.quotes .carousel-holder[carousel-type="content-carousel"] .component-quote .quote-attribution-wrapper {
+  min-height:39px;
+}
+
+@media(min-width:730px) {
+.quotes .carousel-holder[carousel-type="content-carousel"] .component-quote .quote-attribution-wrapper {
+  min-height:25px;
+}
+}
+
+.quotes .carousel-holder[carousel-type="content-carousel"] .component-quote .quote-img-wrapper {
+  height:45px;
+}
+
+@media(min-width:730px) {
+.quotes .carousel-holder[carousel-type="content-carousel"] .component-quote .quote-img-wrapper {
+  height:60px;
+}
+}
+.quotes .img-responsive {
+  display:block;
+  max-width:100%;
+  height:auto;
+}
+.quotes .img-responsive {
+  display:block;
+  max-width:100%;
+  width:100%;
+  height:auto;
+}
+
+@media(max-width:730px) {
+.quotes .img-responsive.svg {
+  height:140px;
+  width:auto;
+  margin:0 auto;
+}
+}
+
+.quotes .quote .container {
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-pack:center;
+  justify-content:center;
+}
+.quotes .quote .edit-start.container {
+  display:block;
+}
+.quotes .component-quote {
+  width:100%;
+  display:inline-block;
+  max-width:1032px;
+  margin:0 auto;
+  padding:24px;
+  background:#FFF;
+  border-radius:5px;
+  border:1px solid #5555550D;
+  box-shadow:0 4px 4px 0 #00000040;
+}
+.quotes .component-quote * {
+  margin:0;
+  padding:0;
+  font-size:inherit;
+  color:inherit;
+}
+.quotes .component-quote .component-text {
+  font-weight:300;
+  font-size:16px;
+  line-height:160%;
+  color:#111c24;
+  margin-bottom:16px;
+}
+.quotes .component-quote .component-text .quote-text {
+  display:-webkit-box;
+  -webkit-line-clamp:7;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.quotes .component-quote .component-text .quote-text::before {
+  content:' ';
+  width:28px;
+  height:24px;
+  margin-right:6px;
+  background-image:url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDciIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0NyA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzIzXzMxOSkiPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTE2Ljg3MDMgMEwyMS41MjA5IDguNzI5NjdDMTcuNzMxOSAxMC40OTY3IDE1LjEwMzMgMTIuMjU0OSAxMy42NTI3IDEzLjk5NTZDMTIuMjAyMiAxNS43NDUxIDExLjM5MzQgMTcuODExIDExLjIyNjQgMjAuMTkzNEgyMS41MTIxVjQwSDBWMjMuNTc4QzAgMTcuNTI5NyAxLjI2NTkzIDEyLjc2NDggMy44MDY1OSA5LjI2NTkzQzYuMzQ3MjUgNS43NjcwMyAxMC42OTg5IDIuNjgxMzIgMTYuODcwMyAwWiIgZmlsbD0iIzdFNDVBRiIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTQxLjk0MjYgMEw0Ni41OTMxIDguNzI5NjdDNDIuODA0MSAxMC40OTY3IDQwLjE3NTYgMTIuMjU0OSAzOC43MjUgMTMuOTk1NkMzNy4yNzQ1IDE1Ljc0NTEgMzYuNDY1NyAxNy44MTEgMzYuMjk4NiAyMC4xOTM0SDQ2LjU4NDRWNDBIMjUuMDcyM1YyMy41NzhDMjUuMDcyMyAxNy41Mjk3IDI2LjMzODIgMTIuNzY0OCAyOC44Nzg5IDkuMjY1OTNDMzEuNDE5NSA1Ljc2NzAzIDM1Ljc3MTIgMi42ODEzMiA0MS45MzM4IDBINDEuOTQyNloiIGZpbGw9IiM3RTQ1QUYiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8yM18zMTkiPgo8cmVjdCB3aWR0aD0iNDYuNTkzNCIgaGVpZ2h0PSI0MCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K");
+  display:inline-block;
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:bottom;
+}
+.quotes .component-quote .component-text .quote-text.quote-japanese::before,
+.quotes .component-quote .component-text .quote-text.quote-chinese-simplified::before,
+.quotes .component-quote .component-text .quote-text.quote-chinese-traditional::before {
+  background-image:url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNC41IiBoZWlnaHQ9IjQ1LjUiIHZpZXdCb3g9IjAgMCAyNC41IDQ1LjUiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICM3ZTQ1YWY7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTI0LjM2LDB2OS4zMWgtMTQuMTJ2MzYuMTlIMFYwaDI0LjM2WiIvPgo8L3N2Zz4=");
+  width:21px;
+}
+.quotes .component-quote .quote-attribution-wrapper {
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  font-size:12px;
+  margin-bottom:16px;
+  flex-wrap:wrap;
+}
+.quotes .component-quote .quote-attribution {
+  width:100%;
+}
+.quotes .component-quote .separator {
+  display:none;
+  padding:0 6px;
+}
+.quotes .component-quote .quote-img {
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-align:center;
+  align-items:center;
+  height:45px;
+}
+.quotes .component-quote .quote-img img {
+  max-height:45px;
+}
+.quotes .component-quote .quote-img.headshot-img {
+  width:45px;
+  height:45px;
+  border-radius:60px;
+  overflow:hidden;
+}
+
+@media(min-width:730px) {
+.quotes .component-quote {
+  padding:40px 32px;
+}
+.quotes .component-quote .component-text {
+  font-size:16px;
+  line-height:1.6;
+  margin-bottom:24px;
+}
+.quotes .component-quote .component-text .quote-text {
+  display:-webkit-box;
+  -webkit-line-clamp:4;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.quotes .component-quote .component-text .quote-text::before {
+  width:46px;
+  height:40px;
+  margin-right:8px;
+}
+.quotes .component-quote .quote-attribution-wrapper {
+  margin-bottom:8px;
+  font-size:16px;
+}
+.quotes .component-quote .quote-attribution {
+  width:auto;
+}
+.quotes .component-quote .separator {
+  display:block;
+}
+.quotes .component-quote .quote-img {
+  float:right;
+  height:60px;
+}
+.quotes .component-quote .quote-img.headshot-img {
+  width:60px;
+  height:60px;
+}
+.quotes .component-quote .quote-img img {
+  max-height:60px;
+}
+}
+
+.quotes .component-image .zoom-container.cmp-image.infographic-image img.img-responsive {
+  height:75vh;
+  width:auto;
+  margin:0 auto;
+}
+.quotes .component-image .zoom-container.cmp-image.infographic-image .zoom-instructions {
+  display:block;
+  margin-top:10px;
+  margin-bottom:30px;
+}
+.quotes .infographic-image .embed-responsive-item .cmp-image img {
+  height:auto !important;
+  max-width:1000px !important;
+  width:100% !important;
+}
+
+@media(max-width:730px) {
+.quotes .component-banner .reg-banner.has-foreground-image .imageOverlayLeft .foreground-image-inner .cmp-image,
+.quotes .component-banner .reg-banner.has-foreground-image .imageOverlayRight .foreground-image-inner .cmp-image,
+.quotes .component-video-banner .reg-banner.has-foreground-image .imageOverlayLeft .foreground-image-inner .cmp-image,
+.quotes .component-video-banner .reg-banner.has-foreground-image .imageOverlayRight .foreground-image-inner .cmp-image {
+  position:relative;
+  height:100%;
+  width:100%;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-align:center;
+  align-items:center;
+  -webkit-box-pack:center;
+  justify-content:center;
+}
+}
+
+@media(max-width:729px) {
+.quotes .component-banner .img-responsive {
+  display:block;
+}
+}
+
+@media(min-width:730px) {
+.quotes .component-banner .img-responsive {
+  display:block;
+}
+.quotes .component-banner .foreground-image-inner .cmp-image {
+  height:100%;
+}
+}
+
+@media(max-width:729px) {
+.quotes .component-video-banner .img-responsive {
+  display:block;
+}
+}
+
+@media(min-width:730px) {
+.quotes .component-video-banner .img-responsive {
+  display:block;
+}
+}
+
+@media(max-width:729px) {
+.quotes .component-interactive-banner .img-responsive {
+  display:block;
+}
+}
+
+@media(min-width:730px) {
+.quotes .component-interactive-banner .img-responsive {
+  display:block;
+}
+}
+
+.quotes .component-quicktask .topTasksIcon .img-responsive {
+  height:100px;
+  margin:auto;
+}
+.quotes .carousel-holder[carousel-type="content-carousel"] .component-quote {
+  width:98%;
+  margin:1%;
+}
+.quotes .carousel-holder[carousel-type="content-carousel"] .component-quote .component-text {
+  height:186px;
+  overflow:hidden;
+}
+
+@media(min-width:730px) {
+.quotes .carousel-holder[carousel-type="content-carousel"] .component-quote .component-text {
+  height:125px;
+  overflow:hidden;
+}
+}
+
+.quotes .carousel-holder[carousel-type="content-carousel"] .component-quote .quote-attribution-wrapper {
+  min-height:39px;
+}
+
+@media(min-width:730px) {
+.quotes .carousel-holder[carousel-type="content-carousel"] .component-quote .quote-attribution-wrapper {
+  min-height:25px;
+}
+}
+
+.quotes .carousel-holder[carousel-type="content-carousel"] .component-quote .quote-img-wrapper {
+  height:45px;
+}
+
+@media(min-width:730px) {
+.quotes .carousel-holder[carousel-type="content-carousel"] .component-quote .quote-img-wrapper {
+  height:60px;
+}
+}
+
+/* ---- static family aliases (alias-static.mjs): moved authored nodes ---- */
+/* the source quote text is a text node inside the -webkit-box; the authored paragraph must flow inline after the ::before glyph */
+.quotes .quote-text p {
+  display: contents;
+}
+
+.quotes .quote-attribution p {
+  margin: 0;
+  font: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.quotes .quote-img p,
+.quotes .quote-img picture {
+  display: contents;
+}

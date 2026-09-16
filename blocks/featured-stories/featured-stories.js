@@ -6,10 +6,14 @@
  * (picture + title).
  *
  * Authoring rows, one per story:
- *   1. lead:  <p><img desktop></p> [<p><img mobile></p>] | <p><a href>Story title</a></p>
- *   2..n:     <p><img></p> | <h3><a href>Story title</a></h3>
- * Tier: reconstructive; pictures and the title paragraph/heading are MOVED (EW1), the picture link
- * repeats the title href. Cards are grouped 4 per row as the source does.
+ *   1. lead:  <p><img desktop></p> [<p><img mobile></p>] | [<p>date</p>]
+ *             <p><a href>Story title</a></p>
+ *             [<p>Feat. <a>Author</a>, <a>Author</a></p>]
+ *   2..n:     <p><img></p> | [<p>date</p>] <h3><a href>Story title</a></h3> [<p>Feat. …</p>]
+ * The optional date line precedes the title, the optional authors line follows it (webinars); the
+ * source's author headshot circles are display:none on live and are not authored.
+ * Tier: reconstructive; pictures, date, title and authors are MOVED (EW1), the picture link repeats
+ * the title href. Cards are grouped 4 per row as the source does.
  */
 
 function el(tag, className, attrs = {}) {
@@ -23,6 +27,15 @@ function el(tag, className, attrs = {}) {
 
 const pictures = (cell) => [...cell.querySelectorAll('picture, img')].filter((m) => !(m.tagName === 'IMG' && m.closest('picture')));
 const hrefOf = (cell) => { const a = cell.querySelector('a'); return a ? a.getAttribute('href') : '#'; };
+// title = the heading, else the first paragraph holding a link; date = paragraphs before it;
+// authors = paragraphs after it
+const fields = (cell) => {
+  const kids = [...cell.children];
+  const title = cell.querySelector('h1, h2, h3, h4, h5, h6')
+    || kids.find((k) => k.matches('p') && k.querySelector('a')) || kids.find((k) => k.matches('p'));
+  const idx = kids.indexOf(title);
+  return { title, before: kids.slice(0, Math.max(idx, 0)).filter((k) => k.matches('p')), after: kids.slice(idx + 1).filter((k) => k.matches('p')) };
+};
 
 function lead(cells) {
   const [mediaCell, textCell] = cells;
@@ -44,11 +57,14 @@ function lead(cells) {
   });
   const overlay = el('div', 'text-overlay landing');
   const info = el('div', 'info-holder');
+  const f = fields(textCell);
+  if (f.before.length) { const d = el('div', 'date-time'); f.before.forEach((p) => d.append(p)); info.append(d); }
   const title = el('div', 'title');
-  const titleNode = textCell.querySelector('h1, h2, h3, h4, h5, h6, p');
-  if (titleNode) title.append(titleNode);
+  if (f.title) title.append(f.title);
   const authors = el('div', 'authors author-info');
-  authors.append(el('div', 'authors-links'));
+  const links = el('div', 'authors-links');
+  f.after.forEach((p) => links.append(p));
+  authors.append(links);
   info.append(title, authors);
   overlay.append(info);
   inner.append(bannerImg, overlay);
@@ -68,12 +84,16 @@ function card(cells) {
   const [pic] = pictures(mediaCell);
   const picLink = el('a', 'pic-link', { href: hrefOf(textCell) });
   if (pic) picLink.append(pic);
+  const f = fields(textCell);
   const heading = el('div', 'story-title');
-  const titleNode = textCell.querySelector('h1, h2, h3, h4, h5, h6, p');
-  if (titleNode) heading.append(titleNode);
+  if (f.title) heading.append(f.title);
   const authors = el('div', 'authors blog-author-info');
-  authors.append(el('div', 'authors-links'));
-  article.append(picLink, heading, authors);
+  const links = el('div', 'authors-links');
+  f.after.forEach((p) => links.append(p));
+  authors.append(links);
+  article.append(picLink);
+  if (f.before.length) { const d = el('div', 'date-time'); f.before.forEach((p) => d.append(p)); article.append(d); }
+  article.append(heading, authors);
   container.append(article);
   host.append(container);
   grid.append(host);

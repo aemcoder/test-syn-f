@@ -802,6 +802,20 @@
   display: block;
 }
 
+.featured-stories .cmp-featured-blogbanner .date-time p,
+.featured-stories .cmp-featured-blogbanner .authors-links p,
+.featured-stories .info-holder .date-time p,
+.featured-stories .info-holder .authors-links p {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  display: inline;
+}
+
 /* the source lead image carries width=1200 clamped by max-width to the 1140 container (height forced by the landing rule) */
 .featured-stories .cmp-blogbanner .banner-img img {
   width: 100%;

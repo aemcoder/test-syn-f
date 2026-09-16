@@ -1145,6 +1145,11 @@
   box-shadow: none;
 }
 
+/* an illustration inside a text column (the implementation page's rehosted IC-design diagram): the source caps it at 540px */
+.columns.landing .component-text img {
+  max-width: 540px;
+}
+
 /* per-cell vert-pad-* bands the source puts on each column's text block (a margin on a floated column: never collapses) */
 .columns.landing.cells-pad-top-xs .text,
 .columns.landing.cells-pad-top-sm .text,

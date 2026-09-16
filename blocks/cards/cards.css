@@ -1354,3 +1354,8 @@
 .cards.grid .component-assetcard .cmp-image + .card-text {
   padding-top: 20px;
 }
+
+/* the shared carousel branch keeps an empty .cmp-image on an image-less card; the source has none there (32px top padding) */
+.cards.carousel .component-assetcard .cmp-image:empty + .card-text {
+  padding-top: 32px;
+}

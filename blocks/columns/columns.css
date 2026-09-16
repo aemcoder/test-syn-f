@@ -358,3 +358,172 @@
 .columns .component-button p.button-wrapper {
   display: contents;
 }
+
+/* ---- program family (stardust/scripts/eds/program/port-program.sh) ---- */
+.columns .col-sm-3 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+
+@media(min-width:730px) {
+.columns .col-sm-3 {
+  float:left;
+}
+.columns .col-sm-3 {
+  width:25%;
+}
+}
+
+.columns .component-textcomp .title.text-size-smaller {
+  font-size:24px;
+}
+
+@media(min-width:730px) {
+.columns .component-textcomp .title.text-size-smaller {
+  font-size:24px;
+}
+}
+
+.columns .text-size-smaller {
+  font-size:.8em;
+}
+.columns .col-sm-3,
+.columns .col-sm-9 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+
+@media(min-width:730px) {
+.columns .col-sm-3,
+.columns .col-sm-9 {
+  float:left;
+}
+.columns .col-sm-3 {
+  width:25%;
+}
+.columns .col-sm-9 {
+  width:75%;
+}
+}
+
+.columns .col-sm-9 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+
+@media(min-width:730px) {
+.columns .col-sm-9 {
+  float:left;
+}
+.columns .col-sm-9 {
+  width:75%;
+}
+}
+
+.columns .two2575Right .container {
+  width:100%;
+  max-width:none;
+  padding:0;
+  margin:0;
+}
+.columns .two2575Right .text .component-textcomp .title.text-size-smaller {
+  font-size:24px;
+}
+.columns .two2575Right .component-textcomp .title {
+  line-height:1.1;
+}
+.columns .two2575Right .component-text {
+  font-size:16px;
+  line-height:160%;
+  font-weight:300;
+  color:#111c24;
+}
+.columns .two2575Right .component-text p {
+  margin:0 0 10px;
+  font-size:inherit;
+}
+.columns .two2575Right .component-text p:last-child {
+  margin-bottom:0;
+}
+.columns .two2575Right .component-text a {
+  color:#316aca;
+}
+.columns .two2575Right .component-text b,
+.columns .two2575Right .component-text strong {
+  font-weight:700;
+}
+.columns .two2575Right .image .cmp-image img {
+  display:block;
+  max-width:100%;
+  height:auto;
+}
+.columns .two2575Right .image .cmp-image .cmp-image__title {
+  display:inline;
+  font-size:inherit;
+  line-height:inherit;
+  font-weight:300;
+  color:#111c24;
+}
+
+
+/* program family — smaller titles, prose links, padded divider texts, speaker columns (EW2) */
+.columns.pad-bottom-xs .divider-row .text { padding-bottom: 15px; }
+
+.columns.pad-bottom-sm .divider-row .text { padding-bottom: 30px; }
+
+.columns.pad-bottom-md .divider-row .text { padding-bottom: 60px; }
+
+.columns.small .component-textcomp .title.text-size-normal {
+  font-size: 24px;
+}
+
+.columns.prose-links .component-text p {
+  font-size: inherit;
+}
+
+.columns.speakers .component-textcomp {
+  padding: 0;
+}
+
+.columns.speakers .two2575Right .component-text p {
+  margin: 0 0 10px;
+}
+
+.columns.speakers .two2575Right .component-text p.button-wrapper {
+  display: block;
+  margin: 0 0 10px;
+}
+
+.columns.speakers .two2575Right .component-text a.button:any-link,
+.columns.speakers .two2575Right .component-text a.button:hover,
+.columns.speakers .two2575Right .component-text .prosemirror-editor p > strong > a:any-link {
+  display: inline;
+  min-width: 0;
+  max-width: none;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  font: inherit;
+  font-weight: 700;
+  color: #316aca;
+  background: none;
+  box-shadow: none;
+  text-align: inherit;
+}
+
+.columns.speakers .two2575Right .component-text a.button:hover {
+  text-decoration: underline;
+}
+
+.columns.speakers .two2575Left .cmp-image picture,
+.columns.speakers .two2575Left .cmp-image img {
+  display: block;
+  width: 100%;
+}

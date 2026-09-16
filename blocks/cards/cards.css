@@ -1329,3 +1329,585 @@
   color:#316aca;
   display:block;;
 }
+
+/* ---- program family (stardust/scripts/eds/program/port-program.sh) ---- */
+.cards .embed-responsive {
+  position:relative;
+  display:block;
+  height:0;
+  overflow:hidden;
+}
+.cards .embed-responsive-16by9 {
+  padding-bottom:56.25%;
+}
+.cards .cmp-video-cta {
+  display:inline-block;
+}
+.cards .cmp-video__player-container {
+  position:relative;
+}
+.cards .cmp-video__player--inline .vjs-dock-text {
+  display:none;
+}
+.cards .cmp-video__player--inline .vjs-dock-shelf {
+  display:none;
+}
+.cards .cmp-video__thumbnail {
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  z-index:1;
+  cursor:pointer;
+  font-size:14px;
+}
+.cards .cmp-video__thumbnail.has-thumbnail {
+  background-color:#FFF;
+}
+.cards .cmp-video__thumbnail.is-hidden {
+  display:none;
+}
+.cards .cmp-video__thumbnail-img {
+  width:100%;
+  height:100%;
+  background-size:cover;
+  background-position:50% 50%;
+  background-repeat:no-repeat;
+  opacity:0;
+  background-color:#fff;
+  object-fit:cover;
+}
+.cards .cmp-video__thumbnail-img.cmp-video__thumbnail-img--authored {
+  opacity:1;
+}
+.cards .cmp-video__thumbnail-img.cmp-video__thumbnail-img--empty {
+  position:absolute;
+  top:0;
+  left:0;
+}
+.cards .cmp-video .video-js .vjs-big-play-button {
+  display:none;
+}
+.cards .video-js .vjs-progress-control.vjs-control {
+  background-color:#000;
+  background-color:black;
+  opacity:.85;
+}
+.cards .video-js .vjs-load-progress {
+  background-color:#646e81;
+  background-color:rgba(100,110,129,0.85);
+  opacity:.85;
+}
+.cards .video-js .vjs-play-progress.vjs-slider-bar {
+  background-color:#FFF !important;
+}
+.cards .vjs-dock-shelf .vjs-button.vjs-share-control>span:nth-child(2),
+.cards .vjs-control-bar .vjs-button.vjs-share-control>span:nth-child(2) {
+  display:none;
+}
+.cards .video-button-container {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:2;
+  width:64px;
+  height:64px;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  align-content:center;
+  border-radius:90px;
+  flex-wrap:wrap;
+  justify-content:center;
+  font-size:21px;
+  border:2px solid #000000BF;
+  background:#000000BF;
+  color:#FFF;
+  transition:all .1s ease-out;
+}
+.cards .video-button-container.light {
+  background:transparent;
+  border-color:#FFF;
+}
+.cards .cmp-video__thumbnail:hover .video-button {
+  width:68px;
+  height:68px;
+  font-size:24px;
+  transition:none;
+}
+
+@media(max-width:1129px) {
+.cards #morph-dropdown-wrapper .component-subnav .cmp-video {
+  display:none;
+}
+}
+
+.cards .component-assetcard .cmp-video+.card-text {
+  padding-top:20px;
+}
+
+@media only screen and (min-width:730px) {
+.cards .marketoFormsContainer:has(.two-column) .unpinned-content .cmp-video {
+  width:50%;
+}
+.cards .marketoFormsContainer:not(:has(.two-column)) .unpinned-content .cmp-video {
+  width:58.3333%;
+}
+}
+
+.cards .cmp-video .video-js {
+  background-color:rgb(21, 27, 23);
+  color:rgb(255, 255, 255);
+  font-size:14px;
+  font-family:Arial, Helvetica, sans-serif;
+  line-height:14px;
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+.cards .cmp-video .vjs-poster {
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  height:100%;
+  display:block;
+  background-color:rgb(21, 27, 23);
+  background-size:contain;
+  background-position:50% 50%;
+  background-repeat:no-repeat;
+  cursor:pointer;
+}
+.cards .cmp-video .vjs-dock-text,
+.cards .cmp-video .vjs-dock-shelf,
+.cards .cmp-video .vjs-big-play-button,
+.cards .cmp-video .vjs-control-bar,
+.cards .cmp-video .vjs-loading-spinner {
+  display:none;
+}
+.cards .cmp-video .video-button-container {
+  display:flex;
+  align-items:normal;
+  justify-content:center;
+  background-color:rgba(0, 0, 0, 0.75);
+  border-radius:90px;
+  border-top:2px solid rgba(0, 0, 0, 0.75);
+  color:rgb(255, 255, 255);
+  font-size:21px;
+  opacity:1;
+  box-shadow:none;
+}
+.cards .cmp-video .video-button-container svg {
+  width:15.75px;
+  height:21px;
+  font-size:21px;
+  vertical-align:-2.625px;
+  margin-left:0px;
+}
+.cards .cmp-video .embed-responsive .embed-responsive-item {
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+.cards .component-assetcard .cmp-video__thumbnail {
+  background:transparent;
+}
+.cards .cmp-dynamiccards .component-content-carousel {
+  position:relative;
+  z-index:0;
+}
+
+@media(min-width:730px) {
+.cards .cmp-dynamiccards .component-content-carousel {
+  padding:0 40px;
+  width:100%;
+  max-width:1170px;
+  margin:0 auto;
+}
+}
+
+@media(min-width:1400px) {
+.cards .cmp-dynamiccards .component-content-carousel {
+  padding:0;
+}
+}
+
+.cards .cmp-dynamiccards .slick-list {
+  overflow:hidden;
+  position:relative;
+}
+.cards .cmp-dynamiccards .slick-track {
+  display:flex;
+  width:max-content;
+  position:relative;
+}
+.cards .cmp-dynamiccards .card-col {
+  flex:0 0 auto;
+  padding:0 20px;
+  vertical-align:middle;
+}
+.cards .cmp-dynamiccards .component-card-b {
+  position:relative;
+  margin:15px 0;
+  display:flex;
+  flex-direction:column;
+  height:100%!important;
+  background-color:#fff;
+  box-shadow:0 1px 7px 0 rgba(0,0,0,.15);
+  border:0;
+  overflow:hidden;
+}
+.cards .cmp-dynamiccards .component-card-b:hover {
+  box-shadow:0 1px 7px 0 rgba(0,0,0,.3);
+}
+.cards .cmp-dynamiccards .component-card-b .image-wrapper {
+  position:relative;
+  width:100%;
+  padding-bottom:57.25%;
+}
+.cards .cmp-dynamiccards .component-card-b .image-wrapper picture {
+  position:absolute;
+  top:0;
+  left:0;
+  opacity:1;
+  width:100%;
+  height:100%;
+  display:block;
+}
+.cards .cmp-dynamiccards .component-card-b .image-wrapper picture img {
+  height:100%;
+  object-fit:cover;
+  width:100%;
+  display:block;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text {
+  padding:20px 32px;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text a {
+  display:inline;
+  color:#111c24;
+  text-decoration:none;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text a:hover {
+  text-decoration:underline;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text .label-date-wrapper {
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:10px;
+  height:30px;
+  align-items:flex-start;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text .label-date-wrapper .label {
+  font-size:12px;
+  font-weight:400;
+  text-transform:uppercase;
+  background-color:#7e45af;
+  border-radius:3px;
+  padding:4px 8px;
+  line-height:12px;
+  color:#fff;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text .date-time {
+  font-size:14px;
+  font-weight:300;
+  color:#555;
+  margin-bottom:0;
+  line-height:20px;
+  padding-top:2px;
+  margin-left:2px;
+  text-align:right;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text h4 {
+  font-size:20px;
+  font-weight:400;
+  color:#111c24;
+  margin:0 0 20px 0;
+  height:66px;
+  line-height:1.1;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text h4 span {
+  display:-webkit-box;
+  overflow:hidden;
+  line-height:1.2;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text .author-info {
+  font-size:16px;
+  line-height:17px;
+  font-weight:300;
+  color:#111c24;
+  display:flex;
+  align-items:center;
+  margin-bottom:32px;
+  height:36px;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text .author-info .authors-links {
+  display:-webkit-box;
+  overflow:hidden;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text .author-info .authors-links a {
+  font-size:16px;
+  line-height:16px;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text .author-info .profile-circle {
+  position:relative;
+  width:36px;
+  height:36px;
+  border-radius:50px;
+  overflow:hidden;
+  flex:none;
+  margin-right:12px;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text .author-info .profile-circle div {
+  overflow:hidden;
+  position:absolute;
+  background-color:#c4c4c4;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text .author-info .profile-circle img {
+  position:relative;
+  width:100%;
+  display:block;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text .author-info .profile-circle.one div {
+  width:100%;
+  height:100%;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text .tag-holder {
+  font-size:14px;
+  font-weight:500;
+  color:#555;
+  height:66px;
+  display:-webkit-box;
+  overflow:hidden;
+  line-height:1.6;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text .tag-holder a {
+  font-size:14px;
+  font-weight:300;
+  color:#555;
+  line-height:14px;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text .cta {
+  font-size:16px;
+  color:#316aca;
+  line-height:16px;
+  margin-top:32px;
+  margin-bottom:16px;
+  height:32px;
+  font-weight:300;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text .cta a {
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  line-height:normal;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text .cta span {
+  display:-webkit-box;
+  overflow:hidden;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text .cta svg.fa-chevron-right {
+  font-size:12px;
+  height:12px;
+  width:8px;
+  margin-left:8px;
+}
+.cards .cmp-dynamiccards .slick-prev,
+.cards .cmp-dynamiccards .slick-next {
+  position:absolute;
+  top:50%;
+  width:40px;
+  height:40px;
+  border-radius:20px;
+  padding:0;
+  background:#fff;
+  border:1px solid #555;
+  color:#555;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  cursor:pointer;
+  z-index:1;
+}
+.cards .cmp-dynamiccards .slick-prev svg,
+.cards .cmp-dynamiccards .slick-next svg {
+  height:1em;
+  display:block;
+}
+.cards .cmp-dynamiccards .slick-prev:hover,
+.cards .cmp-dynamiccards .slick-next:hover {
+  background:#f7f7fa;
+}
+.cards .cmp-dynamiccards .slick-prev {
+  left:-10px;
+}
+.cards .cmp-dynamiccards .slick-next {
+  right:-10px;
+}
+
+@media(min-width:1400px) {
+.cards .cmp-dynamiccards .slick-prev {
+  left:-96px;
+}
+.cards .cmp-dynamiccards .slick-next {
+  right:-96px;
+}
+}
+
+.cards .cmp-dynamiccards .slick-dots {
+  position:relative;
+  list-style:none;
+  padding:0;
+  margin:28px auto 0 auto;
+  left:0;
+  right:0;
+  max-width:342px;
+  width:calc(100% - (2 * (24px + 16px + 16px)));
+  font-size:0;
+  display:flex;
+  justify-content:center;
+  height:8px;
+}
+.cards .cmp-dynamiccards .slick-dots li {
+  position:relative;
+  display:block;
+  height:8px;
+  width:50px;
+  padding:4px 0;
+  margin:0 8px 0 0;
+  cursor:pointer;
+  box-sizing:border-box;
+}
+.cards .cmp-dynamiccards .slick-dots li:last-child {
+  margin:0;
+}
+.cards .cmp-dynamiccards .slick-dots li button {
+  opacity:0;
+  background:#efefef;
+  font-size:0;
+  line-height:0;
+  padding:0;
+  border:0;
+  width:100%;
+  height:2px;
+  display:block;
+}
+.cards .cmp-dynamiccards .slick-dots li:before {
+  content:"";
+  border-bottom:2px solid #e3e3e3;
+  width:100%;
+  position:absolute;
+  left:0;
+  bottom:2.5px;
+  transition:.5s;
+}
+.cards .cmp-dynamiccards .slick-dots li.slick-active:before {
+  border-color:#555;
+  transition:.3s;
+}
+
+@media(max-width:729px) {
+.cards .cmp-dynamiccards .container {
+  padding:0;
+}
+.cards .cmp-dynamiccards .slick-list {
+  padding:0 50px;
+}
+.cards .cmp-dynamiccards .component-card-b {
+  margin:10px 0;
+}
+.cards .cmp-dynamiccards .slick-prev {
+  left:10px;
+}
+.cards .cmp-dynamiccards .slick-next {
+  right:10px;
+}
+.cards .cmp-dynamiccards .slick-prev,
+.cards .cmp-dynamiccards .slick-next {
+  width:24px;
+  height:24px;
+  font-size:14px;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text h4 {
+  height:42px;
+}
+}
+
+@media(min-width:730px) and (max-width:992px) {
+.cards .cmp-dynamiccards .component-card-b .card-text h4 {
+  font-size:18px;
+}
+.cards .cmp-dynamiccards .component-card-b .card-text .author-info,
+.cards .cmp-dynamiccards .component-card-b .card-text .date-time {
+  font-size:14px;
+  line-height:15px;
+}
+}
+
+@media(max-width:992px) {
+.cards .cmp-dynamiccards .component-card-b .card-text .tag-holder {
+  height:46px;
+}
+}
+
+
+/* program family — asset cards with the inline player frame; dynamic (card-b) cards: moved authored nodes (EW2) */
+.cards .cmp-video .vjs-poster picture,
+.cards .cmp-video .vjs-poster img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cards .cmp-video a.cmp-video__thumbnail {
+  display: block;
+  text-decoration: none;
+}
+
+.cards .component-card-b .image-wrapper p {
+  margin: 0;
+}
+
+.cards .component-card-b .card-text .label p,
+.cards .component-card-b .card-text .date-time p,
+.cards .component-card-b .card-text .authors-links p,
+.cards .component-card-b .card-text .tag-holder p,
+.cards .component-card-b .card-text .cta p {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+}
+
+.cards .component-card-b .card-text h4 {
+  padding: 0;
+}
+
+.cards .component-card-b .author-info .profile-circle picture {
+  display: block;
+  height: 100%;
+}
+
+.cards .component-card-b .author-info .profile-circle img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.cards .cmp-dynamiccards .slick-prev,
+.cards .cmp-dynamiccards .slick-next {
+  transform: translateY(-50%);
+}

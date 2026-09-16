@@ -7,6 +7,10 @@
  * Tier: template-slotted (fixed composition): the prototype's banner DOM with two role slots;
  * authored nodes are
  * MOVED into them (EW1/EW3), the CTA paragraph keeps its editor index.
+ * @ew-exempt <p> desktop-on-mobile (image variant, media cell) — per-instance image config,
+ *   text-as-metadata
+ * @ew-exempt <p> video source link (video variant, media cell) — kept hidden in the DOM,
+ *   text-as-metadata
  */
 
 const FA_PLAY = '<svg class="svg-inline--fa fa-play" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg>';
@@ -155,7 +159,138 @@ function decorateImage(block) {
   block.replaceChildren(section);
 }
 
+/* ---- video variant (source: component-video-banner, category landing pages): breadcrumb,
+   autoplaying background
+   video with a mobile still and an optional poster, a dimming overlay, title/subtitle and
+      download CTAs.
+   Rows: 1 breadcrumb <ul> (or empty) | 2 media: <p><a href="…mp4">…</a></p> (kept hidden: the
+      video source),
+   <p><picture> mobile still, <p><picture> poster | 3 <h1> accessible +
+      <p><strong>title</strong></p> + <p>subtitle</p>
+   + <strong>/<em> download CTAs. Variants: `left` (content/text align left; default centre),
+      `wide` (text-width-80;
+   default 60), `narrow` (50), `opacity-30|40|50|60` (overlay dim). Authored nodes are MOVED
+      (EW1/EW3). */
+function decorateVideo(block) {
+  const rows = [...block.children].map((row) => [...row.children]);
+  const cells = rows.map((r) => r[0]).filter(Boolean);
+  const crumbCell = cells.find((c) => c.querySelector('ul li') && !c.querySelector('picture, img, h1, h2, h3'));
+  const mediaCell = cells.find((c) => c.querySelector('picture, img, a[href*=".mp4"]') && !c.querySelector('h1, h2, h3'));
+  const textCell = cells.find((c) => c.querySelector('h1, h2, h3, h4, h5, h6')) || cells[cells.length - 1];
+  const left = block.classList.contains('left');
+  let width = 'text-width-60';
+  if (block.classList.contains('wide')) width = 'text-width-80';
+  if (block.classList.contains('narrow')) width = 'text-width-50';
+  const opacity = [...block.classList].find((c) => /^opacity-\d+$/.test(c)) || 'opacity-0';
+
+  const section = el('section', 'component-video-banner', {
+    'data-card-type': 'banner', 'data-color-theme': 'dark', 'data-type': left ? 'content-align-left' : 'content-align-center', 'data-mobile-type': 'stacked', 'data-analytics-link-region': 'hero',
+  });
+  const wrapper = el('div', 'desktop-wrapper');
+  if (crumbCell) wrapper.append(breadcrumb(crumbCell.querySelector('ul')));
+  const bannerImg = el('div', 'banner-img');
+  bannerImg.append(el('div', 'cropped-img'), el('div', `video-overlay ${opacity}`));
+  const pics = mediaCell ? media(mediaCell) : [];
+  const [mob, poster] = pics;
+  if (mob) {
+    const host = el('div', 'dm-mobile component-image cmp-image');
+    const im = mob.querySelector('img') || mob;
+    im.classList.add('img-responsive');
+    host.append(mob);
+    bannerImg.append(host);
+  }
+  const srcLink = mediaCell ? mediaCell.querySelector('a[href*=".mp4"]') : null;
+  if (srcLink) {
+    const video = el('video', 'video-autoplay', {
+      playsinline: '', autoplay: '', muted: 'true', loop: '',
+    });
+    video.muted = true;
+    if (poster) {
+      const pi = poster.querySelector('img') || poster;
+      video.setAttribute('poster', (pi.currentSrc || pi.getAttribute('src') || '').replace(/width=\d+/, 'width=2000'));
+      const hidden = el('div', 'video-poster');
+      hidden.hidden = true;
+      hidden.append(poster.closest('p') || poster);
+      bannerImg.append(hidden);
+    }
+    video.append(el('source', '', { src: srcLink.href, type: 'video/mp4' }));
+    bannerImg.append(video);
+    const srcP = srcLink.closest('p') || srcLink;
+    srcP.hidden = true;
+    bannerImg.append(srcP);
+    const play = video.play();
+    if (play && play.catch) play.catch(() => {});
+  }
+  wrapper.append(bannerImg);
+
+  const overlay = el('div', `text-overlay flex-container ${left ? 'content-align-left text-align-left' : 'content-align-center text-align-center'}`);
+  const content = el('div', `content-wrapper ${width}`);
+  const textWrap = el('div', 'text-wrapper contentValignCenter');
+  const outerText = el('div', 'component-text');
+  const heading = textCell.querySelector('h1, h2, h3, h4, h5, h6');
+  const paragraphs = [...textCell.querySelectorAll('p')];
+  const linkPs = paragraphs.filter((p) => p.querySelector('a'));
+  const plain = paragraphs.filter((p) => !p.querySelector('a') && p.textContent.trim());
+  const titleP = plain.find((p) => p.querySelector('strong')) || plain[0];
+  const subs = plain.filter((p) => p !== titleP);
+  const title = el('div', 'title');
+  if (heading) { const hidden = el('div', 'ui-helper-hidden-accessible'); hidden.append(heading); title.append(hidden); }
+  const visible = el('div', 'text-size-normal');
+  visible.style.color = '#ffffff';
+  if (titleP) visible.append(titleP);
+  title.append(visible);
+  const innerText = el('div', 'component-text');
+  if (subs.length) { const sub = el('div', 'sub-title'); sub.style.color = '#ffffff'; subs.forEach((p) => sub.append(p)); innerText.append(sub); }
+  linkPs.forEach((p) => {
+    const a = p.querySelector('a');
+    const secondary = a.classList.contains('secondary') || !!p.querySelector('em');
+    const label = el('span');
+    label.append(...a.childNodes);
+    a.append(svg(FA_DOWNLOAD), ' ', label, ' '); // the source pairs every video-banner CTA with the download glyph
+    const btn = el('div', `component-button ${secondary ? 'secondary' : 'padding-10 primary'} dark darkButtonRollover`);
+    btn.append(p);
+    innerText.append(btn);
+  });
+  outerText.append(title, innerText);
+  textWrap.append(outerText);
+  content.append(textWrap);
+  overlay.append(content);
+  wrapper.append(overlay);
+  section.append(wrapper);
+  block.replaceChildren(section);
+}
+
+/* ---- image variant options (category landing partner banners): `left` (content/text align
+   left), `narrow`
+   (text-width-50), `opacity-30|40|50|60` (image dim); a banner without breadcrumb drops the crumb
+      container ---- */
+function adjustImage(block) {
+  const overlay = block.querySelector('.text-overlay');
+  const content = block.querySelector('.content-wrapper');
+  const dim = block.querySelector('.image-overlay');
+  if (block.classList.contains('left') && overlay) {
+    overlay.classList.replace('content-align-center', 'content-align-left');
+    overlay.classList.replace('text-align-center', 'text-align-left');
+  }
+  if (block.classList.contains('narrow') && content) content.classList.replace('text-width-80', 'text-width-50');
+  const op = [...block.classList].find((c) => /^opacity-\d+$/.test(c));
+  if (op && dim) dim.classList.replace('opacity-0', op);
+  if (!block.querySelector('.component-breadcrumb li')) {
+    const bc = block.querySelector('.breadcrumb-container');
+    if (bc) bc.remove();
+    const w = block.querySelector('.desktop-wrapper');
+    if (w) w.classList.remove('breadcrumbTrue');
+  }
+}
+
 export default function decorate(block) {
+  // the pipeline wraps the inline content of a list item that holds a nested list in <p>:
+  // restore the authored crumb shape
+  block.querySelectorAll('ul > li > p').forEach((p) => {
+    if (p.parentElement.querySelector(':scope > ul')) p.replaceWith(...p.childNodes);
+  });
+  if (block.classList.contains('video')) { decorateVideo(block); return; }
+  if (block.classList.contains('image') && [...block.classList].some((c) => /^(left|narrow|opacity-\d+)$/.test(c))) { decorateImage(block); adjustImage(block); return; }
   if (block.classList.contains('image')) { decorateImage(block); return; }
   const cells = [...block.children].flatMap((row) => [...row.children]);
   if (!cells.length) return;

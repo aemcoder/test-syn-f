@@ -1,0 +1,83 @@
+/* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
+/* stardust:deploy — rules lifted for the .table block from canon.css (selectors matching /cmp-table|^\.table\b/), scoped under .table */
+.table {
+  width:100%;
+  max-width:100%;
+  margin-bottom:20px;
+}
+.table .cmp-table table {
+  table-layout:fixed;
+  padding:0;
+  width:calc(200px * var(--column-count));
+  min-width:100%;
+  border:0;
+  border-collapse:collapse;
+  border-spacing:0;
+  background-color:transparent;
+}
+.table .cmp-table table tr {
+  background-color:#fff;
+}
+.table .cmp-table table tr:nth-of-type(odd) {
+  background-color:#f7f7fa;
+}
+.table .cmp-table table tr th,
+.table .cmp-table table tr td {
+  padding:18px 24px;
+  color:#111c24;
+  border:1px solid #e3e3e3;
+  border-width:0 1px;
+  vertical-align:middle;
+}
+.table .cmp-table table tr th {
+  font-weight:400;
+  font-size:16px;
+}
+.table .cmp-table table tr th:nth-of-type(1) {
+  font-size:14px;
+}
+.table .cmp-table table tr td {
+  font-weight:300;
+  font-size:14px;
+  line-height:1.6;
+}
+.table .cmp-table table tr:nth-of-type(1) th {
+  font-size:16px;
+}
+.table .cmp-table table a {
+  color:#316aca;
+}
+
+
+/* program family — the source table lays out automatically (its width rule is invalid on the page); moved cell paragraphs; group striping and row rules as the source's inline styles */
+.table .cmp-table table td p,
+.table .cmp-table table td ul {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+}
+
+.table .cmp-table table thead tr {
+  background-color: #f7f7fa;
+}
+
+.table .cmp-table table thead td {
+  text-align: center;
+}
+
+.table .cmp-table table tbody tr.odd {
+  background-color: #fff;
+}
+
+.table .cmp-table table tbody tr.even {
+  background-color: #f7f7fa;
+}
+
+.table .cmp-table table tbody tr.cont {
+  border-top: 1px solid #e3e3e3;
+}
+
+.table .cmp-table table tbody tr.single {
+  border-bottom: 1px solid #e3e3e3;
+}

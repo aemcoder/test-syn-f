@@ -321,10 +321,252 @@ function decoratePanels(block, rows) {
   show(0);
 }
 
+/* ---- assets (category landing pages): a static row of asset cards, 2/3/4 per row by count. Same
+   authoring as
+   `panels`; a Brightcove card authors <p><a href="<player url>"><picture poster></a></p> as its
+      media — rendered
+   as the source's inline player frame (poster + play control; the control links to the player, no
+      modal observed). ---- */
+const FA_PLAY = '<svg class="svg-inline--fa fa-play" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg>';
+
+function videoMedia(link, pic) {
+  const video = el('div', 'cmp-video', { 'data-provider': 'Brightcove', 'data-mode': 'modal' });
+  const container = el('div', 'cmp-video__player-container embed-responsive embed-responsive-16by9');
+  const thumb = el('a', 'cmp-video__thumbnail', {
+    href: link.getAttribute('href'), target: '_blank', rel: 'noopener noreferrer', 'aria-label': 'Play Video',
+  });
+  const button = el('div', 'video-button-container video-button');
+  button.append(svg(FA_PLAY));
+  thumb.append(button);
+  const inlineP = el('div', 'cmp-video__player--inline embed-responsive-item');
+  const player = el('div', 'embed-responsive-item video-js vjs-paused vjs-dock', { role: 'region', 'aria-label': 'Video Player' });
+  const poster = el('div', 'vjs-poster');
+  if (pic) poster.append(pic);
+  player.append(poster);
+  inlineP.append(player);
+  container.append(thumb, inlineP);
+  video.append(container);
+  return video;
+}
+
+function decorateAssets(block, rows) {
+  const n = rows.length;
+  let colClass = 'col-xs-12';
+  if (n === 2) colClass = 'col-xs-12 col-sm-6';
+  else if (n === 3) colClass = 'col-xs-12 col-sm-4 three';
+  else if (n >= 4) colClass = 'col-xs-12 col-sm-3 four';
+  const column = el('div', 'column');
+  const container = el('div', 'container');
+  const row = el('section', 'component-column row');
+  rows.forEach((cells, i) => {
+    const [mediaCell] = cells;
+    const link = mediaCell ? mediaCell.querySelector('a') : null;
+    const card = assetCard(cells, i);
+    card.className = link ? 'component-assetcard' : 'component-assetcard no-link';
+    ['data-slick-index', 'role', 'tabindex', 'aria-hidden'].forEach((attr) => card.removeAttribute(attr));
+    if (link) {
+      const img = card.querySelector('.cmp-image');
+      const pic = img ? img.querySelector('picture, img') : null;
+      const video = videoMedia(link, pic);
+      if (img) img.replaceWith(video); else card.prepend(video);
+    }
+    const col = el('div', colClass);
+    const grid = el('div', 'aem-Grid');
+    const host = el('div', 'cards image');
+    host.append(card);
+    grid.append(host);
+    col.append(grid);
+    row.append(col);
+  });
+  container.append(row);
+  column.append(container);
+  block.replaceChildren(column);
+}
+
+/* ---- dynamic (category landing pages): the webinar cards of the source's dynamicCards component
+   (card-b),
+   a slick row of 3 (1 centred below 730) with arrows + dots, 3 (2) clones per side, transform
+      0.5s — as observed
+   (stardust/prototypes/js/listing.js). Authoring rows — one per card, two cells:
+   1. <p><a href><picture></a></p> 2. [<p>label</p>] <p>date</p>, <h4><a>heading</a></h4>, author
+      <picture>s (one
+   per <p>), <p>Featuring <a>author</a>, …</p>, [<p>tags</p>], <p><a>CTA</a></p>. Nodes are MOVED
+      (EW1); the
+   author-circle count follows the author pictures, or the names in the Featuring line when no
+      pictures exist. ---- */
+function dynamicCard(cells, index) {
+  const [mediaCell, textCell] = cells;
+  const pic = media(mediaCell);
+  const imgLink = mediaCell ? mediaCell.querySelector('a') : null;
+  const heading = textCell.querySelector('h1, h2, h3, h4');
+  const paragraphs = [...textCell.querySelectorAll('p')];
+  const picPs = paragraphs.filter((p) => p.querySelector('picture, img'));
+  const rest = paragraphs.filter((p) => !picPs.includes(p) && text(p));
+  const lone = (p) => { const a = p.querySelector('a'); return a && p.children.length === 1 && text(p) === text(a); };
+  const ctaP = [...rest].reverse().find(lone);
+  const others = rest.filter((p) => p !== ctaP);
+  const order = [...textCell.querySelectorAll('p, h1, h2, h3, h4')];
+  const hIdx = heading ? order.indexOf(heading) : order.length;
+  const before = others.filter((p) => order.indexOf(p) < hIdx);
+  const after = others.filter((p) => order.indexOf(p) > hIdx);
+  const dateP = before[before.length - 1];
+  const labelP = before.find((p) => p !== dateP);
+  const featuring = after.find((p) => /^featuring/i.test(text(p))) || after[0];
+  const tagsP = after.find((p) => p !== featuring);
+  const headingLink = heading ? heading.querySelector('a') : null;
+  const target = imgLink || headingLink || (ctaP ? ctaP.querySelector('a') : null);
+  const col = el('div', 'card-col col-xs-12 col-sm-4 carousel-slide slick-slide', { 'data-slick-index': String(index) });
+  if (target) col.dataset.link = target.getAttribute('href');
+  const card = el('div', 'component-card-b no-link');
+  const wrap = el('div', 'image-wrapper');
+  if (pic) wrap.append(pic.closest('p') || pic);
+  card.append(wrap);
+  const body = el('div', 'component-text card-text');
+  const ld = el('div', 'label-date-wrapper');
+  if (labelP) { const l = el('div', 'label'); l.append(labelP); ld.append(l); }
+  if (dateP) { const d = el('div', 'date-time'); d.append(dateP); ld.append(d); }
+  body.append(ld);
+  if (heading) {
+    // presentation refinement inside the authored heading (EW2): the source wraps the title text
+    // in a <span>
+    const span = el('span');
+    const holder = headingLink || heading;
+    span.append(...holder.childNodes);
+    holder.append(span);
+    body.append(heading);
+  }
+  const n = picPs.length || (featuring ? text(featuring).replace(/^featuring/i, '').split(',').filter((x) => x.trim()).length : 0);
+  if (n || featuring) {
+    const info = el('div', 'author-info');
+    const circle = el('div', `profile-circle ${['one', 'one', 'two', 'three'][Math.min(n, 3)]}`);
+    for (let k = 0; k < Math.max(1, Math.min(n, 3)); k += 1) {
+      const d = el('div');
+      if (picPs[k]) d.append(picPs[k].querySelector('picture, img'));
+      circle.append(d);
+    }
+    info.append(circle);
+    if (featuring) { const links = el('div', 'authors-links'); links.append(featuring); info.append(links); }
+    body.append(info);
+  }
+  if (tagsP) { const th = el('div', 'tag-holder'); th.append(tagsP); body.append(th); }
+  if (ctaP) {
+    const cta = el('div', 'cta');
+    const a = ctaP.querySelector('a');
+    const span = el('span');
+    span.append(...a.childNodes);
+    a.append(span, svg(FA_NEWS_LINK));
+    cta.append(ctaP);
+    body.append(cta);
+  }
+  card.append(body);
+  col.append(card);
+  return col;
+}
+
+function decorateDynamic(block, rows) {
+  const mq = window.matchMedia('(min-width: 730px)');
+  const host = el('div', 'dynamicCards');
+  const container = el('div', 'container');
+  const section = el('section', 'cmp-dynamiccards component-card-container col-3 card-size-medium', { 'data-analytics-link-region': 'card' });
+  const row = el('div', 'row component-content-carousel horizontal-stack mobile-center-mode slick-carousel', { 'data-slides-to-show': '3' });
+  const prev = el('button', 'slick-prev slick-arrow', { type: 'button', 'aria-label': 'Previous' });
+  prev.append(svg(FA_PREV));
+  const next = el('button', 'slick-next slick-arrow', { type: 'button', 'aria-label': 'Next' });
+  next.append(svg(FA_NEXT));
+  const list = el('div', 'slick-list draggable');
+  const track = el('div', 'slick-track');
+  const dotsUl = el('ul', 'slick-dots', { role: 'tablist' });
+  const reals = rows.map((cells, i) => dynamicCard(cells, i));
+  reals.forEach((c) => track.append(c));
+  list.append(track);
+  row.append(prev, list, next, dotsUl);
+  section.append(row);
+  container.append(section);
+  host.append(container);
+  block.replaceChildren(host);
+
+  const state = {
+    show: 3, pre: 3, page: 0, pages: 1, animating: false, clones: [],
+  };
+  const slideW = () => (mq.matches ? list.clientWidth / 3 : 260);
+  const setX = (x, animate) => { track.style.transition = animate ? 'transform 0.5s ease' : 'none'; track.style.transform = `translate3d(${x}px,0,0)`; };
+  const rest = () => -(state.pre + state.page * state.show) * slideW();
+  function mark() {
+    const start = state.page * state.show;
+    reals.forEach((s, k) => { const on = k >= start && k < start + state.show; s.classList.toggle('slick-active', on); s.classList.toggle('slick-current', k === start); s.setAttribute('aria-hidden', on ? 'false' : 'true'); });
+    dotsUl.replaceChildren();
+    for (let i = 0; i < state.pages; i += 1) {
+      const li = el('li', i === state.page ? 'slick-active' : '', { role: 'presentation' });
+      const b = el('button', '', { type: 'button', role: 'tab', 'aria-label': `${i + 1} of ${state.pages}` });
+      b.textContent = String(i + 1);
+      b.addEventListener('click', () => goTo(i)); // eslint-disable-line no-use-before-define
+      li.append(b);
+      dotsUl.append(li);
+    }
+  }
+  function goTo(page) {
+    if (state.animating) return;
+    const n = reals.length;
+    const w = slideW();
+    state.animating = true;
+    const finish = () => { state.animating = false; };
+    if (page >= state.pages) {
+      state.page = 0; mark(); setX(-(state.pre + n) * w, true);
+      setTimeout(() => { setX(rest(), false); finish(); }, 520);
+      return;
+    }
+    if (page < 0) {
+      state.page = state.pages - 1; mark(); setX(-(state.pre - state.show) * w, true);
+      setTimeout(() => { setX(rest(), false); finish(); }, 520);
+      return;
+    }
+    state.page = page; mark(); setX(rest(), true); setTimeout(finish, 520);
+  }
+  function build() {
+    state.clones.forEach((c) => c.remove());
+    state.clones = [];
+    const n = reals.length;
+    state.show = mq.matches ? 3 : 1;
+    state.pre = mq.matches ? 3 : 2;
+    const cloneOf = (real, idx) => { const c = stripInstrumentation(real.cloneNode(true)); c.classList.add('slick-cloned'); c.setAttribute('aria-hidden', 'true'); c.setAttribute('data-slick-index', String(idx)); c.querySelectorAll('a,button').forEach((a) => a.setAttribute('tabindex', '-1')); return c; };
+    for (let i = n - state.pre; i < n; i += 1) {
+      const c = cloneOf(reals[(i + n) % n], i - n);
+      track.insertBefore(c, reals[0]);
+      state.clones.push(c);
+    }
+    for (let j = 0; j < n; j += 1) {
+      const c = cloneOf(reals[j], n + j);
+      track.append(c);
+      state.clones.push(c);
+    }
+    // slick drops the arrows below 730 (responsive arrows:false — observed)
+    if (mq.matches) {
+      if (!prev.isConnected) row.insertBefore(prev, list);
+      if (!next.isConnected) row.insertBefore(next, dotsUl);
+    } else { prev.remove(); next.remove(); }
+    [...track.children].forEach((s) => { s.style.width = `${slideW()}px`; });
+    state.pages = Math.ceil(n / state.show);
+    state.page = Math.min(state.page, state.pages - 1);
+    mark();
+    setX(rest(), false);
+  }
+  const relayout = () => { [...track.children].forEach((s) => { s.style.width = `${slideW()}px`; }); setX(rest(), false); };
+  prev.addEventListener('click', () => goTo(state.page - 1));
+  next.addEventListener('click', () => goTo(state.page + 1));
+  build();
+  mq.addEventListener('change', build);
+  window.addEventListener('resize', relayout);
+  // decorate() can run while the section is still hidden (list width 0): re-place the track once
+  // the block has a size
+  if ('ResizeObserver' in window) new ResizeObserver(relayout).observe(block);
+}
+
 export default function decorate(block) {
   const rows = [...block.children].map((row) => [...row.children]).filter((cells) => cells.length);
   if (!rows.length) return;
-  if (block.classList.contains('panels')) decoratePanels(block, rows);
+  if (block.classList.contains('assets')) decorateAssets(block, rows);
+  else if (block.classList.contains('dynamic')) decorateDynamic(block, rows);
+  else if (block.classList.contains('panels')) decoratePanels(block, rows);
   else if (block.classList.contains('carousel')) decorateCarousel(block, rows);
   else decorateSolutions(block, rows);
 }

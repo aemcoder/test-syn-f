@@ -36,6 +36,7 @@ export default async function decorate(block) {
     .filter((cells) => cells.length && cells[cells.length - 1].querySelector('a'));
   const container = el('div', 'container component-floating-tabs-container');
   const section = el('section', 'component-floating-tabs vertical-tabs', { 'data-analytics-link-region': 'expandable' });
+  if (block.classList.contains('horizontal')) section.classList.replace('vertical-tabs', 'horizontal-tabs'); // variant: the tab names form a top rail (source: horizontal-tabs)
   const rail = el('div', 'tabs-nav');
   const content = el('div', 'tabs-content');
   const tabs = rows.map((cells, i) => {
@@ -70,6 +71,7 @@ export default async function decorate(block) {
     };
   });
   section.append(rail, content);
+  if (block.classList.contains('horizontal')) rail.querySelectorAll('svg').forEach((s) => s.remove()); // the source's horizontal rail has no chevrons
   container.append(section);
   block.replaceChildren(container);
 

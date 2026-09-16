@@ -1054,8 +1054,8 @@
   position:relative;
 }
 
-/* ---- listing aliases: banner small (stardust/scripts/eds/listing/alias-listing.mjs) ---- */
-.banner.small .title :is(h1, h2, h3) {
+/* ---- listing aliases: banner skinny-hero (stardust/scripts/eds/listing/alias-listing.mjs) ---- */
+.banner.skinny-hero .title :is(h1, h2, h3) {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -1066,35 +1066,35 @@
   white-space: nowrap;
 }
 
-.banner.small .small-banner .title p {
+.banner.skinny-hero .small-banner .title p {
   margin: 0;
 }
 
-.banner.small .small-banner .title p strong {
+.banner.skinny-hero .small-banner .title p strong {
   font-weight: 700;
 }
 
-.banner.small .small-banner .dm-desktop img,
-.banner.small .small-banner .dm-mobile img {
+.banner.skinny-hero .small-banner .dm-desktop img,
+.banner.skinny-hero .small-banner .dm-mobile img {
   width: 100%;
 }
 
-.banner.small .small-banner .dm-desktop picture,
-.banner.small .small-banner .dm-mobile picture {
+.banner.skinny-hero .small-banner .dm-desktop picture,
+.banner.skinny-hero .small-banner .dm-mobile picture {
   display: block;
 }
 
 @media (max-width: 729px) {
-  .banner.small .dm-desktop-on-mobile .dm-mobile {
+  .banner.skinny-hero .dm-desktop-on-mobile .dm-mobile {
     display: none;
   }
 
-  .banner.small .dm-desktop-on-mobile .dm-desktop {
+  .banner.skinny-hero .dm-desktop-on-mobile .dm-desktop {
     display: block;
   }
 
   /* the gradient hero paints the site's purple facet band behind the title below 730 (source per-instance style; fixed brand asset) */
-  .banner.small .dark-purple-gradient .cropped-img {
+  .banner.skinny-hero .dark-purple-gradient .cropped-img {
     background-image: url("/blocks/banner/facet-band-mobile.svg");
   }
 }

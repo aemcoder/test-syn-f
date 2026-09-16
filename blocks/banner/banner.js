@@ -155,7 +155,8 @@ function decorateImage(block) {
   block.replaceChildren(section);
 }
 
-/* ---- small variant (listing family): the 285px skinny hero with breadcrumb of the listing pages
+/* ---- skinny-hero variant (listing family): the 285px skinny hero with breadcrumb of the listing
+   pages
    (newsroom, blogs, events). Authoring rows: 1. <ul> breadcrumb (nested <ul> = dropdown),
    2. optional
    <p><img></p> background picture (no picture = the dark-purple gradient band), 3. <h1>Page</h1> +
@@ -220,7 +221,7 @@ function decorateSmall(block) {
 }
 
 export default function decorate(block) {
-  if (block.classList.contains('small')) { decorateSmall(block); return; } // listing family: skinny hero with breadcrumb
+  if (block.classList.contains('skinny-hero')) { decorateSmall(block); return; } // listing family: skinny hero with breadcrumb
   if (block.classList.contains('image')) { decorateImage(block); return; }
   const cells = [...block.children].flatMap((row) => [...row.children]);
   if (!cells.length) return;

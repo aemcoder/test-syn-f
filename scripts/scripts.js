@@ -1,4 +1,5 @@
 import {
+  getMetadata,
   loadHeader,
   loadFooter,
   decorateIcons,
@@ -161,6 +162,10 @@ export function decorateMain(main) {
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
+  // page-type (page metadata) on <body> before first paint: the chrome reservation and the
+  // home-only nav theme key on it
+  const pageType = getMetadata('page-type');
+  if (pageType) document.body.dataset.pageType = pageType;
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {

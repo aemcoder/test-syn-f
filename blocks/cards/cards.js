@@ -83,13 +83,11 @@ function solutionCard(cells) {
 
 function decorateSolutions(block, rows) {
   const column = el('div', 'column'); // the source nests the card row in a column block (its mobile spacing rule keys on it)
-  const wrap = el('div', 'background-component vert-pad-top-md vert-pad-bottom-md');
-  const container = el('div', 'container');
+  const container = el('div', 'container'); // vertical spacing = section tokens (pad-top-md pad-bottom-md on the home)
   const row = el('section', 'component-column row');
   rows.forEach((cells) => row.append(solutionCard(cells)));
   container.append(row);
-  wrap.append(container);
-  column.append(wrap);
+  column.append(container);
   block.replaceChildren(column);
 }
 
@@ -139,8 +137,7 @@ function assetCard(cells, index) {
 
 function decorateCarousel(block, rows) {
   const mq = window.matchMedia('(min-width: 730px)');
-  const wrap = el('div', 'background-component vert-pad-top-xs vert-pad-bottom-md');
-  const holder = el('section', 'cmp-carousel container carousel-holder', { 'carousel-type': 'card-carousel', 'data-cmp-is': 'carousel' });
+  const holder = el('section', 'cmp-carousel container carousel-holder', { 'carousel-type': 'card-carousel', 'data-cmp-is': 'carousel' }); // spacing = section tokens
   const content = el('div', 'cmp-carousel__content carousel-list-holder slick-initialized slick-slider slick-dotted', { 'container-column-layout': '3' });
   const list = el('div', 'slick-list draggable');
   const track = el('div', 'slick-track');
@@ -156,8 +153,7 @@ function decorateCarousel(block, rows) {
   next.append(svg('<svg class="svg-inline--fa fa-chevron-right" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M299.3 244.7c6.2 6.2 6.2 16.4 0 22.6l-192 192c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6L265.4 256 84.7 75.3c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0l192 192z"></path></svg>'));
   nav.append(prev, next);
   holder.append(content, nav);
-  wrap.append(holder);
-  block.replaceChildren(wrap);
+  block.replaceChildren(holder);
 
   const state = {
     show: 1, page: 0, pages: 1, animating: false,
@@ -255,9 +251,80 @@ function decorateCarousel(block, rows) {
   window.addEventListener('resize', hideDesc);
 }
 
+/* ---- panels (landing "What's New": fixed groups of three asset cards, fading between
+   panels) ---- */
+const FA_PREV = '<svg class="svg-inline--fa fa-chevron-left" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="chevron-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M15 239c-9.4 9.4-9.4 24.6 0 33.9L207 465c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9L65.9 256 241 81c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L15 239z"></path></svg>';
+const FA_NEXT = '<svg class="svg-inline--fa fa-chevron-right" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z"></path></svg>';
+
+function decoratePanels(block, rows) {
+  const per = 3;
+  const holder = el('section', 'cmp-carousel container carousel-holder', { 'carousel-type': 'content-carousel', 'data-cmp-is': 'carousel' });
+  const content = el('div', 'cmp-carousel__content carousel-list-holder slick-initialized slick-slider slick-dotted');
+  const list = el('div', 'slick-list');
+  const track = el('div', 'slick-track');
+  const panels = [];
+  for (let i = 0; i < rows.length; i += per) {
+    const k = panels.length;
+    const slide = el('div', 'cmp-carousel__item list slick-slide', {
+      id: `slick-slide0${k}`, 'data-slick-index': String(k), role: 'tabpanel', 'aria-describedby': `slick-slide-control0${k}`,
+    });
+    const column = el('div', 'column');
+    const bg = el('div', 'background-component vert-pad-top-sm');
+    const container = el('div', 'container');
+    const row = el('section', 'component-column row');
+    rows.slice(i, i + per).forEach((cells, j) => {
+      const col = el('div', 'col-xs-12 col-sm-4 three');
+      const grid = el('div', 'aem-Grid');
+      const host = el('div', 'cards image');
+      const card = assetCard(cells, i + j);
+      card.className = 'component-assetcard no-link';
+      ['data-slick-index', 'role', 'tabindex', 'aria-hidden'].forEach((attr) => card.removeAttribute(attr));
+      host.append(card);
+      grid.append(host);
+      col.append(grid);
+      row.append(col);
+    });
+    container.append(row);
+    bg.append(container);
+    column.append(bg);
+    slide.append(column);
+    track.append(slide);
+    panels.push(slide);
+  }
+  list.append(track);
+  const dotsUl = el('ul', 'slick-dots', { role: 'tablist' });
+  content.append(list, dotsUl);
+  const nav = el('div', 'slick-nav-container');
+  const prev = el('button', 'slick-prev slick-arrow', { type: 'button', 'aria-label': 'previous' });
+  prev.append(svg(FA_PREV));
+  const next = el('button', 'slick-next slick-arrow', { type: 'button', 'aria-label': 'next' });
+  next.append(svg(FA_NEXT));
+  nav.append(prev, next);
+  holder.append(content, nav, el('div'), el('div'));
+  const scope = el('div', 'carousel panelcontainer'); // the source scopes the fade rules on this pair
+  scope.append(holder);
+  block.replaceChildren(scope);
+
+  let cur = 0;
+  const dots = panels.map((p, k) => { const li = el('li', '', { role: 'presentation' }); li.addEventListener('click', () => show(k)); dotsUl.append(li); return li; }); // eslint-disable-line no-use-before-define
+  function show(i) {
+    cur = (i + panels.length) % panels.length;
+    panels.forEach((p, k) => {
+      const on = k === cur;
+      p.classList.toggle('slick-active', on); p.classList.toggle('slick-current', on); p.classList.toggle('cmp-carousel__item--active', on);
+      p.setAttribute('aria-hidden', on ? 'false' : 'true');
+    });
+    dots.forEach((d, k) => d.classList.toggle('slick-active', k === cur));
+  }
+  prev.addEventListener('click', () => show(cur - 1));
+  next.addEventListener('click', () => show(cur + 1));
+  show(0);
+}
+
 export default function decorate(block) {
   const rows = [...block.children].map((row) => [...row.children]).filter((cells) => cells.length);
   if (!rows.length) return;
-  if (block.classList.contains('carousel')) decorateCarousel(block, rows);
+  if (block.classList.contains('panels')) decoratePanels(block, rows);
+  else if (block.classList.contains('carousel')) decorateCarousel(block, rows);
   else decorateSolutions(block, rows);
 }

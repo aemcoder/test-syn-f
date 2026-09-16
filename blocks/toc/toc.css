@@ -1,0 +1,414 @@
+/* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
+/* stardust:deploy — rules lifted for the .toc block from canon.css, landing.css (selectors matching /tableOfContents|table-of-contents|cmp-tableofcontents|cmp-productsolutions|makeSticky|gradient-class|linear-gradient|\.init\b|activeSection|\.container\b/), scoped under .toc */
+.toc .container {
+  display:block;
+  margin-right:auto;
+  margin-left:auto;
+  padding-left:15px;
+  padding-right:15px;
+  width:100%;
+}
+
+@media(min-width:992px) {
+.toc .container {
+  width:970px;
+}
+}
+
+@media(min-width:1200px) {
+.toc .container {
+  width:1170px;
+}
+}
+
+.toc .container::before,
+.toc .container::after {
+  content:" ";
+  display:table;
+}
+.toc .container::after {
+  clear:both;
+}
+.toc .component-imageTextCta > .container {
+  width:100%;
+  max-width:none;
+  padding:0;
+  margin:0;
+}
+.toc main .component-column .container,
+.toc main .column .container,
+.toc main .logoCarousel .container,
+.toc main .faq .container,
+.toc main .component-faq .container {
+  width:100%;
+  max-width:none;
+  padding:0;
+  margin:0;
+}
+.toc main .component-anchor > .aem-Grid > .column > .container,
+.toc main .component-anchor > .aem-Grid > .experiencefragment > .cmp-experiencefragment > .aem-Grid > .column > .container,
+.toc main > .aem-Grid > .column > .container,
+.toc main > .aem-Grid > .column > .background-component > .container,
+.toc main > .aem-Grid > .text > .container,
+.toc main > .aem-Grid > .text > .background-component > .container,
+.toc main > .aem-Grid > .faq > .background-component > .container,
+.toc main > .aem-Grid > .floatingTabs > .background-component > .container {
+  display:block;
+  margin-right:auto;
+  margin-left:auto;
+  padding-left:15px;
+  padding-right:15px;
+  width:100%;
+}
+
+@media(min-width:992px) {
+.toc main .component-anchor > .aem-Grid > .column > .container,
+.toc main .component-anchor > .aem-Grid > .experiencefragment > .cmp-experiencefragment > .aem-Grid > .column > .container,
+.toc main > .aem-Grid > .column > .container,
+.toc main > .aem-Grid > .column > .background-component > .container,
+.toc main > .aem-Grid > .text > .container,
+.toc main > .aem-Grid > .text > .background-component > .container,
+.toc main > .aem-Grid > .faq > .background-component > .container,
+.toc main > .aem-Grid > .floatingTabs > .background-component > .container {
+  width:970px;
+}
+}
+
+@media(min-width:1200px) {
+.toc main .component-anchor > .aem-Grid > .column > .container,
+.toc main .component-anchor > .aem-Grid > .experiencefragment > .cmp-experiencefragment > .aem-Grid > .column > .container,
+.toc main > .aem-Grid > .column > .container,
+.toc main > .aem-Grid > .column > .background-component > .container,
+.toc main > .aem-Grid > .text > .container,
+.toc main > .aem-Grid > .text > .background-component > .container,
+.toc main > .aem-Grid > .faq > .background-component > .container,
+.toc main > .aem-Grid > .floatingTabs > .background-component > .container {
+  width:1170px;
+}
+}
+
+.toc .tableOfContents {
+  position:relative;
+  min-height:42px;
+}
+.toc .table-of-contents-product-layout {
+  z-index:999;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents {
+  display:flex;
+  width:100%;
+  justify-content:center;
+  border-bottom:1px solid #c1c2c1;
+  text-align:center;
+  background:#f7f7fa;
+  box-sizing:border-box;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents > .container {
+  display:flex;
+  margin:0 auto;
+  padding:0 15px;
+  width:100%;
+  box-sizing:border-box;
+}
+
+@media(min-width:992px) {
+.toc .table-of-contents-product-layout.cmp-tableofcontents > .container {
+  width:970px;
+}
+}
+
+@media(min-width:1200px) {
+.toc .table-of-contents-product-layout.cmp-tableofcontents > .container {
+  width:1170px;
+}
+}
+
+.toc .table-of-contents-product-layout.cmp-tableofcontents svg {
+  display:none;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents ul {
+  font-size:0;
+  display:inline-table;
+  max-width:1170px;
+  padding:0;
+  overflow:visible;
+  margin:0 auto 0 0;
+  background:#f7f7fa;
+  float:left;
+  list-style:none;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents ul li {
+  width:auto;
+  float:left;
+  margin-right:9px;
+  display:table-cell;
+  vertical-align:middle;
+  transition:background .2s ease-out;
+  text-align:left;
+  position:relative;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents ul li a {
+  white-space:nowrap;
+  padding:0 24px 0 0;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-align:center;
+  align-items:center;
+  height:53px;
+  color:#111c24;
+  text-decoration:none;
+  font-size:16px;
+  font-weight:300;
+  text-align:left;
+  transition:background .2s ease-out;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents ul li a {
+  font-size:16px;
+  font-weight:300;
+  line-height:160%;
+  cursor:pointer;
+  position:relative;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents ul li.init {
+  display:none;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents ul li a.activeSection,
+.toc .table-of-contents-product-layout.cmp-tableofcontents ul li a:hover {
+  color:#FFF;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents ul li a.activeSection:before,
+.toc .table-of-contents-product-layout.cmp-tableofcontents ul li a:hover:before {
+  position:absolute;
+  font-weight:400;
+  content:attr(data-text);
+  color:#111c24;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents .cmp-productsolutions__button-link {
+  float:right;
+  width:auto;
+  margin-left:15px;
+  margin-right:0;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-align:center;
+  align-items:center;
+  height:53px;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents .cmp-productsolutions__button-link {
+  height:53px;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents .cmp-productsolutions__button-link a {
+  background:#111c24;
+  color:#fff;
+  border-radius:5px;
+  font-size:16px;
+  font-weight:400;
+  line-height:100%;
+  width:-webkit-max-content;
+  width:-moz-max-content;
+  width:max-content;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  padding:0 24px;
+  height:40px;
+  -webkit-box-align:center;
+  align-items:center;
+  color:#FFF;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents .cmp-productsolutions__button-link a {
+  display:flex;
+  align-items:center;
+  height:40px;
+  padding:0 24px;
+  text-decoration:none;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents .cmp-productsolutions__button-link a:hover {
+  background:#555;
+  text-decoration:none;
+}
+.toc .tableOfContents.makeSticky section.table-of-contents-product-layout {
+  position:fixed;
+  z-index:999;
+  padding-left:0;
+  width:100%;
+  max-width:1900px;
+}
+.toc .cmp-tableofcontents__scroll-to-top-container {
+  margin:0!important;
+}
+.toc .cmp-tableofcontents__scroll-to-top {
+  background-color:#b3b4b3;
+  border-radius:7px 7px 0 0;
+  bottom:0;
+  color:#000;
+  display:block;
+  height:50px;
+  display:none;
+  padding:5px 0 50px;
+  position:fixed;
+  right:50px;
+  text-align:center;
+  text-decoration:none;
+  transition:all .25s;
+  width:49px;
+  z-index:1040;
+  cursor:pointer;
+  margin-bottom:-20px;
+  background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDcuMC4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZmlsbD0iIzExMWMyNCIgZD0iTTIwMS40IDEwNS40YzEyLjUtMTIuNSAzMi44LTEyLjUgNDUuMyAwbDE5MiAxOTJjMTIuNSAxMi41IDEyLjUgMzIuOCAwIDQ1LjNzLTMyLjggMTIuNS00NS4zIDBMMjI0IDE3My4zIDU0LjYgMzQyLjZjLTEyLjUgMTIuNS0zMi44IDEyLjUtNDUuMyAwcy0xMi41LTMyLjggMC00NS4zbDE5Mi0xOTJ6Ii8+PC9zdmc+);
+  background-repeat:no-repeat;
+  background-size:14px;
+  background-position:center 12px;
+}
+.toc .cmp-tableofcontents__scroll-to-top.visible {
+  background-color:#d9d9d9;
+  display:block;
+  transition:all .5s;
+}
+.toc .cmp-tableofcontents__scroll-to-top.visible:hover {
+  background-color:#b3b4b3;
+  transition:all .2s;
+}
+.toc .gradient-class,
+.toc .linear-gradient-class,
+.toc .linear-gradient-pc,
+.toc .linear-gradient-ol,
+.toc .linear-gradient-bg {
+  height:0;
+  padding:0;
+  margin:0 auto;
+}
+
+@media only screen and (max-width:730px) {
+.toc .table-of-contents-product-layout.cmp-tableofcontents {
+  height:42px;
+  overflow:hidden;
+  display:block;
+  box-shadow:0 4px 4px 0 rgba(0,0,0,.25);
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents > .container {
+  display:block;
+  padding:0;
+  width:100%;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents .init {
+  display:block!important;
+  position:relative;
+  font-size:0;
+  line-height:0;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents .init a {
+  font-weight:400!important;
+  pointer-events:none;
+  padding-left:0;
+  padding-right:12px;
+  font-size:16px;
+  line-height:160%;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents .init a span {
+  width:calc(100% - 20px);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:block;
+  border:none!important;
+  position:relative;
+  top:1px;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents.open {
+  height:auto;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents.open ul {
+  height:auto;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents.open ul svg {
+  rotate:180deg;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents svg {
+  display:block;
+  top:13px;
+  position:absolute;
+  transform:none;
+  width:auto;
+  right:4px;
+  margin-top:auto;
+  color:#111c24;
+  height:1em;
+  font-size:16px;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents ul {
+  display:inline-block;
+  overflow:hidden;
+  float:left;
+  width:100%;
+  padding:0 24px;
+  margin:0;
+  background:#f7f7fa;
+  max-width:1170px;
+  box-sizing:border-box;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents ul li {
+  display:block;
+  width:100%;
+  font-size:0;
+  line-height:0;
+  margin-right:9px;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents ul li a {
+  text-align:left;
+  display:block;
+  position:relative;
+  padding:8px 0;
+  border:0;
+  min-height:42px;
+  height:auto;
+  white-space:pre-line;
+  font-size:16px;
+  line-height:160%;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents ul li a.activeSection {
+  border:0;
+  color:#111c24;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents ul li a.activeSection:before {
+  display:none;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents .cmp-productsolutions__button-link {
+  float:left;
+  margin:0 0 0 15px;
+  padding:16px 0 0 0;
+  height:auto;
+  width:auto;
+}
+.toc .table-of-contents-product-layout.cmp-tableofcontents .cmp-productsolutions__button-link a {
+  margin:0 0 20px 0;
+}
+.toc .makeSticky section.table-of-contents-product-layout {
+  position:fixed;
+  width:100%;
+  z-index:999;
+  padding-left:0;
+  left:0;
+  max-width:1900px;
+}
+}
+
+.toc .component-floating-tabs .tab-body .text > .container,
+.toc .component-floating-tabs .tab-body .text > .background-component > .container,
+.toc .component-floating-tabs .tab-body .column > .container {
+  width:100%;
+  padding:0;
+  margin:0;
+}
+
+
+/* landing aliases: moved authored nodes (EW2) */
+.toc .cmp-productsolutions__button-link p {
+  margin: 0;
+  display: inline;
+}

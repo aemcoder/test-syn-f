@@ -1,5 +1,5 @@
 /* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
-/* stardust:deploy — rules lifted for the .banner block from canon.css, home.css (selectors matching /componentSkinnyBanner|small-banner|component-banner|desktop-wrapper|banner-img|cropped-img|image-overlay|text-overlay|content-wrapper|text-wrapper|component-text\b|\.title\b|dark-purple-gradient|component-button|has-arrow|darkButton|flex-container|contentValignCenter|text-align-center|dm-mobile|dm-desktop|opacity-0/), scoped under .banner */
+/* stardust:deploy — rules lifted for the .banner block from canon.css, home.css, landing.css (selectors matching /componentSkinnyBanner|small-banner|component-banner|desktop-wrapper|banner-img|cropped-img|image-overlay|text-overlay|content-wrapper|text-wrapper|component-text\b|\.title\b|dark-purple-gradient|component-button|has-arrow|darkButton|flex-container|contentValignCenter|text-align-center|dm-mobile|dm-desktop|opacity-0|breadcrumb|reg-banner|breadcrumbTrue|text-width-80|paddingSmall|content-align-center|cmp-video|btn-text|video-secondary-button|ui-helper-hidden-accessible|icon-dropdown-arrow|dropdown-menu|subBreadcrumb|\.parent\b|dark-mode|image-background|bg-mobile|black-gradient|primary_nav_wrap|text-size-|sub-title|\.banner\b|\.image\b/), scoped under .banner */
 @media(min-width:730px) {
 .banner .component-banner .dm-mobile {
   display:none;
@@ -9,6 +9,10 @@
 }
 }
 
+.banner .ui-helper-hidden-accessible {
+  position:absolute!important;
+  left:-99999999px;
+}
 .banner .text-align-center {
   text-align:center;
 }
@@ -111,6 +115,28 @@
 }
 
 @media(min-width:1130px) {
+.banner .pre-header .dropdown-menu {
+  display:none;
+  position:absolute;
+  top:100%;
+  right:-14px;
+  left:auto;
+  z-index:1000;
+  min-width:260px;
+  margin-top:8px;
+  padding:24px 20px 32px;
+  list-style:none;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.15);
+  border-radius:16px;
+  box-shadow:0 6px 12px rgba(0,0,0,.175);
+  font-size:16px;
+  flex-direction:column;
+  row-gap:10px;
+}
+.banner .pre-header .dropdown.open > .dropdown-menu {
+  display:flex;
+}
 .banner .pre-header .dropdown-menu > li.title {
   padding:0 8px;
   color:#111c24;
@@ -119,10 +145,33 @@
   line-height:163%;
   cursor:default;
 }
+.banner .pre-header .dropdown-menu > li a {
+  display:inline-block;
+  padding:2px 8px;
+  line-height:163%;
+  transition:all .3s;
+  color:#111c24;
+}
+.banner .pre-header .dropdown-menu > li > a:hover,
+.banner .pre-header .dropdown-menu > li > a:focus,
+.banner .pre-header .dropdown-menu > li.active a {
+  background:#111c24;
+  color:#FFF;
+  border-radius:4px;
+}
 }
 
 .banner .component-banner {
   position:relative;
+}
+.banner .text-size-smaller {
+  font-size:.8em;
+}
+.banner .text-size-normal {
+  font-size:1em;
+}
+.banner .text-size-larger {
+  font-size:1.2em;
 }
 .banner .component-imageTextCta .title {
   font-size:24px;
@@ -424,6 +473,459 @@
 }
 }
 
+.banner .component-banner .desktop-wrapper.reg-banner {
+  position:relative;
+  overflow:hidden;
+}
+.banner .component-banner .reg-banner .banner-img {
+  position:relative;
+  height:500px;
+}
+.banner .component-banner .reg-banner .banner-img .cmp-image {
+  position:relative;
+  height:100%;
+}
+.banner .component-banner .reg-banner .banner-img img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  max-width:100%;
+}
+.banner .component-banner .reg-banner .banner-img .bg-mobile {
+  height:0;
+}
+.banner .component-banner .reg-banner .dm-mobile {
+  display:none;
+}
+.banner .component-banner .reg-banner .breadcrumb-container {
+  position:relative;
+  z-index:103;
+  height:0;
+}
+.banner .component-banner .reg-banner .breadcrumb-container .container {
+  display:block;
+  margin:0 auto;
+  padding:0 15px;
+  width:100%;
+}
+
+@media(min-width:992px) {
+.banner .component-banner .reg-banner .breadcrumb-container .container {
+  width:970px;
+}
+}
+
+@media(min-width:1200px) {
+.banner .component-banner .reg-banner .breadcrumb-container .container {
+  width:1170px;
+}
+}
+
+.banner .component-breadcrumb {
+  overflow:visible;
+  position:absolute;
+  padding-top:10px;
+}
+.banner .component-breadcrumb #primary_nav_wrap {
+  padding:10px 0;
+}
+.banner .component-breadcrumb #primary_nav_wrap>ul {
+  list-style:none;
+  position:relative;
+  float:left;
+  margin:0;
+  padding-left:0;
+}
+.banner .component-breadcrumb #primary_nav_wrap ul li {
+  position:relative;
+  float:left;
+  margin:0;
+  padding:0;
+  line-height:1;
+  cursor:pointer;
+}
+.banner .component-breadcrumb #primary_nav_wrap>ul>li>a {
+  background:0;
+  color:#646e81;
+  font-size:15px;
+  display:inline;
+  padding:0 5px;
+  font-weight:400;
+  line-height:20px;
+  text-decoration:none;
+}
+.banner .component-breadcrumb #primary_nav_wrap>ul>li>a:hover {
+  color:#000;
+  text-decoration:underline;
+  cursor:pointer;
+}
+.banner .component-breadcrumb #primary_nav_wrap>ul>li>a:before {
+  padding-right:10px;
+  font-size:15px;
+  content:"  /  ";
+  vertical-align:middle;
+  color:#646e81;
+  font-weight:100;
+  display:inline-block;
+}
+.banner .component-breadcrumb #primary_nav_wrap>ul>li>a:only-child {
+  margin-right:20px;
+}
+.banner .component-breadcrumb #primary_nav_wrap>ul>li:first-child>a {
+  padding-left:0;
+}
+.banner .component-breadcrumb #primary_nav_wrap>ul>li:first-child>a:before {
+  content:"\00a0";
+  padding-left:0;
+  padding-right:0;
+  display:inline-block;
+  width:0;
+}
+.banner .component-breadcrumb .icon-dropdown-arrow {
+  background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3IiBoZWlnaHQ9IjYiIHZpZXdCb3g9IjAgMCA3IDYiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICM2NDZlODE7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8cGF0aCBpZD0iUG9seWdvbl8zIiBkYXRhLW5hbWU9IlBvbHlnb24gMyIgY2xhc3M9ImNscy0xIiBkPSJNMTM0OC41LDYwbC0zLjUtNS45OTNoN1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMzQ1IC01NCkiLz4KPC9zdmc+Cg==);
+  background-position:50% 50%;
+  background-repeat:no-repeat;
+  background-size:cover;
+  height:8px;
+  width:10px;
+  display:inline-block;
+  margin-left:5px;
+  margin-right:20px;
+  position:relative;
+}
+.banner .component-breadcrumb .icon-dropdown-arrow {
+  position:relative;
+  vertical-align:middle;
+}
+.banner .component-breadcrumb .icon-dropdown-arrow:after {
+  content:'';
+  position:absolute;
+  top:-8px;
+  bottom:-8px;
+  left:-8px;
+  right:-8px;
+}
+.banner .component-banner .breadcrumb-container.image-background.dark-mode #primary_nav_wrap>ul>li>a,
+.banner .component-video-banner .breadcrumb-container.image-background.dark-mode #primary_nav_wrap>ul>li>a {
+  color:white;
+}
+.banner .component-banner .breadcrumb-container.image-background.dark-mode #primary_nav_wrap>ul>li>a:before,
+.banner .component-video-banner .breadcrumb-container.image-background.dark-mode #primary_nav_wrap>ul>li>a:before {
+  color:#fff;
+}
+.banner .component-banner .breadcrumb-container.image-background.dark-mode .icon-dropdown-arrow,
+.banner .component-video-banner .breadcrumb-container.image-background.dark-mode .icon-dropdown-arrow {
+  background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3IiBoZWlnaHQ9IjYiIHZpZXdCb3g9IjAgMCA3IDYiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICNmZmZmZmY7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8cGF0aCBpZD0iUG9seWdvbl8zIiBkYXRhLW5hbWU9IlBvbHlnb24gMyIgY2xhc3M9ImNscy0xIiBkPSJNMTM0OC41LDYwbC0zLjUtNS45OTNoN1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMzQ1IC01NCkiLz4KPC9zdmc+Cg==);
+}
+
+@media(min-width:480px) {
+.banner .component-breadcrumb #primary_nav_wrap>ul>li>a:before {
+  padding-right:20px;
+  font-size:30px;
+  color:#eee;
+}
+}
+
+.banner .component-breadcrumb #primary_nav_wrap ul ul {
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#FFF;
+  padding:0;
+  margin:0;
+  z-index:1001;
+  list-style:none;
+  min-width:160px;
+  font-size:14px;
+  text-align:left;
+  border:1px solid rgba(0,0,0,.15);
+  border-radius:4px;
+  box-shadow:0 6px 12px rgba(0,0,0,.175);
+  background-clip:padding-box;
+}
+.banner .component-breadcrumb #primary_nav_wrap ul ul li {
+  float:none;
+  min-width:200px;
+  padding:5px 20px;
+  line-height:1;
+}
+.banner .component-breadcrumb #primary_nav_wrap ul ul li:first-child {
+  padding-top:10px;
+}
+.banner .component-breadcrumb #primary_nav_wrap ul ul li:last-child {
+  padding-bottom:10px;
+}
+.banner .component-breadcrumb #primary_nav_wrap ul ul a {
+  line-height:120%;
+  padding:0;
+  color:#316aca;
+  font-weight:lighter;
+  font-size:14px;
+  text-decoration:none;
+  display:block;
+  clear:both;
+  white-space:nowrap;
+}
+.banner .component-breadcrumb #primary_nav_wrap ul ul a:hover {
+  color:#32508f;
+}
+.banner .component-breadcrumb #primary_nav_wrap ul ul.dropdown-menu.active {
+  display:block;
+}
+.banner .component-breadcrumb .dropdown-menu:before {
+  position:absolute;
+  top:-7px;
+  left:25%;
+  display:inline-block;
+  border-right:7px solid transparent;
+  border-bottom:7px solid #ccc;
+  border-left:7px solid transparent;
+  border-bottom-color:rgba(0,0,0,0.2);
+  content:'';
+}
+.banner .component-breadcrumb .dropdown-menu:after {
+  position:absolute;
+  top:-6px;
+  left:25%;
+  display:inline-block;
+  border-right:6px solid transparent;
+  border-bottom:6px solid #FFF;
+  border-left:6px solid transparent;
+  content:'';
+}
+
+@media(max-width:479px) {
+.banner .component-breadcrumb .icon-dropdown-arrow {
+  display:none;
+}
+}
+
+@media(min-width:480px) {
+.banner .component-breadcrumb #primary_nav_wrap>ul>li>a {
+  padding:0;
+}
+}
+
+.banner .component-banner .reg-banner .text-overlay {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.banner .component-banner .text-overlay .paddingSmall {
+  padding-left:0;
+  padding-right:0;
+}
+
+@media(min-width:730px) {
+.banner .component-banner .text-overlay .text-width-80 {
+  width:80%;
+}
+.banner .component-banner .text-overlay .text-width-60 {
+  width:60%;
+}
+.banner .component-banner .text-overlay .text-width-40 {
+  width:40%;
+}
+}
+
+.banner .component-banner .reg-banner .title {
+  font-size:24px;
+  font-weight:800;
+  line-height:38px;
+  margin:0 0 30px 0;
+}
+.banner .component-banner .reg-banner .sub-title {
+  font-size:16px;
+  font-weight:300;
+  line-height:20px;
+  margin-bottom:18px;
+}
+.banner .component-banner .reg-banner .sub-title p {
+  margin-bottom:20px;
+}
+.banner .component-banner .reg-banner .component-text {
+  flex-direction:column;
+}
+.banner .component-banner .reg-banner .cmp-video-cta {
+  display:inline-block;
+}
+.banner .component-banner .reg-banner .cmp-video__thumbnail.component-button {
+  position:static;
+  display:inline-block;
+  background:#FFF;
+  border:2px solid #FFF;
+  color:#111c24;
+  cursor:pointer;
+  font-size:16px;
+  line-height:25.6px;
+  margin:0;
+}
+.banner .component-banner .reg-banner .cmp-video__thumbnail.component-button a {
+  color:#111c24;
+  display:flex;
+  justify-content:center;
+  text-decoration:none;
+}
+.banner .component-banner .reg-banner .cmp-video__thumbnail .btn-text {
+  display:block;
+}
+.banner .component-banner .reg-banner .component-button {
+  width:260px;
+  margin:0;
+}
+.banner .component-banner .reg-banner .component-button.video-secondary-button {
+  margin:14px 0 0 0;
+}
+
+@media(max-width:729px) {
+.banner .component-banner .component-button.secondary {
+  margin-top:14px;
+}
+}
+
+.banner .component-banner .reg-banner .component-button a span {
+  display:block;
+}
+
+@media(min-width:730px) {
+.banner .component-banner .reg-banner .text-overlay .component-text {
+  flex-direction:row;
+}
+.banner .component-banner .reg-banner .title {
+  font-size:48px;
+  line-height:1.2;
+  font-weight:800;
+  margin:0 0 40px 0;
+}
+.banner .component-banner .reg-banner .sub-title {
+  font-size:24px;
+  line-height:1.4;
+  margin-bottom:0;
+}
+.banner .component-banner .reg-banner .component-button,
+.banner .component-banner .reg-banner .cmp-video__thumbnail.component-button {
+  width:auto;
+  height:auto;
+  padding:5.21px 24px;
+  margin:15px 0 25px 0!important;
+  display:block;
+}
+.banner .component-banner .reg-banner .cmp-video__thumbnail.component-button {
+  display:inline-block;
+}
+.banner .component-banner .reg-banner .component-button.video-secondary-button {
+  margin:15px 0 25px 0!important;
+}
+.banner .component-banner .reg-banner .component-button a,
+.banner .component-banner .reg-banner .component-button a span {
+  line-height:1.6;
+}
+.banner .component-banner .reg-banner .component-button a svg {
+  margin-top:4.5px;
+}
+}
+
+.banner .component-floating-tabs .tab-body .component-text {
+  font-size:16px;
+  line-height:160%;
+  font-weight:300;
+  color:#111c24;
+}
+.banner .component-floating-tabs .tab-body .component-text ul {
+  margin:0 0 10px;
+  padding:0 0 0 40px;
+}
+.banner .component-floating-tabs .tab-body .component-text ul:last-child {
+  margin-bottom:0;
+}
+.banner .component-floating-tabs .tab-body .component-text a {
+  color:#316aca;
+}
+.banner .component-faq .accordion-list .item.open .title {
+  background:#f7f7fa;
+  transition:.5s;
+}
+.banner .component-faq .accordion-list .item.open .title .fa-caret-up {
+  display:block;
+}
+.banner .component-faq .accordion-list .item.open .title .fa-caret-down {
+  display:none;
+}
+.banner .component-faq .accordion-list .item .title {
+  cursor:pointer;
+  position:relative;
+  color:#111c24;
+  font-size:20px;
+  padding:8px 24px 8px 8px;
+  width:100%;
+  text-align:left;
+  border:0;
+  position:relative;
+  background:0;
+  border-radius:5px;
+  transition:.5s;
+}
+.banner .component-faq .accordion-list .item .title {
+  font-family:inherit;
+  line-height:1.6;
+  box-sizing:border-box;
+  display:block;
+}
+.banner .component-faq .accordion-list .item .title .fa-caret-up,
+.banner .component-faq .accordion-list .item .title .fa-caret-down {
+  display:none;
+  position:absolute;
+  right:8px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#111c24;
+  font-size:16.01px;
+  height:1em;
+}
+.banner .component-faq .accordion-list .item .title .fa-caret-down {
+  display:block;
+}
+
+@media(max-width:730px) {
+.banner .component-faq .accordion-list .item .title {
+  padding:8px 48px 8px 24px;
+}
+.banner .component-faq .accordion-list .item .title .fa-caret-down,
+.banner .component-faq .accordion-list .item .title .fa-caret-up {
+  right:24px;
+}
+}
+
+@media(min-width:992px) {
+.banner .component-banner .text-overlay {
+  width:970px;
+}
+}
+
+@media(min-width:1200px) {
+.banner .component-banner .text-overlay {
+  width:1170px;
+}
+}
+
+@media(min-width:730px) {
+.banner .component-banner .text-overlay .text-width-50 {
+  width:50%;
+}
+}
+
+.banner .component-banner .text-overlay.content-align-left {
+  justify-content:flex-start;
+}
+.banner .component-banner .text-overlay.content-align-right {
+  justify-content:flex-end;
+}
+.banner .component-banner .text-overlay.content-align-center {
+  justify-content:center;
+}
+
 
 /* moved authored nodes (EW2); runtime button decorator neutralised inside .component-button */
 .banner .component-banner .title :is(h2, h3, h4) {
@@ -449,4 +951,39 @@
   color: inherit;
   background: none;
   box-shadow: none;
+}
+
+
+/* landing image banner: moved paragraphs inside the CTA slots; per-instance desktop-image-on-mobile config; small skinny title */
+.banner.image .cmp-video__thumbnail p,
+.banner.image .video-secondary-button p {
+  display: contents;
+}
+
+.banner.skinny.small .title :is(h2, h3, h4) {
+  font-size: 0.8em;
+}
+
+@media (max-width: 729px) {
+  .banner.image .dm-desktop-on-mobile .dm-mobile {
+    display: none;
+  }
+
+  .banner.image .dm-desktop-on-mobile .dm-desktop {
+    display: block;
+  }
+}
+
+
+/* skinny banner: the moved heading inherits the title box typography like the source <p> */
+.banner.skinny .title :is(h2, h3, h4) {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  color: inherit;
+}
+
+.banner.skinny.small .title :is(h2, h3, h4) {
+  font-size: 0.8em;
 }

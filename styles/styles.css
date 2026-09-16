@@ -28,11 +28,15 @@
 
   /* chrome reservation: the 53px utility bar sits in flow above the nav (≥1130, the source pre-header breakpoint); the nav itself overlays main (#108) */
   --nav-height: 0px;
+
+  /* the nav bar itself (70px; 80px from 1130) — in flow on every page except the home page, whose nav overlays the hero */
+  --nav-bar-height: 70px;
 }
 
 @media (width >= 1130px) {
   :root {
     --nav-height: 53px;
+    --nav-bar-height: 80px;
   }
 }
 
@@ -92,9 +96,11 @@ body.appear {
 header {
   position: relative;
   z-index: 1030;
-  height: var(--nav-height);
+  height: calc(var(--nav-height) + var(--nav-bar-height));
   background: var(--snps-dark);
 }
+
+body[data-page-type="home-page"] header { height: var(--nav-height); }
 
 header .header,
 footer .footer {
@@ -474,4 +480,74 @@ main .section.head-center .default-content-wrapper p:last-child {
     font-size: 20px;
     line-height: 32px;
   }
+}
+
+/* ---- landing section tokens (stardust:deploy, ai-html pilot) ---------------------------------------------------
+   The source wraps every landing block in .background-component with vert-pad-top-xs|sm|md (a margin; 40px for all three
+   below 730) and vert-pad-bottom-xs|sm|md (a padding) plus .light-grey-bg; on the section these become padding tokens
+   (margins would collapse through empty sections). */
+main .section.pad-top-xs,
+main .section.pad-top-sm,
+main .section.pad-top-md,
+main .section.pad-bottom-xs,
+main .section.pad-bottom-sm,
+main .section.pad-bottom-md,
+main .section.grey,
+main .section.textcomp {
+  display: flow-root;
+}
+
+main .section.pad-top-xs,
+main .section.pad-top-sm,
+main .section.pad-top-md { padding-top: 40px; }
+main .section.pad-bottom-xs { padding-bottom: 15px; }
+main .section.pad-bottom-sm { padding-bottom: 30px; }
+main .section.pad-bottom-md { padding-bottom: 60px; }
+main .section.grey { background: var(--snps-panel); }
+
+/* default-content text sections (.component-textcomp): heading + copy */
+main .section.textcomp .default-content-wrapper h2,
+main .section.textcomp .default-content-wrapper h3 {
+  margin: 0;
+  color: var(--snps-ink);
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+main .section.textcomp.purple .default-content-wrapper h2 { color: var(--snps-purple-dark); }
+main .section.textcomp.center .default-content-wrapper { text-align: center; }
+
+main .section.textcomp .default-content-wrapper :is(h2, h3) + :is(p, ul, ol) { margin-top: 16px; }
+
+/* a text section without its own heading (copy under a heading authored in the previous section) keeps the copy offset */
+main .section.textcomp .default-content-wrapper > :is(p, ul, ol):first-child { margin-top: 16px; }
+
+main .section.textcomp .default-content-wrapper :is(p, ul, ol) {
+  color: var(--snps-ink);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 25.6px; /* the source sets 160% on a 16px wrapper; lists at 14/15px inherit the computed 25.6px */
+  margin-bottom: 10px;
+}
+
+/* list font follows the source's element rule (15px, 14px from 730, 16px from 1200); paragraphs inherit 16px */
+main .section.textcomp .default-content-wrapper :is(ul, ol) { font-size: 15px; }
+main .section.textcomp .default-content-wrapper :is(p, ul, ol):last-child { margin-bottom: 24px; }
+main .section.textcomp .default-content-wrapper h2:last-child { margin-bottom: 0; }
+
+@media (width >= 730px) {
+  main .section.pad-top-xs { padding-top: 15px; }
+  main .section.pad-top-sm { padding-top: 30px; }
+  main .section.pad-top-md { padding-top: 60px; }
+  main .section.textcomp .default-content-wrapper h2 { font-size: 32px; }
+  main .section.textcomp.small .default-content-wrapper h2 { font-size: 24px; }
+  main .section.textcomp .default-content-wrapper :is(h2, h3) + :is(p, ul, ol) { margin-top: 24px; }
+  main .section.textcomp .default-content-wrapper > :is(p, ul, ol):first-child { margin-top: 24px; }
+  main .section.textcomp .default-content-wrapper :is(p, ul, ol):last-child { margin-bottom: 0; }
+  main .section.textcomp .default-content-wrapper :is(ul, ol) { font-size: 14px; }
+}
+
+@media (width >= 1200px) {
+  main .section.textcomp .default-content-wrapper :is(ul, ol) { font-size: 16px; }
 }

@@ -1,5 +1,322 @@
 /* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
-/* stardust:deploy — rules lifted for the .hero-carousel block from home.css, canon.css (selectors matching /hero-carousel|carousel-wrapper-hp|carousel-holder|cmp-carousel|carousel-list-holder|slick-|pause-btn|slider-progress|component-banner|image-overlay|bg-desktop|bg-mobile|dm-desktop|dm-mobile|center-wrapper|text-wrapper|sub-title|cta-wrapper|component-button|has-arrow|darkButtonRollover|dark-purple-gradient|black-gradient|ui-helper-hidden|carousel-banner|\.title\b|img-responsive|component-image|foreground/), scoped under .hero-carousel */
+/* stardust:deploy — rules lifted for the .hero-carousel block from canon.css, home.css (selectors matching /hero-carousel|carousel-wrapper-hp|carousel-holder|cmp-carousel|carousel-list-holder|slick-|pause-btn|slider-progress|component-banner|image-overlay|bg-desktop|bg-mobile|dm-desktop|dm-mobile|center-wrapper|text-wrapper|sub-title|cta-wrapper|component-button|has-arrow|darkButtonRollover|dark-purple-gradient|black-gradient|ui-helper-hidden|carousel-banner|\.title\b|img-responsive|component-image|foreground/), scoped under .hero-carousel */
+@media(min-width:730px) {
+.hero-carousel .component-banner .dm-mobile {
+  display:none;
+}
+.hero-carousel .component-banner .dm-desktop {
+  display:block;
+}
+}
+
+.hero-carousel .img-responsive {
+  display:block;
+  max-width:100%;
+  height:auto;
+}
+.hero-carousel .ui-helper-hidden-accessible {
+  position:absolute!important;
+  left:-99999999px;
+}
+.hero-carousel .component-banner .component-button {
+  padding:5.21px 24px;
+  margin-bottom:25px;
+  text-decoration:none;
+  border-radius:5px;
+  font-size:16px;
+  font-weight:400;
+  box-shadow:none;
+  transition:.5s;
+  text-align:center;
+}
+.hero-carousel .component-banner .component-button:hover {
+  transition:.2s;
+}
+.hero-carousel .component-banner .component-button a {
+  display:flex;
+  justify-content:center;
+}
+.hero-carousel .component-banner .component-button a:hover {
+  text-decoration:none;
+}
+.hero-carousel .component-banner .component-button svg {
+  width:9px;
+  margin-right:10px;
+  margin-top:4.5px;
+}
+.hero-carousel .component-banner .component-button.dark.primary {
+  background:#FFF;
+  border:2px solid #FFF;
+  color:#111c24;
+}
+.hero-carousel .component-banner .component-button.dark.primary a {
+  color:#111c24;
+}
+.hero-carousel .component-banner .component-button.dark.primary:hover {
+  background:#e3e3e3;
+  border-color:#e3e3e3;
+}
+.hero-carousel .component-banner .component-button.dark.primary:focus {
+  background:#FFF;
+  border-color:#FFF;
+}
+.hero-carousel .component-banner .component-button.dark.secondary {
+  background:0;
+  border:2px solid #FFF;
+}
+.hero-carousel .component-banner .component-button.dark.secondary a {
+  color:#FFF;
+}
+.hero-carousel .component-banner .component-button.dark.secondary:hover,
+.hero-carousel .component-banner .component-button.dark.secondary:focus {
+  color:#555;
+  background:rgba(85,85,85,0.5);
+  border-color:#FFF;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .component-button .has-arrow {
+  align-items:center;
+}
+.hero-carousel .component-banner .component-button .has-arrow .arrow-icon {
+  margin:0 0 0 8px;
+}
+
+@media(min-width:730px) {
+.hero-carousel .component-banner .component-button {
+  height:40px;
+  padding-top:0;
+  padding-bottom:0;
+  display:flex;
+  align-items:center;
+  margin-bottom:15px!important;
+}
+.hero-carousel .component-banner .component-button a {
+  align-items:center;
+  line-height:1;
+  display:flex;
+}
+.hero-carousel .component-banner .component-button a svg {
+  margin-top:0;
+  margin-bottom:0;
+}
+}
+
+.hero-carousel .component-banner .bg-desktop.dark-purple-gradient,
+.hero-carousel .component-banner .bg-mobile.dark-purple-gradient {
+  background:linear-gradient(107.7deg,#2d1541 0,#5a2a82 50%,#7e45af 100%);
+}
+.hero-carousel .component-banner .bg-desktop.black-gradient,
+.hero-carousel .component-banner .bg-mobile.black-gradient {
+  background:linear-gradient(107.7deg,#000 0,#191c20 35%,#646e81 100%);
+}
+
+@media(min-width:1130px) {
+.hero-carousel .pre-header .dropdown-menu > li.title {
+  padding:0 8px;
+  color:#111c24;
+  font-size:18px;
+  font-weight:600;
+  line-height:163%;
+  cursor:default;
+}
+}
+
+.hero-carousel .component-banner {
+  position:relative;
+}
+.hero-carousel .component-imageTextCta {
+  text-align:left;
+}
+.hero-carousel .component-imageTextCta .title {
+  font-size:24px;
+  margin:0;
+  color:#111c24;
+  font-weight:300;
+  line-height:1.1;
+}
+.hero-carousel .component-imageTextCta .title.text-size-smaller {
+  font-size:24px;
+}
+.hero-carousel .component-imageTextCta .title.text-size-larger {
+  font-size:32px;
+}
+.hero-carousel .component-imageTextCta .subtitle {
+  font-size:20px;
+  font-weight:300;
+  line-height:140%;
+  margin:16px 0 0 0;
+  color:#111c24;
+}
+.hero-carousel .component-imageTextCta .component-text {
+  margin:16px 0 24px 0;
+  color:#111c24;
+  font-size:16px;
+  font-weight:300;
+  line-height:160%;
+}
+.hero-carousel .component-imageTextCta .component-text p {
+  font-size:inherit;
+}
+.hero-carousel .component-imageTextCta .component-text p:last-child {
+  margin-bottom:0;
+}
+.hero-carousel .component-imageTextCta .buttons {
+  margin:24px 0 0 0;
+  display:flex;
+  column-gap:24px;
+  row-gap:24px;
+  align-items:start;
+  justify-content:flex-start;
+  flex-wrap:wrap;
+}
+.hero-carousel .component-imageTextCta .buttons.align-center {
+  justify-content:center;
+}
+.hero-carousel .component-imageTextCta .buttons.align-right {
+  justify-content:flex-end;
+}
+.hero-carousel .component-imageTextCta .buttons .component-button {
+  min-width:140px;
+  max-width:300px;
+  padding:0 24px;
+  margin:0;
+  min-height:40px;
+  height:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:5px;
+  font-weight:400;
+  line-height:1.6;
+  text-decoration:none;
+  color:#FFF;
+}
+.hero-carousel .component-imageTextCta .buttons .component-button.primary {
+  background:#7e45af;
+  color:#FFF;
+}
+.hero-carousel .component-imageTextCta .buttons .component-button.secondary {
+  border:2px solid #7e45af;
+  background:0;
+  color:#7e45af;
+}
+.hero-carousel .component-imageTextCta .buttons .component-button:hover {
+  color:#FFF;
+  box-shadow:inset 0 0 0 99999px rgba(0,0,0,0.2);
+  text-decoration:none;
+}
+.hero-carousel .component-imageTextCta .mediatext {
+  display:flex;
+  flex-direction:column-reverse;
+}
+.hero-carousel .component-imageTextCta .mediatext .buttons {
+  margin-bottom:24px;
+}
+.hero-carousel .component-imageTextCta .img-col {
+  margin-bottom:24px;
+}
+.hero-carousel .component-imageTextCta .img-col img {
+  display:block;
+  max-width:100%;
+  height:auto;
+  width:100%;
+}
+.hero-carousel .component-imageTextCta > .container {
+  width:100%;
+  max-width:none;
+  padding:0;
+  margin:0;
+}
+
+@media(min-width:730px) {
+.hero-carousel .component-imageTextCta .component-image {
+  margin:0;
+}
+.hero-carousel .component-imageTextCta .mediatext {
+  display:block;
+}
+.hero-carousel .component-imageTextCta .mediatext .buttons {
+  margin-bottom:0;
+}
+.hero-carousel .component-imageTextCta .title {
+  font-size:32px;
+}
+.hero-carousel .component-imageTextCta .title.text-size-smaller {
+  font-size:24px;
+}
+.hero-carousel .component-imageTextCta .title.text-size-larger {
+  font-size:40px;
+}
+.hero-carousel .component-imageTextCta .component-text {
+  margin:24px 0 0 0;
+}
+.hero-carousel .component-imageTextCta .buttons .component-button {
+  font-size:16px;
+}
+}
+
+.hero-carousel .component-banner .opacity-0 {
+  opacity:0;
+}
+.hero-carousel .component-banner .opacity-30 {
+  opacity:.3;
+}
+.hero-carousel .component-banner .opacity-40 {
+  opacity:.4;
+}
+.hero-carousel .component-banner .opacity-50 {
+  opacity:.5;
+}
+.hero-carousel .component-banner .opacity-60 {
+  opacity:.6;
+}
+.hero-carousel .component-image .horizontal-padding-sm {
+  padding:0 5px;
+}
+.hero-carousel .component-image .horizontal-padding-md {
+  padding:0 25px;
+}
+.hero-carousel .component-image .horizontal-padding-lg {
+  padding:0 100px;
+}
+.hero-carousel .component-image .zoom-container.cmp-image.infographic-image img.img-responsive {
+  height:75vh;
+  width:auto;
+  margin:0 auto;
+}
+.hero-carousel .component-image .zoom-container.cmp-image.infographic-image .zoom-instructions {
+  display:block;
+  margin-top:10px;
+  margin-bottom:30px;
+}
+.hero-carousel .html-text-only-component .component-button {
+  display:inline-block;
+  padding:10px 30px;
+  border-radius:5px;
+  color:#fff;
+}
+.hero-carousel .html-text-only-component .component-button a {
+  color:#fff;
+}
+
+@media(min-width:730px) {
+.hero-carousel .html-text-only-component .component-button {
+  margin:15px 0 0 0;
+}
+}
+
+@media(max-width:730px) {
+.hero-carousel .img-responsive.svg {
+  height:140px;
+  width:auto;
+  margin:0 auto;
+}
+}
+
+.hero-carousel .component-imageTextCta .component-text ul:last-child,
+.hero-carousel .component-imageTextCta .component-text ol:last-child,
+.hero-carousel .component-imageTextCta .component-text p:last-child {
+  margin-bottom:0;
+}
 .hero-carousel .carousel-holder {
   position:relative;
   margin:auto;
@@ -586,324 +903,6 @@
   width:260px;
   margin:0;
 }
-}
-
-@media(min-width:730px) {
-.hero-carousel .component-banner .dm-mobile {
-  display:none;
-}
-.hero-carousel .component-banner .dm-desktop {
-  display:block;
-}
-}
-
-.hero-carousel .img-responsive {
-  display:block;
-  max-width:100%;
-  height:auto;
-}
-.hero-carousel .ui-helper-hidden-accessible {
-  position:absolute!important;
-  left:-99999999px;
-}
-.hero-carousel .component-banner .component-button {
-  padding:5.21px 24px;
-  margin-bottom:25px;
-  text-decoration:none;
-  border-radius:5px;
-  font-size:16px;
-  font-weight:400;
-  box-shadow:none;
-  transition:.5s;
-  text-align:center;
-}
-.hero-carousel .component-banner .component-button:hover {
-  transition:.2s;
-}
-.hero-carousel .component-banner .component-button a {
-  display:flex;
-  justify-content:center;
-}
-.hero-carousel .component-banner .component-button a:hover {
-  text-decoration:none;
-}
-.hero-carousel .component-banner .component-button svg {
-  width:9px;
-  margin-right:10px;
-  margin-top:4.5px;
-}
-.hero-carousel .component-banner .component-button.dark.primary {
-  background:#FFF;
-  border:2px solid #FFF;
-  color:#111c24;
-}
-.hero-carousel .component-banner .component-button.dark.primary a {
-  color:#111c24;
-}
-.hero-carousel .component-banner .component-button.dark.primary:hover {
-  background:#e3e3e3;
-  border-color:#e3e3e3;
-}
-.hero-carousel .component-banner .component-button.dark.primary:focus {
-  background:#FFF;
-  border-color:#FFF;
-}
-.hero-carousel .component-banner .component-button.dark.secondary {
-  background:0;
-  border:2px solid #FFF;
-}
-.hero-carousel .component-banner .component-button.dark.secondary a {
-  color:#FFF;
-}
-.hero-carousel .component-banner .component-button.dark.secondary:hover,
-.hero-carousel .component-banner .component-button.dark.secondary:focus {
-  color:#555;
-  background:rgba(85,85,85,0.5);
-  border-color:#FFF;
-}
-.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .component-button .has-arrow {
-  align-items:center;
-}
-.hero-carousel .component-banner .component-button .has-arrow .arrow-icon {
-  margin:0 0 0 8px;
-}
-
-@media(min-width:730px) {
-.hero-carousel .component-banner .component-button {
-  height:40px;
-  padding-top:0;
-  padding-bottom:0;
-  display:flex;
-  align-items:center;
-  margin-bottom:15px!important;
-}
-.hero-carousel .component-banner .component-button a {
-  align-items:center;
-  line-height:1;
-  display:flex;
-}
-.hero-carousel .component-banner .component-button a svg {
-  margin-top:0;
-  margin-bottom:0;
-}
-}
-
-.hero-carousel .component-banner .bg-desktop.dark-purple-gradient,
-.hero-carousel .component-banner .bg-mobile.dark-purple-gradient {
-  background:linear-gradient(107.7deg,#2d1541 0,#5a2a82 50%,#7e45af 100%);
-}
-.hero-carousel .component-banner .bg-desktop.black-gradient,
-.hero-carousel .component-banner .bg-mobile.black-gradient {
-  background:linear-gradient(107.7deg,#000 0,#191c20 35%,#646e81 100%);
-}
-
-@media(min-width:1130px) {
-.hero-carousel .pre-header .dropdown-menu > li.title {
-  padding:0 8px;
-  color:#111c24;
-  font-size:18px;
-  font-weight:600;
-  line-height:163%;
-  cursor:default;
-}
-}
-
-.hero-carousel .component-banner {
-  position:relative;
-}
-.hero-carousel .component-imageTextCta {
-  text-align:left;
-}
-.hero-carousel .component-imageTextCta .title {
-  font-size:24px;
-  margin:0;
-  color:#111c24;
-  font-weight:300;
-  line-height:1.1;
-}
-.hero-carousel .component-imageTextCta .title.text-size-smaller {
-  font-size:24px;
-}
-.hero-carousel .component-imageTextCta .title.text-size-larger {
-  font-size:32px;
-}
-.hero-carousel .component-imageTextCta .subtitle {
-  font-size:20px;
-  font-weight:300;
-  line-height:140%;
-  margin:16px 0 0 0;
-  color:#111c24;
-}
-.hero-carousel .component-imageTextCta .component-text {
-  margin:16px 0 24px 0;
-  color:#111c24;
-  font-size:16px;
-  font-weight:300;
-  line-height:160%;
-}
-.hero-carousel .component-imageTextCta .component-text p {
-  font-size:inherit;
-}
-.hero-carousel .component-imageTextCta .component-text p:last-child {
-  margin-bottom:0;
-}
-.hero-carousel .component-imageTextCta .buttons {
-  margin:24px 0 0 0;
-  display:flex;
-  column-gap:24px;
-  row-gap:24px;
-  align-items:start;
-  justify-content:flex-start;
-  flex-wrap:wrap;
-}
-.hero-carousel .component-imageTextCta .buttons.align-center {
-  justify-content:center;
-}
-.hero-carousel .component-imageTextCta .buttons.align-right {
-  justify-content:flex-end;
-}
-.hero-carousel .component-imageTextCta .buttons .component-button {
-  min-width:140px;
-  max-width:300px;
-  padding:0 24px;
-  margin:0;
-  min-height:40px;
-  height:auto;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:5px;
-  font-weight:400;
-  line-height:1.6;
-  text-decoration:none;
-  color:#FFF;
-}
-.hero-carousel .component-imageTextCta .buttons .component-button.primary {
-  background:#7e45af;
-  color:#FFF;
-}
-.hero-carousel .component-imageTextCta .buttons .component-button.secondary {
-  border:2px solid #7e45af;
-  background:0;
-  color:#7e45af;
-}
-.hero-carousel .component-imageTextCta .buttons .component-button:hover {
-  color:#FFF;
-  box-shadow:inset 0 0 0 99999px rgba(0,0,0,0.2);
-  text-decoration:none;
-}
-.hero-carousel .component-imageTextCta .mediatext {
-  display:flex;
-  flex-direction:column-reverse;
-}
-.hero-carousel .component-imageTextCta .mediatext .buttons {
-  margin-bottom:24px;
-}
-.hero-carousel .component-imageTextCta .img-col {
-  margin-bottom:24px;
-}
-.hero-carousel .component-imageTextCta .img-col img {
-  display:block;
-  max-width:100%;
-  height:auto;
-  width:100%;
-}
-.hero-carousel .component-imageTextCta > .container {
-  width:100%;
-  max-width:none;
-  padding:0;
-  margin:0;
-}
-
-@media(min-width:730px) {
-.hero-carousel .component-imageTextCta .component-image {
-  margin:0;
-}
-.hero-carousel .component-imageTextCta .mediatext {
-  display:block;
-}
-.hero-carousel .component-imageTextCta .mediatext .buttons {
-  margin-bottom:0;
-}
-.hero-carousel .component-imageTextCta .title {
-  font-size:32px;
-}
-.hero-carousel .component-imageTextCta .title.text-size-smaller {
-  font-size:24px;
-}
-.hero-carousel .component-imageTextCta .title.text-size-larger {
-  font-size:40px;
-}
-.hero-carousel .component-imageTextCta .component-text {
-  margin:24px 0 0 0;
-}
-.hero-carousel .component-imageTextCta .buttons .component-button {
-  font-size:16px;
-}
-}
-
-.hero-carousel .component-banner .opacity-0 {
-  opacity:0;
-}
-.hero-carousel .component-banner .opacity-30 {
-  opacity:.3;
-}
-.hero-carousel .component-banner .opacity-40 {
-  opacity:.4;
-}
-.hero-carousel .component-banner .opacity-50 {
-  opacity:.5;
-}
-.hero-carousel .component-banner .opacity-60 {
-  opacity:.6;
-}
-.hero-carousel .component-image .horizontal-padding-sm {
-  padding:0 5px;
-}
-.hero-carousel .component-image .horizontal-padding-md {
-  padding:0 25px;
-}
-.hero-carousel .component-image .horizontal-padding-lg {
-  padding:0 100px;
-}
-.hero-carousel .component-image .zoom-container.cmp-image.infographic-image img.img-responsive {
-  height:75vh;
-  width:auto;
-  margin:0 auto;
-}
-.hero-carousel .component-image .zoom-container.cmp-image.infographic-image .zoom-instructions {
-  display:block;
-  margin-top:10px;
-  margin-bottom:30px;
-}
-.hero-carousel .html-text-only-component .component-button {
-  display:inline-block;
-  padding:10px 30px;
-  border-radius:5px;
-  color:#fff;
-}
-.hero-carousel .html-text-only-component .component-button a {
-  color:#fff;
-}
-
-@media(min-width:730px) {
-.hero-carousel .html-text-only-component .component-button {
-  margin:15px 0 0 0;
-}
-}
-
-@media(max-width:730px) {
-.hero-carousel .img-responsive.svg {
-  height:140px;
-  width:auto;
-  margin:0 auto;
-}
-}
-
-.hero-carousel .component-imageTextCta .component-text ul:last-child,
-.hero-carousel .component-imageTextCta .component-text ol:last-child,
-.hero-carousel .component-imageTextCta .component-text p:last-child {
-  margin-bottom:0;
 }
 
 

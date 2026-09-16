@@ -1,38 +1,5 @@
 /* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
-/* stardust:deploy — rules lifted for the .columns block from home.css, canon.css (selectors matching /divider-row|snps-col-divider|\.vl\b|divider-spacing|component-column|col-xs-12|col-sm-6|\.row\b|\.container\b|light-grey-bg|vert-pad|background-component|component-textcomp|\.title\b|text-size-normal|component-text\b|\.buttons\b|cta-link|cta-text|fa-chevron|align-left|text-align-left/), scoped under .columns */
-.columns .container .container {
-  width:100%!important;
-  padding-left:0;
-  padding-right:0;
-}
-.columns .component-column .snps-col-divider {
-  display:none;
-  position:relative;
-}
-.columns .component-column .vl {
-  border-left:1px solid #c4c4c4;
-  height:100%;
-  position:absolute;
-  left:50%;
-  margin-left:.5px;
-  top:0;
-}
-
-@media(min-width:730px) {
-.columns .component-column.divider-row.row {
-  display:flex;
-}
-.columns .component-column.divider-row.row .col.snps-col-divider {
-  display:block;
-}
-.columns .component-column.divider-row.row .divider-spacing-small-30.col-sm-6 {
-  width:calc((100% / 12 * 6) - 15px);
-}
-.columns .component-column.divider-row.row .divider-spacing-small-30.snps-col-divider.col {
-  width:calc(15px * 2);
-}
-}
-
+/* stardust:deploy — rules lifted for the .columns block from canon.css, home.css (selectors matching /divider-row|snps-col-divider|\.vl\b|divider-spacing|component-column|col-xs-12|col-sm-6|\.row\b|\.container\b|light-grey-bg|vert-pad|background-component|component-textcomp|\.title\b|text-size-normal|component-text\b|\.buttons\b|cta-link|cta-text|fa-chevron|align-left|text-align-left/), scoped under .columns */
 .columns .container {
   display:block;
   margin-right:auto;
@@ -338,6 +305,38 @@
 .columns .component-imageTextCta .component-text ol:last-child,
 .columns .component-imageTextCta .component-text p:last-child {
   margin-bottom:0;
+}
+.columns .container .container {
+  width:100%!important;
+  padding-left:0;
+  padding-right:0;
+}
+.columns .component-column .snps-col-divider {
+  display:none;
+  position:relative;
+}
+.columns .component-column .vl {
+  border-left:1px solid #c4c4c4;
+  height:100%;
+  position:absolute;
+  left:50%;
+  margin-left:.5px;
+  top:0;
+}
+
+@media(min-width:730px) {
+.columns .component-column.divider-row.row {
+  display:flex;
+}
+.columns .component-column.divider-row.row .col.snps-col-divider {
+  display:block;
+}
+.columns .component-column.divider-row.row .divider-spacing-small-30.col-sm-6 {
+  width:calc((100% / 12 * 6) - 15px);
+}
+.columns .component-column.divider-row.row .divider-spacing-small-30.snps-col-divider.col {
+  width:calc(15px * 2);
+}
 }
 
 

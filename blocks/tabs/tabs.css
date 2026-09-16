@@ -1,0 +1,423 @@
+/* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
+/* stardust:deploy — rules lifted for the .tabs block from canon.css, landing.css (selectors matching /floatingTabs|floating-tabs|tabs-nav|tab-nav-item|tabs-content|floating-tab|tab-header|tab-body|tab-open|tab-close|vertical-tabs|\.container\b|component-column|col-xs-12|col-sm-6|\.row\b|aem-Grid|\.column\b|\.hide\b/), scoped under .tabs */
+.tabs .container {
+  display:block;
+  margin-right:auto;
+  margin-left:auto;
+  padding-left:15px;
+  padding-right:15px;
+  width:100%;
+}
+
+@media(min-width:992px) {
+.tabs .container {
+  width:970px;
+}
+}
+
+@media(min-width:1200px) {
+.tabs .container {
+  width:1170px;
+}
+}
+
+.tabs .container::before,
+.tabs .container::after,
+.tabs .row::before,
+.tabs .row::after {
+  content:" ";
+  display:table;
+}
+.tabs .container::after,
+.tabs .row::after {
+  clear:both;
+}
+.tabs .row {
+  margin-left:-15px;
+  margin-right:-15px;
+}
+.tabs .col-xs-12,
+.tabs .col-sm-6 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+.tabs .col-xs-12 {
+  width:100%;
+  float:left;
+}
+
+@media(min-width:730px) {
+.tabs .col-sm-6 {
+  float:left;
+}
+.tabs .col-sm-6 {
+  width:50%;
+}
+}
+
+.tabs .component-imageTextCta > .container {
+  width:100%;
+  max-width:none;
+  padding:0;
+  margin:0;
+}
+.tabs .col-sm-6,
+.tabs .col-xs-12 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+.tabs .col-xs-12 {
+  float:left;
+}
+.tabs .col-xs-12 {
+  width:100%;
+}
+
+@media(min-width:730px) {
+.tabs .col-sm-6 {
+  float:left;
+}
+.tabs .col-sm-6 {
+  width:50%;
+}
+}
+
+.tabs .row:before,
+.tabs .row:after,
+.tabs .component-column:before,
+.tabs .component-column:after {
+  content:" ";
+  display:table;
+}
+.tabs .row:after,
+.tabs .component-column:after {
+  clear:both;
+}
+.tabs main.responsivegrid > .aem-Grid > div {
+  display:flow-root;
+}
+.tabs main .component-column .container,
+.tabs main .column .container,
+.tabs main .logoCarousel .container {
+  width:100%;
+  max-width:none;
+  padding:0;
+  margin:0;
+}
+.tabs main .component-anchor > .aem-Grid > .column > .container,
+.tabs main .component-anchor > .aem-Grid > .experiencefragment > .cmp-experiencefragment > .aem-Grid > .column > .container,
+.tabs main > .aem-Grid > .column > .container,
+.tabs main > .aem-Grid > .column > .background-component > .container,
+.tabs main > .aem-Grid > .text > .container,
+.tabs main > .aem-Grid > .text > .background-component > .container,
+.tabs main > .aem-Grid > .floatingTabs > .background-component > .container {
+  display:block;
+  margin-right:auto;
+  margin-left:auto;
+  padding-left:15px;
+  padding-right:15px;
+  width:100%;
+}
+
+@media(min-width:992px) {
+.tabs main .component-anchor > .aem-Grid > .column > .container,
+.tabs main .component-anchor > .aem-Grid > .experiencefragment > .cmp-experiencefragment > .aem-Grid > .column > .container,
+.tabs main > .aem-Grid > .column > .container,
+.tabs main > .aem-Grid > .column > .background-component > .container,
+.tabs main > .aem-Grid > .text > .container,
+.tabs main > .aem-Grid > .text > .background-component > .container,
+.tabs main > .aem-Grid > .floatingTabs > .background-component > .container {
+  width:970px;
+}
+}
+
+@media(min-width:1200px) {
+.tabs main .component-anchor > .aem-Grid > .column > .container,
+.tabs main .component-anchor > .aem-Grid > .experiencefragment > .cmp-experiencefragment > .aem-Grid > .column > .container,
+.tabs main > .aem-Grid > .column > .container,
+.tabs main > .aem-Grid > .column > .background-component > .container,
+.tabs main > .aem-Grid > .text > .container,
+.tabs main > .aem-Grid > .text > .background-component > .container,
+.tabs main > .aem-Grid > .floatingTabs > .background-component > .container {
+  width:1170px;
+}
+}
+
+.tabs .anchor:not(:has(.component-anchor > .aem-Grid > *)) {
+  position:absolute;
+  width:0;
+  height:1px;
+}
+.tabs .table-of-contents-product-layout.cmp-tableofcontents > .container {
+  display:flex;
+  margin:0 auto;
+  padding:0 15px;
+  width:100%;
+  box-sizing:border-box;
+}
+
+@media(min-width:992px) {
+.tabs .table-of-contents-product-layout.cmp-tableofcontents > .container {
+  width:970px;
+}
+}
+
+@media(min-width:1200px) {
+.tabs .table-of-contents-product-layout.cmp-tableofcontents > .container {
+  width:1170px;
+}
+}
+
+@media only screen and (max-width:730px) {
+.tabs .table-of-contents-product-layout.cmp-tableofcontents > .container {
+  display:block;
+  padding:0;
+  width:100%;
+}
+}
+
+.tabs .component-floating-tabs-container {
+  display:block;
+  margin:0 auto;
+  padding:0 15px;
+  width:100%;
+  box-sizing:border-box;
+}
+.tabs .component-floating-tabs .tabs-nav {
+  display:none;
+}
+.tabs .component-floating-tabs .tabs-content .floating-tab .tab-body {
+  overflow:hidden;
+  max-height:0;
+}
+.tabs .component-floating-tabs .tabs-content .floating-tab .tab-body.active {
+  overflow:visible;
+  max-height:50000px;
+  transition:max-height 1s ease-in;
+}
+.tabs .component-floating-tabs .tabs-content .floating-tab .tab-header {
+  position:relative;
+}
+.tabs .component-floating-tabs .tabs-content .floating-tab .tab-header:hover {
+  cursor:pointer;
+}
+.tabs .component-floating-tabs .tabs-content .floating-tab .tab-header a {
+  padding:10px;
+  height:100%;
+  width:100%;
+  display:inline-block;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:300;
+  line-height:24px;
+}
+.tabs .component-floating-tabs .tabs-content .floating-tab .tab-header span {
+  position:absolute;
+  font-size:24px;
+  line-height:24px;
+  right:10px;
+  top:10px;
+}
+.tabs .component-floating-tabs .tabs-content .floating-tab .tab-header span.hide {
+  display:none;
+}
+.tabs .component-floating-tabs .tabs-content .floating-tab .tab-header span.tab-close {
+  font-size:42px;
+}
+.tabs .component-floating-tabs .tab-body .text > .container,
+.tabs .component-floating-tabs .tab-body .text > .background-component > .container,
+.tabs .component-floating-tabs .tab-body .column > .container {
+  width:100%;
+  padding:0;
+  margin:0;
+}
+.tabs .component-floating-tabs .tab-body .component-textcomp .title.text-size-smaller {
+  font-size:24px;
+  line-height:1.1;
+}
+.tabs .component-floating-tabs .tab-body .component-text {
+  font-size:16px;
+  line-height:160%;
+  font-weight:300;
+  color:#111c24;
+}
+.tabs .component-floating-tabs .tab-body .component-text ul {
+  margin:0 0 10px;
+  padding:0 0 0 40px;
+}
+.tabs .component-floating-tabs .tab-body .component-text ul:last-child {
+  margin-bottom:0;
+}
+.tabs .component-floating-tabs .tab-body .component-text a {
+  color:#316aca;
+}
+
+@media(max-width:730px) {
+.tabs .component-floating-tabs .tabs-content {
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.tabs .component-floating-tabs .tabs-content .floating-tab .tab-header {
+  border-left:3px solid #7921b0;
+  background-color:#f7f7fa;
+}
+.tabs .component-floating-tabs .tabs-content .floating-tab .tab-header .tab-header-title {
+  color:#111c24;
+  padding-right:28px;
+}
+}
+
+@media(min-width:730px) {
+.tabs .component-floating-tabs {
+  margin:20px 0;
+}
+.tabs .component-floating-tabs .tabs-nav {
+  display:flex;
+  justify-content:space-evenly;
+}
+.tabs .component-floating-tabs .tabs-nav .tab-nav-item {
+  flex:1;
+  cursor:pointer;
+  text-align:center;
+}
+.tabs .component-floating-tabs .tabs-nav .tab-nav-item .tab-nav-item-anchor {
+  display:inline-block;
+  width:100%;
+  height:100%;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+  flex-direction:column;
+  -webkit-box-pack:center;
+  justify-content:center;
+  color:#646e81;
+  font-size:18px;
+  line-height:1.2;
+}
+.tabs .component-floating-tabs .tabs-nav .tab-nav-item .tab-nav-item-anchor {
+  flex-direction:column;
+  justify-content:center;
+  font-size:18px;
+  line-height:1.2;
+  color:#646e81;
+  text-decoration:none;
+  box-sizing:border-box;
+}
+.tabs .component-floating-tabs .tabs-nav .tab-nav-item .tab-nav-item-anchor:hover {
+  text-decoration:none;
+  color:#111c24;
+}
+.tabs .component-floating-tabs .tabs-content .floating-tab {
+  opacity:0;
+}
+.tabs .component-floating-tabs .tabs-content .floating-tab.active {
+  opacity:1;
+  transition:opacity .4s ease-in;
+}
+.tabs .component-floating-tabs .tabs-content .floating-tab .tab-header {
+  display:none;
+}
+.tabs .component-floating-tabs .tabs-content .floating-tab .tab-body {
+  transition:none!important;
+}
+.tabs .component-floating-tabs.vertical-tabs {
+  display:flex;
+  flex-direction:row;
+}
+.tabs .component-floating-tabs.vertical-tabs .tabs-nav {
+  display:block;
+  max-width:317px;
+  width:317px;
+  border-right:1px solid #c4c4c4;
+}
+.tabs .component-floating-tabs.vertical-tabs .tabs-nav .tab-nav-item {
+  padding-right:0;
+}
+.tabs .component-floating-tabs.vertical-tabs .tabs-nav .tab-nav-item .tab-nav-item-anchor {
+  position:relative;
+  padding:20px 32px 20px 16px;
+  text-align:left;
+  font-weight:400;
+}
+.tabs .component-floating-tabs.vertical-tabs .tabs-nav .tab-nav-item .tab-nav-item-anchor .fa-chevron-right {
+  font-weight:400;
+  position:absolute;
+  right:15px;
+  width:10px;
+  height:16px;
+  top:50%;
+  margin-top:-8px;
+}
+.tabs .component-floating-tabs.vertical-tabs .tabs-nav .tab-nav-item .tab-nav-item-anchor.active {
+  border-left:3px solid #7921b0;
+  color:#111c24;
+}
+.tabs .component-floating-tabs.vertical-tabs .tabs-content {
+  width:calc(100% - 317px);
+  padding-left:40px;
+  box-sizing:border-box;
+}
+.tabs .floatingTabs .background-component .component-floating-tabs .tab-nav-item-anchor.active {
+  background-color:#f7f7fa;
+}
+.tabs .component-floating-tabs.horizontal-tabs .tabs-nav .tab-nav-item {
+  border-bottom:1px solid #646e81;
+}
+.tabs .component-floating-tabs.horizontal-tabs .tabs-nav .tab-nav-item .tab-nav-item-anchor {
+  padding:20px 24px;
+  font-weight:400;
+  line-height:1;
+  color:#111c24;
+  border-bottom:3px solid transparent;
+}
+.tabs .component-floating-tabs.horizontal-tabs .tabs-nav .tab-nav-item .tab-nav-item-anchor.active {
+  border-bottom:3px solid #7921b0;
+}
+.tabs .component-floating-tabs.horizontal-tabs .tabs-nav .tab-nav-item .tab-nav-item-anchor:hover {
+  border-bottom:3px solid #7921b0;
+}
+.tabs .component-floating-tabs.horizontal-tabs .tabs-content {
+  padding-top:30px;
+}
+.tabs .floatingTabs .background-component .component-floating-tabs.horizontal-tabs .tab-nav-item-anchor.active {
+  background-color:transparent;
+}
+.tabs .floatingTabs .light-grey-bg .component-floating-tabs .tab-nav-item-anchor.active {
+  background-color:#fff;
+}
+}
+
+@media(min-width:992px) {
+.tabs .component-floating-tabs-container {
+  width:970px;
+}
+}
+
+@media(min-width:1200px) {
+.tabs .component-floating-tabs-container {
+  width:1170px;
+}
+}
+
+
+/* landing aliases: moved tab-name paragraphs (EW2); fragment sections inside the tab body */
+.tabs .tab-nav-item-anchor p,
+.tabs .tab-header-title p {
+  display: inline;
+  margin: 0;
+  font: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.tabs .tab-body .section > .default-content-wrapper {
+  max-width: none;
+}

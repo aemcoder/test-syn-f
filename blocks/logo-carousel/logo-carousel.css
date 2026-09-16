@@ -1,158 +1,5 @@
 /* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
-/* stardust:deploy — rules lifted for the .logo-carousel block from home.css, canon.css (selectors matching /cmp-logo-carousel|logo-carousel|partner-logo|slick-|light-grey-bg|component-textcomp|\.title\b|text-size-normal|text-align-center|vert-pad|background-component|\.container\b|component-column|col-xs-12|\.row\b|logoCarousel|partnersBlock/), scoped under .logo-carousel */
-.logo-carousel .container .container {
-  width:100%!important;
-  padding-left:0;
-  padding-right:0;
-}
-.logo-carousel .cmp-logo-carousel {
-  margin:40px 0 80px 0;
-}
-.logo-carousel .cmp-logo-carousel .logo-carousel {
-  overflow:hidden;
-  position:relative;
-}
-.logo-carousel .cmp-logo-carousel .slick-list {
-  overflow:hidden;
-  position:relative;
-  container-type:inline-size;
-}
-.logo-carousel .cmp-logo-carousel .slick-track {
-  display:flex;
-  width:max-content;
-  position:relative;
-  transform:translate3d(-200cqw,0,0);
-}
-.logo-carousel .cmp-logo-carousel .slick-track,
-.logo-carousel .cmp-logo-carousel .slick-list,
-.logo-carousel .cmp-logo-carousel .slick-slide {
-  height:100px;
-}
-.logo-carousel .cmp-logo-carousel .slick-slide {
-  width:calc(100cqw / 5 - 80px);
-  margin:0 40px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex:0 0 auto;
-}
-.logo-carousel .cmp-logo-carousel .slick-slide a {
-  display:block;
-  width:100%;
-  height:100%;
-}
-.logo-carousel .cmp-logo-carousel .slick-slide img {
-  height:100px;
-  margin:auto;
-  width:100%;
-  display:block;
-}
-
-@media screen and (max-width:730px) {
-.logo-carousel .cmp-logo-carousel {
-  margin:24px 0 48px 0;
-}
-.logo-carousel .cmp-logo-carousel .slick-track,
-.logo-carousel .cmp-logo-carousel .slick-list,
-.logo-carousel .cmp-logo-carousel .slick-slide {
-  height:80px;
-}
-.logo-carousel .cmp-logo-carousel .slick-slide {
-  margin:0 12px;
-  width:calc(100cqw / 3 - 24px);
-}
-.logo-carousel .cmp-logo-carousel .slick-track {
-  transform:translate3d(-300cqw,0,0);
-}
-.logo-carousel .cmp-logo-carousel .slick-slide img {
-  height:80px;
-}
-}
-
-.logo-carousel .slick-nav-container {
-  position:relative;
-  display:flex;
-  top:-16px;
-  z-index:0;
-  pointer-events:none;
-  width:100%;
-  padding-left:15px;
-  padding-right:15px;
-}
-.logo-carousel .slick-prev,
-.logo-carousel .slick-next {
-  width:24px;
-  height:24px;
-  border-radius:20px;
-  padding:0;
-  background:#FFF;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid #555;
-  color:#555;
-  pointer-events:all;
-  font-size:18px;
-  z-index:1;
-}
-.logo-carousel .slick-prev:last-child,
-.logo-carousel .slick-next:last-child {
-  margin-left:auto;
-}
-.logo-carousel .slick-prev:hover,
-.logo-carousel .slick-prev:focus,
-.logo-carousel .slick-prev:focus-visible,
-.logo-carousel .slick-next:hover,
-.logo-carousel .slick-next:focus,
-.logo-carousel .slick-next:focus-visible {
-  background:#f7f7fa;
-}
-.logo-carousel .slick-arrow.slick-hidden {
-  display:none;
-}
-
-@media(min-width:730px) {
-.logo-carousel .slick-nav-container {
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  z-index:1;
-  margin-top:-36px;
-}
-.logo-carousel .slick-nav-container .slick-prev {
-  position:absolute;
-  left:6px;
-}
-.logo-carousel .slick-nav-container .slick-next {
-  position:absolute;
-  right:6px;
-}
-.logo-carousel .slick-prev,
-.logo-carousel .slick-next {
-  height:40px;
-  width:40px;
-  font-size:20px;
-}
-}
-
-@media(min-width:1400px) {
-.logo-carousel .slick-nav-container .slick-prev {
-  left:-80px;
-}
-.logo-carousel .slick-nav-container .slick-next {
-  right:-80px;
-}
-}
-
-.logo-carousel .component-column .vl {
-  border-left:1px solid #c4c4c4;
-  height:100%;
-  position:absolute;
-  left:50%;
-  margin-left:.5px;
-  top:0;
-}
+/* stardust:deploy — rules lifted for the .logo-carousel block from canon.css, home.css, landing.css (selectors matching /cmp-logo-carousel|logo-carousel|partner-logo|slick-|light-grey-bg|component-textcomp|\.title\b|text-size-normal|text-align-center|vert-pad|background-component|\.container\b|component-column|col-xs-12|\.row\b|logoCarousel|partnersBlock|aem-Grid|\.column\b/), scoped under .logo-carousel */
 .logo-carousel .container {
   display:block;
   margin-right:auto;
@@ -361,6 +208,445 @@
 .logo-carousel .component-textcomp .component-text ol:last-child,
 .logo-carousel .component-textcomp .component-text p:last-child {
   margin-bottom:0;
+}
+.logo-carousel .container .container {
+  width:100%!important;
+  padding-left:0;
+  padding-right:0;
+}
+.logo-carousel .cmp-logo-carousel {
+  margin:40px 0 80px 0;
+}
+.logo-carousel .cmp-logo-carousel .logo-carousel {
+  overflow:hidden;
+  position:relative;
+}
+.logo-carousel .cmp-logo-carousel .slick-list {
+  overflow:hidden;
+  position:relative;
+  container-type:inline-size;
+}
+.logo-carousel .cmp-logo-carousel .slick-track {
+  display:flex;
+  width:max-content;
+  position:relative;
+  transform:translate3d(-200cqw,0,0);
+}
+.logo-carousel .cmp-logo-carousel .slick-track,
+.logo-carousel .cmp-logo-carousel .slick-list,
+.logo-carousel .cmp-logo-carousel .slick-slide {
+  height:100px;
+}
+.logo-carousel .cmp-logo-carousel .slick-slide {
+  width:calc(100cqw / 5 - 80px);
+  margin:0 40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+}
+.logo-carousel .cmp-logo-carousel .slick-slide a {
+  display:block;
+  width:100%;
+  height:100%;
+}
+.logo-carousel .cmp-logo-carousel .slick-slide img {
+  height:100px;
+  margin:auto;
+  width:100%;
+  display:block;
+}
+
+@media screen and (max-width:730px) {
+.logo-carousel .cmp-logo-carousel {
+  margin:24px 0 48px 0;
+}
+.logo-carousel .cmp-logo-carousel .slick-track,
+.logo-carousel .cmp-logo-carousel .slick-list,
+.logo-carousel .cmp-logo-carousel .slick-slide {
+  height:80px;
+}
+.logo-carousel .cmp-logo-carousel .slick-slide {
+  margin:0 12px;
+  width:calc(100cqw / 3 - 24px);
+}
+.logo-carousel .cmp-logo-carousel .slick-track {
+  transform:translate3d(-300cqw,0,0);
+}
+.logo-carousel .cmp-logo-carousel .slick-slide img {
+  height:80px;
+}
+}
+
+.logo-carousel .slick-nav-container {
+  position:relative;
+  display:flex;
+  top:-16px;
+  z-index:0;
+  pointer-events:none;
+  width:100%;
+  padding-left:15px;
+  padding-right:15px;
+}
+.logo-carousel .slick-prev,
+.logo-carousel .slick-next {
+  width:24px;
+  height:24px;
+  border-radius:20px;
+  padding:0;
+  background:#FFF;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid #555;
+  color:#555;
+  pointer-events:all;
+  font-size:18px;
+  z-index:1;
+}
+.logo-carousel .slick-prev:last-child,
+.logo-carousel .slick-next:last-child {
+  margin-left:auto;
+}
+.logo-carousel .slick-prev:hover,
+.logo-carousel .slick-prev:focus,
+.logo-carousel .slick-prev:focus-visible,
+.logo-carousel .slick-next:hover,
+.logo-carousel .slick-next:focus,
+.logo-carousel .slick-next:focus-visible {
+  background:#f7f7fa;
+}
+.logo-carousel .slick-arrow.slick-hidden {
+  display:none;
+}
+
+@media(min-width:730px) {
+.logo-carousel .slick-nav-container {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:1;
+  margin-top:-36px;
+}
+.logo-carousel .slick-nav-container .slick-prev {
+  position:absolute;
+  left:6px;
+}
+.logo-carousel .slick-nav-container .slick-next {
+  position:absolute;
+  right:6px;
+}
+.logo-carousel .slick-prev,
+.logo-carousel .slick-next {
+  height:40px;
+  width:40px;
+  font-size:20px;
+}
+}
+
+@media(min-width:1400px) {
+.logo-carousel .slick-nav-container .slick-prev {
+  left:-80px;
+}
+.logo-carousel .slick-nav-container .slick-next {
+  right:-80px;
+}
+}
+
+.logo-carousel .component-column .vl {
+  border-left:1px solid #c4c4c4;
+  height:100%;
+  position:absolute;
+  left:50%;
+  margin-left:.5px;
+  top:0;
+}
+.logo-carousel .row:before,
+.logo-carousel .row:after,
+.logo-carousel .component-column:before,
+.logo-carousel .component-column:after {
+  content:" ";
+  display:table;
+}
+.logo-carousel .row:after,
+.logo-carousel .component-column:after {
+  clear:both;
+}
+.logo-carousel main.responsivegrid > .aem-Grid > div {
+  display:flow-root;
+}
+.logo-carousel main .component-column .container,
+.logo-carousel main .column .container,
+.logo-carousel main .logoCarousel .container,
+.logo-carousel main .faq .container,
+.logo-carousel main .component-faq .container {
+  width:100%;
+  max-width:none;
+  padding:0;
+  margin:0;
+}
+.logo-carousel main .component-anchor > .aem-Grid > .column > .container,
+.logo-carousel main .component-anchor > .aem-Grid > .experiencefragment > .cmp-experiencefragment > .aem-Grid > .column > .container,
+.logo-carousel main > .aem-Grid > .column > .container,
+.logo-carousel main > .aem-Grid > .column > .background-component > .container,
+.logo-carousel main > .aem-Grid > .text > .container,
+.logo-carousel main > .aem-Grid > .text > .background-component > .container,
+.logo-carousel main > .aem-Grid > .faq > .background-component > .container,
+.logo-carousel main > .aem-Grid > .floatingTabs > .background-component > .container {
+  display:block;
+  margin-right:auto;
+  margin-left:auto;
+  padding-left:15px;
+  padding-right:15px;
+  width:100%;
+}
+
+@media(min-width:992px) {
+.logo-carousel main .component-anchor > .aem-Grid > .column > .container,
+.logo-carousel main .component-anchor > .aem-Grid > .experiencefragment > .cmp-experiencefragment > .aem-Grid > .column > .container,
+.logo-carousel main > .aem-Grid > .column > .container,
+.logo-carousel main > .aem-Grid > .column > .background-component > .container,
+.logo-carousel main > .aem-Grid > .text > .container,
+.logo-carousel main > .aem-Grid > .text > .background-component > .container,
+.logo-carousel main > .aem-Grid > .faq > .background-component > .container,
+.logo-carousel main > .aem-Grid > .floatingTabs > .background-component > .container {
+  width:970px;
+}
+}
+
+@media(min-width:1200px) {
+.logo-carousel main .component-anchor > .aem-Grid > .column > .container,
+.logo-carousel main .component-anchor > .aem-Grid > .experiencefragment > .cmp-experiencefragment > .aem-Grid > .column > .container,
+.logo-carousel main > .aem-Grid > .column > .container,
+.logo-carousel main > .aem-Grid > .column > .background-component > .container,
+.logo-carousel main > .aem-Grid > .text > .container,
+.logo-carousel main > .aem-Grid > .text > .background-component > .container,
+.logo-carousel main > .aem-Grid > .faq > .background-component > .container,
+.logo-carousel main > .aem-Grid > .floatingTabs > .background-component > .container {
+  width:1170px;
+}
+}
+
+.logo-carousel .anchor:not(:has(.component-anchor > .aem-Grid > *)) {
+  position:absolute;
+  width:0;
+  height:1px;
+}
+.logo-carousel .table-of-contents-product-layout.cmp-tableofcontents > .container {
+  display:flex;
+  margin:0 auto;
+  padding:0 15px;
+  width:100%;
+  box-sizing:border-box;
+}
+
+@media(min-width:992px) {
+.logo-carousel .table-of-contents-product-layout.cmp-tableofcontents > .container {
+  width:970px;
+}
+}
+
+@media(min-width:1200px) {
+.logo-carousel .table-of-contents-product-layout.cmp-tableofcontents > .container {
+  width:1170px;
+}
+}
+
+@media only screen and (max-width:730px) {
+.logo-carousel .table-of-contents-product-layout.cmp-tableofcontents > .container {
+  display:block;
+  padding:0;
+  width:100%;
+}
+}
+
+.logo-carousel .carousel.panelcontainer .slick-list {
+  position:relative;
+  overflow:hidden;
+  display:block;
+  margin:0;
+  padding:0;
+  transform:translate3d(0,0,0);
+}
+.logo-carousel .carousel.panelcontainer .slick-track {
+  position:relative;
+  display:grid;
+  width:100%;
+  transform:translate3d(0,0,0);
+}
+.logo-carousel .carousel.panelcontainer .cmp-carousel__item.slick-active {
+  opacity:1;
+  z-index:999;
+}
+.logo-carousel .carousel.panelcontainer .cmp-carousel__item .column > .container,
+.logo-carousel .carousel.panelcontainer .cmp-carousel__item .column > .background-component > .container {
+  width:100%;
+  padding:0;
+  margin:0;
+}
+.logo-carousel .slick-nav-container {
+  position:relative;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  top:-16px;
+  z-index:0;
+  pointer-events:none;
+  width:100%;
+  padding-left:15px;
+  padding-right:15px;
+}
+.logo-carousel .slick-prev,
+.logo-carousel .slick-next {
+  width:24px;
+  height:24px;
+  border-radius:20px;
+  padding:0;
+  background:#FFF;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-align:center;
+  align-items:center;
+  -webkit-box-pack:center;
+  justify-content:center;
+  border:1px solid #555;
+  color:#555;
+  pointer-events:all;
+  font-size:18px;
+  z-index:1;
+}
+.logo-carousel .carousel.panelcontainer .slick-prev,
+.logo-carousel .carousel.panelcontainer .slick-next {
+  cursor:pointer;
+  line-height:32px;
+  font-weight:300;
+  font-family:inherit;
+}
+.logo-carousel .carousel.panelcontainer .slick-prev svg,
+.logo-carousel .carousel.panelcontainer .slick-next svg {
+  height:1em;
+  display:block;
+}
+.logo-carousel .carousel.panelcontainer .slick-prev:hover,
+.logo-carousel .carousel.panelcontainer .slick-prev:focus,
+.logo-carousel .carousel.panelcontainer .slick-next:hover,
+.logo-carousel .carousel.panelcontainer .slick-next:focus {
+  background:#f7f7fa;
+}
+
+@media(min-width:730px) {
+.logo-carousel .slick-nav-container {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:1;
+  margin-top:-36px;
+}
+.logo-carousel .slick-nav-container .slick-prev {
+  position:absolute;
+  left:6px;
+}
+.logo-carousel .slick-nav-container .slick-next {
+  position:absolute;
+  right:6px;
+}
+.logo-carousel .carousel.panelcontainer .slick-prev,
+.logo-carousel .carousel.panelcontainer .slick-next {
+  height:40px;
+  width:40px;
+  font-size:20px;
+}
+}
+
+@media(min-width:1400px) {
+.logo-carousel .slick-nav-container .slick-prev {
+  left:-80px;
+}
+.logo-carousel .slick-nav-container .slick-next {
+  right:-80px;
+}
+}
+
+.logo-carousel .component-floating-tabs .tab-body .text > .container,
+.logo-carousel .component-floating-tabs .tab-body .text > .background-component > .container,
+.logo-carousel .component-floating-tabs .tab-body .column > .container {
+  width:100%;
+  padding:0;
+  margin:0;
+}
+.logo-carousel .component-floating-tabs .tab-body .component-textcomp .title.text-size-smaller {
+  font-size:24px;
+  line-height:1.1;
+}
+.logo-carousel .component-faq .accordion-list .item.open .title {
+  background:#f7f7fa;
+  transition:.5s;
+}
+.logo-carousel .component-faq .accordion-list .item.open .title .fa-caret-up {
+  display:block;
+}
+.logo-carousel .component-faq .accordion-list .item.open .title .fa-caret-down {
+  display:none;
+}
+.logo-carousel .component-faq .accordion-list .item .title {
+  cursor:pointer;
+  position:relative;
+  color:#111c24;
+  font-size:20px;
+  padding:8px 24px 8px 8px;
+  width:100%;
+  text-align:left;
+  border:0;
+  position:relative;
+  background:0;
+  border-radius:5px;
+  transition:.5s;
+}
+.logo-carousel .component-faq .accordion-list .item .title {
+  font-family:inherit;
+  line-height:1.6;
+  box-sizing:border-box;
+  display:block;
+}
+.logo-carousel .component-faq .accordion-list .item .title .fa-caret-up,
+.logo-carousel .component-faq .accordion-list .item .title .fa-caret-down {
+  display:none;
+  position:absolute;
+  right:8px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#111c24;
+  font-size:16.01px;
+  height:1em;
+}
+.logo-carousel .component-faq .accordion-list .item .title .fa-caret-down {
+  display:block;
+}
+.logo-carousel .component-faq .row {
+  padding-right:0;
+  margin:0;
+}
+
+@media(max-width:730px) {
+.logo-carousel .component-faq .accordion-list .item .title {
+  padding:8px 48px 8px 24px;
+}
+.logo-carousel .component-faq .accordion-list .item .title .fa-caret-down,
+.logo-carousel .component-faq .accordion-list .item .title .fa-caret-up {
+  right:24px;
+}
+}
+
+.logo-carousel .cmp-logo-carousel .logo-carousel[dir="rtl"] .slick-track {
+  flex-direction:row-reverse;
+}
+.logo-carousel .cmp-logo-carousel .slick-track {
+  transform:none;
 }
 
 

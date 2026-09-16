@@ -31,9 +31,68 @@ function stripInstrumentation(node) {
   return node;
 }
 
+/* landing variant: the partner rows of landing pages — no grey band, 6 (≥730) / 5 clones per
+   side, one step per 5 s, the `rtl` variant runs the opposite way (observed live). */
+function decorateLanding(block, rows) {
+  const mq = window.matchMedia('(min-width: 730px)');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const rtl = block.classList.contains('rtl');
+  const host = el('div', 'logoCarousel');
+  const inner = el('div', 'container');
+  const section = el('section', 'cmp-logo-carousel', { 'data-logo-count': String(rows.length), 'data-analytics-link-region': 'carousel' });
+  const slider = el('div', 'logo-carousel slider slick-initialized slick-slider', { dir: rtl ? 'rtl' : 'ltr' });
+  const list = el('div', 'slick-list draggable');
+  const track = el('div', 'slick-track');
+  const reals = rows.map((cells, i) => {
+    const slide = el('div', 'slick-slide', { 'data-slick-index': String(i), 'aria-hidden': 'true', tabindex: '0' });
+    const cell = cells[0];
+    const p = cell.querySelector('p') || cell;
+    const a = p.querySelector('a');
+    const pic = p.querySelector('picture, img');
+    const img = pic && (pic.querySelector('img') || pic);
+    if (img) img.classList.add('partner-logo');
+    if (a) { if (pic && !a.contains(pic)) a.append(pic); slide.append(a.closest('p') || a); } else if (pic) slide.append(pic.closest('p') || pic);
+    return slide;
+  });
+  reals.forEach((s) => track.append(s));
+  list.append(track);
+  slider.append(list);
+  section.append(slider);
+  inner.append(section);
+  host.append(inner);
+  block.replaceChildren(host);
+
+  const n = reals.length;
+  let pre = 6; let idx = 0;
+  const pitch = () => { const s = track.querySelector('.slick-slide'); const cs = getComputedStyle(s); return s.getBoundingClientRect().width + parseFloat(cs.marginLeft) + parseFloat(cs.marginRight); };
+  const jump = (i, animate) => { const x = -(i * pitch()) * (rtl ? -1 : 1); track.style.transition = animate ? 'transform 5000ms linear' : 'none'; track.style.transform = `translate3d(${x}px,0,0)`; };
+  function build() {
+    track.querySelectorAll('.is-clone').forEach((c) => c.remove());
+    pre = mq.matches ? 6 : 5;
+    const cloneOf = (real, i) => { const c = stripInstrumentation(real.cloneNode(true)); c.classList.add('is-clone', 'slick-cloned'); c.setAttribute('data-slick-index', String(i)); c.setAttribute('aria-hidden', 'true'); c.setAttribute('tabindex', '-1'); return c; };
+    for (let i = n - pre; i < n; i += 1) {
+      track.insertBefore(cloneOf(reals[(i + n) % n], i - n), reals[0]);
+    }
+    for (let j = 0; j < pre; j += 1) track.append(cloneOf(reals[j % n], n + j));
+    idx = pre;
+    jump(idx, false);
+  }
+  function step() {
+    idx += 1;
+    jump(idx, true);
+    if (idx >= n + pre) setTimeout(() => { idx -= n; jump(idx, false); }, 5000);
+  }
+  build();
+  mq.addEventListener('change', build);
+  window.addEventListener('resize', () => jump(idx, false));
+  if ('ResizeObserver' in window) new ResizeObserver(() => jump(idx, false)).observe(block);
+  if (!reduced) setInterval(step, 5000);
+}
+
 export default function decorate(block) {
   const rows = [...block.children].map((row) => [...row.children]).filter((cells) => cells.length);
   if (!rows.length) return;
+  if (block.classList.contains('landing')) { decorateLanding(block, rows); return; }
   const mq = window.matchMedia('(min-width: 730px)');
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

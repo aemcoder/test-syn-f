@@ -69,9 +69,30 @@ function tile(cell) {
   return host;
 }
 
+/* tiles variant (landing pages): no column titles, every row = one visual row of tiles,
+   cells = columns */
+function decorateTiles(block, rows) {
+  const n = Math.max(...rows.map((r) => r.length));
+  let colClass = 'col-xs-12 col-sm-6';
+  if (n === 3) colClass = 'col-xs-12 col-sm-4 three';
+  else if (n === 4) colClass = 'col-xs-12 col-sm-3 four';
+  const columns = Array.from({ length: n }, () => el('div', colClass));
+  rows.forEach((cells) => cells.forEach((cell, i) => {
+    if (cell.textContent.trim() || cell.querySelector('picture, img')) columns[i].append(tile(cell));
+  }));
+  const outer = el('div', 'column');
+  const container = el('div', 'container');
+  const row = el('section', 'component-column row');
+  columns.forEach((c) => row.append(c));
+  container.append(row);
+  outer.append(container);
+  block.replaceChildren(outer);
+}
+
 export default function decorate(block) {
   const rows = [...block.children].map((row) => [...row.children]);
   if (!rows.length) return;
+  if (block.classList.contains('tiles')) { decorateTiles(block, rows); return; }
   const [titleRow, ...tileRows] = rows;
   const columns = titleRow.map((cell) => {
     const col = el('div', 'col-xs-12 col-sm-6');

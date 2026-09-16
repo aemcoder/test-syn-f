@@ -999,6 +999,7 @@
 
 
 
+
 /* ---- landing family ---- */
 /* landing family — .banner from canon.css home.css landing.css (selectors matching /gradient-background|video-overlay|video-autoplay|animation-element|slide-up|in-view|padding-10|download-icon|text-width-|content-align-center|component-video-banner|bg-desktop|grey-gradient|\.container\b|img-responsive/) */
 .banner .img-responsive {
@@ -2784,6 +2785,171 @@
   background:#FFF;
   border-color:#FFF;
 }
+/* landing family — .banner from synopsys-pagelibs.min.c75662aa8a81ccd74e2e6cc1b7fe1590.css (selectors matching /data-mobile-type~="stacked"\] \.reg-banner/) */
+@media(max-width:729px) {
+.banner.stacked .component-banner .reg-banner .bg-mobile {
+  height:500px;
+}
+.banner.stacked .component-banner .reg-banner.breadcrumbTrue .dm-mobile {
+  margin-top:-webkit-calc(24px + 18px);
+  margin-top:calc(24px + 18px);
+}
+.banner.stacked .component-banner .reg-banner.breadcrumbTrue .content-wrapper {
+  top:-webkit-calc(222px + 24px);
+  top:calc(222px + 24px);
+}
+.banner.stacked .component-banner .reg-banner .component-breadcrumb {
+  padding-top:0;
+}
+.banner.stacked .component-banner .reg-banner .text-overlay {
+  padding:0 20px;
+  border:0;
+}
+.banner.stacked .component-banner .reg-banner .text-overlay .contentValignCenter {
+  top:70%;
+}
+.banner.stacked .component-banner .reg-banner .content-wrapper {
+  padding:0;
+  top:228px;
+  transform:none;
+}
+.banner.stacked .component-banner .reg-banner .content-wrapper .text-wrapper {
+  top:0;
+  transform:none;
+}
+.banner.stacked .component-banner .reg-banner .content-wrapper .sub-title {
+  margin-bottom:16px;
+}
+.banner.stacked .component-banner .reg-banner .content-wrapper .sub-title p {
+  margin:0;
+}
+.banner.stacked .component-banner .reg-banner .component-button a,
+.banner.stacked .component-banner .reg-banner .component-button-purple a,
+.banner.stacked .component-banner .reg-banner .component-button-synopsys_purple a,
+.banner.stacked .component-banner .reg-banner .component-button-white a,
+.banner.stacked .component-banner .reg-banner .component-button-gray a,
+.banner.stacked .component-banner .reg-banner .component-button-orange a {
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-align:center;
+  align-items:center;
+}
+.banner.stacked .component-banner .reg-banner .component-button svg,
+.banner.stacked .component-banner .reg-banner .component-button-purple svg,
+.banner.stacked .component-banner .reg-banner .component-button-synopsys_purple svg,
+.banner.stacked .component-banner .reg-banner .component-button-white svg,
+.banner.stacked .component-banner .reg-banner .component-button-gray svg,
+.banner.stacked .component-banner .reg-banner .component-button-orange svg {
+  margin-top:0;
+}
+.banner.stacked .component-banner .reg-banner .title {
+  margin-bottom:24px;
+  font-weight:800;
+}
+.banner.stacked .component-banner .reg-banner .dm-mobile {
+  position:absolute;
+  top:0;
+  width:100%;
+  padding:0 32px;
+  margin-top:24px;
+  display:block;
+}
+.banner.stacked .component-banner .reg-banner .dm-mobile img {
+  height:180px !important;
+  overflow:hidden;
+  width:auto;
+  max-width:100%;
+  margin:auto;
+  object-fit:cover;
+  object-position:center center;
+  min-height:inherit;
+  width:311px;
+}
+.banner.stacked .component-banner .reg-banner .cmp-video-cta {
+  position:absolute;
+  top:-114px;
+  left:50%;
+  transform:translate(-50%,-50%);
+  margin:0;
+}
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .component-button,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .component-button-purple,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .component-button-synopsys_purple,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .component-button-white,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .component-button-gray,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .component-button-orange {
+  padding:6px 18px;
+  font-size:12px;
+  margin:0;
+}
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .component-button.cmp-video__thumbnail,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-purple,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-synopsys_purple,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-white,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-gray,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-orange {
+  z-index:2;
+  width:64px;
+  height:64px;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  align-content:center;
+  border-radius:90px;
+  flex-wrap:wrap;
+  -webkit-box-pack:center;
+  justify-content:center;
+  font-size:21px;
+  border:2px solid #000000BF;
+  background:#000000BF;
+  color:#FFF;
+}
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .component-button.cmp-video__thumbnail svg,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-purple svg,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-synopsys_purple svg,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-white svg,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-gray svg,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-orange svg {
+  width:15.75px;
+  height:21px;
+  margin:0;
+  color:#FFF;
+}
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .component-button.cmp-video__thumbnail a,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-purple a,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-synopsys_purple a,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-white a,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-gray a,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-orange a {
+  display:inherit;
+}
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .component-button.cmp-video__thumbnail .btn-text,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-purple .btn-text,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-synopsys_purple .btn-text,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-white .btn-text,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-gray .btn-text,
+.banner.stacked .component-banner .reg-banner .cmp-video-cta .cmp-video__thumbnail.component-button-orange .btn-text {
+  display:none;
+}
+.banner.stacked .component-banner .reg-banner .video-secondary-button.dark {
+  background:#FFF;
+  border-color:#FFF;
+}
+.banner.stacked .component-banner .reg-banner .video-secondary-button.dark a {
+  color:#111c24;
+}
+.banner.stacked .component-banner .reg-banner .video-secondary-button.light {
+  background:#7e45af;
+  border:2px solid #7e45af;
+  color:#FFF;
+}
+.banner.stacked .component-banner .reg-banner .video-secondary-button.light a {
+  color:#FFF;
+}
+}
 
 /* ---- landing family aliases ---- */
 .banner.hero .title p,
@@ -2834,5 +3000,16 @@
 @media (max-width: 729px) {
   .banner.video video.video-autoplay {
     display: none;
+  }
+}
+
+/* stacked mobile type: the instance stylesheet flips the pictures at <730 (mobile shown, desktop hidden) */
+@media (max-width: 729px) {
+  .banner.image.stacked .component-banner .reg-banner .dm-desktop {
+    display: none;
+  }
+
+  .banner.image.stacked .component-banner .reg-banner .dm-mobile {
+    display: block;
   }
 }

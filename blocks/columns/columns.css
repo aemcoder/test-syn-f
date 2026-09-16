@@ -1147,7 +1147,18 @@
 
 /* an illustration inside a text column (the implementation page's rehosted IC-design diagram): the source caps it at 540px */
 .columns.landing .component-text img {
-  max-width: 540px;
+  max-width: min(540px, 100%);
+}
+
+/* the caption line under an illustration in a text column (the source's .syn-hint inline style) */
+.columns.landing .component-text p:has(> img) + p {
+  margin: 8px 0 14px;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 /* per-cell vert-pad-* bands the source puts on each column's text block (a margin on a floated column: never collapses) */

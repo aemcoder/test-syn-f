@@ -590,6 +590,13 @@ main .section.rail-layout > .default-content-wrapper {
   }
 }
 
+/* contact templates (page metadata template: contact-landing): the source .site-content wrapper zeroes the bottom paddings below 730
+   (.site-content .vert-pad-bottom-sm { padding-bottom: 0 } / -md { 10px }); the content-page template keeps them */
+@media (width <= 730px) {
+  body.contact-landing main .section.pad-bottom-sm { padding-bottom: 0; }
+  body.contact-landing main .section.pad-bottom-md { padding-bottom: 10px; }
+}
+
 @media (width >= 992px) {
   main .section.rail-layout { grid-template-columns: 1fr 697.5px 30px 212.5px 1fr; }
 }

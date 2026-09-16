@@ -1175,9 +1175,12 @@ body[data-content-type="eda"] .snps-aem-mktoForm .container .row {
   text-transform: inherit;
 }
 
-/* live computed height of the rows="2" textarea in the two-column grid (2026-09-16); intrinsic sizing gives 43.6px here */
-.form.two-column form.mktoForm textarea.mktoField {
-  height: 47.6px;
+/* live computed height of the rows="2" textarea in the two-column grid (2026-09-16); intrinsic sizing gives 43.6px here;
+   below 481 the source's textarea[rows] em heights apply */
+@media (min-width: 481px) {
+  .form.two-column form.mktoForm textarea.mktoField {
+    height: 47.6px;
+  }
 }
 
 @media (min-width: 730px) {

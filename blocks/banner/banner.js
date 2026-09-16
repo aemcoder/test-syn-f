@@ -51,6 +51,7 @@ function breadcrumb(ul) {
       menu.className = 'dropdown-menu';
       menu.setAttribute('role', 'menu');
       menu.querySelectorAll('a').forEach((x) => x.classList.add('subBreadcrumb'));
+      li.insertBefore(document.createTextNode(' '), menu); // the source keeps a space before the arrow
       li.insertBefore(el('div', 'icon-dropdown-arrow'), menu);
     }
   });

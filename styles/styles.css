@@ -654,7 +654,7 @@ main .section.arrow a.button::after {
 
 /* .component-textcomp .buttons .cta-link: the chevron text link (a plain <p><a> in its own section) */
 /* stylelint-disable no-descending-specificity -- prose selectors of a section token, ordered by token */
-main .section.textcomp.cta-link .default-content-wrapper p {
+main .section.textcomp.cta-link .default-content-wrapper p:has(> a:only-child) { /* the link paragraph only — the article family's cta-link sections also carry copy */
   margin: 24px 0 0;
 }
 

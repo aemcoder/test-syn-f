@@ -340,6 +340,8 @@ function decorateStatic(block, rows) {
     ['data-slick-index', 'role', 'tabindex', 'aria-hidden'].forEach((attr) => {
       card.removeAttribute(attr);
     });
+    const link = card.querySelector('.card-text a svg');
+    if (link) link.before(' '); // the source keeps a space before the chevron
     const labelDate = card.querySelector('.label-date-wrapper');
     if (labelDate && !labelDate.querySelector('.label-wrapper')) {
       const lw = el('div', 'label-wrapper invisible');

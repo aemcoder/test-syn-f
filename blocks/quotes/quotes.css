@@ -648,7 +648,11 @@
 }
 
 /* ---- static family aliases (alias-static.mjs): moved authored nodes ---- */
-.quotes .quote-text p,
+/* the source quote text is a text node inside the -webkit-box; the authored paragraph must flow inline after the ::before glyph */
+.quotes .quote-text p {
+  display: contents;
+}
+
 .quotes .quote-attribution p {
   margin: 0;
   font: inherit;

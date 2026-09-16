@@ -1338,6 +1338,10 @@
 .cards .col-sm-4 .component-assetcard {
   min-height:283px;
 }
+.cards .two .component-assetcard,
+.cards .col-sm-6 .component-assetcard {
+  min-height:283px;
+}
 .cards .component-assetcard .label-wrapper.invisible {
   visibility:hidden;
 }

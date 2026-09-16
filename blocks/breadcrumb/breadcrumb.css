@@ -1,5 +1,5 @@
 /* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
-/* stardust:deploy — rules lifted for the .breadcrumb block from canon.css, landing.css, category.css (selectors matching /^\.container\b|component-breadcrumb|primary_nav_wrap|icon-dropdown-arrow|dropdown-menu|subBreadcrumb|\.parent\b|^\.breadcrumb\b/), scoped under .breadcrumb */
+/* stardust:deploy — rules lifted for the .breadcrumb block from canon.css, landing.css, category.css (selectors matching /^\.container\b|^\.clearfix|component-breadcrumb|primary_nav_wrap|icon-dropdown-arrow|dropdown-menu|subBreadcrumb|\.parent\b|^\.breadcrumb\b/), scoped under .breadcrumb */
 .breadcrumb .container {
   display:block;
   margin-right:auto;
@@ -77,6 +77,14 @@
 }
 }
 
+.breadcrumb .clearfix:before,
+.breadcrumb .clearfix:after {
+  content:" ";
+  display:table;
+}
+.breadcrumb .clearfix:after {
+  clear:both;
+}
 .breadcrumb .component-breadcrumb {
   overflow:visible;
   position:absolute;

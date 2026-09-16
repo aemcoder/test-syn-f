@@ -177,7 +177,7 @@ function textImageRow(cells, last) {
     textCol.append(ct);
   }
   if (linkP) {
-    const lt = el('div', 'component-text');
+    const lt = el('div', 'component-text cta-text'); // the source link inherits the body size, not a <p>'s
     lt.append(linkP);
     textCol.append(lt);
   }

@@ -1150,8 +1150,18 @@
   max-width: min(540px, 100%);
 }
 
+/* an illustration-led text component (no title above it) has neither the title gap nor the paragraph gap: the source's
+   widget is a bare html block (svg + hint) */
+.columns.landing .component-textcomp > .component-text:first-child:has(> p:first-child img) {
+  margin-top: 0;
+}
+
+.columns.landing .component-text p:has(img):has(+ p) {
+  margin-bottom: 0;
+}
+
 /* the caption line under an illustration in a text column (the source's .syn-hint inline style) */
-.columns.landing .component-text p:has(> img) + p {
+.columns.landing .component-text p:has(img) + p {
   margin: 8px 0 14px;
   color: #6b7280;
   font-size: 12px;
@@ -1183,6 +1193,32 @@
   display: block;
   width: 100%;
   margin: 0 0 24px;
+}
+
+/* search block spacing (designware "Find Your IP"): the source's search form is its own block under the text block —
+   15px xs pad above it, a 2px field border (43px row), a trailing <br> line (29px) and a 30px sm pad below */
+.columns.landing .buttons:has(> form.ip-search) {
+  margin-top: 15px;
+}
+
+.columns.landing .buttons form.ip-search {
+  margin-bottom: 59px;
+}
+
+.columns.landing form.ip-search input.textfield {
+  border-width: 2px;
+}
+
+/* below 730 the text block's 24px bottom margin (mobile textcomp rule) does not collapse with the 15px pad on the source
+   (separate blocks) → 39px above the form; the trailing line is the block's 24px line-height → 54px below */
+@media (max-width: 729px) {
+  .columns.landing .buttons:has(> form.ip-search) {
+    margin-top: 39px;
+  }
+
+  .columns.landing .buttons form.ip-search {
+    margin-bottom: 54px;
+  }
 }
 
 .columns.landing .ip-search .ip-search-label {

@@ -172,10 +172,6 @@ function decorateSmall(block) {
   const wrapper = el('div', gradient ? 'desktop-wrapper small-banner bg-desktop dark-purple-gradient' : 'desktop-wrapper small-banner');
   wrapper.append(el('div', 'image-overlay opacity-0'));
   if (crumbCell) {
-    // a crumb with a submenu is delivered as <li><p><a>…</a></p><ul>: unwrap the inner <p> (the outer <ul>
-    // is the editable unit) so the source's >ul>li>a rules match
-    crumbCell.querySelectorAll('ul > li > p')
-      .forEach((p) => p.replaceWith(...p.childNodes));
     const crumbs = breadcrumb(crumbCell.querySelector('ul'));
     crumbs.className = gradient ? 'breadcrumb-container gradient-background dark-purple-gradient' : 'breadcrumb-container image-background dark-mode';
     wrapper.append(crumbs);

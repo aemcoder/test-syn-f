@@ -12,7 +12,7 @@
  *                     | <p>Sort by:</p><ul><li><strong>Date</strong></li><li>Relevance</li></ul>
  *                     | <ul><li><strong>1</strong></li><li>2</li>…</ul> (pages; <strong> = current)
  *                     | <p>Results per page</p><ul><li><strong>10</strong></li><li>25</li>…</ul>
- *   facet   (3 cells) <h4>Year</h4> | <ul><li>2026</li>…</ul> | <p>Search</p> <p>Show more</p>
+ *   facet   (3 cells) <p>Year</p> | <ul><li>2026</li>…</ul> | <p>Search</p> <p>Show more</p>
  *                     <p>Show less</p> <p>category</p>   (options: a facet search box with that
  *                     placeholder, the more/less controls, drill-down kind without checkboxes)
  *   result  (2 cells) <p><img></p> | <p>News Brief</p> [<p>Jul 27, 2026</p>]
@@ -59,8 +59,8 @@ const kids = (cell, sel) => (cell ? [...cell.querySelectorAll(`:scope > ${sel}`)
 /* ---- row classification (by shape) ---- */
 function classify(cells) {
   if (cells.some((c) => c.querySelector('picture, img'))) return 'result';
-  if (cells.length >= 2 && cells[0].querySelector('h2, h3, h4, h5, h6') && cells[1].querySelector('ul')) return 'facet';
-  if (cells.length >= 3) return 'toolbar';
+  if (cells.length >= 4) return 'toolbar';
+  if (cells.length >= 2 && !cells[0].querySelector('ul, ol') && cells[1].querySelector('ul, ol')) return 'facet';
   return 'head';
 }
 
@@ -153,9 +153,9 @@ function buildFacet(cells) {
   const lessP = opts.find((p) => /^show less/i.test(text(p)));
   const facet = el('div', `listing-facet${isCategory ? ' listing-facet--category' : ''}`);
   const header = el('div', 'listing-facet__header', { role: 'button', tabindex: '0', 'aria-expanded': 'true' });
-  const heading = headCell.querySelector('h2, h3, h4, h5, h6');
+  const label = headCell.querySelector('h2, h3, h4, h5, h6, p') || headCell.firstElementChild;
   const title = el('div', 'listing-facet__title');
-  if (heading) title.append(heading);
+  if (label) title.append(label);
   header.append(title, svg(CARET));
   facet.append(header);
   if (searchP) {

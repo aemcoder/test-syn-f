@@ -48,7 +48,12 @@ const text = (node) => (node ? node.textContent.trim() : '');
 
 function buildSlide(cells, index) {
   const [mediaCell, textCell, configCell] = cells;
-  const pictures = mediaCell ? [...mediaCell.querySelectorAll('picture, img')] : [];
+  // one entry per image: the pipeline delivers <picture><source…><img>, so skip the img inside
+  // a picture
+  const pictures = mediaCell
+    ? [...mediaCell.querySelectorAll('picture, img')]
+      .filter((m) => !(m.tagName === 'IMG' && m.closest('picture')))
+    : [];
   const heading = textCell ? textCell.querySelector('h1, h2, h3') : null;
   const paragraphs = textCell ? [...textCell.querySelectorAll('p')] : [];
   const ctas = paragraphs.filter((p) => p.querySelector('a'));

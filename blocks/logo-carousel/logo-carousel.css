@@ -1,0 +1,401 @@
+/* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
+/* stardust:deploy — rules lifted for the .logo-carousel block from home.css, canon.css (selectors matching /cmp-logo-carousel|logo-carousel|partner-logo|slick-|light-grey-bg|component-textcomp|\.title\b|text-size-normal|text-align-center|vert-pad|background-component|\.container\b|component-column|col-xs-12|\.row\b|logoCarousel|partnersBlock/), scoped under .logo-carousel */
+.logo-carousel .container .container {
+  width:100%!important;
+  padding-left:0;
+  padding-right:0;
+}
+.logo-carousel .cmp-logo-carousel {
+  margin:40px 0 80px 0;
+}
+.logo-carousel .cmp-logo-carousel .logo-carousel {
+  overflow:hidden;
+  position:relative;
+}
+.logo-carousel .cmp-logo-carousel .slick-list {
+  overflow:hidden;
+  position:relative;
+  container-type:inline-size;
+}
+.logo-carousel .cmp-logo-carousel .slick-track {
+  display:flex;
+  width:max-content;
+  position:relative;
+  transform:translate3d(-200cqw,0,0);
+}
+.logo-carousel .cmp-logo-carousel .slick-track,
+.logo-carousel .cmp-logo-carousel .slick-list,
+.logo-carousel .cmp-logo-carousel .slick-slide {
+  height:100px;
+}
+.logo-carousel .cmp-logo-carousel .slick-slide {
+  width:calc(100cqw / 5 - 80px);
+  margin:0 40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+}
+.logo-carousel .cmp-logo-carousel .slick-slide a {
+  display:block;
+  width:100%;
+  height:100%;
+}
+.logo-carousel .cmp-logo-carousel .slick-slide img {
+  height:100px;
+  margin:auto;
+  width:100%;
+  display:block;
+}
+
+@media screen and (max-width:730px) {
+.logo-carousel .cmp-logo-carousel {
+  margin:24px 0 48px 0;
+}
+.logo-carousel .cmp-logo-carousel .slick-track,
+.logo-carousel .cmp-logo-carousel .slick-list,
+.logo-carousel .cmp-logo-carousel .slick-slide {
+  height:80px;
+}
+.logo-carousel .cmp-logo-carousel .slick-slide {
+  margin:0 12px;
+  width:calc(100cqw / 3 - 24px);
+}
+.logo-carousel .cmp-logo-carousel .slick-track {
+  transform:translate3d(-300cqw,0,0);
+}
+.logo-carousel .cmp-logo-carousel .slick-slide img {
+  height:80px;
+}
+}
+
+.logo-carousel .slick-nav-container {
+  position:relative;
+  display:flex;
+  top:-16px;
+  z-index:0;
+  pointer-events:none;
+  width:100%;
+  padding-left:15px;
+  padding-right:15px;
+}
+.logo-carousel .slick-prev,
+.logo-carousel .slick-next {
+  width:24px;
+  height:24px;
+  border-radius:20px;
+  padding:0;
+  background:#FFF;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid #555;
+  color:#555;
+  pointer-events:all;
+  font-size:18px;
+  z-index:1;
+}
+.logo-carousel .slick-prev:last-child,
+.logo-carousel .slick-next:last-child {
+  margin-left:auto;
+}
+.logo-carousel .slick-prev:hover,
+.logo-carousel .slick-prev:focus,
+.logo-carousel .slick-prev:focus-visible,
+.logo-carousel .slick-next:hover,
+.logo-carousel .slick-next:focus,
+.logo-carousel .slick-next:focus-visible {
+  background:#f7f7fa;
+}
+.logo-carousel .slick-arrow.slick-hidden {
+  display:none;
+}
+
+@media(min-width:730px) {
+.logo-carousel .slick-nav-container {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:1;
+  margin-top:-36px;
+}
+.logo-carousel .slick-nav-container .slick-prev {
+  position:absolute;
+  left:6px;
+}
+.logo-carousel .slick-nav-container .slick-next {
+  position:absolute;
+  right:6px;
+}
+.logo-carousel .slick-prev,
+.logo-carousel .slick-next {
+  height:40px;
+  width:40px;
+  font-size:20px;
+}
+}
+
+@media(min-width:1400px) {
+.logo-carousel .slick-nav-container .slick-prev {
+  left:-80px;
+}
+.logo-carousel .slick-nav-container .slick-next {
+  right:-80px;
+}
+}
+
+.logo-carousel .component-column .vl {
+  border-left:1px solid #c4c4c4;
+  height:100%;
+  position:absolute;
+  left:50%;
+  margin-left:.5px;
+  top:0;
+}
+.logo-carousel .container {
+  display:block;
+  margin-right:auto;
+  margin-left:auto;
+  padding-left:15px;
+  padding-right:15px;
+  width:100%;
+}
+
+@media(min-width:992px) {
+.logo-carousel .container {
+  width:970px;
+}
+}
+
+@media(min-width:1200px) {
+.logo-carousel .container {
+  width:1170px;
+}
+}
+
+.logo-carousel .container::before,
+.logo-carousel .container::after,
+.logo-carousel .row::before,
+.logo-carousel .row::after {
+  content:" ";
+  display:table;
+}
+.logo-carousel .container::after,
+.logo-carousel .row::after {
+  clear:both;
+}
+.logo-carousel .row {
+  margin-left:-15px;
+  margin-right:-15px;
+}
+.logo-carousel .col-xs-12 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+.logo-carousel .col-xs-12 {
+  width:100%;
+  float:left;
+}
+.logo-carousel .vert-pad-top-xs {
+  padding-top:0;
+  margin-top:15px;
+}
+.logo-carousel .vert-pad-top-xs[class*="-bg"] {
+  padding-top:15px;
+  margin-top:0;
+}
+.logo-carousel .vert-pad-top-sm {
+  padding-top:0;
+  margin-top:30px;
+}
+.logo-carousel .vert-pad-top-sm[class*="-bg"] {
+  padding-top:30px;
+  margin-top:0;
+}
+.logo-carousel .vert-pad-top-md {
+  padding-top:0;
+  margin-top:60px;
+}
+.logo-carousel .vert-pad-top-md[class*="-bg"] {
+  padding-top:60px;
+  margin-top:0;
+}
+.logo-carousel .vert-pad-bottom-xs {
+  padding-bottom:15px;
+  margin-bottom:0;
+}
+.logo-carousel .vert-pad-bottom-sm {
+  padding-bottom:30px;
+  margin-bottom:0;
+}
+.logo-carousel .vert-pad-bottom-md {
+  padding-bottom:60px;
+  margin-bottom:0;
+}
+
+@media(max-width:729px) {
+.logo-carousel .vert-pad-top-xs,
+.logo-carousel .vert-pad-top-sm,
+.logo-carousel .vert-pad-top-md {
+  padding-top:0;
+  margin-top:40px;
+}
+.logo-carousel .vert-pad-top-xs[class*="-bg"],
+.logo-carousel .vert-pad-top-sm[class*="-bg"],
+.logo-carousel .vert-pad-top-md[class*="-bg"] {
+  padding-top:40px;
+  margin-top:0;
+}
+}
+
+.logo-carousel .light-grey-bg {
+  background-color:#f7f7fa;
+}
+.logo-carousel .text-align-center {
+  text-align:center;
+}
+.logo-carousel .component-textcomp .title {
+  font-size:24px;
+  margin:0;
+  color:#111c24;
+  font-weight:300;
+  line-height:1.1;
+}
+.logo-carousel .component-textcomp .component-text {
+  margin:16px 0 24px 0;
+  color:#111c24;
+  font-size:16px;
+  font-weight:300;
+  line-height:160%;
+}
+.logo-carousel .component-textcomp .component-text p {
+  font-size:inherit;
+}
+.logo-carousel .component-textcomp .component-text p:last-child {
+  margin-bottom:0;
+}
+.logo-carousel .component-textcomp .title.text-size-smaller {
+  font-size:24px;
+}
+.logo-carousel .component-textcomp .title.text-size-larger {
+  font-size:32px;
+}
+
+@media(min-width:730px) {
+.logo-carousel .component-textcomp .title {
+  font-size:32px;
+}
+.logo-carousel .component-textcomp .title.text-size-smaller {
+  font-size:24px;
+}
+.logo-carousel .component-textcomp .title.text-size-larger {
+  font-size:40px;
+}
+.logo-carousel .component-textcomp .component-text {
+  margin:24px 0 0 0;
+}
+}
+
+@media(min-width:1130px) {
+.logo-carousel .pre-header .dropdown-menu > li.title {
+  padding:0 8px;
+  color:#111c24;
+  font-size:18px;
+  font-weight:600;
+  line-height:163%;
+  cursor:default;
+}
+}
+
+.logo-carousel .text-size-normal {
+  font-size:1em;
+}
+.logo-carousel .component-imageTextCta .title {
+  font-size:24px;
+  margin:0;
+  color:#111c24;
+  font-weight:300;
+  line-height:1.1;
+}
+.logo-carousel .component-imageTextCta .title.text-size-smaller {
+  font-size:24px;
+}
+.logo-carousel .component-imageTextCta .title.text-size-larger {
+  font-size:32px;
+}
+.logo-carousel .component-imageTextCta > .container {
+  width:100%;
+  max-width:none;
+  padding:0;
+  margin:0;
+}
+
+@media(min-width:730px) {
+.logo-carousel .component-imageTextCta .title {
+  font-size:32px;
+}
+.logo-carousel .component-imageTextCta .title.text-size-smaller {
+  font-size:24px;
+}
+.logo-carousel .component-imageTextCta .title.text-size-larger {
+  font-size:40px;
+}
+}
+
+.logo-carousel .col-xs-12 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+.logo-carousel .col-xs-12 {
+  float:left;
+}
+.logo-carousel .col-xs-12 {
+  width:100%;
+}
+.logo-carousel .component-textcomp .component-text ul:last-child,
+.logo-carousel .component-textcomp .component-text ol:last-child,
+.logo-carousel .component-textcomp .component-text p:last-child {
+  margin-bottom:0;
+}
+
+
+/* moved authored nodes (EW2) + the section head as default content on the light-grey band */
+
+
+.logo-carousel .slick-slide p {
+  margin: 0;
+}
+
+main .logo-carousel-container {
+  background: var(--snps-panel);
+}
+
+main .logo-carousel-container > .default-content-wrapper {
+  padding-top: 40px;
+  text-align: center;
+}
+
+@media (width >= 730px) {
+  main .logo-carousel-container > .default-content-wrapper {
+    padding-top: 60px;
+  }
+}
+
+main .logo-carousel-container > .default-content-wrapper h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--snps-ink);
+}
+
+@media (width >= 730px) {
+  main .logo-carousel-container > .default-content-wrapper h2 {
+    font-size: 32px;
+  }
+}

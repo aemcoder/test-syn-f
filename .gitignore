@@ -11,3 +11,20 @@ helix-importer-ui
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
+
+# stardust replica workspace (prototypes, captures, gate evidence, instruments) — kept local, never synced
+stardust/
+qa/
+crop-diff.png
+scripts/replica/
+scripts/diff/
+DESIGN.json
+DESIGN.md
+PRODUCT.md
+scripts/deploy/
+stardust/eds-schema/
+.env
+.env.*
+*.plain.html
+qa/
+/fragments/

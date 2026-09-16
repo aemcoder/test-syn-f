@@ -6,3 +6,13 @@ package.json
 package-lock.json
 test/*
 sync-block-collection.sh
+stardust/
+qa/
+scripts/replica/
+scripts/diff/
+DESIGN.json
+DESIGN.md
+PRODUCT.md
+scripts/deploy/
+/fragments/
+content/

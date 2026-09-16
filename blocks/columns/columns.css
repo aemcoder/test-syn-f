@@ -1,33 +1,361 @@
-.columns > div {
-  display: flex;
-  flex-direction: column;
+/* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
+/* stardust:deploy — rules lifted for the .columns block from home.css, canon.css (selectors matching /divider-row|snps-col-divider|\.vl\b|divider-spacing|component-column|col-xs-12|col-sm-6|\.row\b|\.container\b|light-grey-bg|vert-pad|background-component|component-textcomp|\.title\b|text-size-normal|component-text\b|\.buttons\b|cta-link|cta-text|fa-chevron|align-left|text-align-left/), scoped under .columns */
+.columns .container .container {
+  width:100%!important;
+  padding-left:0;
+  padding-right:0;
+}
+.columns .component-column .snps-col-divider {
+  display:none;
+  position:relative;
+}
+.columns .component-column .vl {
+  border-left:1px solid #c4c4c4;
+  height:100%;
+  position:absolute;
+  left:50%;
+  margin-left:.5px;
+  top:0;
 }
 
-.columns img {
-  width: 100%;
+@media(min-width:730px) {
+.columns .component-column.divider-row.row {
+  display:flex;
+}
+.columns .component-column.divider-row.row .col.snps-col-divider {
+  display:block;
+}
+.columns .component-column.divider-row.row .divider-spacing-small-30.col-sm-6 {
+  width:calc((100% / 12 * 6) - 15px);
+}
+.columns .component-column.divider-row.row .divider-spacing-small-30.snps-col-divider.col {
+  width:calc(15px * 2);
+}
 }
 
-.columns > div > div {
-  order: 1;
+.columns .container {
+  display:block;
+  margin-right:auto;
+  margin-left:auto;
+  padding-left:15px;
+  padding-right:15px;
+  width:100%;
 }
 
-.columns > div > .columns-img-col {
-  order: 0;
+@media(min-width:992px) {
+.columns .container {
+  width:970px;
+}
 }
 
-.columns > div > .columns-img-col img {
-  display: block;
+@media(min-width:1200px) {
+.columns .container {
+  width:1170px;
+}
 }
 
-@media (width >= 900px) {
-  .columns > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
-  }
+.columns .container::before,
+.columns .container::after,
+.columns .row::before,
+.columns .row::after {
+  content:" ";
+  display:table;
+}
+.columns .container::after,
+.columns .row::after {
+  clear:both;
+}
+.columns .row {
+  margin-left:-15px;
+  margin-right:-15px;
+}
+.columns .col-xs-12,
+.columns .col-sm-6 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+.columns .col-xs-12 {
+  width:100%;
+  float:left;
+}
 
-  .columns > div > div {
-    flex: 1;
-    order: unset;
-  }
+@media(min-width:730px) {
+.columns .col-sm-6 {
+  float:left;
+}
+.columns .col-sm-6 {
+  width:50%;
+}
+}
+
+.columns .vert-pad-top-xs {
+  padding-top:0;
+  margin-top:15px;
+}
+.columns .vert-pad-top-xs[class*="-bg"] {
+  padding-top:15px;
+  margin-top:0;
+}
+.columns .vert-pad-top-sm {
+  padding-top:0;
+  margin-top:30px;
+}
+.columns .vert-pad-top-sm[class*="-bg"] {
+  padding-top:30px;
+  margin-top:0;
+}
+.columns .vert-pad-top-md {
+  padding-top:0;
+  margin-top:60px;
+}
+.columns .vert-pad-top-md[class*="-bg"] {
+  padding-top:60px;
+  margin-top:0;
+}
+.columns .vert-pad-bottom-xs {
+  padding-bottom:15px;
+  margin-bottom:0;
+}
+.columns .vert-pad-bottom-sm {
+  padding-bottom:30px;
+  margin-bottom:0;
+}
+.columns .vert-pad-bottom-md {
+  padding-bottom:60px;
+  margin-bottom:0;
+}
+
+@media(max-width:729px) {
+.columns .vert-pad-top-xs,
+.columns .vert-pad-top-sm,
+.columns .vert-pad-top-md {
+  padding-top:0;
+  margin-top:40px;
+}
+.columns .vert-pad-top-xs[class*="-bg"],
+.columns .vert-pad-top-sm[class*="-bg"],
+.columns .vert-pad-top-md[class*="-bg"] {
+  padding-top:40px;
+  margin-top:0;
+}
+}
+
+.columns .light-grey-bg {
+  background-color:#f7f7fa;
+}
+.columns .text-align-left {
+  text-align:left;
+}
+.columns .component-textcomp .title {
+  font-size:24px;
+  margin:0;
+  color:#111c24;
+  font-weight:300;
+  line-height:1.1;
+}
+.columns .component-textcomp .component-text {
+  margin:16px 0 24px 0;
+  color:#111c24;
+  font-size:16px;
+  font-weight:300;
+  line-height:160%;
+}
+.columns .component-textcomp .component-text p {
+  font-size:inherit;
+}
+.columns .component-textcomp .component-text p:last-child {
+  margin-bottom:0;
+}
+.columns .component-textcomp .buttons {
+  margin:24px 0 0 0;
+  display:flex;
+  column-gap:24px;
+  row-gap:24px;
+  align-items:start;
+  justify-content:flex-start;
+  flex-wrap:wrap;
+}
+.columns .component-textcomp .buttons .cta-link {
+  color:#111c24;
+  font-size:16px;
+  font-weight:400;
+  display:flex;
+  align-items:center;
+}
+.columns .component-textcomp .buttons .cta-link .cta-text {
+  display:block;
+}
+.columns .component-textcomp .buttons .fa-chevron-right {
+  height:12px;
+  margin-left:8px;
+}
+.columns .component-textcomp .title.text-size-smaller {
+  font-size:24px;
+}
+.columns .component-textcomp .title.text-size-larger {
+  font-size:32px;
+}
+.columns .component-textcomp .buttons.align-center {
+  justify-content:center;
+}
+.columns .component-textcomp .buttons.align-right {
+  justify-content:flex-end;
+}
+
+@media(min-width:730px) {
+.columns .component-textcomp .title {
+  font-size:32px;
+}
+.columns .component-textcomp .title.text-size-smaller {
+  font-size:24px;
+}
+.columns .component-textcomp .title.text-size-larger {
+  font-size:40px;
+}
+.columns .component-textcomp .component-text {
+  margin:24px 0 0 0;
+}
+}
+
+@media(min-width:992px) {
+.columns .changeSize .component-text {
+  font-size:20px;
+}
+}
+
+@media(min-width:1130px) {
+.columns .pre-header .dropdown-menu > li.title {
+  padding:0 8px;
+  color:#111c24;
+  font-size:18px;
+  font-weight:600;
+  line-height:163%;
+  cursor:default;
+}
+}
+
+.columns .text-size-normal {
+  font-size:1em;
+}
+.columns .component-imageTextCta .title {
+  font-size:24px;
+  margin:0;
+  color:#111c24;
+  font-weight:300;
+  line-height:1.1;
+}
+.columns .component-imageTextCta .title.text-size-smaller {
+  font-size:24px;
+}
+.columns .component-imageTextCta .title.text-size-larger {
+  font-size:32px;
+}
+.columns .component-imageTextCta .component-text {
+  margin:16px 0 24px 0;
+  color:#111c24;
+  font-size:16px;
+  font-weight:300;
+  line-height:160%;
+}
+.columns .component-imageTextCta .component-text p {
+  font-size:inherit;
+}
+.columns .component-imageTextCta .component-text p:last-child {
+  margin-bottom:0;
+}
+.columns .component-imageTextCta .buttons {
+  margin:24px 0 0 0;
+  display:flex;
+  column-gap:24px;
+  row-gap:24px;
+  align-items:start;
+  justify-content:flex-start;
+  flex-wrap:wrap;
+}
+.columns .component-imageTextCta .buttons.align-center {
+  justify-content:center;
+}
+.columns .component-imageTextCta .buttons.align-right {
+  justify-content:flex-end;
+}
+.columns .component-imageTextCta .mediatext .buttons {
+  margin-bottom:24px;
+}
+.columns .component-imageTextCta > .container {
+  width:100%;
+  max-width:none;
+  padding:0;
+  margin:0;
+}
+
+@media(min-width:730px) {
+.columns .component-imageTextCta .mediatext .buttons {
+  margin-bottom:0;
+}
+.columns .component-imageTextCta .title {
+  font-size:32px;
+}
+.columns .component-imageTextCta .title.text-size-smaller {
+  font-size:24px;
+}
+.columns .component-imageTextCta .title.text-size-larger {
+  font-size:40px;
+}
+.columns .component-imageTextCta .component-text {
+  margin:24px 0 0 0;
+}
+}
+
+.columns .col-sm-6,
+.columns .col-xs-12 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+.columns .col-xs-12 {
+  float:left;
+}
+.columns .col-xs-12 {
+  width:100%;
+}
+
+@media(min-width:730px) {
+.columns .col-sm-6 {
+  float:left;
+}
+.columns .col-sm-6 {
+  width:50%;
+}
+}
+
+.columns .component-textcomp .component-text ul:last-child,
+.columns .component-textcomp .component-text ol:last-child,
+.columns .component-textcomp .component-text p:last-child,
+.columns .component-imageTextCta .component-text ul:last-child,
+.columns .component-imageTextCta .component-text ol:last-child,
+.columns .component-imageTextCta .component-text p:last-child {
+  margin-bottom:0;
+}
+
+
+/* moved authored nodes (EW2) */
+.columns .title :is(h2, h3, h4) {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+.columns .buttons p.cta-link-wrap {
+  margin: 0;
+}
+
+.columns .component-button p.button-wrapper {
+  display: contents;
 }

@@ -1,0 +1,451 @@
+/* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
+/* stardust:deploy — rules lifted for the .benefits block from home.css, canon.css (selectors matching /keyBenefits|cmp-key-benefits|component-column|col-xs-12|col-sm-6|\.row\b|\.container\b|component-textcomp|\.title\b|text-size-normal|text-align-left|text-align-center|vert-pad|background-component|component-image|img-responsive/), scoped under .benefits */
+.benefits .container .container {
+  width:100%!important;
+  padding-left:0;
+  padding-right:0;
+}
+.benefits .keyBenefits .cmp-key-benefits__link {
+  font-size:20px;
+  font-weight:300;
+  color:#111c24;
+  text-decoration:none;
+  line-height:32px;
+  display:inline;
+}
+.benefits .keyBenefits .cmp-key-benefits__wrapper {
+  display:block;
+}
+.benefits .keyBenefits .cmp-key-benefits__img-text {
+  display:flex;
+  align-items:center;
+  column-gap:16px;
+  margin-bottom:16px;
+}
+.benefits .keyBenefits .cmp-key-benefits__title {
+  font-size:20px;
+  font-weight:300;
+  line-height:28px;
+  color:#111c24;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+}
+.benefits .keyBenefits .cmp-key-benefits__description {
+  font-size:16px;
+  font-weight:300;
+  line-height:25.6px;
+  margin-bottom:32px;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  color:#111c24;
+}
+.benefits .keyBenefits .cmp-key-benefits__img-wrapper img,
+.benefits .keyBenefits .cmp-key-benefits__img-wrapper .component-image {
+  height:50px;
+  width:50px;
+  overflow:hidden;
+  display:block;
+}
+
+@media(min-width:730px) {
+.benefits .keyBenefits .cmp-key-benefits__description {
+  margin-bottom:48px;
+}
+}
+
+.benefits .component-column .vl {
+  border-left:1px solid #c4c4c4;
+  height:100%;
+  position:absolute;
+  left:50%;
+  margin-left:.5px;
+  top:0;
+}
+.benefits .img-responsive {
+  display:block;
+  max-width:100%;
+  height:auto;
+}
+.benefits .container {
+  display:block;
+  margin-right:auto;
+  margin-left:auto;
+  padding-left:15px;
+  padding-right:15px;
+  width:100%;
+}
+
+@media(min-width:992px) {
+.benefits .container {
+  width:970px;
+}
+}
+
+@media(min-width:1200px) {
+.benefits .container {
+  width:1170px;
+}
+}
+
+.benefits .container::before,
+.benefits .container::after,
+.benefits .row::before,
+.benefits .row::after {
+  content:" ";
+  display:table;
+}
+.benefits .container::after,
+.benefits .row::after {
+  clear:both;
+}
+.benefits .row {
+  margin-left:-15px;
+  margin-right:-15px;
+}
+.benefits .col-xs-12,
+.benefits .col-sm-6 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+.benefits .col-xs-12 {
+  width:100%;
+  float:left;
+}
+
+@media(min-width:730px) {
+.benefits .col-sm-6 {
+  float:left;
+}
+.benefits .col-sm-6 {
+  width:50%;
+}
+}
+
+.benefits .vert-pad-top-xs {
+  padding-top:0;
+  margin-top:15px;
+}
+.benefits .vert-pad-top-xs[class*="-bg"] {
+  padding-top:15px;
+  margin-top:0;
+}
+.benefits .vert-pad-top-sm {
+  padding-top:0;
+  margin-top:30px;
+}
+.benefits .vert-pad-top-sm[class*="-bg"] {
+  padding-top:30px;
+  margin-top:0;
+}
+.benefits .vert-pad-top-md {
+  padding-top:0;
+  margin-top:60px;
+}
+.benefits .vert-pad-top-md[class*="-bg"] {
+  padding-top:60px;
+  margin-top:0;
+}
+.benefits .vert-pad-bottom-xs {
+  padding-bottom:15px;
+  margin-bottom:0;
+}
+.benefits .vert-pad-bottom-sm {
+  padding-bottom:30px;
+  margin-bottom:0;
+}
+.benefits .vert-pad-bottom-md {
+  padding-bottom:60px;
+  margin-bottom:0;
+}
+
+@media(max-width:729px) {
+.benefits .vert-pad-top-xs,
+.benefits .vert-pad-top-sm,
+.benefits .vert-pad-top-md {
+  padding-top:0;
+  margin-top:40px;
+}
+.benefits .vert-pad-top-xs[class*="-bg"],
+.benefits .vert-pad-top-sm[class*="-bg"],
+.benefits .vert-pad-top-md[class*="-bg"] {
+  padding-top:40px;
+  margin-top:0;
+}
+}
+
+.benefits .text-align-center {
+  text-align:center;
+}
+.benefits .text-align-left {
+  text-align:left;
+}
+.benefits .component-textcomp .title {
+  font-size:24px;
+  margin:0;
+  color:#111c24;
+  font-weight:300;
+  line-height:1.1;
+}
+.benefits .component-textcomp .component-text {
+  margin:16px 0 24px 0;
+  color:#111c24;
+  font-size:16px;
+  font-weight:300;
+  line-height:160%;
+}
+.benefits .component-textcomp .component-text p {
+  font-size:inherit;
+}
+.benefits .component-textcomp .component-text p:last-child {
+  margin-bottom:0;
+}
+.benefits .component-textcomp .title.text-size-smaller {
+  font-size:24px;
+}
+.benefits .component-textcomp .title.text-size-larger {
+  font-size:32px;
+}
+
+@media(min-width:730px) {
+.benefits .component-textcomp .title {
+  font-size:32px;
+}
+.benefits .component-textcomp .title.text-size-smaller {
+  font-size:24px;
+}
+.benefits .component-textcomp .title.text-size-larger {
+  font-size:40px;
+}
+.benefits .component-textcomp .component-text {
+  margin:24px 0 0 0;
+}
+}
+
+@media(min-width:1130px) {
+.benefits .pre-header .dropdown-menu > li.title {
+  padding:0 8px;
+  color:#111c24;
+  font-size:18px;
+  font-weight:600;
+  line-height:163%;
+  cursor:default;
+}
+}
+
+.benefits .text-size-normal {
+  font-size:1em;
+}
+.benefits .component-imageTextCta {
+  text-align:left;
+}
+.benefits .component-imageTextCta .title {
+  font-size:24px;
+  margin:0;
+  color:#111c24;
+  font-weight:300;
+  line-height:1.1;
+}
+.benefits .component-imageTextCta .title.text-size-smaller {
+  font-size:24px;
+}
+.benefits .component-imageTextCta .title.text-size-larger {
+  font-size:32px;
+}
+.benefits .component-imageTextCta .subtitle {
+  font-size:20px;
+  font-weight:300;
+  line-height:140%;
+  margin:16px 0 0 0;
+  color:#111c24;
+}
+.benefits .component-imageTextCta .component-text {
+  margin:16px 0 24px 0;
+  color:#111c24;
+  font-size:16px;
+  font-weight:300;
+  line-height:160%;
+}
+.benefits .component-imageTextCta .component-text p {
+  font-size:inherit;
+}
+.benefits .component-imageTextCta .component-text p:last-child {
+  margin-bottom:0;
+}
+.benefits .component-imageTextCta .mediatext {
+  display:flex;
+  flex-direction:column-reverse;
+}
+.benefits .component-imageTextCta .img-col {
+  margin-bottom:24px;
+}
+.benefits .component-imageTextCta .img-col img {
+  display:block;
+  max-width:100%;
+  height:auto;
+  width:100%;
+}
+.benefits .component-imageTextCta > .container {
+  width:100%;
+  max-width:none;
+  padding:0;
+  margin:0;
+}
+
+@media(min-width:730px) {
+.benefits .component-imageTextCta .component-image {
+  margin:0;
+}
+.benefits .component-imageTextCta .mediatext {
+  display:block;
+}
+.benefits .component-imageTextCta .title {
+  font-size:32px;
+}
+.benefits .component-imageTextCta .title.text-size-smaller {
+  font-size:24px;
+}
+.benefits .component-imageTextCta .title.text-size-larger {
+  font-size:40px;
+}
+.benefits .component-imageTextCta .component-text {
+  margin:24px 0 0 0;
+}
+}
+
+.benefits .component-image .horizontal-padding-sm {
+  padding:0 5px;
+}
+.benefits .component-image .horizontal-padding-md {
+  padding:0 25px;
+}
+.benefits .component-image .horizontal-padding-lg {
+  padding:0 100px;
+}
+.benefits .component-image .zoom-container.cmp-image.infographic-image img.img-responsive {
+  height:75vh;
+  width:auto;
+  margin:0 auto;
+}
+.benefits .component-image .zoom-container.cmp-image.infographic-image .zoom-instructions {
+  display:block;
+  margin-top:10px;
+  margin-bottom:30px;
+}
+.benefits .col-sm-6,
+.benefits .col-xs-12 {
+  position:relative;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+}
+.benefits .col-xs-12 {
+  float:left;
+}
+.benefits .col-xs-12 {
+  width:100%;
+}
+
+@media(min-width:730px) {
+.benefits .col-sm-6 {
+  float:left;
+}
+.benefits .col-sm-6 {
+  width:50%;
+}
+}
+
+@media(max-width:730px) {
+.benefits .img-responsive.svg {
+  height:140px;
+  width:auto;
+  margin:0 auto;
+}
+}
+
+.benefits .component-textcomp .component-text ul:last-child,
+.benefits .component-textcomp .component-text ol:last-child,
+.benefits .component-textcomp .component-text p:last-child,
+.benefits .component-imageTextCta .component-text ul:last-child,
+.benefits .component-imageTextCta .component-text ol:last-child,
+.benefits .component-imageTextCta .component-text p:last-child {
+  margin-bottom:0;
+}
+
+
+/* moved authored nodes (EW2) + the section head as default content (.benefits-container) */
+.benefits .keyBenefits .cmp-key-benefits__title,
+.benefits .keyBenefits .cmp-key-benefits__description {
+  display: block;
+  overflow: visible;
+}
+
+.benefits .cmp-key-benefits__title p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+}
+
+.benefits .cmp-key-benefits__description p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+}
+
+.benefits .cmp-key-benefits__title strong {
+  font-weight: inherit;
+}
+
+.benefits .title :is(h2, h3, h4) {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+main .benefits-container > .default-content-wrapper {
+  padding-top: 40px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+@media (width >= 730px) {
+  main .benefits-container > .default-content-wrapper {
+    padding-top: 60px;
+  }
+}
+
+main .benefits-container > .default-content-wrapper h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--snps-ink);
+}
+
+@media (width >= 730px) {
+  main .benefits-container > .default-content-wrapper h2 {
+    font-size: 32px;
+  }
+}

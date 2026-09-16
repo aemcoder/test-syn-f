@@ -1,0 +1,452 @@
+/* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
+/* stardust:deploy — rules lifted for the .banner block from canon.css, home.css (selectors matching /componentSkinnyBanner|small-banner|component-banner|desktop-wrapper|banner-img|cropped-img|image-overlay|text-overlay|content-wrapper|text-wrapper|component-text\b|\.title\b|dark-purple-gradient|component-button|has-arrow|darkButton|flex-container|contentValignCenter|text-align-center|dm-mobile|dm-desktop|opacity-0/), scoped under .banner */
+@media(min-width:730px) {
+.banner .component-banner .dm-mobile {
+  display:none;
+}
+.banner .component-banner .dm-desktop {
+  display:block;
+}
+}
+
+.banner .text-align-center {
+  text-align:center;
+}
+
+@media(min-width:992px) {
+.banner .changeSize .component-text {
+  font-size:20px;
+}
+}
+
+.banner .component-banner .component-button {
+  padding:5.21px 24px;
+  margin-bottom:25px;
+  text-decoration:none;
+  border-radius:5px;
+  font-size:16px;
+  font-weight:400;
+  box-shadow:none;
+  transition:.5s;
+  text-align:center;
+}
+.banner .component-banner .component-button:hover {
+  transition:.2s;
+}
+.banner .component-banner .component-button a {
+  display:flex;
+  justify-content:center;
+}
+.banner .component-banner .component-button a:hover {
+  text-decoration:none;
+}
+.banner .component-banner .component-button svg {
+  width:9px;
+  margin-right:10px;
+  margin-top:4.5px;
+}
+.banner .component-banner .component-button.dark.primary {
+  background:#FFF;
+  border:2px solid #FFF;
+  color:#111c24;
+}
+.banner .component-banner .component-button.dark.primary a {
+  color:#111c24;
+}
+.banner .component-banner .component-button.dark.primary:hover {
+  background:#e3e3e3;
+  border-color:#e3e3e3;
+}
+.banner .component-banner .component-button.dark.primary:focus {
+  background:#FFF;
+  border-color:#FFF;
+}
+.banner .component-banner .component-button.dark.secondary {
+  background:0;
+  border:2px solid #FFF;
+}
+.banner .component-banner .component-button.dark.secondary a {
+  color:#FFF;
+}
+.banner .component-banner .component-button.dark.secondary:hover,
+.banner .component-banner .component-button.dark.secondary:focus {
+  color:#555;
+  background:rgba(85,85,85,0.5);
+  border-color:#FFF;
+}
+.banner .component-banner .component-button .has-arrow .arrow-icon {
+  margin:0 0 0 8px;
+}
+.banner .component-banner .small-banner .component-button .has-arrow .arrow-icon {
+  margin:4px 0 0 8px;
+}
+
+@media(min-width:730px) {
+.banner .component-banner .component-button {
+  height:40px;
+  padding-top:0;
+  padding-bottom:0;
+  display:flex;
+  align-items:center;
+  margin-bottom:15px!important;
+}
+.banner .component-banner .component-button a {
+  align-items:center;
+  line-height:1;
+  display:flex;
+}
+.banner .component-banner .component-button a svg {
+  margin-top:0;
+  margin-bottom:0;
+}
+}
+
+.banner .component-banner .bg-desktop.dark-purple-gradient,
+.banner .component-banner .bg-mobile.dark-purple-gradient {
+  background:linear-gradient(107.7deg,#2d1541 0,#5a2a82 50%,#7e45af 100%);
+}
+.banner .component-banner .bg-desktop.black-gradient,
+.banner .component-banner .bg-mobile.black-gradient {
+  background:linear-gradient(107.7deg,#000 0,#191c20 35%,#646e81 100%);
+}
+
+@media(min-width:1130px) {
+.banner .pre-header .dropdown-menu > li.title {
+  padding:0 8px;
+  color:#111c24;
+  font-size:18px;
+  font-weight:600;
+  line-height:163%;
+  cursor:default;
+}
+}
+
+.banner .component-banner {
+  position:relative;
+}
+.banner .component-imageTextCta .title {
+  font-size:24px;
+  margin:0;
+  color:#111c24;
+  font-weight:300;
+  line-height:1.1;
+}
+.banner .component-imageTextCta .title.text-size-smaller {
+  font-size:24px;
+}
+.banner .component-imageTextCta .title.text-size-larger {
+  font-size:32px;
+}
+.banner .component-imageTextCta .component-text {
+  margin:16px 0 24px 0;
+  color:#111c24;
+  font-size:16px;
+  font-weight:300;
+  line-height:160%;
+}
+.banner .component-imageTextCta .component-text p {
+  font-size:inherit;
+}
+.banner .component-imageTextCta .component-text p:last-child {
+  margin-bottom:0;
+}
+.banner .component-imageTextCta .buttons .component-button {
+  min-width:140px;
+  max-width:300px;
+  padding:0 24px;
+  margin:0;
+  min-height:40px;
+  height:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:5px;
+  font-weight:400;
+  line-height:1.6;
+  text-decoration:none;
+  color:#FFF;
+}
+.banner .component-imageTextCta .buttons .component-button.primary {
+  background:#7e45af;
+  color:#FFF;
+}
+.banner .component-imageTextCta .buttons .component-button.secondary {
+  border:2px solid #7e45af;
+  background:0;
+  color:#7e45af;
+}
+.banner .component-imageTextCta .buttons .component-button:hover {
+  color:#FFF;
+  box-shadow:inset 0 0 0 99999px rgba(0,0,0,0.2);
+  text-decoration:none;
+}
+
+@media(min-width:730px) {
+.banner .component-imageTextCta .title {
+  font-size:32px;
+}
+.banner .component-imageTextCta .title.text-size-smaller {
+  font-size:24px;
+}
+.banner .component-imageTextCta .title.text-size-larger {
+  font-size:40px;
+}
+.banner .component-imageTextCta .component-text {
+  margin:24px 0 0 0;
+}
+.banner .component-imageTextCta .buttons .component-button {
+  font-size:16px;
+}
+}
+
+.banner .component-banner .opacity-0 {
+  opacity:0;
+}
+.banner .component-banner .opacity-30 {
+  opacity:.3;
+}
+.banner .component-banner .opacity-40 {
+  opacity:.4;
+}
+.banner .component-banner .opacity-50 {
+  opacity:.5;
+}
+.banner .component-banner .opacity-60 {
+  opacity:.6;
+}
+.banner .html-text-only-component .component-button {
+  display:inline-block;
+  padding:10px 30px;
+  border-radius:5px;
+  color:#fff;
+}
+.banner .html-text-only-component .component-button a {
+  color:#fff;
+}
+
+@media(min-width:730px) {
+.banner .html-text-only-component .component-button {
+  margin:15px 0 0 0;
+}
+}
+
+.banner .component-imageTextCta .component-text ul:last-child,
+.banner .component-imageTextCta .component-text ol:last-child,
+.banner .component-imageTextCta .component-text p:last-child {
+  margin-bottom:0;
+}
+.banner .component-banner .image-overlay {
+  height:100%;
+  width:100%;
+  max-width:1900px;
+  background-color:#000;
+  position:absolute;
+  z-index:2;
+  top:0;
+  left:0;
+}
+.banner .component-banner .opacity-0 {
+  opacity:0;
+}
+.banner .component-banner.componentSkinnyBanner .small-banner {
+  height:285px;
+  position:relative;
+  overflow:hidden;
+}
+.banner .component-banner .banner-img {
+  height:500px;
+}
+.banner .component-banner .cropped-img {
+  background-size:cover;
+  background-position:50% 50%;
+  background-repeat:no-repeat;
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+}
+.banner .component-banner .small-banner .image-overlay {
+  height:100%;
+  width:100%;
+  max-width:1900px;
+  background-color:#000;
+  position:absolute;
+  z-index:2;
+  top:0;
+  left:0;
+}
+.banner .component-banner .small-banner .opacity-0 {
+  opacity:0;
+}
+.banner .component-banner .text-overlay {
+  position:absolute;
+  height:100%;
+  width:100%;
+  top:0;
+  left:0;
+  right:0;
+  margin:0 auto;
+  z-index:102;
+  padding:0;
+  border-left:15px solid transparent;
+  border-right:15px solid transparent;
+  display:flex;
+  align-items:center;
+}
+
+@media(min-width:992px) {
+.banner .component-banner .text-overlay {
+  width:970px;
+}
+}
+
+@media(min-width:1200px) {
+.banner .component-banner .text-overlay {
+  width:1170px;
+}
+}
+
+.banner .component-banner .text-overlay .content-wrapper {
+  height:100%;
+  width:100%;
+  position:relative;
+  z-index:1;
+  max-width:1900px;
+}
+.banner .component-banner .text-overlay .contentValignCenter {
+  top:50%;
+  transform:translate(0,-50%);
+  position:relative;
+}
+.banner .component-banner.componentSkinnyBanner .small-banner .contentValignCenter {
+  transform:translate(0,-43%);
+}
+.banner .component-banner .text-overlay .component-text {
+  color:#FFF;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  column-gap:24px;
+}
+.banner .component-banner .text-overlay.text-align-center {
+  text-align:center;
+}
+.banner .component-banner .text-overlay.text-align-center .component-text {
+  justify-content:center;
+  align-items:center;
+}
+.banner .component-banner .text-overlay p {
+  color:#FFF;
+  margin-bottom:20px;
+  font-size:inherit;
+}
+.banner .component-banner .title {
+  font-size:22px;
+  margin:0 0 40px 0;
+  line-height:1;
+  font-weight:800;
+  color:#FFF;
+  width:100%;
+}
+.banner .component-banner .title p {
+  color:inherit;
+  margin:0;
+  font-size:inherit;
+}
+.banner .component-banner .title p:last-of-type {
+  margin:0;
+}
+.banner .component-banner .sub-title {
+  font-size:28px;
+  font-weight:400;
+  line-height:34px;
+  width:100%;
+}
+.banner .component-banner.componentSkinnyBanner .small-banner .title {
+  font-weight:800;
+  line-height:1;
+}
+.banner .component-banner.componentSkinnyBanner .small-banner .sub-title {
+  font-size:22px;
+  font-weight:300;
+  line-height:1;
+  margin-top:-22px;
+  margin-bottom:8px;
+}
+.banner .component-banner.componentSkinnyBanner .small-banner .component-text {
+  font-size:20px;
+  font-weight:300;
+}
+.banner .componentSkinnyBanner .text-size-smaller {
+  font-size:.8em;
+}
+.banner .componentSkinnyBanner .component-text .component-button {
+  margin:15px 0;
+}
+
+@media(min-width:730px) {
+.banner .component-banner .title {
+  font-size:48px;
+  line-height:67px;
+}
+.banner .component-banner .sub-title {
+  font-size:28px;
+  font-weight:300;
+  line-height:33.6px;
+}
+}
+
+@media(max-width:729px) {
+.banner .component-banner .text-overlay .component-text {
+  flex-direction:column;
+}
+.banner .component-banner .title {
+  margin:0 0 30px 0;
+  font-size:32px;
+  font-weight:800;
+  line-height:38px;
+}
+.banner .component-banner.componentSkinnyBanner .small-banner .title {
+  font-size:24px;
+  line-height:33.6px;
+}
+.banner .component-banner.componentSkinnyBanner .small-banner .sub-title {
+  font-size:18px;
+  margin-bottom:16px;
+}
+.banner .component-banner .component-button {
+  width:260px;
+  margin:0;
+}
+.banner .componentSkinnyBanner .component-text .component-button {
+  margin:0;
+}
+}
+
+
+/* moved authored nodes (EW2); runtime button decorator neutralised inside .component-button */
+.banner .component-banner .title :is(h2, h3, h4) {
+  color:inherit;
+  margin:0;
+  font-size:inherit;;
+}
+
+.banner .component-button p.button-wrapper {
+  display: contents;
+}
+
+.banner .component-button a.button:any-link,
+.banner .component-button a.button:hover {
+  min-width: 0;
+  max-width: none;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  font: inherit;
+  color: inherit;
+  background: none;
+  box-shadow: none;
+}

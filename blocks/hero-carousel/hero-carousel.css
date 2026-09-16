@@ -1,0 +1,952 @@
+/* stylelint-disable -- verbatim source rules (selector names, media notation and property order are the source site's) */
+/* stardust:deploy — rules lifted for the .hero-carousel block from home.css, canon.css (selectors matching /hero-carousel|carousel-wrapper-hp|carousel-holder|cmp-carousel|carousel-list-holder|slick-|pause-btn|slider-progress|component-banner|image-overlay|bg-desktop|bg-mobile|dm-desktop|dm-mobile|center-wrapper|text-wrapper|sub-title|cta-wrapper|component-button|has-arrow|darkButtonRollover|dark-purple-gradient|black-gradient|ui-helper-hidden|carousel-banner|\.title\b|img-responsive|component-image|foreground/), scoped under .hero-carousel */
+.hero-carousel .carousel-holder {
+  position:relative;
+  margin:auto;
+  transition:all .1s;
+}
+.hero-carousel .carousel-list-holder {
+  position:relative;
+  display:block;
+}
+.hero-carousel .slick-list {
+  position:relative;
+  overflow:hidden;
+  display:block;
+  margin:0;
+  padding:0;
+  transform:translate3d(0,0,0);
+}
+.hero-carousel .slick-track {
+  position:relative;
+  display:grid;
+  width:100%;
+  transform:translate3d(0,0,0);
+}
+.hero-carousel .cmp-carousel__item {
+  grid-area:1/1;
+  position:relative;
+  width:100%;
+  opacity:0;
+  z-index:998;
+  transition:opacity .2s;
+}
+.hero-carousel .cmp-carousel__item.slick-active {
+  opacity:1;
+  z-index:999;
+}
+.hero-carousel .carousel-wrapper-hp {
+  position:relative;
+  transition:all .2s;
+}
+.hero-carousel .component-banner .image-overlay {
+  height:100%;
+  width:100%;
+  max-width:1900px;
+  background-color:#000;
+  position:absolute;
+  z-index:2;
+  top:0;
+  left:0;
+}
+.hero-carousel .component-banner .opacity-0 {
+  opacity:0;
+}
+.hero-carousel .carousel-holder .bg-desktop {
+  height:700px;
+  position:relative;
+  display:none;
+}
+.hero-carousel .carousel-holder .bg-mobile {
+  height:560px;
+  position:relative;
+  display:block;
+}
+.hero-carousel .carousel-wrapper-hp .dm-desktop,
+.hero-carousel .carousel-wrapper-hp .foreground {
+  display:none;
+}
+.hero-carousel .carousel-wrapper-hp .dm-mobile {
+  display:block;
+  position:absolute;
+  top:0;
+  width:100%;
+  padding:0 32px;
+  margin-top:72px;
+  height:180px;
+}
+.hero-carousel .carousel-wrapper-hp .dm-mobile img {
+  height:180px;
+  overflow:hidden;
+  width:auto;
+  max-width:100%;
+  margin:auto;
+  object-fit:cover;
+  object-position:center center;
+  display:block;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper {
+  padding:24px 32px 0 32px;
+  position:absolute;
+  width:100%;
+  left:0;
+  right:0;
+  margin:auto;
+  z-index:2;
+  display:flex;
+  top:236px;
+  gap:80px;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper .text-wrapper {
+  width:100%;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper .title {
+  font-weight:300;
+  font-size:20px;
+  line-height:28px;
+  letter-spacing:0;
+  margin:0 0 30px 0;
+  color:#FFF;
+  width:100%;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper .title p {
+  color:inherit;
+  margin:0;
+  font-size:inherit;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper .sub-title {
+  font-weight:300;
+  font-size:16px;
+  line-height:25.6px;
+  letter-spacing:0;
+  margin:24px 0;
+  width:100%;
+  color:#FFF;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper .sub-title p {
+  color:inherit;
+  font-size:inherit;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper p {
+  margin:0;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper .cta-wrapper {
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px 24px;
+  flex-direction:column;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper .component-button {
+  margin:0;
+  width:260px;
+  justify-content:center;
+  display:block;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper .component-button.secondary {
+  margin-top:14px;
+}
+
+@media(min-width:730px) {
+.hero-carousel .carousel-holder .bg-desktop {
+  display:block;
+}
+.hero-carousel .carousel-holder .bg-mobile,
+.hero-carousel .carousel-wrapper-hp .dm-mobile {
+  display:none;
+}
+.hero-carousel .carousel-wrapper-hp .dm-desktop {
+  display:block;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:0;
+}
+.hero-carousel .carousel-wrapper-hp .dm-desktop img {
+  height:700px;
+  width:100%;
+  max-width:100%;
+  object-fit:cover;
+  display:block;
+}
+.hero-carousel .carousel-wrapper-hp .foreground {
+  display:block;
+  max-width:630px;
+  width:45%;
+  flex-grow:0;
+}
+.hero-carousel .carousel-wrapper-hp .foreground img {
+  right:0;
+  height:auto;
+  width:100%;
+  max-height:422px;
+  position:relative;
+  display:block;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper {
+  padding:0 60px;
+  top:120px;
+  gap:60px;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper .text-wrapper {
+  width:50%;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper .title {
+  font-size:32px;
+  line-height:1.4;
+  margin-bottom:32px;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper .sub-title {
+  font-size:20px;
+  line-height:32px;
+  letter-spacing:0;
+  margin:0 0 32px 0;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper .cta-wrapper {
+  flex-direction:row;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper .component-button {
+  width:auto;
+  display:flex;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper .component-button.secondary {
+  margin-top:0;
+}
+}
+
+@media(min-width:992px) {
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper {
+  top:170px;
+  gap:60px;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper .title {
+  font-size:43px;
+  line-height:50px;
+}
+}
+
+@media(min-width:1200px) {
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper {
+  padding:0 160px;
+  gap:160px;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .center-wrapper .title {
+  font-size:48px;
+  line-height:67.2px;
+}
+}
+
+.hero-carousel .slick-dots {
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.hero-carousel .slick-dots li {
+  position:relative;
+  display:inline-block;
+  height:2px;
+  width:50px;
+  padding:4px 0;
+  cursor:pointer;
+  margin:0 8px 0 0;
+}
+.hero-carousel .slick-dots li:last-child {
+  margin:0;
+}
+.hero-carousel .slick-dots li button {
+  width:100%;
+  opacity:0;
+  padding:0;
+  border:0;
+  background:0;
+  font-size:0;
+  line-height:0;
+  display:inline-block;
+}
+.hero-carousel .slick-dots li:before {
+  content:"";
+  border-bottom:2px solid #e3e3e3;
+  width:100%;
+  position:absolute;
+  left:0;
+  bottom:2.5px;
+  transition:.5s;
+}
+.hero-carousel .slick-dots li.slick-active:before {
+  border-color:#555;
+  transition:.3s;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .slick-dots {
+  width:100%;
+  max-width:100%;
+  padding:0 74px 0 24px;
+  display:flex;
+  position:absolute;
+  left:0;
+  right:0;
+  gap:16px;
+  bottom:34px;
+  margin:0 auto;
+  pointer-events:none;
+  justify-content:center;
+  font-size:0;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .slick-dots li {
+  color:rgba(0,0,0,0);
+  position:relative;
+  width:252px;
+  overflow:inherit;
+  margin:0;
+  height:auto;
+  pointer-events:all;
+  font-size:0;
+  line-height:0;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .slick-dots li:before {
+  border-color:#b3b4b3;
+  top:0;
+  bottom:initial;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .slick-dots li .slider-progress-bar {
+  background:#FFF;
+  display:block;
+  width:0;
+  height:2px;
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:99;
+  overflow:hidden;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .slick-dots li.slick-active .slider-progress-bar {
+  width:100%;
+}
+
+@media(min-width:730px) {
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .slick-dots {
+  width:auto;
+  gap:20px;
+  padding:0 98px 0 24px;
+  justify-content:left;
+}
+}
+
+@media(min-width:992px) {
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .slick-dots {
+  padding:0 106px 0 24px;
+  gap:0 20px;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .slick-dots li {
+  padding:0 8px 10px 8px;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .slick-dots li button {
+  font-weight:400;
+  font-size:16px;
+  line-height:22.4px;
+  color:#fff;
+  text-decoration:none;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  transition:1s;
+  position:relative;
+  padding-top:14px;
+  background:0;
+  opacity:1;
+  text-align:left;
+  width:100%;
+}
+}
+
+@media(min-width:1200px) {
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .slick-dots {
+  padding:0 100px;
+  gap:40px;
+}
+}
+
+@media(min-width:1400px) {
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .slick-dots {
+  padding:0 160px;
+  gap:54px;
+}
+}
+
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .pause-btn {
+  width:24px;
+  height:24px;
+  position:absolute;
+  transform:translateX(-50%);
+  right:24px;
+  bottom:29px;
+  z-index:2;
+  background:#000000BF;
+  border-radius:20px;
+  display:flex;
+  font-size:7px;
+  align-items:center;
+  justify-content:center;
+  color:#FFF;
+  margin-left:auto;
+  flex-shrink:0;
+  border:0;
+  padding:1px 6px;
+  line-height:1.6;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .pause-btn svg {
+  display:block;
+}
+
+@media(min-width:730px) {
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .pause-btn {
+  width:36px;
+  height:36px;
+  font-size:15px;
+  border-radius:60px;
+  right:24px;
+  bottom:24px;
+}
+}
+
+@media(min-width:992px) {
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .pause-btn {
+  font-size:11px;
+  width:42px;
+  height:42px;
+  bottom:76px;
+}
+}
+
+@media(min-width:1200px) {
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .pause-btn {
+  font-size:13px;
+  width:48px;
+  height:48px;
+  right:5px;
+}
+}
+
+@media(min-width:1400px) {
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .pause-btn {
+  font-size:15px;
+  width:50px;
+  height:50px;
+  right:60px;
+}
+}
+
+@media(min-width:1900px) {
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .pause-btn {
+  right:160px;
+}
+}
+
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .slick-nav-container {
+  display:none;
+}
+.hero-carousel .keyBenefits .cmp-key-benefits__img-wrapper .component-image {
+  height:50px;
+  width:50px;
+  overflow:hidden;
+  display:block;
+}
+.hero-carousel .slick-nav-container {
+  position:relative;
+  display:flex;
+  top:-16px;
+  z-index:0;
+  pointer-events:none;
+  width:100%;
+  padding-left:15px;
+  padding-right:15px;
+}
+.hero-carousel .slick-prev,
+.hero-carousel .slick-next {
+  width:24px;
+  height:24px;
+  border-radius:20px;
+  padding:0;
+  background:#FFF;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid #555;
+  color:#555;
+  pointer-events:all;
+  font-size:18px;
+  z-index:1;
+}
+.hero-carousel .slick-prev:last-child,
+.hero-carousel .slick-next:last-child {
+  margin-left:auto;
+}
+.hero-carousel .slick-prev:hover,
+.hero-carousel .slick-prev:focus,
+.hero-carousel .slick-prev:focus-visible,
+.hero-carousel .slick-next:hover,
+.hero-carousel .slick-next:focus,
+.hero-carousel .slick-next:focus-visible {
+  background:#f7f7fa;
+}
+.hero-carousel .slick-arrow.slick-hidden {
+  display:none;
+}
+
+@media(min-width:730px) {
+.hero-carousel .slick-nav-container {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:1;
+  margin-top:-36px;
+}
+.hero-carousel .slick-nav-container .slick-prev {
+  position:absolute;
+  left:6px;
+}
+.hero-carousel .slick-nav-container .slick-next {
+  position:absolute;
+  right:6px;
+}
+.hero-carousel .slick-prev,
+.hero-carousel .slick-next {
+  height:40px;
+  width:40px;
+  font-size:20px;
+}
+}
+
+@media(min-width:1400px) {
+.hero-carousel .slick-nav-container .slick-prev {
+  left:-80px;
+}
+.hero-carousel .slick-nav-container .slick-next {
+  right:-80px;
+}
+}
+
+.hero-carousel .component-banner .banner-img {
+  height:500px;
+}
+.hero-carousel .component-banner .cropped-img {
+  background-size:cover;
+  background-position:50% 50%;
+  background-repeat:no-repeat;
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+}
+.hero-carousel .component-banner .title {
+  font-size:22px;
+  margin:0 0 40px 0;
+  line-height:1;
+  font-weight:800;
+  color:#FFF;
+  width:100%;
+}
+.hero-carousel .component-banner .title p {
+  color:inherit;
+  margin:0;
+  font-size:inherit;
+}
+.hero-carousel .component-banner .title p:last-of-type {
+  margin:0;
+}
+.hero-carousel .component-banner .sub-title {
+  font-size:28px;
+  font-weight:400;
+  line-height:34px;
+  width:100%;
+}
+
+@media(min-width:730px) {
+.hero-carousel .component-banner .title {
+  font-size:48px;
+  line-height:67px;
+}
+.hero-carousel .component-banner .sub-title {
+  font-size:28px;
+  font-weight:300;
+  line-height:33.6px;
+}
+}
+
+@media(max-width:729px) {
+.hero-carousel .component-banner .title {
+  margin:0 0 30px 0;
+  font-size:32px;
+  font-weight:800;
+  line-height:38px;
+}
+.hero-carousel .component-banner .component-button {
+  width:260px;
+  margin:0;
+}
+}
+
+@media(min-width:730px) {
+.hero-carousel .component-banner .dm-mobile {
+  display:none;
+}
+.hero-carousel .component-banner .dm-desktop {
+  display:block;
+}
+}
+
+.hero-carousel .img-responsive {
+  display:block;
+  max-width:100%;
+  height:auto;
+}
+.hero-carousel .ui-helper-hidden-accessible {
+  position:absolute!important;
+  left:-99999999px;
+}
+.hero-carousel .component-banner .component-button {
+  padding:5.21px 24px;
+  margin-bottom:25px;
+  text-decoration:none;
+  border-radius:5px;
+  font-size:16px;
+  font-weight:400;
+  box-shadow:none;
+  transition:.5s;
+  text-align:center;
+}
+.hero-carousel .component-banner .component-button:hover {
+  transition:.2s;
+}
+.hero-carousel .component-banner .component-button a {
+  display:flex;
+  justify-content:center;
+}
+.hero-carousel .component-banner .component-button a:hover {
+  text-decoration:none;
+}
+.hero-carousel .component-banner .component-button svg {
+  width:9px;
+  margin-right:10px;
+  margin-top:4.5px;
+}
+.hero-carousel .component-banner .component-button.dark.primary {
+  background:#FFF;
+  border:2px solid #FFF;
+  color:#111c24;
+}
+.hero-carousel .component-banner .component-button.dark.primary a {
+  color:#111c24;
+}
+.hero-carousel .component-banner .component-button.dark.primary:hover {
+  background:#e3e3e3;
+  border-color:#e3e3e3;
+}
+.hero-carousel .component-banner .component-button.dark.primary:focus {
+  background:#FFF;
+  border-color:#FFF;
+}
+.hero-carousel .component-banner .component-button.dark.secondary {
+  background:0;
+  border:2px solid #FFF;
+}
+.hero-carousel .component-banner .component-button.dark.secondary a {
+  color:#FFF;
+}
+.hero-carousel .component-banner .component-button.dark.secondary:hover,
+.hero-carousel .component-banner .component-button.dark.secondary:focus {
+  color:#555;
+  background:rgba(85,85,85,0.5);
+  border-color:#FFF;
+}
+.hero-carousel .carousel-holder[carousel-type="banner-carousel"] .component-button .has-arrow {
+  align-items:center;
+}
+.hero-carousel .component-banner .component-button .has-arrow .arrow-icon {
+  margin:0 0 0 8px;
+}
+
+@media(min-width:730px) {
+.hero-carousel .component-banner .component-button {
+  height:40px;
+  padding-top:0;
+  padding-bottom:0;
+  display:flex;
+  align-items:center;
+  margin-bottom:15px!important;
+}
+.hero-carousel .component-banner .component-button a {
+  align-items:center;
+  line-height:1;
+  display:flex;
+}
+.hero-carousel .component-banner .component-button a svg {
+  margin-top:0;
+  margin-bottom:0;
+}
+}
+
+.hero-carousel .component-banner .bg-desktop.dark-purple-gradient,
+.hero-carousel .component-banner .bg-mobile.dark-purple-gradient {
+  background:linear-gradient(107.7deg,#2d1541 0,#5a2a82 50%,#7e45af 100%);
+}
+.hero-carousel .component-banner .bg-desktop.black-gradient,
+.hero-carousel .component-banner .bg-mobile.black-gradient {
+  background:linear-gradient(107.7deg,#000 0,#191c20 35%,#646e81 100%);
+}
+
+@media(min-width:1130px) {
+.hero-carousel .pre-header .dropdown-menu > li.title {
+  padding:0 8px;
+  color:#111c24;
+  font-size:18px;
+  font-weight:600;
+  line-height:163%;
+  cursor:default;
+}
+}
+
+.hero-carousel .component-banner {
+  position:relative;
+}
+.hero-carousel .component-imageTextCta {
+  text-align:left;
+}
+.hero-carousel .component-imageTextCta .title {
+  font-size:24px;
+  margin:0;
+  color:#111c24;
+  font-weight:300;
+  line-height:1.1;
+}
+.hero-carousel .component-imageTextCta .title.text-size-smaller {
+  font-size:24px;
+}
+.hero-carousel .component-imageTextCta .title.text-size-larger {
+  font-size:32px;
+}
+.hero-carousel .component-imageTextCta .subtitle {
+  font-size:20px;
+  font-weight:300;
+  line-height:140%;
+  margin:16px 0 0 0;
+  color:#111c24;
+}
+.hero-carousel .component-imageTextCta .component-text {
+  margin:16px 0 24px 0;
+  color:#111c24;
+  font-size:16px;
+  font-weight:300;
+  line-height:160%;
+}
+.hero-carousel .component-imageTextCta .component-text p {
+  font-size:inherit;
+}
+.hero-carousel .component-imageTextCta .component-text p:last-child {
+  margin-bottom:0;
+}
+.hero-carousel .component-imageTextCta .buttons {
+  margin:24px 0 0 0;
+  display:flex;
+  column-gap:24px;
+  row-gap:24px;
+  align-items:start;
+  justify-content:flex-start;
+  flex-wrap:wrap;
+}
+.hero-carousel .component-imageTextCta .buttons.align-center {
+  justify-content:center;
+}
+.hero-carousel .component-imageTextCta .buttons.align-right {
+  justify-content:flex-end;
+}
+.hero-carousel .component-imageTextCta .buttons .component-button {
+  min-width:140px;
+  max-width:300px;
+  padding:0 24px;
+  margin:0;
+  min-height:40px;
+  height:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:5px;
+  font-weight:400;
+  line-height:1.6;
+  text-decoration:none;
+  color:#FFF;
+}
+.hero-carousel .component-imageTextCta .buttons .component-button.primary {
+  background:#7e45af;
+  color:#FFF;
+}
+.hero-carousel .component-imageTextCta .buttons .component-button.secondary {
+  border:2px solid #7e45af;
+  background:0;
+  color:#7e45af;
+}
+.hero-carousel .component-imageTextCta .buttons .component-button:hover {
+  color:#FFF;
+  box-shadow:inset 0 0 0 99999px rgba(0,0,0,0.2);
+  text-decoration:none;
+}
+.hero-carousel .component-imageTextCta .mediatext {
+  display:flex;
+  flex-direction:column-reverse;
+}
+.hero-carousel .component-imageTextCta .mediatext .buttons {
+  margin-bottom:24px;
+}
+.hero-carousel .component-imageTextCta .img-col {
+  margin-bottom:24px;
+}
+.hero-carousel .component-imageTextCta .img-col img {
+  display:block;
+  max-width:100%;
+  height:auto;
+  width:100%;
+}
+.hero-carousel .component-imageTextCta > .container {
+  width:100%;
+  max-width:none;
+  padding:0;
+  margin:0;
+}
+
+@media(min-width:730px) {
+.hero-carousel .component-imageTextCta .component-image {
+  margin:0;
+}
+.hero-carousel .component-imageTextCta .mediatext {
+  display:block;
+}
+.hero-carousel .component-imageTextCta .mediatext .buttons {
+  margin-bottom:0;
+}
+.hero-carousel .component-imageTextCta .title {
+  font-size:32px;
+}
+.hero-carousel .component-imageTextCta .title.text-size-smaller {
+  font-size:24px;
+}
+.hero-carousel .component-imageTextCta .title.text-size-larger {
+  font-size:40px;
+}
+.hero-carousel .component-imageTextCta .component-text {
+  margin:24px 0 0 0;
+}
+.hero-carousel .component-imageTextCta .buttons .component-button {
+  font-size:16px;
+}
+}
+
+.hero-carousel .component-banner .opacity-0 {
+  opacity:0;
+}
+.hero-carousel .component-banner .opacity-30 {
+  opacity:.3;
+}
+.hero-carousel .component-banner .opacity-40 {
+  opacity:.4;
+}
+.hero-carousel .component-banner .opacity-50 {
+  opacity:.5;
+}
+.hero-carousel .component-banner .opacity-60 {
+  opacity:.6;
+}
+.hero-carousel .component-image .horizontal-padding-sm {
+  padding:0 5px;
+}
+.hero-carousel .component-image .horizontal-padding-md {
+  padding:0 25px;
+}
+.hero-carousel .component-image .horizontal-padding-lg {
+  padding:0 100px;
+}
+.hero-carousel .component-image .zoom-container.cmp-image.infographic-image img.img-responsive {
+  height:75vh;
+  width:auto;
+  margin:0 auto;
+}
+.hero-carousel .component-image .zoom-container.cmp-image.infographic-image .zoom-instructions {
+  display:block;
+  margin-top:10px;
+  margin-bottom:30px;
+}
+.hero-carousel .html-text-only-component .component-button {
+  display:inline-block;
+  padding:10px 30px;
+  border-radius:5px;
+  color:#fff;
+}
+.hero-carousel .html-text-only-component .component-button a {
+  color:#fff;
+}
+
+@media(min-width:730px) {
+.hero-carousel .html-text-only-component .component-button {
+  margin:15px 0 0 0;
+}
+}
+
+@media(max-width:730px) {
+.hero-carousel .img-responsive.svg {
+  height:140px;
+  width:auto;
+  margin:0 auto;
+}
+}
+
+.hero-carousel .component-imageTextCta .component-text ul:last-child,
+.hero-carousel .component-imageTextCta .component-text ol:last-child,
+.hero-carousel .component-imageTextCta .component-text p:last-child {
+  margin-bottom:0;
+}
+
+
+/* authored elements inside the template slots (EW2); runtime button decorator neutralised inside .component-button */
+.hero-carousel .title :is(h1, h2, h3) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.hero-carousel .title p {
+  text-align: left;
+}
+
+.hero-carousel .title :is(strong, b) {
+  font-weight: inherit;
+}
+
+.hero-carousel .component-button p.button-wrapper {
+  display: contents;
+}
+
+.hero-carousel .component-button a.button:any-link,
+.hero-carousel .component-button a.button:hover {
+  min-width: 0;
+  max-width: none;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  font: inherit;
+  color: inherit;
+  background: none;
+  box-shadow: none;
+}
+
+.hero-carousel .dm-desktop img,
+.hero-carousel .dm-mobile img {
+  width: 100%;
+}

@@ -956,7 +956,8 @@
 
 /* landing image banner: moved paragraphs inside the CTA slots; per-instance desktop-image-on-mobile config; small skinny title */
 .banner.image .cmp-video__thumbnail p,
-.banner.image .video-secondary-button p {
+.banner.image .video-secondary-button p,
+.banner.image .component-breadcrumb li > p {
   display: contents;
 }
 

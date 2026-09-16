@@ -747,22 +747,11 @@ main .section.article-rail {
 
 main .section.pad-top-lg { padding-top: 80px; }
 main .section.pad-bottom-lg { padding-bottom: 90px; }
-main .section.textcomp.large .default-content-wrapper h2 { font-size: 32px; }
 
 /* an empty styled section must not be hidden by main .section:empty */
 main .section.separator[data-section-status="loaded"],
 main .section.blank[data-section-status="loaded"] {
   display: flow-root !important;
-}
-
-/* separator: the source hr.separator (1px #c4c4c4, 20px margins); the top-level one spans the container */
-main .section.separator { padding: 20px 0; }
-
-main .section.separator::before {
-  content: '';
-  display: block;
-  height: 1px;
-  background: #c4c4c4;
 }
 
 main > .section.separator::before {
@@ -896,9 +885,6 @@ main .section.cta-link .default-content-wrapper p a:any-link::after {
    section tokens for the text component variants those pages use. Appended by the fam-program branch; nothing above changes. */
 
 /* .component-textcomp .title.text-size-larger */
-main .section.textcomp.large .default-content-wrapper h2 {
-  font-size: 32px;
-}
 
 /* text CTAs (.component-textcomp .buttons .cta-link): in a section marked `cta`, a paragraph that holds only a link is the
    CTA row — dark text, 400 weight, the source chevron glyph after the label; `center` centres the row */
@@ -932,18 +918,6 @@ main .section.textcomp.cta .default-content-wrapper p > a:only-child::after {
   margin-left: 8px;
   background: currentcolor;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='currentColor' d='M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z'/%3E%3C/svg%3E") center / contain no-repeat;
-}
-
-/* real buttons inside a text section (.component-textcomp .buttons): 24px above the copy */
-main .section.textcomp .default-content-wrapper p.button-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin-top: 24px;
-}
-
-main .section.textcomp.center .default-content-wrapper p.button-wrapper {
-  justify-content: center;
 }
 
 /* the CTA row is the text block's last child: the source's .buttons carries no bottom margin at any width */

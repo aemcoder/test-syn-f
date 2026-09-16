@@ -280,7 +280,7 @@
 
 
 /* program family — FAQ inside a tab body: the source resets nested containers (`.container .container`, `main .component-faq .container`) */
-.accordion .component-faq .container {
+.tab-body .accordion .component-faq .container {
   width: 100%;
   max-width: none;
   margin: 0;

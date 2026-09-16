@@ -73,7 +73,8 @@ function decorateImage(block) {
   const crumbCell = cells.find((c) => c.querySelector('ul') && !c.querySelector('picture, img, h1, h2'));
   const mediaCell = cells.find((c) => c.querySelector('picture, img'));
   const textCell = cells.find((c) => c.querySelector('h1, h2, h3, h4, h5, h6')) || cells[cells.length - 1];
-  const config = mediaCell ? [...mediaCell.querySelectorAll('p')].filter((p) => !p.querySelector('picture, img') && p.textContent.trim()).map((p) => p.textContent.trim().toLowerCase()) : [];
+  const configPs = mediaCell ? [...mediaCell.querySelectorAll('p')].filter((p) => !p.querySelector('picture, img') && p.textContent.trim()) : [];
+  const config = configPs.map((p) => p.textContent.trim().toLowerCase());
 
   const section = el('section', 'component-banner', { 'data-card-type': 'banner', 'data-analytics-link-region': 'hero' });
   if (config.includes('desktop-on-mobile')) section.classList.add('dm-desktop-on-mobile');
@@ -92,6 +93,9 @@ function decorateImage(block) {
     host.append(pic);
     bannerImg.append(host);
   });
+  const configHost = el('div', 'banner-config visually-hidden'); // authored config tokens stay editable (EW1)
+  configPs.forEach((p) => configHost.append(p));
+  bannerImg.append(configHost);
   wrapper.append(bannerImg);
 
   const overlay = el('div', 'text-overlay flex-container content-align-center text-align-center');

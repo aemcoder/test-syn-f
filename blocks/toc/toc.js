@@ -31,9 +31,12 @@ function svg(markup) {
 
 export default function decorate(block) {
   const cells = [...block.children].flatMap((row) => [...row.children]);
-  const label = cells.map((c) => c.querySelector('p')).find((p) => p && !p.querySelector('a'));
+  const label = cells.map((c) => c.querySelector('p'))
+    .find((p) => p && !p.querySelector('a'));
   const list = block.querySelector('ul');
-  const cta = [...block.querySelectorAll('p')].map((p) => p.querySelector('a')).find(Boolean);
+  const ctaP = [...block.querySelectorAll('p')]
+    .find((p) => p.querySelector('a'));
+  const cta = ctaP ? ctaP.querySelector('a') : null;
 
   // TOC targets: sections carrying section-metadata `id` get a real id (URL hashes resolve)
   document.querySelectorAll('main .section[data-id]').forEach((s) => { if (!s.id) s.id = s.dataset.id; });
@@ -44,7 +47,8 @@ export default function decorate(block) {
   const init = el('li', 'init');
   const initA = el('a');
   const initSpan = el('span');
-  if (label) initSpan.append(...label.childNodes);
+  // the authored paragraph itself (EW1); display: contents via toc.css
+  if (label) initSpan.append(label);
   initA.append(initSpan, svg(CARET));
   init.append(initA);
   const ul = list || el('ul');
@@ -64,7 +68,8 @@ export default function decorate(block) {
     const btn = el('div', 'cmp-productsolutions__button-link');
     cta.className = 'cmp-productsolutions__button-text';
     cta.title = cta.textContent.trim();
-    btn.append(cta);
+    ctaP.className = 'button-wrapper'; // neutralised wrapper (display: contents via toc.css)
+    btn.append(ctaP);
     container.append(btn);
   }
   section.append(container);

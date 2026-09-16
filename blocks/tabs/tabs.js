@@ -3,10 +3,11 @@
  * a left rail of tab names, the active tab's content on the right; below 730 the tabs form a
  * single-open accordion (+ / −).
  *
- * Authoring rows: one per tab, two cells — <p>Tab name</p> | <p><a href="/fragments/…">…</a></p>.
- * Each tab's content is an authored fragment (sections with text and box-links), loaded here and
- * moved into the tab body. Tier: template-slotted; the tab name paragraph is MOVED into the rail
- * anchor (EW1), the accordion header repeats it as a stripped clone (EW4).
+ * Authoring rows: one per tab, one cell — <p><a href="/<page>/tabs/<tab>">Tab name</a></p>: the
+ * link text is the tab name, its target the tab's content fragment (sections with text and
+ * box-links), loaded here and moved into the tab body. Tier: template-slotted; the authored
+ * paragraph is MOVED into the rail item (EW1, display: contents), the accordion header repeats it
+ * as a stripped clone (EW4).
  * Behaviours (observed): rail click activates + sets the hash; header click toggles (mobile).
  */
 import { loadFragment } from '../fragment/fragment.js';
@@ -28,38 +29,32 @@ function svg(markup) {
   return t.content.firstElementChild;
 }
 
-function stripInstrumentation(node) {
-  node.querySelectorAll('[data-prose-index], [data-image-index]').forEach((n) => {
-    n.removeAttribute('data-prose-index');
-    n.removeAttribute('data-image-index');
-  });
-  node.removeAttribute('data-prose-index');
-  return node;
-}
-
 const slugify = (s) => s.toLowerCase().replace(/&/g, ' ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 export default async function decorate(block) {
   const rows = [...block.children].map((row) => [...row.children])
-    .filter((cells) => cells.length >= 2);
+    .filter((cells) => cells.length && cells[cells.length - 1].querySelector('a'));
   const container = el('div', 'container component-floating-tabs-container');
   const section = el('section', 'component-floating-tabs vertical-tabs', { 'data-analytics-link-region': 'expandable' });
   const rail = el('div', 'tabs-nav');
   const content = el('div', 'tabs-content');
-  const tabs = rows.map(([nameCell, linkCell], i) => {
-    const nameP = nameCell.querySelector('p') || nameCell;
-    const name = nameP.textContent.trim();
+  const tabs = rows.map((cells, i) => {
+    const linkCell = cells[cells.length - 1];
+    const nameP = linkCell.querySelector('p') || linkCell;
+    const anchor = nameP.querySelector('a');
+    const name = anchor.textContent.trim();
     const id = slugify(name);
-    const link = linkCell.querySelector('a');
+    const fragmentPath = new URL(anchor.href, window.location.href).pathname;
+    anchor.className = `tab-nav-item-anchor${i === 0 ? ' active' : ''}`;
+    anchor.setAttribute('href', `#${id}`);
+    anchor.append(' ', svg(CHEVRON));
     const item = el('div', 'tab-nav-item');
-    const anchor = el('a', `tab-nav-item-anchor${i === 0 ? ' active' : ''}`, { href: `#${id}` });
-    anchor.append(nameP, ' ', svg(CHEVRON));
-    item.append(anchor);
+    item.append(nameP); // authored paragraph moved (display: contents via tabs.css)
     rail.append(item);
     const tab = el('section', `floating-tab${i === 0 ? ' active' : ''}`, { id });
     const header = el('div', 'tab-header');
     const title = el('a', 'tab-header-title', { href: `#${id}` });
-    title.append(' ', stripInstrumentation(nameP.cloneNode(true)), ' ');
+    title.append(` ${name} `);
     const open = el('span', `tab-open${i === 0 ? ' hide' : ''}`);
     open.textContent = '+';
     const close = el('span', `tab-close${i === 0 ? '' : ' hide'}`);
@@ -71,7 +66,7 @@ export default async function decorate(block) {
     tab.append(header, body);
     content.append(tab);
     return {
-      tab, anchor, grid, path: link ? new URL(link.href, window.location.href).pathname : null,
+      tab, anchor, grid, path: fragmentPath,
     };
   });
   section.append(rail, content);

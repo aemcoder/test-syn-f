@@ -407,8 +407,8 @@
 }
 
 
-/* landing aliases: moved authored nodes (EW2) */
+/* landing aliases: moved authored paragraphs (EW2) */
+.toc li.init span p,
 .toc .cmp-productsolutions__button-link p {
-  margin: 0;
-  display: inline;
+  display: contents;
 }

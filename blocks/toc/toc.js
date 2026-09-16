@@ -31,11 +31,15 @@ function svg(markup) {
 
 export default function decorate(block) {
   const cells = [...block.children].flatMap((row) => [...row.children]);
-  const label = cells.map((c) => c.querySelector('p')).find((p) => p && !p.querySelector('a'));
+  const label = cells.map((c) => c.querySelector('p'))
+    .find((p) => p && !p.querySelector('a'));
   const list = block.querySelector('ul');
-  const cta = [...block.querySelectorAll('p')].map((p) => p.querySelector('a')).find(Boolean);
+  const ctaP = [...block.querySelectorAll('p')]
+    .find((p) => p.querySelector('a'));
+  const cta = ctaP ? ctaP.querySelector('a') : null;
 
-  // TOC targets: sections carrying section-metadata `id` get a real id (URL hashes resolve)
+  // TOC targets: sections carrying section-metadata `id` — delivered as a real id (rendering v2);
+  // the client-side path leaves it as data-id, so promote that too
   document.querySelectorAll('main .section[data-id]').forEach((s) => { if (!s.id) s.id = s.dataset.id; });
 
   const holder = el('div', 'tableOfContents');
@@ -44,7 +48,8 @@ export default function decorate(block) {
   const init = el('li', 'init');
   const initA = el('a');
   const initSpan = el('span');
-  if (label) initSpan.append(...label.childNodes);
+  // the authored paragraph itself (EW1); display: contents via toc.css
+  if (label) initSpan.append(label);
   initA.append(initSpan, svg(CARET));
   init.append(initA);
   const ul = list || el('ul');
@@ -64,7 +69,8 @@ export default function decorate(block) {
     const btn = el('div', 'cmp-productsolutions__button-link');
     cta.className = 'cmp-productsolutions__button-text';
     cta.title = cta.textContent.trim();
-    btn.append(cta);
+    ctaP.className = 'button-wrapper'; // neutralised wrapper (display: contents via toc.css)
+    btn.append(ctaP);
     container.append(btn);
   }
   section.append(container);
@@ -87,7 +93,7 @@ export default function decorate(block) {
   const links = [...ul.querySelectorAll('.cmp-productsolutions__content-item-text')];
   const initDefault = initSpan.textContent.trim();
   let activeId = null;
-  const anchors = () => [...document.querySelectorAll('main .section[data-id]')];
+  const anchors = () => [...document.querySelectorAll('main .section[id]')];
   const hdrH = () => (nav() ? nav().offsetHeight : 80);
   function onScroll() {
     if (!holder.offsetParent && !holder.classList.contains('makeSticky')) return; // section still hidden
@@ -101,7 +107,7 @@ export default function decorate(block) {
     const list2 = anchors();
     list2.forEach((s) => {
       const t = s.getBoundingClientRect().top;
-      if (t >= zoneTop && t <= zone) activeId = s.dataset.id;
+      if (t >= zoneTop && t <= zone) activeId = s.id;
     });
     if (list2[0] && list2[0].getBoundingClientRect().top > zone) activeId = null;
     let activeLink = null;

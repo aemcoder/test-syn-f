@@ -38,13 +38,20 @@ function breadcrumb(ul) {
   const section = el('section', 'component-breadcrumb', { 'data-analytics-link-region': 'breadcrumb' });
   const nav = el('nav', 'clearfix', { id: 'primary_nav_wrap' });
   [...ul.children].forEach((li) => {
-    const a = li.querySelector(':scope > a');
-    if (a) a.classList.add('parent');
+    // the pipeline wraps a list item's inline content in <p> when the item also holds a nested list
+    const a = li.querySelector(':scope > a, :scope > p > a');
+    if (a) {
+      a.classList.add('parent');
+      // the source rules key on li > a; the list is one editor, so the wrapper carries no index of
+      // its own
+      if (a.parentElement.tagName === 'P') a.parentElement.replaceWith(a);
+    }
     const menu = li.querySelector(':scope > ul');
     if (menu) {
       menu.className = 'dropdown-menu';
       menu.setAttribute('role', 'menu');
       menu.querySelectorAll('a').forEach((x) => x.classList.add('subBreadcrumb'));
+      li.insertBefore(document.createTextNode(' '), menu); // the source keeps a space before the arrow
       li.insertBefore(el('div', 'icon-dropdown-arrow'), menu);
     }
   });
@@ -58,7 +65,7 @@ function breadcrumb(ul) {
   items.forEach((li) => {
     const menu = li.querySelector(':scope > ul.dropdown-menu');
     const arrow = li.querySelector(':scope > .icon-dropdown-arrow');
-    const link = li.querySelector(':scope > a');
+    const link = li.querySelector(':scope > a, :scope > p > a');
     if (!menu) return;
     if (link) link.addEventListener('mouseenter', () => { closeAll(); menu.classList.add('active'); });
     if (arrow) arrow.addEventListener('click', (e) => { e.stopPropagation(); const open = menu.classList.contains('active'); closeAll(); if (!open) menu.classList.add('active'); });
@@ -73,7 +80,8 @@ function decorateImage(block) {
   const crumbCell = cells.find((c) => c.querySelector('ul') && !c.querySelector('picture, img, h1, h2'));
   const mediaCell = cells.find((c) => c.querySelector('picture, img'));
   const textCell = cells.find((c) => c.querySelector('h1, h2, h3, h4, h5, h6')) || cells[cells.length - 1];
-  const config = mediaCell ? [...mediaCell.querySelectorAll('p')].filter((p) => !p.querySelector('picture, img') && p.textContent.trim()).map((p) => p.textContent.trim().toLowerCase()) : [];
+  const configPs = mediaCell ? [...mediaCell.querySelectorAll('p')].filter((p) => !p.querySelector('picture, img') && p.textContent.trim()) : [];
+  const config = configPs.map((p) => p.textContent.trim().toLowerCase());
 
   const section = el('section', 'component-banner', { 'data-card-type': 'banner', 'data-analytics-link-region': 'hero' });
   if (config.includes('desktop-on-mobile')) section.classList.add('dm-desktop-on-mobile');
@@ -92,6 +100,9 @@ function decorateImage(block) {
     host.append(pic);
     bannerImg.append(host);
   });
+  const configHost = el('div', 'banner-config visually-hidden'); // authored config tokens stay editable (EW1)
+  configPs.forEach((p) => configHost.append(p));
+  bannerImg.append(configHost);
   wrapper.append(bannerImg);
 
   const overlay = el('div', 'text-overlay flex-container content-align-center text-align-center');

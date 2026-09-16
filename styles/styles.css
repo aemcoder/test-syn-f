@@ -97,7 +97,9 @@ header {
   position: relative;
   z-index: 1030;
   height: calc(var(--nav-height) + var(--nav-bar-height));
-  background: var(--snps-dark);
+
+  /* reservation paint: the utility bar is dark, the nav bar white (the nav's 0.8 white would tint over a dark ground) */
+  background: linear-gradient(to bottom, var(--snps-dark) var(--nav-height), #fff var(--nav-height));
 }
 
 body[data-page-type="home-page"] header { height: var(--nav-height); }

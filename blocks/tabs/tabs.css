@@ -409,13 +409,8 @@
 
 
 /* landing aliases: moved tab-name paragraphs (EW2); fragment sections inside the tab body */
-.tabs .tab-nav-item-anchor p,
-.tabs .tab-header-title p {
-  display: inline;
-  margin: 0;
-  font: inherit;
-  line-height: inherit;
-  color: inherit;
+.tabs .tab-nav-item > p {
+  display: contents;
 }
 
 .tabs .tab-body .section > .default-content-wrapper {

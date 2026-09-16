@@ -40,7 +40,11 @@ function breadcrumb(ul) {
   [...ul.children].forEach((li) => {
     // the pipeline wraps a list item's inline content in <p> when the item also holds a nested list
     const a = li.querySelector(':scope > a, :scope > p > a');
-    if (a) a.classList.add('parent');
+    if (a) {
+      a.classList.add('parent');
+      // the source rules key on li > a; the list is one editor, so the wrapper carries no index of its own
+      if (a.parentElement.tagName === 'P') a.parentElement.replaceWith(a);
+    }
     const menu = li.querySelector(':scope > ul');
     if (menu) {
       menu.className = 'dropdown-menu';

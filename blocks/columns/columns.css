@@ -1145,6 +1145,23 @@
   box-shadow: none;
 }
 
+/* per-cell vert-pad-* bands the source puts on each column's text block (a margin on a floated column: never collapses) */
+.columns.landing.cells-pad-top-xs .text,
+.columns.landing.cells-pad-top-sm .text,
+.columns.landing.cells-pad-top-md .text {
+  padding-top: 40px;
+}
+
+.columns.landing.cells-pad-bottom-xs .text { padding-bottom: 15px; }
+.columns.landing.cells-pad-bottom-sm .text { padding-bottom: 30px; }
+.columns.landing.cells-pad-bottom-md .text { padding-bottom: 60px; }
+
+@media (width >= 730px) {
+  .columns.landing.cells-pad-top-xs .text { padding-top: 15px; }
+  .columns.landing.cells-pad-top-sm .text { padding-top: 30px; }
+  .columns.landing.cells-pad-top-md .text { padding-top: 60px; }
+}
+
 /* the IP-search field (the source's inline width:100%;padding:5px text input, ~59px row incl. the trailing <br>) */
 .columns.landing .buttons form.ip-search {
   display: block;

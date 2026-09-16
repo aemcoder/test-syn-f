@@ -161,9 +161,15 @@ function decorateLanding(block) {
   if (!cells.length) return;
   const n = cells.length;
   const divider = block.classList.contains('divider');
-  const media = n === 2 && cells.some((c) => c.querySelector('picture, img') && !c.querySelector('h1, h2, h3, h4, h5, h6'));
+  // a media cell holds a picture and nothing else (a picture followed by a caption line is a
+  // text column)
+  const isMedia = (c) => !!c.querySelector('picture, img')
+    && !c.querySelector('h1, h2, h3, h4, h5, h6')
+    && ![...c.querySelectorAll('p, li')]
+      .some((p) => !p.querySelector('picture, img') && p.textContent.trim());
+  const media = n === 2 && cells.some(isMedia);
   const spanOf = (cell) => {
-    if (media) return cell.querySelector('picture, img') && !cell.querySelector('h1, h2, h3, h4, h5, h6') ? 'col-xs-12 col-sm-4' : 'col-xs-12 col-sm-8';
+    if (media) return isMedia(cell) ? 'col-xs-12 col-sm-4' : 'col-xs-12 col-sm-8';
     return { 4: 'col-xs-12 col-sm-3 four', 3: `col-xs-12 col-sm-4${divider ? ' divider-spacing-small-30' : ''} three` }[n] || `col-xs-12 col-sm-6${divider ? ' divider-spacing-small-30' : ''}`;
   };
   const outer = el('div', 'column');

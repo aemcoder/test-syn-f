@@ -321,6 +321,306 @@ function decoratePanels(block, rows) {
   show(0);
 }
 
+/* ==== listing family variants (stardust/scripts/eds/listing) ==== */
+
+/* ---- blog: the "Recent Stories" blog-card carousel (source: cmp-dynamiccards / component-card-b,
+   slick, 3 per view from 730px, one centred card below, infinite via clones — observed live).
+   Authoring rows, one per card, two cells: <p><img></p> | <p>3 min read / Sep 15, 2026</p>,
+   <h3><a href>title</a></h3>, <p><img headshot(s)> By <a>Author</a></p>,
+   <p>Tags: <a>…</a>, <a>…</a></p>, <p><a href>Read Article</a></p>.
+   Authored nodes are MOVED (EW1); clones are stripped (EW4). ---- */
+const FA_CTA_CHEVRON = '<svg class="svg-inline--fa fa-chevron-right" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M299.3 244.7c6.2 6.2 6.2 16.4 0 22.6l-192 192c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6L265.4 256 84.7 75.3c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0l192 192z"></path></svg>';
+
+function blogCard(cells) {
+  const [mediaCell, textCell] = cells;
+  const heading = textCell.querySelector('h1, h2, h3, h4');
+  const order = [...textCell.children];
+  const hIdx = heading ? order.indexOf(heading) : -1;
+  const before = order.slice(0, Math.max(hIdx, 0)).filter((n) => n.matches('p'));
+  const after = order.slice(hIdx + 1).filter((n) => n.matches('p'));
+  const link = heading ? heading.querySelector('a') : null;
+  const href = link ? link.getAttribute('href') : '#';
+  const authorP = after.find((p) => p.querySelector('picture, img'));
+  const rest = after.filter((p) => p !== authorP);
+  const ctaP = rest.length && rest[rest.length - 1].querySelector('a') && rest[rest.length - 1].textContent.trim() === rest[rest.length - 1].querySelector('a').textContent.trim() ? rest[rest.length - 1] : null;
+  const tagsP = rest.find((p) => p !== ctaP);
+
+  const col = el('div', 'card-col col-xs-12 col-sm-4 carousel-slide slick-slide');
+  if (href) col.setAttribute('data-link', href);
+  const card = el('div', 'component-card-b no-link');
+  const imageWrap = el('div', 'image-wrapper');
+  const imgLink = el('a', '', { href });
+  const pic = media(mediaCell);
+  if (pic) { const img = pic.querySelector('img') || pic; img.setAttribute('loading', 'lazy'); imgLink.append(pic); }
+  imageWrap.append(imgLink);
+  const textWrap = el('div', 'component-text card-text');
+  const labelDate = el('div', 'label-date-wrapper');
+  const dateTime = el('div', 'date-time');
+  before.forEach((p) => dateTime.append(p));
+  labelDate.append(dateTime);
+  textWrap.append(labelDate);
+  if (heading) {
+    const h = el('div', 'heading');
+    if (link) { const span = document.createElement('span'); span.append(...link.childNodes); link.append(span); } // live clamps the title in a span (EW2 refinement)
+    h.append(heading);
+    textWrap.append(h);
+  }
+  if (authorP) {
+    const info = el('div', 'author-info');
+    const pics = [...authorP.querySelectorAll('picture, img')].filter((m) => !(m.tagName === 'IMG' && m.closest('picture')));
+    const circle = el('div', `profile-circle ${['one', 'two', 'three'][Math.min(pics.length, 3) - 1] || 'one'}`);
+    pics.forEach((p) => { const d = el('div'); d.append(p); circle.append(d); });
+    const links = el('div', 'authors-links');
+    links.append(authorP);
+    info.append(circle, links);
+    textWrap.append(info);
+  }
+  if (tagsP) { const t = el('div', 'tag-holder'); t.append(tagsP); textWrap.append(t); }
+  if (ctaP) {
+    const cta = el('div', 'cta');
+    const a = ctaP.querySelector('a');
+    const span = document.createElement('span');
+    span.append(...a.childNodes);
+    a.append(span, svg(FA_CTA_CHEVRON));
+    cta.append(ctaP);
+    textWrap.append(cta);
+  }
+  card.append(imageWrap, textWrap);
+  col.append(card);
+  return col;
+}
+
+function decorateBlog(block, rows) {
+  const mq = window.matchMedia('(min-width: 730px)');
+  const column = el('div', 'column');
+  const outer = el('div', 'container');
+  const outerRow = el('section', 'component-column row');
+  const outerCol = el('div', 'col-xs-12');
+  const dc = el('div', 'cmp-dynamiccards component-card-container col-3 card-size-medium', { 'data-analytics-link-region': 'card' });
+  const container = el('div', 'container');
+  const section = el('section');
+  const row = el('div', 'row component-content-carousel horizontal-stack mobile-center-mode slick-carousel', { 'data-slides-to-show': '3' });
+  const prev = el('button', 'slick-prev slick-arrow', { type: 'button', 'aria-label': 'Previous' });
+  prev.append(svg(FA_PREV));
+  const list = el('div', 'slick-list draggable');
+  const track = el('div', 'slick-track');
+  const reals = rows.map(blogCard);
+  reals.forEach((c) => track.append(c));
+  list.append(track);
+  const next = el('button', 'slick-next slick-arrow', { type: 'button', 'aria-label': 'Next' });
+  next.append(svg(FA_NEXT));
+  const dotsUl = el('ul', 'slick-dots', { role: 'tablist' });
+  row.append(prev, list, next, dotsUl);
+  section.append(row);
+  container.append(section);
+  dc.append(container);
+  outerCol.append(dc);
+  outerRow.append(outerCol);
+  outer.append(outerRow);
+  column.append(outer);
+  block.replaceChildren(column);
+
+  const state = {
+    show: 3, pre: 3, page: 0, pages: 1, animating: false, clones: [],
+  };
+  const slideW = () => (mq.matches ? list.clientWidth / 3 : 260);
+  const setX = (x, animate) => { track.style.transition = animate ? 'transform 0.5s ease' : 'none'; track.style.transform = `translate3d(${x}px,0,0)`; };
+  const cloneOf = (real, idx) => { const c = stripInstrumentation(real.cloneNode(true)); c.classList.add('slick-cloned'); c.classList.remove('slick-active', 'slick-current'); c.setAttribute('aria-hidden', 'true'); c.setAttribute('data-slick-index', String(idx)); c.querySelectorAll('a,button').forEach((a) => a.setAttribute('tabindex', '-1')); return c; };
+  function mark() {
+    const start = state.page * state.show;
+    reals.forEach((s, k) => { const on = k >= start && k < start + state.show; s.classList.toggle('slick-active', on); s.classList.toggle('slick-current', k === start); s.setAttribute('aria-hidden', on ? 'false' : 'true'); });
+    dotsUl.replaceChildren();
+    for (let i = 0; i < state.pages; i += 1) {
+      const li = el('li', i === state.page ? 'slick-active' : '', { role: 'presentation' });
+      const b = el('button', '', { type: 'button', role: 'tab', 'aria-label': `${i + 1} of ${state.pages}` });
+      b.textContent = String(i + 1);
+      b.addEventListener('click', () => goTo(i)); // eslint-disable-line no-use-before-define
+      li.append(b);
+      dotsUl.append(li);
+    }
+  }
+  function build() {
+    state.clones.forEach((c) => c.remove()); state.clones = [];
+    const n = reals.length;
+    // live: 15 slides at 1440 (3 clones + 6 + 6), 14 at 360 (2 + 6 + 6)
+    state.show = mq.matches ? 3 : 1;
+    state.pre = mq.matches ? 3 : 2;
+    for (let i = n - state.pre; i < n; i += 1) {
+      const c = cloneOf(reals[(i + n) % n], i - n);
+      track.insertBefore(c, reals[0]);
+      state.clones.push(c);
+    }
+    for (let j = 0; j < n; j += 1) {
+      const d = cloneOf(reals[j], n + j);
+      track.append(d);
+      state.clones.push(d);
+    }
+    if (mq.matches) { // live drops the arrows at ≤729
+      if (!prev.isConnected) row.insertBefore(prev, list);
+      if (!next.isConnected) row.insertBefore(next, dotsUl);
+    } else { prev.remove(); next.remove(); }
+    [...track.children].forEach((s) => { s.style.width = `${slideW()}px`; });
+    state.pages = Math.ceil(n / state.show); state.page = Math.min(state.page, state.pages - 1);
+    mark(); setX(-(state.pre + state.page * state.show) * slideW(), false);
+  }
+  function goTo(page) {
+    if (state.animating) return;
+    const n = reals.length; const { show } = state; const w = slideW();
+    state.animating = true;
+    const done = (x) => setTimeout(() => {
+      if (x !== undefined) setX(x, false);
+      state.animating = false;
+    }, 520);
+    if (page >= state.pages) {
+      state.page = 0; mark(); setX(-(state.pre + n) * w, true); done(-state.pre * w);
+      return;
+    }
+    if (page < 0) {
+      state.page = state.pages - 1; mark(); setX(-(state.pre - show) * w, true);
+      done(-(state.pre + state.page * show) * w);
+      return;
+    }
+    state.page = page; mark(); setX(-(state.pre + page * show) * w, true); done();
+  }
+  prev.addEventListener('click', () => goTo(state.page - 1));
+  next.addEventListener('click', () => goTo(state.page + 1));
+  const reposition = () => { [...track.children].forEach((s) => { s.style.width = `${slideW()}px`; }); setX(-(state.pre + state.page * state.show) * slideW(), false); };
+  build();
+  mq.addEventListener('change', build);
+  window.addEventListener('resize', reposition);
+  if ('ResizeObserver' in window) new ResizeObserver(reposition).observe(block); // decorate() may run while the section is hidden (pitch 0)
+}
+
+/* ---- tiles: the newsroom "content tiles" (source: component-content-tile) — a linked row of
+   picture, type, date and title; variant `spotlight` frames the tiles in the "Featured Story" box
+   whose title is the section head authored as default content before the block (reabsorbed, EW8).
+   Authoring rows, one per
+   tile, two cells: <p><img></p> | <p>News</p>, <p>Aug 26, 2026</p>, <h3><a href>title</a></h3>.
+   The whole tile is the link (the authored inner anchor is unwrapped, EW6); the date shows once
+   (desktop slot) and repeats as a stripped clone in the mobile slot (EW4). ---- */
+function contentTile(cells) {
+  const [mediaCell, textCell] = cells;
+  const heading = textCell.querySelector('h1, h2, h3, h4');
+  const link = heading ? heading.querySelector('a') : textCell.querySelector('a');
+  const href = link ? link.getAttribute('href') : '#';
+  const target = link ? link.getAttribute('target') : null;
+  if (link) link.replaceWith(...link.childNodes);
+  const paragraphs = [...textCell.querySelectorAll('p')].filter((p) => p.textContent.trim());
+  const [typeP, dateP] = paragraphs;
+  const host = el('div', 'contentTile image');
+  const container = el('div', 'container');
+  const section = el('section', 'component-content-tile more-padding-20', { 'data-card-type': 'content-tile', 'data-analytics-link-region': 'card' });
+  const a = el('a', '', { href });
+  if (target) a.target = target;
+  const tile = el('div', 'content-tile-container');
+  const left = el('div', 'content-tile-left-col');
+  const imgWrap = el('div', 'content-tile-img');
+  const ci = el('div', 'component-image');
+  const cmp = el('div', 'cmp-image');
+  const pic = media(mediaCell);
+  if (pic) { const img = pic.querySelector('img') || pic; img.classList.add('img-responsive'); img.setAttribute('loading', 'lazy'); cmp.append(pic); }
+  ci.append(cmp);
+  imgWrap.append(ci);
+  const dateDesk = el('div', 'content-tile-date-desktop');
+  if (dateP) dateDesk.append(dateP);
+  left.append(imgWrap, dateDesk);
+  const right = el('div', 'content-tile-right-col');
+  const typeRow = el('div', 'content-tile-type-row');
+  const dateMob = el('div', 'content-tile-date-mobile');
+  if (dateP) dateMob.append(stripInstrumentation(dateP.cloneNode(true)));
+  const type = el('div', 'content-tile-type');
+  if (typeP) type.append(typeP);
+  typeRow.append(dateMob, type);
+  const title = el('div', 'content-tile-title');
+  if (heading) title.append(heading);
+  right.append(typeRow, title);
+  tile.append(left, right);
+  a.append(tile);
+  section.append(a);
+  container.append(section);
+  host.append(container);
+  return host;
+}
+
+function decorateTiles(block, rows) {
+  const grid = el('div', 'aem-Grid');
+  rows.forEach((cells) => grid.append(contentTile(cells)));
+  if (!block.classList.contains('spotlight')) { block.replaceChildren(grid); return; }
+  const host = el('div', 'spotlight');
+  const container = el('div', 'container');
+  const section = el('section', 'component-spotlight spotlight-header-left', { 'data-analytics-link-region': 'banner' });
+  const titleRow = el('div', 'row');
+  const title = el('div', 'spotlight-title');
+  const prev = block.parentElement ? block.parentElement.previousElementSibling : null;
+  if (prev && prev.classList.contains('default-content-wrapper')) {
+    const h = prev.querySelector('h1, h2, h3, h4, h5, h6');
+    if (h) title.append(h);
+    if (!prev.children.length) prev.remove();
+  }
+  titleRow.append(title);
+  const bodyRow = el('div', 'row');
+  const bodyCol = el('div');
+  bodyCol.append(grid);
+  bodyRow.append(bodyCol);
+  section.append(titleRow, bodyRow);
+  container.append(section);
+  host.append(container);
+  block.replaceChildren(host);
+}
+
+/* ---- events: the events page "Upcoming Events" cards (source: component-eventcard) — picture,
+   event name, type / location / date and a "Learn more" link, stacked in two columns (first half
+   left, rest
+   right, as the source authored them). Authoring rows, one per event, two cells:
+   <p><img></p> | <h3>Event</h3>, <p>In-Person</p>, <p>Santa Clara, CA</p>,
+   <p>September 15-17, 2026</p>,
+   <p><a href>Learn more</a></p>. Authored nodes are MOVED (EW1). ---- */
+function eventCard(cells) {
+  const [mediaCell, textCell] = cells;
+  const heading = textCell.querySelector('h1, h2, h3, h4');
+  const paragraphs = [...textCell.querySelectorAll('p')];
+  const ctaP = paragraphs.find((p) => p.querySelector('a'));
+  const meta = paragraphs.filter((p) => p !== ctaP && p.textContent.trim());
+  const href = ctaP && ctaP.querySelector('a') ? ctaP.querySelector('a').getAttribute('href') : null;
+  const host = el('div', 'cards image');
+  const container = el('div', 'container');
+  const section = el('section', 'component-eventcard no-link', { 'data-card-type': 'event-card', 'data-analytics-link-region': 'card' });
+  if (href) section.setAttribute('data-link', href);
+  const contents = el('div', 'event-contents');
+  const cmp = el('div', 'cmp-image');
+  const pic = media(mediaCell);
+  if (pic) { const img = pic.querySelector('img') || pic; img.setAttribute('loading', 'lazy'); cmp.append(pic); }
+  const textWrap = el('div', 'event-text-container');
+  const header = el('div', 'event-header');
+  if (heading) header.append(heading);
+  const tld = el('div', 'type-loc-date-wrapper');
+  ['event-type', 'event-location', 'event-date'].forEach((cls, i) => { if (meta[i]) { const d = el('div', cls); d.append(meta[i]); tld.append(d); } });
+  textWrap.append(header, tld);
+  if (ctaP) { const a = ctaP.querySelector('a'); a.append(' ', svg(FA_CTA_CHEVRON)); const cta = el('div', 'event-cta'); cta.append(ctaP); textWrap.append(cta); }
+  contents.append(cmp, textWrap);
+  section.append(contents);
+  container.append(section);
+  host.append(container);
+  return host;
+}
+
+function decorateEvents(block, rows) {
+  const column = el('div', 'column');
+  const container = el('div', 'container');
+  const row = el('section', 'component-column row');
+  const half = Math.ceil(rows.length / 2);
+  [rows.slice(0, half), rows.slice(half)].forEach((group) => {
+    const col = el('div', 'col-xs-12 col-sm-6');
+    const grid = el('div', 'aem-Grid');
+    group.forEach((cells) => grid.append(eventCard(cells)));
+    col.append(grid);
+    row.append(col);
+  });
+  container.append(row);
+  column.append(container);
+  block.replaceChildren(column);
+}
+
 /* ---- static (static family): asset cards in a fixed bootstrap grid — 3 per row (`three`), 2 per
    row (col-sm-6) or 4 (`four`) by card count; one row per card: picture | [<p>label</p>]
    <h4>heading</h4> <p>copy</p> <p><a>Learn More</a></p>. The source keeps an invisible label
@@ -365,7 +665,15 @@ export default function decorate(block) {
     decorateStatic(block, rows);
     return;
   }
+  if (block.classList.contains('blog')) { decorateBlog(block, rows); return; } // listing family variants
+  if (block.classList.contains('tiles')) { decorateTiles(block, rows); return; }
+  if (block.classList.contains('events')) { decorateEvents(block, rows); return; }
   if (block.classList.contains('panels')) decoratePanels(block, rows);
   else if (block.classList.contains('carousel')) decorateCarousel(block, rows);
   else decorateSolutions(block, rows);
+  // listing family: solution-card rows of two / three (source col-sm-6 / col-sm-4 three)
+  if (block.classList.contains('two') || block.classList.contains('three')) {
+    const span = block.classList.contains('two') ? ['col-sm-6'] : ['col-sm-4', 'three'];
+    block.querySelectorAll('.col-sm-3.four').forEach((c) => { c.classList.remove('col-sm-3', 'four'); c.classList.add(...span); });
+  }
 }

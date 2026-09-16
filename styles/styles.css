@@ -608,3 +608,121 @@ main .section.rail-layout > .default-content-wrapper {
 /* stylelint-enable no-descending-specificity */
 
 /* ---- end static ---- */
+
+/* ---- listing ---- */
+
+/* Section tokens the listing pages (newsroom, blogs, success-stories, events, webinars) need for DEFAULT CONTENT
+   sections (stardust/scripts/eds/listing/build-listing-content.mjs). Values are the source's .component-textcomp
+   rules (canon.css) for the text-block parts the landing tokens did not cover: CTA paragraphs, the chevron text
+   link, the arrow primary button, the <hr class="separator"> text block and the rich-text h1 hero. */
+
+/* CTA paragraphs inside a text section: .component-textcomp .buttons {margin: 24px 0 0; display: flex; gap: 24px} */
+main .section.textcomp .default-content-wrapper p.button-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 24px 0 0;
+}
+
+main .section.textcomp.center .default-content-wrapper p.button-wrapper {
+  justify-content: center;
+}
+
+/* below 730 the source text-block button inherits the 15px body size (no .component-button size rule there) */
+@media (width < 730px) {
+  main .section.textcomp .default-content-wrapper a.button:any-link {
+    font-size: 15px;
+  }
+}
+
+/* the copy before a CTA keeps the source's 24px gap (.component-text margin-bottom collapses into .buttons margin-top) */
+main .section.textcomp .default-content-wrapper :is(p, ul, ol):has(+ p.button-wrapper) {
+  margin-bottom: 0;
+}
+
+/* .component-button.has-arrow: the chevron glyph after the button label (8 x 12, 8px gap) */
+main .section.arrow a.button::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 12px;
+  margin-left: 8px;
+  background: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath d='M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* .component-textcomp .buttons .cta-link: the chevron text link (a plain <p><a> in its own section) */
+/* stylelint-disable no-descending-specificity -- prose selectors of a section token, ordered by token */
+main .section.textcomp.cta-link .default-content-wrapper p {
+  margin: 24px 0 0;
+}
+
+main .section.textcomp.cta-link .default-content-wrapper p a:any-link {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--snps-ink);
+  text-decoration: none;
+}
+
+main .section.textcomp.cta-link .default-content-wrapper p a:any-link::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 12px;
+  margin-left: 8px;
+  background: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath d='M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+main .section.textcomp.cta-link .default-content-wrapper p a:hover {
+  text-decoration: underline;
+}
+/* stylelint-enable no-descending-specificity */
+
+/* the source's text block that holds only <hr class="separator"> (1px #c4c4c4 rule, 20px margins, inside the container) —
+   authored as an EMPTY section (an <hr> would split the document, #119); kept visible like the spacer sections */
+main .section.separator {
+  display: flow-root;
+  width: 100%;
+  max-width: var(--snps-container);
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+main .section.separator[data-section-status="loaded"] {
+  display: flow-root !important;
+}
+
+main .section.separator::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin: 20px 0;
+  background: #c4c4c4;
+}
+
+@media (width >= 992px) and (width < 1200px) {
+  main .section.separator {
+    max-width: 970px;
+  }
+}
+
+/* rich-text hero (.component-rtecomp .component-rte): a centred <h1><strong>…</strong></h1>; the global h1 scale applies */
+main .section.rte .default-content-wrapper h1 {
+  text-align: center;
+}
+
+main .section.rte .default-content-wrapper h1 strong {
+  font-weight: 700;
+}
+
+main .section.rte.center .default-content-wrapper {
+  text-align: center;
+}
+
+/* ---- end listing ---- */

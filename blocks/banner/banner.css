@@ -1023,3 +1023,113 @@
   letter-spacing: inherit;
   text-transform: inherit;
 }
+
+/* ---- listing family (stardust/scripts/eds/listing/port-listing.sh) ---- */
+.banner .component-banner .small-banner .breadcrumb-container {
+  position:relative;
+  z-index:103;
+  height:0;
+}
+.banner .component-banner .small-banner .breadcrumb-container .container {
+  display:block;
+  margin:0 auto;
+  padding:0 15px;
+  width:100%;
+}
+
+@media(min-width:992px) {
+.banner .component-banner .small-banner .breadcrumb-container .container {
+  width:970px;
+}
+}
+
+@media(min-width:1200px) {
+.banner .component-banner .small-banner .breadcrumb-container .container {
+  width:1170px;
+}
+}
+
+.banner .component-banner .small-banner .banner-img {
+  position:relative;
+}
+.banner .component-banner .small-banner .banner-img .cmp-image {
+  position:relative;
+}
+.banner .component-banner .small-banner .text-overlay {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.banner .component-banner.componentSkinnyBanner .small-banner .title p {
+  margin:0;
+}
+.banner .component-banner.componentSkinnyBanner .small-banner img {
+  min-height:285px;
+  max-height:285px;
+  width:100%;
+  opacity:1;
+  object-fit:cover;
+}
+.banner .component-banner .breadcrumb-container.gradient-background.dark-purple-gradient .component-breadcrumb #primary_nav_wrap>ul>li>a,
+.banner .component-banner .breadcrumb-container.gradient-background.black-gradient .component-breadcrumb #primary_nav_wrap>ul>li>a,
+.banner .component-banner .breadcrumb-container.gradient-background.light-purple-gradient .component-breadcrumb #primary_nav_wrap>ul>li>a {
+  color:#fff;
+}
+.banner .component-banner .breadcrumb-container.gradient-background.dark-purple-gradient .component-breadcrumb #primary_nav_wrap>ul>li>a:before,
+.banner .component-banner .breadcrumb-container.gradient-background.black-gradient .component-breadcrumb #primary_nav_wrap>ul>li>a:before,
+.banner .component-banner .breadcrumb-container.gradient-background.light-purple-gradient .component-breadcrumb #primary_nav_wrap>ul>li>a:before {
+  color:#fff;
+}
+.banner .component-banner .breadcrumb-container.gradient-background.dark-purple-gradient .component-breadcrumb .icon-dropdown-arrow,
+.banner .component-banner .breadcrumb-container.gradient-background.black-gradient .component-breadcrumb .icon-dropdown-arrow,
+.banner .component-banner .breadcrumb-container.gradient-background.light-purple-gradient .component-breadcrumb .icon-dropdown-arrow {
+  background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3IiBoZWlnaHQ9IjYiIHZpZXdCb3g9IjAgMCA3IDYiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICNmZmZmZmY7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8cGF0aCBpZD0iUG9seWdvbl8zIiBkYXRhLW5hbWU9IlBvbHlnb24gMyIgY2xhc3M9ImNscy0xIiBkPSJNMTM0OC41LDYwbC0zLjUtNS45OTNoN1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMzQ1IC01NCkiLz4KPC9zdmc+Cg==);
+}
+.banner .component-banner.componentSkinnyBanner {
+  position:relative;
+}
+
+/* ---- listing aliases: banner skinny-hero (stardust/scripts/eds/listing/alias-listing.mjs) ---- */
+.banner.skinny-hero .title :is(h1, h2, h3) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.banner.skinny-hero .small-banner .title p {
+  margin: 0;
+}
+
+.banner.skinny-hero .small-banner .title p strong {
+  font-weight: 700;
+}
+
+.banner.skinny-hero .small-banner .dm-desktop img,
+.banner.skinny-hero .small-banner .dm-mobile img {
+  width: 100%;
+}
+
+.banner.skinny-hero .small-banner .dm-desktop picture,
+.banner.skinny-hero .small-banner .dm-mobile picture {
+  display: block;
+}
+
+@media (max-width: 729px) {
+  .banner.skinny-hero .dm-desktop-on-mobile .dm-mobile {
+    display: none;
+  }
+
+  .banner.skinny-hero .dm-desktop-on-mobile .dm-desktop {
+    display: block;
+  }
+
+  /* the gradient hero paints the site's purple facet band behind the title below 730 (source per-instance style; fixed brand asset) */
+  .banner.skinny-hero .dark-purple-gradient .cropped-img {
+    background-image: url("/blocks/banner/facet-band-mobile.svg");
+  }
+}

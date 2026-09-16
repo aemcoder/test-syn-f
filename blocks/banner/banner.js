@@ -284,11 +284,6 @@ function adjustImage(block) {
 }
 
 export default function decorate(block) {
-  // the pipeline wraps the inline content of a list item that holds a nested list in <p>:
-  // restore the authored crumb shape
-  block.querySelectorAll('ul > li > p').forEach((p) => {
-    if (p.parentElement.querySelector(':scope > ul')) p.replaceWith(...p.childNodes);
-  });
   if (block.classList.contains('video')) { decorateVideo(block); return; }
   if (block.classList.contains('image') && [...block.classList].some((c) => /^(left|narrow|opacity-\d+)$/.test(c))) { decorateImage(block); adjustImage(block); return; }
   if (block.classList.contains('image')) { decorateImage(block); return; }
